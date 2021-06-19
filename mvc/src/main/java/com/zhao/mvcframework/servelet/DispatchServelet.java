@@ -28,7 +28,6 @@ public class DispatchServelet extends HttpServlet {
     private Properties properties = new Properties();
     private List<String> classNames = new ArrayList<>();
     private Map<String,Object> ioc =new HashMap<>();
-    //private Map<String, Handler> handlerMapping = new HashMap<>();
     private List<Handler> handlerMapping = new ArrayList<>();
     @Override
     public void init(ServletConfig config) throws ServletException {

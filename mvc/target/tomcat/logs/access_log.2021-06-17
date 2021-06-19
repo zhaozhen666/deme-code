@@ -54,3 +54,5 @@
 0:0:0:0:0:0:0:1 - - [17/Jun/2021:21:51:41 +0800] "GET /favicon.ico HTTP/1.1" 200 13 http-bio-8080-exec-9 1
 0:0:0:0:0:0:0:1 - - [17/Jun/2021:21:54:25 +0800] "GET /demo/query?name=zhaozhen HTTP/1.1" 200 - http-bio-8080-exec-1 46614
 0:0:0:0:0:0:0:1 - - [17/Jun/2021:21:54:25 +0800] "GET /favicon.ico HTTP/1.1" 200 13 http-bio-8080-exec-3 3
+0:0:0:0:0:0:0:1 - - [17/Jun/2021:23:28:26 +0800] "GET /demo/query?name=zhaozhen HTTP/1.1" 200 - http-bio-8080-exec-1 5012
+0:0:0:0:0:0:0:1 - - [17/Jun/2021:23:28:26 +0800] "GET /favicon.ico HTTP/1.1" 200 13 http-bio-8080-exec-3 2

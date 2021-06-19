@@ -15,6 +15,7 @@ public class DemoController {
     private DemoService demoService;
     @RequestMapping("/query")
     public String query(HttpServletRequest req, HttpServletResponse resp,String name){
+        System.out.println("参数为"+name);
         return demoService.getName(name);
     }
 }
