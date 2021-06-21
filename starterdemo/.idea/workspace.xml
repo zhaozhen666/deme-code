@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73c4c138-b5c8-4659-b115-ad9b2c01c17e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../sharding-demo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/starter/StartBeanAutoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/starter/StarterBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/src/main/java/com/zhao/StarterUseApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/src/test/java/starter/StarterUseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../starterusedemo/starterusedemo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc/src/main/java/com/zhao/mvcdemo/controller/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc/src/main/java/com/zhao/mvcdemo/controller/DemoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc/src/main/java/com/zhao/mvcframework/servelet/DispatchServelet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc/src/main/java/com/zhao/mvcframework/servelet/DispatchServelet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc/target/classes/com/zhao/mvcdemo/controller/DemoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc/target/classes/com/zhao/mvcdemo/controller/DemoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc/target/classes/com/zhao/mvcframework/servelet/DispatchServelet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc/target/classes/com/zhao/mvcframework/servelet/DispatchServelet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc/target/tomcat/logs/access_log.2021-06-17" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc/target/tomcat/logs/access_log.2021-06-17" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sharding-demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sharding-demo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/src/main/resources/application-sharding-database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/src/main/resources/application-sharding-database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application-encryptor.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application-encryptor.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application-hint-database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application-hint-database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application-master-slave.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application-master-slave.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/test-classes/dao/TestingShardingDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../sharding-demo/sharding-jdbc-demo/target/test-classes/dao/TestingShardingDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../starterusedemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../starterusedemo/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -223,7 +196,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1624092724450" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1624103773343" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -249,12 +222,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1624088290885</updated>
-      <workItem from="1624088295814" duration="2903000" />
+      <workItem from="1624088295814" duration="3337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2903000" />
+    <option name="totallyTimeSpent" value="3337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1280" height="713" extended-state="6" />
@@ -277,7 +250,7 @@
       <window_info anchor="bottom" id="Job test results" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3284553" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3284553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
