@@ -13,6 +13,7 @@ public class CreateSession {
                 5000,3000,retryPolicy);
         curatorFramework.start();
         System.out.println("create session success");
+        //第二种方式
         CuratorFramework client =CuratorFrameworkFactory.builder()
                 .connectString("119.45.52.68:2181")
                 .sessionTimeoutMs(5000)
