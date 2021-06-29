@@ -10,6 +10,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 
+import javax.naming.ldap.SortKey;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.util.Arrays;
@@ -17,6 +18,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 @Slf4j
 public class RpcConnectManager {
@@ -30,6 +34,13 @@ public class RpcConnectManager {
             new ThreadPoolExecutor(16,16,60, TimeUnit.SECONDS,new ArrayBlockingQueue<>(65536));
 
     private EventLoopGroup eventLoopGroup = new NioEventLoopGroup(4);
+
+    private ReentrantLock reentrantLock = new ReentrantLock();
+    private Condition connectedCondition = reentrantLock.newCondition();
+    private long waitMillSeconds =6000;
+
+    private volatile boolean isRunning = true;
+    private volatile AtomicInteger handlerIndx = new AtomicInteger(0);
     private RpcConnectManager(){
 
     }
@@ -66,8 +77,24 @@ public class RpcConnectManager {
             }
 
             //todo  newSocketAddress中不存在的地址要移除
+            for (int i=0;i<copyOnWriteArrayList.size();i++){
+                    RpcClientHandler rpcClientHandler = copyOnWriteArrayList.get(i);
+                    SocketAddress socketAddress = rpcClientHandler.getRemoteAddr();
+                    if (!newSocketAddress.contains(socketAddress)){
+                        log.info("remove invalid node "+socketAddress);
+                        RpcClientHandler handler = connectHandlerMap.get(socketAddress);
+                        if (handler!=null){
+                            handler.close();
+                            connectHandlerMap.remove(socketAddress);
+
+                        }
+                        copyOnWriteArrayList.remove(rpcClientHandler);
+                    }
+
+            }
         }else {
             log.error("server is empty");
+            clearConnected();
         }
     }
 
@@ -121,7 +148,70 @@ public class RpcConnectManager {
         InetSocketAddress inetSocketAddress = (InetSocketAddress) handler.getRemoteAddr();
         connectHandlerMap.put(inetSocketAddress,handler);
         //通知业务处理
-        //signalAvailableHandler()
+        signalAvailableHandler();
+    }
+
+    private void signalAvailableHandler() {
+                reentrantLock.lock();
+                try {
+                        connectedCondition.signalAll();
+                }finally {
+                    reentrantLock.unlock();
+                }
+
+    }
+    private boolean waitingAvailableHandler() throws InterruptedException {
+        reentrantLock.lock();
+        try {
+           return connectedCondition.await(this.waitMillSeconds,TimeUnit.MILLISECONDS);
+        }finally {
+            reentrantLock.unlock();
+        }
+
+    }
+
+    private RpcClientHandler chooseHandler(){
+        CopyOnWriteArrayList<RpcClientHandler> handlers = (CopyOnWriteArrayList<RpcClientHandler>) this.copyOnWriteArrayList.clone();
+        int size = handlers.size();
+        while (isRunning&&size<=0){
+            try {
+                boolean available = waitingAvailableHandler();
+                if (available){
+                    handlers = (CopyOnWriteArrayList<RpcClientHandler>) this.copyOnWriteArrayList.clone();
+                    size=handlers.size();
+                }
+
+            }catch (InterruptedException e ){
+                    log.error("no wait server node ");
+                    throw new RuntimeException("");
+            }
+        }
+        if (!isRunning){
+            return  null;
+        }
+        return  handlers.get((handlerIndx.getAndAdd(1)+size)%size);
+    }
+
+    public void stop(){
+        isRunning =false;
+        for (int i=0;i<copyOnWriteArrayList.size();i++){
+            RpcClientHandler rpcClientHandler = copyOnWriteArrayList.get(i);
+            rpcClientHandler.close();
+        }
+        signalAvailableHandler();
+        threadPoolExecutor.shutdown();
+        eventLoopGroup.shutdownGracefully();
+
+    }
+
+    public void reconnect(final RpcClientHandler rpcClientHandler,final SocketAddress socketAddress){
+        if (rpcClientHandler!=null){
+            rpcClientHandler.close();
+            copyOnWriteArrayList.remove(socketAddress);
+            connectHandlerMap.remove(socketAddress);
+        }
+        connectAsync((InetSocketAddress) socketAddress);
+
     }
 
     private void clearConnected(){
