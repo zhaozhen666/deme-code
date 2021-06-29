@@ -4,6 +4,7 @@ import com.zhao.rpc.codec.RpcDecoder;
 import com.zhao.rpc.codec.RpcEncoder;
 import com.zhao.rpc.codec.RpcRequest;
 import com.zhao.rpc.codec.RpcResponse;
+import com.zhao.rpc.provider.ProviderConfig;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -12,6 +13,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -19,7 +22,7 @@ public class RpcServer {
     private  String serverAddr;
     private EventLoopGroup bossGroup = new NioEventLoopGroup();
     private EventLoopGroup workGroup = new NioEventLoopGroup();
-
+    private volatile Map<String,Object> handlerMap = new HashMap<>();
     public RpcServer(String serverAddr) throws InterruptedException {
         this.serverAddr = serverAddr;
         this.start();
@@ -37,7 +40,7 @@ public class RpcServer {
                         cp.addLast(new LengthFieldBasedFrameDecoder(65536,0,4,0,0));
                         cp.addLast(new RpcDecoder(RpcRequest.class));
                         cp.addLast(new RpcEncoder(RpcResponse.class));
-                        cp.addLast(new RpcServerHandler());
+                        cp.addLast(new RpcServerHandler(handlerMap));
                     }
                 });
 
@@ -63,8 +66,8 @@ public class RpcServer {
 
     }
 
-    public void registerProcessor() {
-
+    public void registerProcessor(ProviderConfig providerConfig) {
+            handlerMap.put(providerConfig.getInterfaceClass(),providerConfig.getRef());
     }
 
     public void close(){
