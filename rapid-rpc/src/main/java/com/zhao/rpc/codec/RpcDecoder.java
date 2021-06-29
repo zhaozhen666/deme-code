@@ -13,7 +13,20 @@ public class RpcDecoder extends ByteToMessageDecoder {
         this.genericClass =genericClass;
     }
     @Override
-    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
+    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> list) throws Exception {
+        if (in.readableBytes()<4){
+            return;
+        }
+        in.markReaderIndex();
+        int dataLength = in.readInt();
+        if (in.readableBytes()<dataLength){
+            in.resetReaderIndex();
+            return;
+        }
 
+        byte [] data = new byte[dataLength];
+        in.readBytes(data);
+        Object o =Serialization.deserialize(data,genericClass);
+        list.add(o);
     }
 }
