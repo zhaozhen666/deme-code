@@ -1,5 +1,6 @@
 package com.zhao.rpc.client;
 
+import com.zhao.rpc.codec.RpcResponse;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;
@@ -8,7 +9,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.net.SocketAddress;
 
-public class RpcClientHandler extends SimpleChannelInboundHandler<Object> {
+public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
     private Channel channel;
     private SocketAddress remoteAddr;
@@ -26,7 +27,7 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<Object> {
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) throws Exception {
 
     }
 
