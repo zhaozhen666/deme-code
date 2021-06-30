@@ -170,7 +170,7 @@ public class RpcConnectManager {
 
     }
 
-    private RpcClientHandler chooseHandler(){
+    public RpcClientHandler chooseHandler(){
         CopyOnWriteArrayList<RpcClientHandler> handlers = (CopyOnWriteArrayList<RpcClientHandler>) this.copyOnWriteArrayList.clone();
         int size = handlers.size();
         while (isRunning&&size<=0){

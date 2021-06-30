@@ -42,7 +42,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
                             @Override
                             public void operationComplete(ChannelFuture channelFuture) throws Exception {
                                 if (channelFuture.isSuccess()){
-
+                                        log.info("server handler success");
                                 }
                             }
                         });
