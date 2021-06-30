@@ -1,10 +1,12 @@
 package com.zhao.rpc.provider;
 
 import com.zhao.rpc.server.RpcServer;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 @Slf4j
+@Data
 public class RpcServerConfig {
 
     private static  final  String host ="127.0.0.1";
