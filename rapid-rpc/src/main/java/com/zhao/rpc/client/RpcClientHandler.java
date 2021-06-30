@@ -7,11 +7,11 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import lombok.Data;
 
 import java.net.SocketAddress;
 import java.util.HashMap;
 import java.util.Map;
-
 public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
     private Channel channel;
@@ -24,7 +24,9 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
         this.remoteAddr = this.channel.remoteAddress();
 
     }
-
+    public Channel getChannel() {
+        return channel;
+    }
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         super.channelRegistered(ctx);

@@ -30,7 +30,7 @@ public class RpcFuture implements Future<Object> {
         this.sync = new Sync();
     }
 
-    public void done(RpcResponse rpcResponse) {
+    public void done(RpcResponse response) {
 
         this.response =response;
         boolean success = sync.release(1);
@@ -56,7 +56,7 @@ public class RpcFuture implements Future<Object> {
     }
 
     private void runCallBack(RpcCallBack rpcCallBack) {
-        final RpcResponse rpcResponse = this.response;
+        final RpcResponse response = this.response;
 
         threadPoolExecutor.submit(new Runnable() {
             @Override

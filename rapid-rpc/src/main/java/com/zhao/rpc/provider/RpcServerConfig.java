@@ -23,7 +23,8 @@ public class RpcServerConfig {
     }
 
     public void  exporter(){
-        if (rpcServer!=null){
+        if (rpcServer==null){
+
             try{
                  rpcServer = new RpcServer(host+":"+port);
             }catch (Exception e ){

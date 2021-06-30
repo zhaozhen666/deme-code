@@ -10,7 +10,6 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 
-import javax.naming.ldap.SortKey;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.util.Arrays;
@@ -52,6 +51,7 @@ public class RpcConnectManager {
 
     public void  connect(String serverAddresses){
         List<String> list = Arrays.asList(serverAddresses.split(","));
+        updateConnectedServer(list);
 
     }
 
@@ -145,7 +145,7 @@ public class RpcConnectManager {
 
     private void addHandler(RpcClientHandler handler) {
         copyOnWriteArrayList.add(handler);
-        InetSocketAddress inetSocketAddress = (InetSocketAddress) handler.getRemoteAddr();
+        InetSocketAddress inetSocketAddress = (InetSocketAddress) handler.getChannel().remoteAddress();
         connectHandlerMap.put(inetSocketAddress,handler);
         //通知业务处理
         signalAvailableHandler();

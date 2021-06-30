@@ -48,7 +48,7 @@ public class RpcProxyImpl<T> implements InvocationHandler,RpcAsyncProxy {
         }
         request.setParamterTypes(paramterTypes);
         RpcClientHandler clientHandler = RpcConnectManager.getInstance().chooseHandler();
-       RpcFuture future= clientHandler.sendRequest(request);
+        RpcFuture future= clientHandler.sendRequest(request);
         return future;
     }
 

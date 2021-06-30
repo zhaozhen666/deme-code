@@ -17,7 +17,7 @@ public class ProviderStarter {
 				try {
 					// 每一个具体的服务提供者的配置类
 					ProviderConfig providerConfig = new ProviderConfig();
-					providerConfig.setInterfaceClass("com.bfxy.rapid.rpc.invoke.consumer.test.HelloService");
+					providerConfig.setInterfaceClass("com.zhao.rpc.HelloService");
 					HelloServiceImpl hellpHelloServiceImpl = HelloServiceImpl.class.newInstance();
 					providerConfig.setRef(hellpHelloServiceImpl);
 					
