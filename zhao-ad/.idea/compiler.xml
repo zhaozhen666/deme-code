@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ad-common" />
         <module name="ad-eureka" />
         <module name="ad-gateway" />
       </profile>
@@ -13,8 +14,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ad-common" options="-parameters" />
       <module name="ad-eureka" options="-parameters" />
       <module name="ad-gateway" options="-parameters" />
+      <module name="ad-service" options="-parameters" />
       <module name="zhao-ad" options="-parameters" />
     </option>
   </component>
