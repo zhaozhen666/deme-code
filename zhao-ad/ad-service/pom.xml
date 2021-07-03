@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>ad-common</module>
+        <module>ad-sponsor</module>
     </modules>
 
 
