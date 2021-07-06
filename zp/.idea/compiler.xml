@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zp-delivery" />
+        <module name="zp-eurekaserver-8762" />
+        <module name="zp-resume-8082" />
+        <module name="zpcommon" />
+        <module name="zpdelivery" />
+        <module name="zpeurekaserver" />
+        <module name="zpresume" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zp-delivery" target="8" />
+      <module name="zp-delivery-8091" target="8" />
+      <module name="zp-eurekaserver-8762" target="8" />
+      <module name="zp-resume-8082" target="8" />
+      <module name="zpcommon" target="8" />
+      <module name="zpdelivery" target="8" />
+      <module name="zpeurekaserver" target="8" />
+      <module name="zpparent" target="8" />
+      <module name="zpresume" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="zp-delivery" options="-parameters" />
+      <module name="zp-delivery-8091" options="-parameters" />
+      <module name="zp-eurekaserver-8762" options="-parameters" />
+      <module name="zp-resume-8082" options="-parameters" />
+      <module name="zpcommon" options="-parameters" />
+      <module name="zpdelivery" options="-parameters" />
+      <module name="zpeurekaserver" options="-parameters" />
+      <module name="zpparent" options="" />
+      <module name="zpresume" options="-parameters" />
+    </option>
+  </component>
+</project>

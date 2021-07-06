@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zp-delivery-8091/zp-delivery.iml" filepath="$PROJECT_DIR$/zpparent/zp-delivery-8091/zp-delivery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zp-eurekaserver-8762/zp-eurekaserver-8762.iml" filepath="$PROJECT_DIR$/zpparent/zp-eurekaserver-8762/zp-eurekaserver-8762.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zp-resume-8082/zp-resume-8082.iml" filepath="$PROJECT_DIR$/zpparent/zp-resume-8082/zp-resume-8082.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zp-common/zpcommon.iml" filepath="$PROJECT_DIR$/zpparent/zp-common/zpcommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zp-delivery/zpdelivery.iml" filepath="$PROJECT_DIR$/zpparent/zp-delivery/zpdelivery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zp-eurekaserver/zpeurekaserver.iml" filepath="$PROJECT_DIR$/zpparent/zp-eurekaserver/zpeurekaserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zpparent.iml" filepath="$PROJECT_DIR$/zpparent/zpparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpparent/zp-resume/zpresume.iml" filepath="$PROJECT_DIR$/zpparent/zp-resume/zpresume.iml" />
+    </modules>
+  </component>
+</project>
