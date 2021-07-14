@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="465174cf-2b4d-474d-868b-25df2796fd4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/stack/ArrayStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/stack/Parenthesis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/stack/Stack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/stack/StackMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhao/array/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhao/array/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/array/Array.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/array/Array.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/array/ArrayMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/array/ArrayMain.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/stack/Parenthesis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+            <state relative-caret-position="334">
+              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -130,7 +123,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="25" />
     <option name="width" value="1280" />
     <option name="height" value="711" />
@@ -195,7 +188,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1626221602326" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1626274516625" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -256,15 +249,15 @@
       <option name="presentableId" value="Default" />
       <updated>1625753788462</updated>
       <workItem from="1625753793154" duration="6668000" />
-      <workItem from="1626133373825" duration="3257000" />
+      <workItem from="1626133373825" duration="3987000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9925000" />
+    <option name="totallyTimeSpent" value="10655000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1280" height="711" extended-state="0" />
+    <frame x="0" y="25" width="1280" height="711" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
@@ -379,8 +372,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/stack/Parenthesis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        <state relative-caret-position="334">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
         </state>
       </provider>
     </entry>
