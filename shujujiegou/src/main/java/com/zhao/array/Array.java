@@ -62,8 +62,8 @@ public class Array <E>{
         for (int i=size-1;i>=index;i--){
             data[i+1]=data[i];
         }
-        data[index]=e;
         size++;
+        data[index]=e;
     }
 
     private void resize(int newCapacity) {
@@ -101,7 +101,7 @@ public class Array <E>{
         }
         size--;
         data[size]=null;
-        if (size==data.length/4&&data.length/2!=0){
+        if (size==data.length/4&&data.length/2!=0&&size>10){
             resize(data.length/2);
         }
         return ret;
