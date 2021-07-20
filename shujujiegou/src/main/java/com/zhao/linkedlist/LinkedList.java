@@ -29,6 +29,28 @@ public class LinkedList<E> {
         size++;
 
     }
+
+    public E remove(int index){
+        if (index<0||index>size){
+            throw  new IllegalArgumentException(" 错误的位置");
+        }
+        Node prev = dummyHead;
+        for (int i = 0;i<index;i++){
+            prev =prev.next;
+        }
+        Node retNode = prev.next;
+        prev.next = retNode.next;
+        retNode.next=null;
+        size--;
+        return retNode.e;
+    }
+
+    public E removeFirst(){
+        return remove(0);
+    }
+    public E removeLast(){
+        return remove(size-1);
+    }
     public void addFirst(E e){
         add(0,e);
     }
