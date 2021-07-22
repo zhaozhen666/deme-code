@@ -1,19 +1,5 @@
 server:
-  port: 8081
-spring:
-  application:
-    name: zhao-service-resume
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/zp?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: root
-  jpa:
-    database: MySQL
-    show-sql: true
-    hibernate:
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  #避免将驼峰命名转换为下划线命名
+  port: 9006
 eureka:
   client:
     service-url:
@@ -23,4 +9,22 @@ eureka:
     prefer-ip-address: true  #服务实例中显示ip，而不是显示主机名（兼容老的eureka版本）
     # 实例名称： 192.168.1.103:lagou-service-resume:8080，我们可以自定义它
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:1.0-SNAPSHOT
-    hostname:  ${spring.cloud.client.ip-address}
+
+spring:
+  application:
+    name: zhao-service-gateway
+  cloud:
+    gateway:
+      routes:
+       - id: service-autodeliver-router
+         #uri: http://127.0.0.1:8091
+         uri: lb://zhao-service-autodeliver
+         predicates:
+          - Path= /autodeliver/**
+       - id: service-resume-router
+         #uri: http://127.0.0.1:8081
+         uri: lb://zhao-service-resume
+         predicates:
+           - Path=/resume/**
+         filters:
+           - StripPrefix=1

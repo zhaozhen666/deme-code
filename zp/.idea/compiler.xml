@@ -6,16 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="config" />
+        <module name="stream-consumer" />
+        <module name="streamproducer" />
         <module name="zp-delivery" />
         <module name="zp-eurekaserver-8762" />
         <module name="zp-resume-8082" />
         <module name="zpcommon" />
         <module name="zpdelivery" />
         <module name="zpeurekaserver" />
+        <module name="zpgateway" />
         <module name="zpresume" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="config" target="8" />
+      <module name="stream-consumer" target="8" />
+      <module name="streamproducer" target="8" />
       <module name="zp-delivery" target="8" />
       <module name="zp-delivery-8091" target="8" />
       <module name="zp-eurekaserver-8762" target="8" />
@@ -23,12 +30,16 @@
       <module name="zpcommon" target="8" />
       <module name="zpdelivery" target="8" />
       <module name="zpeurekaserver" target="8" />
+      <module name="zpgateway" target="8" />
       <module name="zpparent" target="8" />
       <module name="zpresume" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config" options="-parameters" />
+      <module name="stream-consumer" options="-parameters" />
+      <module name="streamproducer" options="-parameters" />
       <module name="zp-delivery" options="-parameters" />
       <module name="zp-delivery-8091" options="-parameters" />
       <module name="zp-eurekaserver-8762" options="-parameters" />
@@ -36,6 +47,7 @@
       <module name="zpcommon" options="-parameters" />
       <module name="zpdelivery" options="-parameters" />
       <module name="zpeurekaserver" options="-parameters" />
+      <module name="zpgateway" options="-parameters" />
       <module name="zpparent" options="" />
       <module name="zpresume" options="-parameters" />
     </option>

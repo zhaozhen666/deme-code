@@ -12,3 +12,37 @@ eureka:
 spring:
   application:
     name: zhao-service-autodeliver
+#针对的被调⽤⽅微服务名称,不加就是全局⽣效
+zhao-service-resume:
+  ribbon: #请求连接超时时间
+    ConnectTimeout: 2000
+  #请求处理超时时间
+    ReadTimeout: 5000
+  #对所有操作都进⾏重试
+    OkToRetryOnAllOperations: true
+####根据如上配置，当访问到故障请求的时候，它会再尝试访问⼀次当前实例（次数由MaxAutoRetries配置），
+  ####如果不⾏，就换⼀个实例进⾏访问，如果还不⾏，再换⼀次实例访问（更换次数由MaxAutoRetriesNextServer配置），
+####如果依然不⾏，返回失败信息。
+    MaxAutoRetries: 0 #对当前选中实例重试次数，不包括第⼀次调⽤
+    MaxAutoRetriesNextServer: 0 #切换实例的重试次数
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #负载策略调整
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      min-request-size: 2048
+      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型，此处也是默认值
+    response:
+      enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
+logging:
+  level:
+    com.zp.feignclient.ResumeFeignClient: debug

@@ -1,0 +1,30 @@
+server:
+  port: 9006
+eureka:
+  client:
+    service-url:
+      # 注册到集群，就把多个Eurekaserver地址使用逗号连接起来即可；注册到单实例（非集群模式），那就写一个就ok
+      defaultZone: http://LagouCloudEurekaServerA:8761/eureka,http://LagouCloudEurekaServerB:8762/eureka
+  instance:
+    prefer-ip-address: true  #服务实例中显示ip，而不是显示主机名（兼容老的eureka版本）
+    # 实例名称： 192.168.1.103:lagou-service-resume:8080，我们可以自定义它
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+
+spring:
+  application:
+    name: zhao-service-gateway
+  cloud:
+    gateway:
+      routes:
+       - id: service-autodeliver-router
+         #uri: http://127.0.0.1:8091
+         uri: lb://zhao-service-autodeliver
+         predicates:
+          - Path= /autodeliver/**
+       - id: service-resume-router
+         #uri: http://127.0.0.1:8081
+         uri: lb://zhao-service-resume
+         predicates:
+           - Path=/resume/**
+         filters:
+           - StripPrefix=1

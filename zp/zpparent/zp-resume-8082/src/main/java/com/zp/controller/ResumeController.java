@@ -24,11 +24,11 @@ public class ResumeController {
     public Integer findDefaultResumeState(@PathVariable Long userId) {
 
         // 模拟处理超时
-        /*try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         //return resumeService.findDefaultResumeByUserId(userId).getIsOpenResume();
 //        System.out.println("====>>>>>>>>>>>>>>我是8080，访问到我这里了......");
         return port;

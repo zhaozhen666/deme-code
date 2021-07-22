@@ -2,11 +2,15 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$/zpparent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zpparent/config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zpparent/stream-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zpparent/stream-producer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zpparent/zp-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zpparent/zp-delivery" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zpparent/zp-delivery-8091" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zpparent/zp-eurekaserver" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zpparent/zp-eurekaserver-8762" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zpparent/zp-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zpparent/zp-resume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zpparent/zp-resume-8082" charset="UTF-8" />
   </component>

@@ -14,6 +14,10 @@
         <module>zp-delivery-8091</module>
         <module>zp-eurekaserver</module>
         <module>zp-eurekaserver-8762</module>
+        <module>zp-gateway</module>
+        <module>config</module>
+        <module>stream-producer</module>
+        <module>stream-consumer</module>
     </modules>
     <packaging>pom</packaging>
     <parent>

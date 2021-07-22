@@ -24,3 +24,6 @@ eureka:
     # 实例名称： 192.168.1.103:lagou-service-resume:8080，我们可以自定义它
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:1.0-SNAPSHOT
     hostname:  ${spring.cloud.client.ip-address}
+    metadata-map:
+      cluster: cl1
+      name: zhaozhen

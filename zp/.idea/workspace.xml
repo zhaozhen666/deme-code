@@ -10,6 +10,10 @@
     <ignored path="$PROJECT_DIR$/zpparent/zp-eurekaserver-8762/target/" />
     <ignored path="$PROJECT_DIR$/zpparent/zp-resume-8082/target/" />
     <ignored path="$PROJECT_DIR$/zpparent/zp-delivery-8091/target/" />
+    <ignored path="$PROJECT_DIR$/zpparent/zp-gateway/target/" />
+    <ignored path="$PROJECT_DIR$/zpparent/config/target/" />
+    <ignored path="$PROJECT_DIR$/zpparent/stream-producer/target/" />
+    <ignored path="$PROJECT_DIR$/zpparent/stream-consumer/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +26,67 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/resources/ApplicationResource.java">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="184" column="21" lean-forward="true" selection-start-line="184" selection-start-column="21" selection-end-line="184" selection-end-column="21" />
+            <state relative-caret-position="184">
+              <caret line="33" lean-forward="true" selection-start-line="12" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/ProducerApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="18" selection-start-line="18" selection-end-line="21" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#411#412#0" expanded="true" />
+                <element signature="e#815#816#0" expanded="true" />
+                <element signature="e#866#867#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/channel/ErrorProducerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="13" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#367#368#0" expanded="true" />
+                <element signature="e#430#431#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/controller/SendMessageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-65">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,55 +95,41 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/registry/PeerAwareInstanceRegistry.java">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/ConsumerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="89">
+              <caret line="22" selection-start-line="22" selection-end-line="30" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#292#293#0" expanded="true" />
+                <element signature="e#328#329#0" expanded="true" />
+                <element signature="e#1261#1262#0" expanded="true" />
+                <element signature="e#1297#1298#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/registry/PeerAwareInstanceRegistryImpl.java">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/channal/TestChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="661" column="30" lean-forward="true" selection-start-line="661" selection-start-column="30" selection-end-line="661" selection-end-column="30" />
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/cluster/PeerEurekaNode.java">
+        <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/channel/TestChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/shared/transport/EurekaHttpClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/shared/transport/jersey/AbstractJerseyEurekaHttpClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-47">
-              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/sun/jersey/jersey-server/1.19.1/jersey-server-1.19.1.jar!/com/sun/jersey/server/impl/model/method/dispatch/ResourceJavaMethodDispatcher.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,40 +158,76 @@
       <find>client</find>
       <find>addInstance</find>
       <find>add</find>
+      <find>initEurekaServerContext</find>
+      <find>openForTraffic</find>
+      <find>contextini</find>
+      <find>contextInitialized</find>
+      <find>notify</find>
+      <find>open</find>
+      <find>Beat</find>
+      <find>initsche</find>
+      <find>renew</find>
+      <find>EurekaClient</find>
+      <find>shutdown</find>
+      <find>getFallback</find>
+      <find>RoundRobinRule</find>
+      <find>FeignInvocationHandler</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/zpparent/zp-common/src/main/java/com/zp/pojo/Resume.java" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/dao/ResumeDao.java" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/resources/bootstrap.yml" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/LagouResumeApplication8080.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/service/impl/ResumeServiceImpl.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/service/ResumeService.java" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/controller/ConfigController.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-common/pom.xml" />
         <option value="$PROJECT_DIR$/zpparent/zp-eurekaserver/pom.xml" />
         <option value="$PROJECT_DIR$/zpparent/zp-eurekaserver/src/main/java/com/zp/eurekaServer/EurekaServerApplication.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-eurekaserver-8762/src/main/java/com/zp/eurekaServer/EurekaServerApplicaton8762.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-eurekaserver-8762/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/zpparent/zp-eurekaserver/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume/pom.xml" />
-        <option value="$PROJECT_DIR$/zpparent/zp-delivery/pom.xml" />
-        <option value="$PROJECT_DIR$/zpparent/zp-delivery/src/main/java/com/zp/DeliverApplication.java" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/controller/ResumeController.java" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume-8082/src/main/java/com/zp/controller/ResumeController.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-resume-8082/src/main/java/com/zp/ResumeApplication8082.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/ResumeApplication8081.java" />
-        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/zpparent/zp-delivery/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/pom.xml" />
         <option value="$PROJECT_DIR$/zpparent/pom.xml" />
-        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/DeliverApplication8091.java" />
-        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/controller/AutoDeliverController.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-delivery/src/main/java/com/zp/controller/AutoDeliverController.java" />
         <option value="$PROJECT_DIR$/zpparent/zp-resume-8082/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/controller/AutoDeliverController.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/pom.xml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery/pom.xml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery/src/main/java/com/zp/DeliverApplication.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-resume-8082/src/test/java/com/zp/feigntest.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/test/java/com/zp/test/FeignTest.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-resume-8082/src/main/java/com/zp/controller/ResumeController.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/feignclient/FeignClientFallBack.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/feignclient/ResumeFeignClient.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/config/FeignConfig.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/controller/ResumeController.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-gateway/src/main/java/com/zp/gateway/GatewayApplication9006.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/DeliverApplication8091.java" />
+        <option value="$PROJECT_DIR$/zpparent/zp-gateway/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-gateway/src/main/java/com/zp/gateway/filter/BlackListFilter.java" />
+        <option value="$PROJECT_DIR$/zpparent/config/src/main/java/ConfigApplication9007.java" />
+        <option value="$PROJECT_DIR$/zpparent/config/src/main/java/com/zp/config/ConfigApplication9007.java" />
+        <option value="$PROJECT_DIR$/zpparent/config/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/controller/ConfigController.java" />
+        <option value="$PROJECT_DIR$/zpparent/config/pom.xml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-resume/pom.xml" />
+        <option value="$PROJECT_DIR$/../deme-code/zhao-config-repo/zhao-service-resume-dev.yml" />
+        <option value="$PROJECT_DIR$/zpparent/zp-resume/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/zpparent/stream-producer/pom.xml" />
+        <option value="$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/channel/TestChannel.java" />
+        <option value="$PROJECT_DIR$/zpparent/stream-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/channal/TestChannel.java" />
+        <option value="$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/controller/SendMessageController.java" />
+        <option value="$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/consumer/ConsumerListener.java" />
+        <option value="$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/ProducerApplication.java" />
+        <option value="$PROJECT_DIR$/zpparent/stream-producer/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/channel/ErrorProducerService.java" />
+        <option value="$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/ConsumerApplication.java" />
+        <option value="$PROJECT_DIR$/zpparent/stream-consumer/src/main/resources/application.yml" />
       </list>
     </option>
   </component>
@@ -160,27 +243,39 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="zp-eurekaserver" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="config" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="zp-eurekaserver" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="stream-producer" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="stream-producer" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="zp-resume" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="25" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="42" />
+    <option name="y" value="53" />
     <option name="width" value="1280" />
-    <option name="height" value="711" />
+    <option name="height" value="705" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="CatdeaLogs" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,149 +283,10 @@
               <item name="zp" type="b2602c69:ProjectViewProjectNode" />
               <item name="zpparent" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-delivery-8091" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-delivery-8091" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-delivery-8091" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-delivery-8091" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-delivery-8091" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-delivery-8091" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zp" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-delivery-8091" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-eurekaserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-eurekaserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-eurekaserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-eurekaserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zpparent" type="462c0819:PsiDirectoryNode" />
-              <item name="zp-eurekaserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eurekaServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.netflix.eureka:eureka-core:1.9.8" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.netflix.eureka:eureka-core:1.9.8" type="70bed36:NamedLibraryElementNode" />
-              <item name="eureka-core-1.9.8.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.netflix.eureka:eureka-core:1.9.8" type="70bed36:NamedLibraryElementNode" />
-              <item name="eureka-core-1.9.8.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.netflix.eureka:eureka-core:1.9.8" type="70bed36:NamedLibraryElementNode" />
-              <item name="eureka-core-1.9.8.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.cloud:spring-cloud-netflix-eureka-client:2.1.0.RELEASE" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.cloud:spring-cloud-netflix-eureka-client:2.1.0.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-cloud-netflix-eureka-client-2.1.0.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.cloud:spring-cloud-netflix-eureka-client:2.1.0.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-cloud-netflix-eureka-client-2.1.0.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="CatdeaLogs" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -341,7 +297,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1625583494881" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1626967814232" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -351,6 +307,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zp.stream.channal" />
       <recent name="com.zp.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -371,7 +328,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EurekaServerApplicaton8762">
+  <component name="RunManager" selected="Spring Boot.ProducerApplication">
+    <configuration name="ConfigApplication9007" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zp.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zp.config.ConfigApplication9007" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="stream-consumer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zp.stream.ConsumerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DeliverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="zpdelivery" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zp.DeliverApplication" />
@@ -419,6 +396,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GatewayApplication9006" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="zpgateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zp.gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zp.gateway.GatewayApplication9006" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProducerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="streamproducer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zp.stream.ProducerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ResumeApplication8081" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="zpresume" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zp.ResumeApplication8081" />
@@ -440,11 +437,17 @@
       <item itemvalue="Spring Boot.EurekaServerApplication" />
       <item itemvalue="Spring Boot.EurekaServerApplicaton8762" />
       <item itemvalue="Spring Boot.DeliverApplication8091" />
+      <item itemvalue="Spring Boot.GatewayApplication9006" />
+      <item itemvalue="Spring Boot.ConfigApplication9007" />
+      <item itemvalue="Spring Boot.ProducerApplication" />
+      <item itemvalue="Spring Boot.ConsumerApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.EurekaServerApplicaton8762" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="Spring Boot.ConfigApplication9007" />
+        <item itemvalue="Spring Boot.GatewayApplication9006" />
         <item itemvalue="Spring Boot.DeliverApplication8091" />
       </list>
     </recent_temporary>
@@ -463,19 +466,52 @@
       <workItem from="1617198157152" duration="6509000" />
       <workItem from="1617297183942" duration="1523000" />
       <workItem from="1625527094630" duration="1934000" />
-      <workItem from="1625529363520" duration="11301000" />
+      <workItem from="1625529363520" duration="85643000" />
+      <workItem from="1626842698585" duration="1399000" />
+      <workItem from="1626874974384" duration="7335000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 21h 35m 54s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 21h 36m 54s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 21h 40m 09s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 21h 47m 55s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 22h 02m 32s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 22h 04m 52s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 22h 17m 48s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 22h 19m 07s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 22h 21m 17s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FeignTest_feignTest - 2021.07.14 at 22h 23m 13s.xml">
+      <configuration name="FeignTest.feignTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38185000" />
+    <option name="totallyTimeSpent" value="121261000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="25" width="1280" height="711" extended-state="6" />
-    <editor active="true" />
+    <frame x="42" y="53" width="1280" height="705" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7777778" visible="true" weight="0.2956381" />
-      <window_info id="Structure" order="1" sideWeight="0.22222222" side_tool="true" visible="true" weight="0.2956381" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.87479407" visible="true" weight="0.27221325" />
+      <window_info id="Structure" order="1" sideWeight="0.12520593" side_tool="true" visible="true" weight="0.27221325" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -484,15 +520,15 @@
       <window_info id="Web" order="7" sideWeight="0.5014006" side_tool="true" weight="0.32471728" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.40162602" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49757674" visible="true" weight="0.41272432" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.38056013" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49757674" weight="0.3937397" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3290938" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5024233" side_tool="true" weight="0.4601626" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5024233" side_tool="true" weight="0.6101142" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="JProfiler" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -502,7 +538,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.07915994" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.25282714" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Jenkins" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -527,426 +563,444 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-ribbon/2.1.0.RELEASE/spring-cloud-netflix-ribbon-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/ribbon/RibbonAutoConfiguration.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/controller/AutoDeliverController.java</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/controller/AutoDeliverController.java</url>
-          <line>35</line>
+          <line>41</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/resources/ApplicationResource.java</url>
-          <line>145</line>
+          <url>file://$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/controller/AutoDeliverController.java</url>
+          <line>32</line>
           <properties />
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>s.getMetadata()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/util/EurekaMonitors.java">
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/ResumeApplication8081.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+        <state relative-caret-position="89">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/servo/servo-core/0.12.21/servo-core-0.12.21.jar!/com/netflix/servo/monitor/Monitors.class">
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-delivery/src/main/java/com/zp/DeliverApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+        <state relative-caret-position="90">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/servo/servo-core/0.12.21/servo-core-0.12.21-sources.jar!/com/netflix/servo/MonitorRegistry.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE.jar!/org/springframework/cloud/openfeign/EnableFeignClients.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        <state relative-caret-position="84">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/servo/servo-core/0.12.21/servo-core-0.12.21-sources.jar!/com/netflix/servo/monitor/Monitors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="215" column="46" lean-forward="true" selection-start-line="215" selection-start-column="46" selection-end-line="215" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.1.0.RELEASE/spring-cloud-netflix-eureka-server-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/server/EurekaServerConfigBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-          <folding>
-            <element signature="e#12966#12967#0" expanded="true" />
-            <element signature="e#13005#13006#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/EurekaServerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5944">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/util/MeasuredRate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/registry/InstanceRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/DefaultEurekaServerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5780">
-          <caret line="435" column="15" selection-start-line="435" selection-start-column="15" selection-end-line="435" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.1.0.RELEASE/spring-cloud-netflix-eureka-server-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/server/EurekaServerBootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.1.0.RELEASE/spring-cloud-netflix-eureka-server-2.1.0.RELEASE.jar!/META-INF/spring.factories">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.1.0.RELEASE/spring-cloud-netflix-eureka-server-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/server/EurekaServerAutoConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2762">
-          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
-          <folding>
-            <element signature="e#4987#4988#0" expanded="true" />
-            <element signature="e#5050#5051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/util/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="385" column="17" selection-start-line="385" selection-start-column="17" selection-end-line="385" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/registry/AbstractInstanceRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
-          <folding>
-            <element signature="e#4259#4273#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/appinfo/providers/EurekaConfigBasedInstanceInfoProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="29" column="72" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/appinfo/InstanceInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.0.RELEASE/spring-cloud-netflix-eureka-client-2.1.0.RELEASE.jar!/META-INF/spring.factories">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.0.RELEASE/spring-cloud-netflix-eureka-client-2.1.0.RELEASE.jar!/org/springframework/cloud/netflix/eureka/EurekaClientAutoConfiguration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.0.RELEASE/spring-cloud-netflix-eureka-client-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/EurekaDiscoveryClientConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/EurekaClientConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.0.RELEASE/spring-cloud-netflix-eureka-client-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/EurekaClientAutoConfiguration.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/openfeign/EnableFeignClients.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="301" column="59" selection-start-line="301" selection-start-column="59" selection-end-line="301" selection-end-column="59" />
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.1.0.RELEASE/spring-cloud-netflix-eureka-client-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/CloudEurekaClient.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/openfeign/FeignClientsRegistrar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="62" column="11" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
+        <state relative-caret-position="99">
+          <caret line="167" column="55" selection-start-line="167" selection-start-column="55" selection-end-line="167" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/resources/InstancesResource.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0.jar!/feign/Feign.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sun/jersey/jersey-client/1.19.1/jersey-client-1.19.1.jar!/com/sun/jersey/api/client/WebResource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        <state relative-caret-position="169">
+          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding>
-            <element signature="e#9549#9550#0" expanded="true" />
-            <element signature="e#9626#9627#0" expanded="true" />
+            <element signature="e#6834#6835#0" expanded="true" />
+            <element signature="e#6897#6898#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/resources/InstanceResource.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/openfeign/FeignClientFactoryBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3791">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        <state relative-caret-position="268">
+          <caret line="225" column="32" selection-start-line="225" selection-start-column="32" selection-end-line="225" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/DiscoveryClient.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/openfeign/Targeter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7661">
-          <caret line="845" column="70" selection-start-line="845" selection-start-column="70" selection-end-line="845" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sun/jersey/jersey-client/1.19.1/jersey-client-1.19.1-sources.jar!/com/sun/jersey/api/client/WebResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="482" column="30" selection-start-line="482" selection-start-column="30" selection-end-line="482" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
+        <state relative-caret-position="150">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/openfeign/DefaultTargeter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="210">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/openfeign/HystrixTargeter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="747" selection-start-line="747" selection-end-line="747" />
+        <state relative-caret-position="163">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-hystrix/10.1.0/feign-hystrix-10.1.0.jar!/feign/hystrix/HystrixFeign.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="1148" selection-start-line="1148" selection-end-line="1148" />
+        <state>
           <folding>
-            <element signature="e#25302#25303#0" expanded="true" />
-            <element signature="e#25341#25342#0" expanded="true" />
+            <element signature="e#0#4853#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.21/tomcat-embed-core-9.0.21.jar!/org/apache/tomcat/util/net/SocketProcessorBase.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-hystrix/10.1.0/feign-hystrix-10.1.0-sources.jar!/feign/hystrix/HystrixFeign.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="186">
+          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sun/jersey/jersey-server/1.19.1/jersey-server-1.19.1.jar!/com/sun/jersey/server/impl/application/WebApplicationImpl.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0-sources.jar!/feign/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="950" selection-start-line="950" selection-end-line="950" />
+        <state relative-caret-position="186">
+          <caret line="133" column="24" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sun/jersey/jersey-server/1.19.1/jersey-server-1.19.1.jar!/com/sun/jersey/server/impl/model/method/dispatch/ResourceJavaMethodDispatcher.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0-sources.jar!/feign/Feign.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/resources/ApplicationsResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="168">
+          <caret line="109" column="40" selection-start-line="109" selection-start-column="40" selection-end-line="109" selection-end-column="40" />
           <folding>
-            <element signature="e#2811#2812#0" expanded="true" />
-            <element signature="e#2891#2892#0" expanded="true" />
+            <element signature="e#8710#8711#0" expanded="true" />
+            <element signature="e#8758#8759#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/resources/PeerReplicationResource.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0-sources.jar!/feign/DefaultMethodHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+        <state relative-caret-position="348">
+          <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/resources/ApplicationResource.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0-sources.jar!/feign/InvocationHandlerFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="184" column="21" lean-forward="true" selection-start-line="184" selection-start-column="21" selection-end-line="184" selection-end-column="21" />
+        <state relative-caret-position="270">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0-sources.jar!/feign/ReflectiveFeign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="102" column="38" lean-forward="true" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.8.RELEASE/spring-context-5.1.8.RELEASE-sources.jar!/org/springframework/context/ApplicationEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.1.0.RELEASE/spring-cloud-netflix-eureka-server-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/server/event/EurekaInstanceRegisteredEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="39" column="10" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.8.RELEASE/spring-context-5.1.8.RELEASE-sources.jar!/org/springframework/context/ApplicationEventPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding>
-            <element signature="e#1501#1502#0" expanded="true" />
-            <element signature="e#1536#1537#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/lease/Lease.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.1.0.RELEASE/spring-cloud-netflix-eureka-server-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/eureka/server/InstanceRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="154" column="47" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
-          <folding>
-            <element signature="e#5567#5568#0" expanded="true" />
-            <element signature="e#5614#5615#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/registry/PeerAwareInstanceRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/registry/PeerAwareInstanceRegistryImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0-sources.jar!/feign/SynchronousMethodHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
-          <caret line="661" column="30" lean-forward="true" selection-start-line="661" selection-start-column="30" selection-end-line="661" selection-end-column="30" />
+          <caret line="107" column="29" lean-forward="true" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8.jar!/com/netflix/eureka/util/batcher/TaskDispatchers.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0-sources.jar!/feign/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
+        <state relative-caret-position="186">
+          <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/ribbon/ribbon-loadbalancer/2.3.0/ribbon-loadbalancer-2.3.0-sources.jar!/com/netflix/client/AbstractLoadBalancerAwareClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="92" column="13" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-openfeign-core/2.1.0.RELEASE/spring-cloud-openfeign-core-2.1.0.RELEASE-sources.jar!/org/springframework/cloud/openfeign/ribbon/LoadBalancerFeignClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-resume-8082/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="29" selection-start-line="2" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/DeliverApplication8091.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="14" selection-start-line="20" selection-end-line="21" />
           <folding>
-            <element signature="e#0#2013#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/util/batcher/TaskDispatcher.java">
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/java/com/zp/controller/AutoDeliverController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="300">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/cluster/ReplicationTask.java">
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-gateway/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="416">
+          <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/cluster/InstanceReplicationTask.java">
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-gateway/src/main/java/com/zp/gateway/GatewayApplication9006.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        <state relative-caret-position="135">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-core/1.9.8/eureka-core-1.9.8-sources.jar!/com/netflix/eureka/cluster/PeerEurekaNode.java">
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-gateway/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+        <state>
+          <caret selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/shared/transport/EurekaHttpClient.java">
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-gateway/src/main/java/com/zp/gateway/filter/BlackListFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="557">
+          <caret line="43" selection-start-line="16" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1600#1601#0" expanded="true" />
+            <element signature="e#1624#1625#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.9.8/eureka-client-1.9.8-sources.jar!/com/netflix/discovery/shared/transport/jersey/AbstractJerseyEurekaHttpClient.java">
+    <entry file="file://$PROJECT_DIR$/zpparent/config/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/config/src/main/java/com/zp/config/ConfigApplication9007.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" selection-start-line="7" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-delivery-8091/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-resume/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="27" selection-start-line="27" selection-end-line="39" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/config/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deme-code/zhao-config-repo/zhao-service-resume-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/controller/ResumeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-resume/src/main/java/com/zp/controller/ConfigController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/zp-resume/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/consumer/ConsumerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="24" column="19" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/channel/TestChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/5.1.8.RELEASE/spring-messaging-5.1.8.RELEASE.jar!/org/springframework/messaging/Message.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/controller/SendMessageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/channel/ErrorProducerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="13" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/channal/TestChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="33" lean-forward="true" selection-start-line="12" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-producer/src/main/java/com/zp/stream/ProducerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="18" selection-start-line="18" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/src/main/java/com/zp/stream/ConsumerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="22" selection-start-line="22" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zpparent/stream-consumer/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1002,7 +1056,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>zpparent</last-edited>
+          <last-edited>zpgateway</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
