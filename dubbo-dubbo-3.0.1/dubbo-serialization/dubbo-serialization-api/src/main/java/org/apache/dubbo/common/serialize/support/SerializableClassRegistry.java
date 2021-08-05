@@ -40,7 +40,7 @@ public abstract class SerializableClassRegistry {
     /**
      * only supposed to be called at startup time
      *
-     * @param clazz object type
+     * @param clazz      object type
      * @param serializer object serializer
      */
     public static void registerClass(Class<?> clazz, Object serializer) {
@@ -54,7 +54,7 @@ public abstract class SerializableClassRegistry {
      * get registered classes
      *
      * @return class serializer
-     * */
+     */
     public static Map<Class<?>, Object> getRegisteredClasses() {
         return REGISTRATIONS;
     }

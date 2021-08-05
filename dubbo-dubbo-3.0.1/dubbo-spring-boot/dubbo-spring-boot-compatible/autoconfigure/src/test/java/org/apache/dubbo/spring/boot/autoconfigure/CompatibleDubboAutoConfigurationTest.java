@@ -31,13 +31,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * {@link DubboAutoConfiguration} Test
+ *
  * @see DubboAutoConfiguration
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
-        CompatibleDubboAutoConfigurationTest.class
+    CompatibleDubboAutoConfigurationTest.class
 }, properties = {
-        "dubbo.scan.base-packages = org.apache.dubbo.spring.boot.autoconfigure"
+    "dubbo.scan.base-packages = org.apache.dubbo.spring.boot.autoconfigure"
 })
 @EnableAutoConfiguration
 @PropertySource(value = "classpath:/META-INF/dubbo.properties")

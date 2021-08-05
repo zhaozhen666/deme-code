@@ -200,7 +200,7 @@ public abstract class AbstractRegistryService implements RegistryService {
 
     protected final void notify(String service, List<URL> urls) {
         if (StringUtils.isEmpty(service)
-                || CollectionUtils.isEmpty(urls)) {
+            || CollectionUtils.isEmpty(urls)) {
             return;
         }
         doNotify(service, urls);

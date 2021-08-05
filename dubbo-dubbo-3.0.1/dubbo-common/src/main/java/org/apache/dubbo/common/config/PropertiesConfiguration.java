@@ -52,7 +52,7 @@ public class PropertiesConfiguration implements Configuration {
 
         //override the properties.
         for (OrderedPropertiesProvider orderedPropertiesProvider :
-                orderedPropertiesProviders) {
+            orderedPropertiesProviders) {
             properties.putAll(orderedPropertiesProvider.initProperties());
         }
 

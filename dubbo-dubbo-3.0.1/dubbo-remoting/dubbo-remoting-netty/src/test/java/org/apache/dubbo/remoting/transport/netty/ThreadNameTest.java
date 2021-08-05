@@ -104,14 +104,14 @@ public class ThreadNameTest {
             if (!success) {
                 success = Thread.currentThread().getName().matches(message);
             }
-            if(success) {
+            if (success) {
                 latch.countDown();
             }
         }
 
         private void output(String method) {
             System.out.println(Thread.currentThread().getName()
-                    + " " + (client ? "client " + method : "server " + method));
+                + " " + (client ? "client " + method : "server " + method));
         }
 
         @Override

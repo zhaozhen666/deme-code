@@ -16,8 +16,9 @@ import java.util.List;
 public class TestMasterSlave {
     @Resource
     CityRepository cityRepository;
+
     @Test
-    public  void testMasterSlave(){
+    public void testMasterSlave() {
         City city = new City();
         city.setName("shanghai");
         city.setProvince("shanghai");
@@ -25,10 +26,10 @@ public class TestMasterSlave {
     }
 
     @Test
-    public void findAll(){
+    public void findAll() {
         List<City> list = cityRepository.findAll();
-        list.forEach(c->{
-            System.out.println(c.getId()+" "+c.getName()+" "+c.getProvince());
+        list.forEach(c -> {
+            System.out.println(c.getId() + " " + c.getName() + " " + c.getProvince());
         });
     }
 }

@@ -91,14 +91,14 @@ public class GrpcOptionsUtils {
 
         // server interceptors
         List<ServerInterceptor> serverInterceptors = ExtensionLoader.getExtensionLoader(ServerInterceptor.class)
-                .getActivateExtension(url, SERVER_INTERCEPTORS, PROVIDER_SIDE);
+            .getActivateExtension(url, SERVER_INTERCEPTORS, PROVIDER_SIDE);
         for (ServerInterceptor serverInterceptor : serverInterceptors) {
             builder.intercept(serverInterceptor);
         }
 
         // server filters
         List<ServerTransportFilter> transportFilters = ExtensionLoader.getExtensionLoader(ServerTransportFilter.class)
-                .getActivateExtension(url, TRANSPORT_FILTERS, PROVIDER_SIDE);
+            .getActivateExtension(url, TRANSPORT_FILTERS, PROVIDER_SIDE);
         for (ServerTransportFilter transportFilter : transportFilters) {
             builder.addTransportFilter(transportFilter.grpcTransportFilter());
         }
@@ -112,8 +112,8 @@ public class GrpcOptionsUtils {
 
         // Give users the chance to customize ServerBuilder
         return getConfigurator()
-                .map(configurator -> configurator.configureServerBuilder(builder, url))
-                .orElse(builder);
+            .map(configurator -> configurator.configureServerBuilder(builder, url))
+            .orElse(builder);
     }
 
     static ManagedChannel buildManagedChannel(URL url) {
@@ -130,16 +130,16 @@ public class GrpcOptionsUtils {
 
         // client interceptors
         List<io.grpc.ClientInterceptor> interceptors = new ArrayList<>(
-                ExtensionLoader.getExtensionLoader(ClientInterceptor.class)
-                        .getActivateExtension(url, CLIENT_INTERCEPTORS, CONSUMER_SIDE)
+            ExtensionLoader.getExtensionLoader(ClientInterceptor.class)
+                .getActivateExtension(url, CLIENT_INTERCEPTORS, CONSUMER_SIDE)
         );
 
         builder.intercept(interceptors);
 
         return getConfigurator()
-                .map(configurator -> configurator.configureChannelBuilder(builder, url))
-                .orElse(builder)
-                .build();
+            .map(configurator -> configurator.configureChannelBuilder(builder, url))
+            .orElse(builder)
+            .build();
     }
 
     static CallOptions buildCallOptions(URL url) {
@@ -148,8 +148,8 @@ public class GrpcOptionsUtils {
 //                .withDeadline(Deadline.after(url.getParameter(TIMEOUT_KEY, DEFAULT_TIMEOUT), TimeUnit.MILLISECONDS));
         CallOptions callOptions = CallOptions.DEFAULT;
         return getConfigurator()
-                .map(configurator -> configurator.configureCallOptions(callOptions, url))
-                .orElse(callOptions);
+            .map(configurator -> configurator.configureCallOptions(callOptions, url))
+            .orElse(callOptions);
     }
 
     private static SslContext buildServerSslContext(URL url) {
@@ -161,10 +161,10 @@ public class GrpcOptionsUtils {
             String password = sslConfig.getServerKeyPassword();
             if (password != null) {
                 sslClientContextBuilder = GrpcSslContexts.forServer(sslConfig.getServerKeyCertChainPathStream(),
-                        sslConfig.getServerPrivateKeyPathStream(), password);
+                    sslConfig.getServerPrivateKeyPathStream(), password);
             } else {
                 sslClientContextBuilder = GrpcSslContexts.forServer(sslConfig.getServerKeyCertChainPathStream(),
-                        sslConfig.getServerPrivateKeyPathStream());
+                    sslConfig.getServerPrivateKeyPathStream());
             }
 
             InputStream trustCertCollectionFilePath = sslConfig.getServerTrustCertCollectionPathStream();
@@ -216,7 +216,7 @@ public class GrpcOptionsUtils {
     private static Optional<GrpcConfigurator> getConfigurator() {
         // Give users the chance to customize ServerBuilder
         Set<GrpcConfigurator> configurators = ExtensionLoader.getExtensionLoader(GrpcConfigurator.class)
-                .getSupportedExtensionInstances();
+            .getSupportedExtensionInstances();
         if (CollectionUtils.isNotEmpty(configurators)) {
             return Optional.of(configurators.iterator().next());
         }

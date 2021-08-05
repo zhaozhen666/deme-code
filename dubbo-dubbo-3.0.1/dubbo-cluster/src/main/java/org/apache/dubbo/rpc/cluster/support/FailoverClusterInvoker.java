@@ -42,7 +42,6 @@ import static org.apache.dubbo.common.constants.CommonConstants.RETRIES_KEY;
  * Note that retry causes latency.
  * <p>
  * <a href="http://en.wikipedia.org/wiki/Failover">Failover</a>
- *
  */
 public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
@@ -79,14 +78,14 @@ public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
                 Result result = invokeWithContext(invoker, invocation);
                 if (le != null && logger.isWarnEnabled()) {
                     logger.warn("Although retry the method " + methodName
-                            + " in the service " + getInterface().getName()
-                            + " was successful by the provider " + invoker.getUrl().getAddress()
-                            + ", but there have been failed providers " + providers
-                            + " (" + providers.size() + "/" + copyInvokers.size()
-                            + ") from the registry " + directory.getUrl().getAddress()
-                            + " on the consumer " + NetUtils.getLocalHost()
-                            + " using the dubbo version " + Version.getVersion() + ". Last error is: "
-                            + le.getMessage(), le);
+                        + " in the service " + getInterface().getName()
+                        + " was successful by the provider " + invoker.getUrl().getAddress()
+                        + ", but there have been failed providers " + providers
+                        + " (" + providers.size() + "/" + copyInvokers.size()
+                        + ") from the registry " + directory.getUrl().getAddress()
+                        + " on the consumer " + NetUtils.getLocalHost()
+                        + " using the dubbo version " + Version.getVersion() + ". Last error is: "
+                        + le.getMessage(), le);
                 }
                 return result;
             } catch (RpcException e) {
@@ -101,13 +100,13 @@ public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
             }
         }
         throw new RpcException(le.getCode(), "Failed to invoke the method "
-                + methodName + " in the service " + getInterface().getName()
-                + ". Tried " + len + " times of the providers " + providers
-                + " (" + providers.size() + "/" + copyInvokers.size()
-                + ") from the registry " + directory.getUrl().getAddress()
-                + " on the consumer " + NetUtils.getLocalHost() + " using the dubbo version "
-                + Version.getVersion() + ". Last error is: "
-                + le.getMessage(), le.getCause() != null ? le.getCause() : le);
+            + methodName + " in the service " + getInterface().getName()
+            + ". Tried " + len + " times of the providers " + providers
+            + " (" + providers.size() + "/" + copyInvokers.size()
+            + ") from the registry " + directory.getUrl().getAddress()
+            + " on the consumer " + NetUtils.getLocalHost() + " using the dubbo version "
+            + Version.getVersion() + ". Last error is: "
+            + le.getMessage(), le.getCause() != null ? le.getCause() : le);
     }
 
     private int calculateInvokeTimes(String methodName) {

@@ -125,7 +125,7 @@ public class DubboHealthIndicator extends AbstractHealthIndicator {
     private Map<String, String> resolveStatusCheckerNamesMapFromDubboHealthIndicatorProperties() {
 
         DubboHealthIndicatorProperties.Status status =
-                dubboHealthIndicatorProperties.getStatus();
+            dubboHealthIndicatorProperties.getStatus();
 
         Map<String, String> statusCheckerNamesMap = new LinkedHashMap<>();
 

@@ -24,25 +24,26 @@ public class TestShardingTransaction {
     PositionRepository positionRepository;
     @Resource
     PositionDetailRepository positionDetailRepository;
+
     @Test
     @Transactional
     //@ShardingTransactionType(TransactionType.XA)
-    public void testTransaction(){
+    public void testTransaction() {
         TransactionTypeHolder.set(TransactionType.BASE);
-        for (long i=1;i<=3;i++){
+        for (long i = 1; i <= 3; i++) {
             Position position = new Position();
             //position.setId(i);
             position.setCity("shanghai");
             position.setName("zhao");
             position.setSalary("100.86");
             positionRepository.save(position);
-            if (i==3){
+            if (i == 3) {
                 //long j =i/0;
-                throw  new RuntimeException("人为制造异常");
+                throw new RuntimeException("人为制造异常");
             }
             PositionDetail detail = new PositionDetail();
             detail.setPid(position.getId());
-            detail.setDescription("This is root  "+i);
+            detail.setDescription("This is root  " + i);
             positionDetailRepository.save(detail);
         }
     }

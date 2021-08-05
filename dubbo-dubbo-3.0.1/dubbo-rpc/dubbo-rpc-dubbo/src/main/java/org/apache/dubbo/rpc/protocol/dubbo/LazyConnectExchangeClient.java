@@ -263,7 +263,7 @@ final class LazyConnectExchangeClient implements ExchangeClient {
     private void checkClient() {
         if (client == null) {
             throw new IllegalStateException(
-                    "LazyConnectExchangeClient state error. the client has not be init .url:" + url);
+                "LazyConnectExchangeClient state error. the client has not be init .url:" + url);
         }
     }
 }

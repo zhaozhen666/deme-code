@@ -69,14 +69,14 @@ public class CIDRUtils {
         int targetSize;
         if (inetAddress.getAddress().length == 4) {
             maskBuffer =
-                    ByteBuffer
-                            .allocate(4)
-                            .putInt(-1);
+                ByteBuffer
+                    .allocate(4)
+                    .putInt(-1);
             targetSize = 4;
         } else {
             maskBuffer = ByteBuffer.allocate(16)
-                    .putLong(-1L)
-                    .putLong(-1L);
+                .putLong(-1L)
+                .putLong(-1L);
             targetSize = 16;
         }
 

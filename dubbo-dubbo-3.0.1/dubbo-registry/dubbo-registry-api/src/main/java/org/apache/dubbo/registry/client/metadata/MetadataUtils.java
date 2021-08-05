@@ -87,7 +87,7 @@ public class MetadataUtils {
 
     public static String computeKey(ServiceInstance serviceInstance) {
         return serviceInstance.getServiceName() + "##" + serviceInstance.getAddress() + "##" +
-                ServiceInstanceMetadataUtils.getExportedServicesRevision(serviceInstance);
+            ServiceInstanceMetadataUtils.getExportedServicesRevision(serviceInstance);
     }
 
     public static MetadataService getMetadataServiceProxy(ServiceInstance instance, ServiceDiscovery serviceDiscovery) {
@@ -121,7 +121,7 @@ public class MetadataUtils {
     private static MetadataService referProxy(String key, ServiceInstance instance) {
         MetadataServiceURLBuilder builder = null;
         ExtensionLoader<MetadataServiceURLBuilder> loader
-                = ExtensionLoader.getExtensionLoader(MetadataServiceURLBuilder.class);
+            = ExtensionLoader.getExtensionLoader(MetadataServiceURLBuilder.class);
 
         Map<String, String> metadata = instance.getMetadata();
         // METADATA_SERVICE_URLS_PROPERTY_NAME is a unique key exists only on instances of spring-cloud-alibaba.
@@ -135,7 +135,7 @@ public class MetadataUtils {
         List<URL> urls = builder.build(instance);
         if (CollectionUtils.isEmpty(urls)) {
             throw new IllegalStateException("You have enabled introspection service discovery mode for instance "
-                    + instance + ", but no metadata service can build from it.");
+                + instance + ", but no metadata service can build from it.");
         }
 
         // Simply rely on the first metadata url, as stated in MetadataServiceURLBuilder.

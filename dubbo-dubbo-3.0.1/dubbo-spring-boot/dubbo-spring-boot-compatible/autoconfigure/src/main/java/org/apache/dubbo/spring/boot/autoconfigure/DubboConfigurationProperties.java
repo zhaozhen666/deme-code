@@ -256,6 +256,7 @@ public class DubboConfigurationProperties {
 
         /**
          * Config processing mode
+         *
          * @see ConfigMode
          */
         private ConfigMode mode = ConfigMode.STRICT;

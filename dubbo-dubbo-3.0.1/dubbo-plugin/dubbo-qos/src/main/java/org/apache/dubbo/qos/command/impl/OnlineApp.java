@@ -24,8 +24,8 @@ import org.apache.dubbo.qos.command.annotation.Cmd;
 import org.apache.dubbo.rpc.model.ProviderModel;
 
 @Cmd(name = "onlineApp", summary = "online app addresses", example = {
-        "onlineApp",
-        "onlineApp xx.xx.xxx.service"
+    "onlineApp",
+    "onlineApp xx.xx.xxx.service"
 })
 public class OnlineApp extends BaseOnline {
     private static final Logger logger = LoggerFactory.getLogger(OnlineApp.class);
@@ -33,7 +33,7 @@ public class OnlineApp extends BaseOnline {
     @Override
     protected void doExport(ProviderModel.RegisterStatedURL statedURL) {
         if (UrlUtils.isServiceDiscoveryURL(statedURL.getRegistryUrl())) {
-           super.doExport(statedURL);
+            super.doExport(statedURL);
         }
     }
 }

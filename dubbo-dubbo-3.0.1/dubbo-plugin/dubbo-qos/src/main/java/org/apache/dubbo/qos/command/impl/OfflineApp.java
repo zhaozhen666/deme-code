@@ -23,8 +23,8 @@ import org.apache.dubbo.qos.command.annotation.Cmd;
 import org.apache.dubbo.rpc.model.ProviderModel;
 
 @Cmd(name = "offlineApp", summary = "offline app addresses", example = {
-        "offlineApp",
-        "offlineApp xx.xx.xxx.service"
+    "offlineApp",
+    "offlineApp xx.xx.xxx.service"
 })
 public class OfflineApp extends BaseOffline {
     private static final Logger logger = LoggerFactory.getLogger(OfflineApp.class);

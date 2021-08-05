@@ -108,7 +108,7 @@ public class ForkingClusterInvokerTest {
     public void testInvokeException() {
         resetInvokerToException();
         ForkingClusterInvoker<ForkingClusterInvokerTest> invoker = new ForkingClusterInvoker<ForkingClusterInvokerTest>(
-                dic);
+            dic);
 
         try {
             invoker.invoke(invocation);
@@ -123,7 +123,7 @@ public class ForkingClusterInvokerTest {
     public void testClearRpcContext() {
         resetInvokerToException();
         ForkingClusterInvoker<ForkingClusterInvokerTest> invoker = new ForkingClusterInvoker<ForkingClusterInvokerTest>(
-                dic);
+            dic);
 
         String attachKey = "attach";
         String attachValue = "value";
@@ -149,7 +149,7 @@ public class ForkingClusterInvokerTest {
         resetInvokerToNoException();
 
         ForkingClusterInvoker<ForkingClusterInvokerTest> invoker = new ForkingClusterInvoker<ForkingClusterInvokerTest>(
-                dic);
+            dic);
         Result ret = invoker.invoke(invocation);
         Assertions.assertSame(result, ret);
     }

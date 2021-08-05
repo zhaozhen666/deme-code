@@ -182,7 +182,7 @@ public class URLParamTest {
         Assertions.assertEquals("provider", urlParam10.getParameter("side"));
 
         Assertions.assertThrows(IllegalArgumentException.class,
-                () -> urlParam1.addParameter("side", "unrecognized"));
+            () -> urlParam1.addParameter("side", "unrecognized"));
     }
 
     @Test
@@ -249,25 +249,25 @@ public class URLParamTest {
         Assertions.assertFalse(CollectionUtils.equals(urlParam2Map.keySet(), urlParam4.getParameters().keySet()));
         Assertions.assertFalse(CollectionUtils.equals(urlParam2Map.values(), urlParam4.getParameters().values()));
 
-        Set<Map<String,String>> set = new HashSet<>();
+        Set<Map<String, String>> set = new HashSet<>();
 
         set.add(urlParam2Map);
         set.add(urlParam3.getParameters());
-        Assertions.assertEquals(1,set.size());
+        Assertions.assertEquals(1, set.size());
 
         set.add(urlParam4.getParameters());
-        Assertions.assertEquals(2,set.size());
+        Assertions.assertEquals(2, set.size());
     }
 
     @Test
     public void testMethodParameters() {
         URLParam urlParam1 = URLParam.parse("aaa.method1=aaa&bbb.method2=bbb");
-        Assertions.assertEquals("aaa",urlParam1.getAnyMethodParameter("method1"));
-        Assertions.assertEquals("bbb",urlParam1.getAnyMethodParameter("method2"));
+        Assertions.assertEquals("aaa", urlParam1.getAnyMethodParameter("method1"));
+        Assertions.assertEquals("bbb", urlParam1.getAnyMethodParameter("method2"));
 
 
         URLParam urlParam2 = URLParam.parse("methods=aaa&aaa.method1=aaa&bbb.method2=bbb");
-        Assertions.assertEquals("aaa",urlParam2.getAnyMethodParameter("method1"));
+        Assertions.assertEquals("aaa", urlParam2.getAnyMethodParameter("method1"));
         Assertions.assertNull(urlParam2.getAnyMethodParameter("method2"));
     }
 }

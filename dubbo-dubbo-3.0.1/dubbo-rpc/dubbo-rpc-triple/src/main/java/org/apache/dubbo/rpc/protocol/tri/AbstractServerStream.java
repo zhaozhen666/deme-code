@@ -43,7 +43,7 @@ import java.util.concurrent.RejectedExecutionException;
 public abstract class AbstractServerStream extends AbstractStream implements Stream {
 
     protected static final ExecutorRepository EXECUTOR_REPOSITORY =
-            ExtensionLoader.getExtensionLoader(ExecutorRepository.class).getDefaultExtension();
+        ExtensionLoader.getExtensionLoader(ExecutorRepository.class).getDefaultExtension();
     private final ProviderModel providerModel;
     private List<MethodDescriptor> methodDescriptors;
     private Invoker<?> invoker;
@@ -66,7 +66,7 @@ public abstract class AbstractServerStream extends AbstractStream implements Str
         ExecutorService executor = null;
         if (providerModel != null) {
             executor = (ExecutorService) providerModel.getServiceMetadata()
-                    .getAttribute(CommonConstants.THREADPOOL_KEY);
+                .getAttribute(CommonConstants.THREADPOOL_KEY);
         }
         if (executor == null) {
             executor = EXECUTOR_REPOSITORY.getExecutor(url);
@@ -143,7 +143,7 @@ public abstract class AbstractServerStream extends AbstractStream implements Str
             }
             if (getMethodDescriptor() == null || getMethodDescriptor().isNeedWrap()) {
                 final TripleWrapper.TripleRequestWrapper wrapper = TripleUtil.unpack(data,
-                        TripleWrapper.TripleRequestWrapper.class);
+                    TripleWrapper.TripleRequestWrapper.class);
                 if (!getSerializeType().equals(TripleUtil.convertHessianFromWrapper(wrapper.getSerializeType()))) {
                     transportError(GrpcStatus.fromCode(GrpcStatus.Code.INVALID_ARGUMENT)
                         .withDescription("Received inconsistent serialization type from client, " +
@@ -162,8 +162,8 @@ public abstract class AbstractServerStream extends AbstractStream implements Str
                     }
                     if (getMethodDescriptor() == null) {
                         transportError(GrpcStatus.fromCode(GrpcStatus.Code.UNIMPLEMENTED)
-                                .withDescription("Method :" + getMethodName() + "[" + Arrays.toString(paramTypes) + "] " +
-                                        "not found of service:" + getServiceDescriptor().getServiceName()));
+                            .withDescription("Method :" + getMethodName() + "[" + Arrays.toString(paramTypes) + "] " +
+                                "not found of service:" + getServiceDescriptor().getServiceName()));
 
                         return null;
                     }
@@ -183,7 +183,7 @@ public abstract class AbstractServerStream extends AbstractStream implements Str
         final com.google.protobuf.Message message;
         if (getMethodDescriptor().isNeedWrap()) {
             message = TripleUtil.wrapResp(getUrl(), getSerializeType(), value, getMethodDescriptor(),
-                    getMultipleSerialization());
+                getMultipleSerialization());
         } else {
             message = (Message) value;
         }
@@ -197,12 +197,12 @@ public abstract class AbstractServerStream extends AbstractStream implements Str
         } catch (RejectedExecutionException e) {
             LOGGER.error("Provider's thread pool is full", e);
             transportError(GrpcStatus.fromCode(GrpcStatus.Code.RESOURCE_EXHAUSTED)
-                    .withDescription("Provider's thread pool is full"));
+                .withDescription("Provider's thread pool is full"));
         } catch (Throwable t) {
             LOGGER.error("Provider submit request to thread pool error ", t);
             transportError(GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                    .withCause(t)
-                    .withDescription("Provider's error"));
+                .withCause(t)
+                .withDescription("Provider's error"));
         }
     }
 

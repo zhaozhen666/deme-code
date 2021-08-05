@@ -79,7 +79,7 @@ public abstract class AbstractConfigurator implements Configurator {
             if (currentSide.equals(configuratorSide) && CONSUMER.equals(configuratorSide) && 0 == configuratorUrl.getPort()) {
                 url = configureIfMatch(NetUtils.getLocalHost(), url);
             } else if (currentSide.equals(configuratorSide) && PROVIDER.equals(configuratorSide) &&
-                    url.getPort() == configuratorUrl.getPort()) {
+                url.getPort() == configuratorUrl.getPort()) {
                 url = configureIfMatch(url.getHost(), url);
             }
         }
@@ -124,7 +124,7 @@ public abstract class AbstractConfigurator implements Configurator {
                 String configApplication = configuratorUrl.getApplication(configuratorUrl.getUsername());
                 String currentApplication = url.getApplication(url.getUsername());
                 if (configApplication == null || ANY_VALUE.equals(configApplication)
-                        || configApplication.equals(currentApplication)) {
+                    || configApplication.equals(currentApplication)) {
                     Set<String> conditionKeys = new HashSet<String>();
                     conditionKeys.add(CATEGORY_KEY);
                     conditionKeys.add(Constants.CHECK_KEY);
@@ -146,7 +146,7 @@ public abstract class AbstractConfigurator implements Configurator {
                                 conditionKeys.add(key);
                             }
                             if (value != null && !ANY_VALUE.equals(value)
-                                    && !value.equals(url.getParameter(startWithTilde ? key.substring(1) : key))) {
+                                && !value.equals(url.getParameter(startWithTilde ? key.substring(1) : key))) {
                                 return url;
                             }
                         }

@@ -23,7 +23,6 @@ import org.jboss.resteasy.spi.ResteasyProviderFactory;
 
 /**
  * We don't support propertyInjector here since the resource impl should be singleton in dubbo
- *
  */
 public class DubboResourceFactory implements ResourceFactory {
 

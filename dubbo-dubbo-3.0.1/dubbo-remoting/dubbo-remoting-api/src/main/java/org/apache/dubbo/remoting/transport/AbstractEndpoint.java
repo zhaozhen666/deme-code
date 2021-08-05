@@ -50,7 +50,7 @@ public abstract class AbstractEndpoint extends AbstractPeer implements Resetable
             return ExtensionLoader.getExtensionLoader(Codec2.class).getExtension(codecName);
         } else {
             return new CodecAdapter(ExtensionLoader.getExtensionLoader(Codec.class)
-                    .getExtension(codecName));
+                .getExtension(codecName));
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class AbstractEndpoint extends AbstractPeer implements Resetable
     public void reset(URL url) {
         if (isClosed()) {
             throw new IllegalStateException("Failed to reset parameters "
-                    + url + ", cause: Channel closed. channel: " + getLocalAddress());
+                + url + ", cause: Channel closed. channel: " + getLocalAddress());
         }
 
         try {

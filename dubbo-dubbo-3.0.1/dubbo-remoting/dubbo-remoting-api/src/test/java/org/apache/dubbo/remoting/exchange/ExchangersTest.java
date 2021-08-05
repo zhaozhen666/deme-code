@@ -36,9 +36,9 @@ public class ExchangersTest {
         Exchangers.bind(url, new ExchangeHandlerDispatcher());
 
         Assertions.assertThrows(RuntimeException.class,
-                () -> Exchangers.bind((URL) null, new ExchangeHandlerDispatcher()));
+            () -> Exchangers.bind((URL) null, new ExchangeHandlerDispatcher()));
         Assertions.assertThrows(RuntimeException.class,
-                () -> Exchangers.bind(url, (ExchangeHandlerDispatcher) null));
+            () -> Exchangers.bind(url, (ExchangeHandlerDispatcher) null));
     }
 
     @Test
@@ -51,8 +51,8 @@ public class ExchangersTest {
         Exchangers.connect(url, new ExchangeHandlerDispatcher());
 
         Assertions.assertThrows(RuntimeException.class,
-                () -> Exchangers.connect((URL) null, new ExchangeHandlerDispatcher()));
+            () -> Exchangers.connect((URL) null, new ExchangeHandlerDispatcher()));
         Assertions.assertThrows(RuntimeException.class,
-                () -> Exchangers.connect(url, (ExchangeHandlerDispatcher) null));
+            () -> Exchangers.connect(url, (ExchangeHandlerDispatcher) null));
     }
 }

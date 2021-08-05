@@ -286,7 +286,7 @@ public class RegistryBuilder extends AbstractBuilder<RegistryConfig, RegistryBui
     }
 
     /**
-     * @param name   the parameter name
+     * @param name  the parameter name
      * @param value the parameter value
      * @return {@link RegistryBuilder}
      * @since 2.7.8

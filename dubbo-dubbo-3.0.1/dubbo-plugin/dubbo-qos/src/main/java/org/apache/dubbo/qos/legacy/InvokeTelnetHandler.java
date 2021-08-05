@@ -44,7 +44,7 @@ import static org.apache.dubbo.common.utils.PojoUtils.realize;
  */
 @Activate
 @Help(parameter = "[service.]method(args) ", summary = "Invoke the service method.",
-        detail = "Invoke the service method.")
+    detail = "Invoke the service method.")
 public class InvokeTelnetHandler implements TelnetHandler {
 
     public static final String INVOKE_MESSAGE_KEY = "telnet.invoke.method.message";
@@ -56,8 +56,8 @@ public class InvokeTelnetHandler implements TelnetHandler {
     public String telnet(Channel channel, String message) {
         if (StringUtils.isEmpty(message)) {
             return "Please input method name, eg: \r\ninvoke xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})\r\n" +
-                    "invoke XxxService.xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})\r\n" +
-                    "invoke com.xxx.XxxService.xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})";
+                "invoke XxxService.xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})\r\n" +
+                "invoke com.xxx.XxxService.xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})";
         }
 
         String service = (String) channel.getAttribute(ChangeTelnetHandler.SERVICE_KEY);
@@ -135,7 +135,7 @@ public class InvokeTelnetHandler implements TelnetHandler {
         }
         try {
             Object[] array = realize(list.toArray(), invokeMethod.getParameterTypes(),
-                    invokeMethod.getGenericParameterTypes());
+                invokeMethod.getGenericParameterTypes());
             long start = System.currentTimeMillis();
             AppResponse result = new AppResponse();
             try {
@@ -159,9 +159,9 @@ public class InvokeTelnetHandler implements TelnetHandler {
 
     private boolean isServiceMatch(String service, ProviderModel provider) {
         return provider.getServiceKey().equalsIgnoreCase(service)
-                || provider.getServiceInterfaceClass().getSimpleName().equalsIgnoreCase(service)
-                || provider.getServiceInterfaceClass().getName().equalsIgnoreCase(service)
-                || StringUtils.isEmpty(service);
+            || provider.getServiceInterfaceClass().getSimpleName().equalsIgnoreCase(service)
+            || provider.getServiceInterfaceClass().getName().equalsIgnoreCase(service)
+            || StringUtils.isEmpty(service);
     }
 
     private List<Method> findSameSignatureMethod(Set<MethodDescriptor> methods, String lookupMethodName, List<Object> args) {

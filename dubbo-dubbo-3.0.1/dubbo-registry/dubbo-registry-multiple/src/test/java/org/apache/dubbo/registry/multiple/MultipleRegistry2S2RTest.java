@@ -70,8 +70,8 @@ public class MultipleRegistry2S2RTest {
 
 
         URL url = URL.valueOf("multiple://127.0.0.1?application=vic&" +
-                MultipleRegistry.REGISTRY_FOR_SERVICE + "=" + zookeeperRegistryURLStr + "," + zookeeperRegistryURLStr2 + "&"
-                + MultipleRegistry.REGISTRY_FOR_REFERENCE + "=" + zookeeperRegistryURLStr + "," + zookeeperRegistryURLStr2);
+            MultipleRegistry.REGISTRY_FOR_SERVICE + "=" + zookeeperRegistryURLStr + "," + zookeeperRegistryURLStr2 + "&"
+            + MultipleRegistry.REGISTRY_FOR_REFERENCE + "=" + zookeeperRegistryURLStr + "," + zookeeperRegistryURLStr2);
         multipleRegistry = (MultipleRegistry) new MultipleRegistryFactory().createRegistry(url);
 
         // for test validation
@@ -116,10 +116,10 @@ public class MultipleRegistry2S2RTest {
         Assertions.assertNotNull(MultipleRegistryTestUtil.getZookeeperRegistry(multipleRegistry.getReferenceRegistries().values()));
 
         Assertions.assertEquals(MultipleRegistryTestUtil.getZookeeperRegistry(multipleRegistry.getServiceRegistries().values()),
-                MultipleRegistryTestUtil.getZookeeperRegistry(multipleRegistry.getReferenceRegistries().values()));
+            MultipleRegistryTestUtil.getZookeeperRegistry(multipleRegistry.getReferenceRegistries().values()));
 
         Assertions.assertEquals(MultipleRegistryTestUtil.getZookeeperRegistry(multipleRegistry.getServiceRegistries().values()),
-                MultipleRegistryTestUtil.getZookeeperRegistry(multipleRegistry.getReferenceRegistries().values()));
+            MultipleRegistryTestUtil.getZookeeperRegistry(multipleRegistry.getReferenceRegistries().values()));
 
         Assertions.assertEquals(multipleRegistry.getApplicationName(), "vic");
 

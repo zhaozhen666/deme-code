@@ -74,7 +74,7 @@ public class FileRouterEngineTest {
         initDic(url);
 
         MockClusterInvoker<FileRouterEngineTest> sinvoker = new MockClusterInvoker<FileRouterEngineTest>(
-                dic, url);
+            dic, url);
         for (int i = 0; i < 100; i++) {
             sinvoker.invoke(invocation);
             Invoker<FileRouterEngineTest> invoker = sinvoker.getSelectedInvoker();
@@ -91,7 +91,7 @@ public class FileRouterEngineTest {
         initDic(url);
 
         MockClusterInvoker<FileRouterEngineTest> sinvoker = new MockClusterInvoker<FileRouterEngineTest>(
-                dic, url);
+            dic, url);
         for (int i = 0; i < 100; i++) {
             sinvoker.invoke(invocation);
             Invoker<FileRouterEngineTest> invoker = sinvoker.getSelectedInvoker();
@@ -109,7 +109,7 @@ public class FileRouterEngineTest {
             initDic(url);
 
             MockClusterInvoker<FileRouterEngineTest> sinvoker = new MockClusterInvoker<FileRouterEngineTest>(
-                    dic, url);
+                dic, url);
             for (int i = 0; i < 100; i++) {
                 sinvoker.invoke(invocation);
                 Invoker<FileRouterEngineTest> invoker = sinvoker.getSelectedInvoker();
@@ -121,7 +121,7 @@ public class FileRouterEngineTest {
             initInvokers(url, true, true);
             initDic(url);
             MockClusterInvoker<FileRouterEngineTest> sinvoker = new MockClusterInvoker<FileRouterEngineTest>(
-                    dic, url);
+                dic, url);
             for (int i = 0; i < 100; i++) {
                 sinvoker.invoke(invocation);
                 Invoker<FileRouterEngineTest> invoker = sinvoker.getSelectedInvoker();

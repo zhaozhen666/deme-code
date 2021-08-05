@@ -12,17 +12,17 @@ public class RpcConfigAbstract {
 
     protected String interfaceClass = null;
 
-    protected Class<?> proxyClass =null;
+    protected Class<?> proxyClass = null;
 
-    public String getId(){
-        if (StringUtils.isBlank(id)){
-            id= "rapic-cfg-gen-"+generator.getAndIncrement();
+    public String getId() {
+        if (StringUtils.isBlank(id)) {
+            id = "rapic-cfg-gen-" + generator.getAndIncrement();
         }
         return id;
     }
 
-    public void setId(String id){
-        this.id=id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getInterfaceClass() {

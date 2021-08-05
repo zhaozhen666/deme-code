@@ -45,7 +45,7 @@ public class HeartbeatTimerTask extends AbstractTimerTask {
             Long lastRead = lastRead(channel);
             Long lastWrite = lastWrite(channel);
             if ((lastRead != null && now() - lastRead > heartbeat)
-                    || (lastWrite != null && now() - lastWrite > heartbeat)) {
+                || (lastWrite != null && now() - lastWrite > heartbeat)) {
                 Request req = new Request();
                 req.setVersion(Version.getProtocolVersion());
                 req.setTwoWay(true);
@@ -53,8 +53,8 @@ public class HeartbeatTimerTask extends AbstractTimerTask {
                 channel.send(req);
                 if (logger.isDebugEnabled()) {
                     logger.debug("Send heartbeat to remote channel " + channel.getRemoteAddress()
-                            + ", cause: The channel has no data-transmission exceeds a heartbeat period: "
-                            + heartbeat + "ms");
+                        + ", cause: The channel has no data-transmission exceeds a heartbeat period: "
+                        + heartbeat + "ms");
                 }
             }
         } catch (Throwable t) {

@@ -75,17 +75,17 @@ public class WelcomeLogoApplicationListener implements ApplicationListener<Appli
         StringBuilder bannerTextBuilder = new StringBuilder();
 
         bannerTextBuilder
-                .append(LINE_SEPARATOR)
-                .append(LINE_SEPARATOR)
-                .append(" :: Dubbo Spring Boot (v").append(Version.getVersion(getClass(), Version.getVersion())).append(") : ")
-                .append(DUBBO_SPRING_BOOT_GITHUB_URL)
-                .append(LINE_SEPARATOR)
-                .append(" :: Dubbo (v").append(Version.getVersion()).append(") : ")
-                .append(DUBBO_GITHUB_URL)
-                .append(LINE_SEPARATOR)
-                .append(" :: Discuss group : ")
-                .append(DUBBO_MAILING_LIST)
-                .append(LINE_SEPARATOR)
+            .append(LINE_SEPARATOR)
+            .append(LINE_SEPARATOR)
+            .append(" :: Dubbo Spring Boot (v").append(Version.getVersion(getClass(), Version.getVersion())).append(") : ")
+            .append(DUBBO_SPRING_BOOT_GITHUB_URL)
+            .append(LINE_SEPARATOR)
+            .append(" :: Dubbo (v").append(Version.getVersion()).append(") : ")
+            .append(DUBBO_GITHUB_URL)
+            .append(LINE_SEPARATOR)
+            .append(" :: Discuss group : ")
+            .append(DUBBO_MAILING_LIST)
+            .append(LINE_SEPARATOR)
         ;
 
         return bannerTextBuilder.toString();

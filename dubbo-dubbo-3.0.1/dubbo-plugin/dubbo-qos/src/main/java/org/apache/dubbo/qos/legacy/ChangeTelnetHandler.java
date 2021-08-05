@@ -46,8 +46,8 @@ public class ChangeTelnetHandler implements TelnetHandler {
             boolean found = false;
             for (Exporter<?> exporter : DubboProtocol.getDubboProtocol().getExporters()) {
                 if (message.equals(exporter.getInvoker().getInterface().getSimpleName())
-                        || message.equals(exporter.getInvoker().getInterface().getName())
-                        || message.equals(exporter.getInvoker().getUrl().getPath())) {
+                    || message.equals(exporter.getInvoker().getInterface().getName())
+                    || message.equals(exporter.getInvoker().getUrl().getPath())) {
                     found = true;
                     break;
                 }

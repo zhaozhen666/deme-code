@@ -89,7 +89,7 @@ public class ReferenceConfigTest {
             demoService.export();
             rc.get();
             Assertions.assertTrue(!LOCAL_PROTOCOL.equalsIgnoreCase(
-                    rc.getInvoker().getUrl().getProtocol()));
+                rc.getInvoker().getUrl().getProtocol()));
         } finally {
             System.clearProperty("java.net.preferIPv4Stack");
             rc.destroy();
@@ -157,7 +157,7 @@ public class ReferenceConfigTest {
     public void testMetaData() {
         ReferenceConfig config = new ReferenceConfig();
         Map<String, String> metaData = config.getMetaData();
-        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: "+metaData);
+        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: " + metaData);
 
         // test merged and override consumer attributes
         ConsumerConfig consumerConfig = new ConsumerConfig();
@@ -211,8 +211,8 @@ public class ReferenceConfigTest {
 
 
     @Reference(methods = {@Method(name = "sayHello", timeout = 1300, retries = 4, loadbalance = "random", async = true,
-            actives = 3, executes = 5, deprecated = true, sticky = true, oninvoke = "instance.i", onthrow = "instance.t", onreturn = "instance.r", cache = "c", validation = "v",
-            arguments = {@Argument(index = 24, callback = true, type = "sss")})})
+        actives = 3, executes = 5, deprecated = true, sticky = true, oninvoke = "instance.i", onthrow = "instance.t", onreturn = "instance.r", cache = "c", validation = "v",
+        arguments = {@Argument(index = 24, callback = true, type = "sss")})})
     private InnerTest innerTest;
 
     private class InnerTest {

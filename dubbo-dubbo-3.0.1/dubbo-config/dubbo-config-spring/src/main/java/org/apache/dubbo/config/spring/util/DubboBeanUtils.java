@@ -65,12 +65,12 @@ public interface DubboBeanUtils {
 
         // Since 2.5.7 Register @Reference Annotation Bean Processor as an infrastructure Bean
         registerInfrastructureBean(registry, ReferenceAnnotationBeanPostProcessor.BEAN_NAME,
-                ReferenceAnnotationBeanPostProcessor.class);
+            ReferenceAnnotationBeanPostProcessor.class);
 
         // TODO Whether DubboConfigAliasPostProcessor can be removed ?
         // Since 2.7.4 [Feature] https://github.com/apache/dubbo/issues/5093
         registerInfrastructureBean(registry, DubboConfigAliasPostProcessor.BEAN_NAME,
-                DubboConfigAliasPostProcessor.class);
+            DubboConfigAliasPostProcessor.class);
 
         // Since 2.7.5 Register DubboLifecycleComponentApplicationListener as an infrastructure Bean
 //        registerInfrastructureBean(registry, DubboLifecycleComponentApplicationListener.BEAN_NAME,
@@ -78,11 +78,11 @@ public interface DubboBeanUtils {
 
         // Since 2.7.4 Register DubboBootstrapApplicationListener as an infrastructure Bean
         registerInfrastructureBean(registry, DubboBootstrapApplicationListener.BEAN_NAME,
-                DubboBootstrapApplicationListener.class);
+            DubboBootstrapApplicationListener.class);
 
         // Since 2.7.6 Register DubboConfigDefaultPropertyValueBeanPostProcessor as an infrastructure Bean
         registerInfrastructureBean(registry, DubboConfigDefaultPropertyValueBeanPostProcessor.BEAN_NAME,
-                DubboConfigDefaultPropertyValueBeanPostProcessor.class);
+            DubboConfigDefaultPropertyValueBeanPostProcessor.class);
 
         // Dubbo config initialization processor
         registerInfrastructureBean(registry, DubboConfigInitializationPostProcessor.BEAN_NAME, DubboConfigInitializationPostProcessor.class);
@@ -100,8 +100,8 @@ public interface DubboBeanUtils {
      * @return if it's a first time to register, return <code>true</code>, or <code>false</code>
      */
     static boolean registerInfrastructureBean(BeanDefinitionRegistry beanDefinitionRegistry,
-                                                     String beanName,
-                                                     Class<?> beanType) {
+                                              String beanName,
+                                              Class<?> beanType) {
 
         boolean registered = false;
 
@@ -113,7 +113,7 @@ public interface DubboBeanUtils {
 
             if (log.isDebugEnabled()) {
                 log.debug("The Infrastructure bean definition [" + beanDefinition
-                        + "with name [" + beanName + "] has been registered.");
+                    + "with name [" + beanName + "] has been registered.");
             }
         }
 
@@ -124,9 +124,10 @@ public interface DubboBeanUtils {
      * Register some beans later
      * Call this method in BeanDefinitionRegistryPostProcessor,
      * in order to enable the registered BeanFactoryPostProcessor bean to be loaded and executed.
+     *
+     * @param registry
      * @see DubboInfraBeanRegisterPostProcessor
      * @see org.springframework.context.support.PostProcessorRegistrationDelegate#invokeBeanFactoryPostProcessors(org.springframework.beans.factory.config.ConfigurableListableBeanFactory, java.util.List)
-     * @param registry
      */
     static void registerBeansIfNotExists(BeanDefinitionRegistry registry) {
         // Resolve ${...} placeholders of bean definition with Spring Environment
@@ -139,7 +140,7 @@ public interface DubboBeanUtils {
             // to make sure the default PropertySourcesPlaceholderConfigurer's priority is higher than PropertyPlaceholderConfigurer
             propertySourcesPlaceholderPropertyValues.put("order", 0);
             registerBeanDefinitionIfNotExists(registry, PropertySourcesPlaceholderConfigurer.class.getName(),
-                    PropertySourcesPlaceholderConfigurer.class, propertySourcesPlaceholderPropertyValues);
+                PropertySourcesPlaceholderConfigurer.class, propertySourcesPlaceholderPropertyValues);
         }
     }
 

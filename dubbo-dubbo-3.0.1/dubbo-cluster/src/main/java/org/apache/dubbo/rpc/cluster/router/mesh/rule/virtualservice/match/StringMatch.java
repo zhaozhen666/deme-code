@@ -95,11 +95,11 @@ public class StringMatch {
     @Override
     public String toString() {
         return "StringMatch{" +
-                "exact='" + exact + '\'' +
-                ", prefix='" + prefix + '\'' +
-                ", regex='" + regex + '\'' +
-                ", noempty='" + noempty + '\'' +
-                ", empty='" + empty + '\'' +
-                '}';
+            "exact='" + exact + '\'' +
+            ", prefix='" + prefix + '\'' +
+            ", regex='" + regex + '\'' +
+            ", noempty='" + noempty + '\'' +
+            ", empty='" + empty + '\'' +
+            '}';
     }
 }

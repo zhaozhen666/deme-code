@@ -20,7 +20,7 @@ import org.apache.dubbo.common.io.UnsafeStringReader;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class JSONReaderTest  {
+public class JSONReaderTest {
     public void testMain() throws Exception {
         String json = "{ name: 'name', friends: [ 1, null, 3.2, ] }";
         JSONReader reader = new JSONReader(new UnsafeStringReader(json));

@@ -82,8 +82,8 @@ public class ZookeeperRegistry extends CacheableFailbackRegistry {
         zkClient.addStateListener((state) -> {
             if (state == StateListener.RECONNECTED) {
                 logger.warn("Trying to fetch the latest urls, in case there're provider changes during connection loss.\n" +
-                        " Since ephemeral ZNode will not get deleted for a connection lose, " +
-                        "there's no need to re-register url of this instance.");
+                    " Since ephemeral ZNode will not get deleted for a connection lose, " +
+                    "there's no need to re-register url of this instance.");
                 ZookeeperRegistry.this.fetchLatestAddresses();
             } else if (state == StateListener.NEW_SESSION_CREATED) {
                 logger.warn("Trying to re-register urls and re-subscribe listeners of this instance to registry...");
@@ -94,7 +94,7 @@ public class ZookeeperRegistry extends CacheableFailbackRegistry {
                 }
             } else if (state == StateListener.SESSION_LOST) {
                 logger.warn("Url of this instance will be deleted from registry soon. " +
-                        "Dubbo client will try to re-register once a new session is created.");
+                    "Dubbo client will try to re-register once a new session is created.");
             } else if (state == StateListener.SUSPENDED) {
 
             } else if (state == StateListener.CONNECTED) {
@@ -148,7 +148,7 @@ public class ZookeeperRegistry extends CacheableFailbackRegistry {
                         if (!anyServices.contains(child)) {
                             anyServices.add(child);
                             subscribe(url.setPath(child).addParameters(INTERFACE_KEY, child,
-                                    Constants.CHECK_KEY, String.valueOf(false)), k);
+                                Constants.CHECK_KEY, String.valueOf(false)), k);
                         }
                     }
                 });
@@ -159,7 +159,7 @@ public class ZookeeperRegistry extends CacheableFailbackRegistry {
                         service = URL.decode(service);
                         anyServices.add(service);
                         subscribe(url.setPath(service).addParameters(INTERFACE_KEY, service,
-                                Constants.CHECK_KEY, String.valueOf(false)), listener);
+                            Constants.CHECK_KEY, String.valueOf(false)), listener);
                     }
                 }
             } else {
@@ -202,7 +202,7 @@ public class ZookeeperRegistry extends CacheableFailbackRegistry {
                 }
             }
 
-            if(listeners.isEmpty()){
+            if (listeners.isEmpty()) {
                 zkListeners.remove(url);
             }
         }

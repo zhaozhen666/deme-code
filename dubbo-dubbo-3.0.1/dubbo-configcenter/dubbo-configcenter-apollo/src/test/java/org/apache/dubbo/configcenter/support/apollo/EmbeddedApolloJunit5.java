@@ -98,7 +98,7 @@ public class EmbeddedApolloJunit5 implements BeforeAllCallback, AfterAllCallback
         List<ApolloConfigNotification> newNotifications = new ArrayList<>();
         for (ApolloConfigNotification notification : oldNotifications) {
             newNotifications
-                    .add(new ApolloConfigNotification(notification.getNamespaceName(), notification.getNotificationId() + 1));
+                .add(new ApolloConfigNotification(notification.getNamespaceName(), notification.getNotificationId() + 1));
         }
         return GSON.toJson(newNotifications);
     }

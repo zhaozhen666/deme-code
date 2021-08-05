@@ -37,7 +37,7 @@ import java.util.Map;
  * <p>
  * <b>It is recommended to use {@link DubboReference} on the @Bean method in the Java-config class.</b>
  * </p>
- *
+ * <p>
  * Step 1: Register ReferenceBean in Java-config class:
  * <pre class="code">
  * &#64;Configuration
@@ -65,7 +65,7 @@ import java.util.Map;
  *
  * }
  * </pre>
- *
+ * <p>
  * Step 2: Inject ReferenceBean by @Autowired
  * <pre class="code">
  * public class FooController {

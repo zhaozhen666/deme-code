@@ -32,6 +32,7 @@ import static org.apache.dubbo.spring.boot.util.DubboUtils.DUBBO_SPRING_BOOT_ISS
 
 /**
  * Dubbo Metadata
+ *
  * @since 2.7.0
  */
 @Component

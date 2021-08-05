@@ -34,17 +34,17 @@ public class StatisticsTest {
     @Test
     public void testEquals() {
         URL statistics = new URLBuilder(DUBBO_PROTOCOL, "10.20.153.10", 0)
-                .addParameter(MonitorService.APPLICATION, "morgan")
-                .addParameter(MonitorService.INTERFACE, "MemberService")
-                .addParameter(MonitorService.METHOD, "findPerson")
-                .addParameter(MonitorService.CONSUMER, "10.20.153.11")
-                .addParameter(MonitorService.SUCCESS, 1)
-                .addParameter(MonitorService.FAILURE, 0)
-                .addParameter(MonitorService.ELAPSED, 3)
-                .addParameter(MonitorService.MAX_ELAPSED, 3)
-                .addParameter(MonitorService.CONCURRENT, 1)
-                .addParameter(MonitorService.MAX_CONCURRENT, 1)
-                .build();
+            .addParameter(MonitorService.APPLICATION, "morgan")
+            .addParameter(MonitorService.INTERFACE, "MemberService")
+            .addParameter(MonitorService.METHOD, "findPerson")
+            .addParameter(MonitorService.CONSUMER, "10.20.153.11")
+            .addParameter(MonitorService.SUCCESS, 1)
+            .addParameter(MonitorService.FAILURE, 0)
+            .addParameter(MonitorService.ELAPSED, 3)
+            .addParameter(MonitorService.MAX_ELAPSED, 3)
+            .addParameter(MonitorService.CONCURRENT, 1)
+            .addParameter(MonitorService.MAX_CONCURRENT, 1)
+            .build();
 
         Statistics statistics1 = new Statistics(statistics);
         Statistics statistics2 = new Statistics(statistics);
@@ -76,18 +76,18 @@ public class StatisticsTest {
         assertThat(statistics.toString(), is("dubbo://10.20.153.10"));
 
         Statistics statisticsWithDetailInfo = new Statistics(new URLBuilder(DUBBO_PROTOCOL, "10.20.153.10", 0)
-                .addParameter(MonitorService.APPLICATION, "morgan")
-                .addParameter(MonitorService.INTERFACE, "MemberService")
-                .addParameter(MonitorService.METHOD, "findPerson")
-                .addParameter(MonitorService.CONSUMER, "10.20.153.11")
-                .addParameter(MonitorService.GROUP, "unit-test")
-                .addParameter(MonitorService.SUCCESS, 1)
-                .addParameter(MonitorService.FAILURE, 0)
-                .addParameter(MonitorService.ELAPSED, 3)
-                .addParameter(MonitorService.MAX_ELAPSED, 3)
-                .addParameter(MonitorService.CONCURRENT, 1)
-                .addParameter(MonitorService.MAX_CONCURRENT, 1)
-                .build());
+            .addParameter(MonitorService.APPLICATION, "morgan")
+            .addParameter(MonitorService.INTERFACE, "MemberService")
+            .addParameter(MonitorService.METHOD, "findPerson")
+            .addParameter(MonitorService.CONSUMER, "10.20.153.11")
+            .addParameter(MonitorService.GROUP, "unit-test")
+            .addParameter(MonitorService.SUCCESS, 1)
+            .addParameter(MonitorService.FAILURE, 0)
+            .addParameter(MonitorService.ELAPSED, 3)
+            .addParameter(MonitorService.MAX_ELAPSED, 3)
+            .addParameter(MonitorService.CONCURRENT, 1)
+            .addParameter(MonitorService.MAX_CONCURRENT, 1)
+            .build());
 
         MatcherAssert.assertThat(statisticsWithDetailInfo.getServer(), equalTo(statistics.getServer()));
         MatcherAssert.assertThat(statisticsWithDetailInfo.getService(), equalTo(statistics.getService()));

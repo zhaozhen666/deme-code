@@ -115,9 +115,9 @@ public class ZookeeperServiceDiscoveryTest {
     public void testGetInstances() throws InterruptedException {
 
         List<ServiceInstance> instances = asList(
-                createServiceInstance(SERVICE_NAME, LOCALHOST, 8080),
-                createServiceInstance(SERVICE_NAME, LOCALHOST, 8081),
-                createServiceInstance(SERVICE_NAME, LOCALHOST, 8082)
+            createServiceInstance(SERVICE_NAME, LOCALHOST, 8080),
+            createServiceInstance(SERVICE_NAME, LOCALHOST, 8081),
+            createServiceInstance(SERVICE_NAME, LOCALHOST, 8082)
         );
 
         instances.forEach(discovery::register);
@@ -128,13 +128,13 @@ public class ZookeeperServiceDiscoveryTest {
 
         // Add Listener
         discovery.addServiceInstancesChangedListener(
-                new ServiceInstancesChangedListener(Sets.newSet(SERVICE_NAME), discovery) {
-            @Override
-            public void onEvent(ServiceInstancesChangedEvent event) {
-                serviceInstances.addAll(event.getServiceInstances());
-                latch.countDown();
-            }
-        });
+            new ServiceInstancesChangedListener(Sets.newSet(SERVICE_NAME), discovery) {
+                @Override
+                public void onEvent(ServiceInstancesChangedEvent event) {
+                    serviceInstances.addAll(event.getServiceInstances());
+                    latch.countDown();
+                }
+            });
 
         discovery.register(createServiceInstance(SERVICE_NAME, LOCALHOST, 8082));
         discovery.update(createServiceInstance(SERVICE_NAME, LOCALHOST, 8082));

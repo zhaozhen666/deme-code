@@ -78,7 +78,7 @@ public class MergeableClusterInvoker<T> extends AbstractClusterInvoker<T> {
         Class<?> returnType;
         try {
             returnType = getInterface().getMethod(
-                    invocation.getMethodName(), invocation.getParameterTypes()).getReturnType();
+                invocation.getMethodName(), invocation.getParameterTypes()).getReturnType();
         } catch (NoSuchMethodException e) {
             returnType = null;
         }
@@ -100,8 +100,8 @@ public class MergeableClusterInvoker<T> extends AbstractClusterInvoker<T> {
                 Result r = asyncResult.get();
                 if (r.hasException()) {
                     log.error("Invoke " + getGroupDescFromServiceKey(entry.getKey()) +
-                                    " failed: " + r.getException().getMessage(),
-                            r.getException());
+                            " failed: " + r.getException().getMessage(),
+                        r.getException());
                 } else {
                     resultList.add(r);
                 }
@@ -127,7 +127,7 @@ public class MergeableClusterInvoker<T> extends AbstractClusterInvoker<T> {
                 method = returnType.getMethod(merger, returnType);
             } catch (NoSuchMethodException e) {
                 throw new RpcException("Can not merge result because missing method [ " + merger + " ] in class [ " +
-                        returnType.getName() + " ]");
+                    returnType.getName() + " ]");
             }
             if (!Modifier.isPublic(method.getModifiers())) {
                 method.setAccessible(true);
@@ -135,7 +135,7 @@ public class MergeableClusterInvoker<T> extends AbstractClusterInvoker<T> {
             result = resultList.remove(0).getValue();
             try {
                 if (method.getReturnType() != void.class
-                        && method.getReturnType().isAssignableFrom(result.getClass())) {
+                    && method.getReturnType().isAssignableFrom(result.getClass())) {
                     for (Result r : resultList) {
                         result = method.invoke(result, r.getValue());
                     }
@@ -160,7 +160,7 @@ public class MergeableClusterInvoker<T> extends AbstractClusterInvoker<T> {
                     rets.add(r.getValue());
                 }
                 result = resultMerger.merge(
-                        rets.toArray((Object[]) Array.newInstance(returnType, 0)));
+                    rets.toArray((Object[]) Array.newInstance(returnType, 0)));
             } else {
                 throw new RpcException("There is no merger to merge result.");
             }

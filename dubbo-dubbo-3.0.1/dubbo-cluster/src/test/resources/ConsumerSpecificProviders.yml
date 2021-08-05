@@ -23,12 +23,12 @@ configVersion: v2.7
 scope: application
 key: demo-consumer
 configs:
-- addresses:
-  - 127.0.0.1
-  providerAddresses: ['127.0.0.1:20880']
-  parameters:
-    loadbalance: random
-    cluster: failfast
-    timeout: 6666
-    weight: 222
+  - addresses:
+      - 127.0.0.1
+    providerAddresses: ['127.0.0.1:20880']
+    parameters:
+      loadbalance: random
+      cluster: failfast
+      timeout: 6666
+      weight: 222
 ...

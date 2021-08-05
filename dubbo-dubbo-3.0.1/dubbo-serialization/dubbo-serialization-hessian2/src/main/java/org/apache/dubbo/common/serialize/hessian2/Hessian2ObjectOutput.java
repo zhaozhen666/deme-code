@@ -110,7 +110,7 @@ public class Hessian2ObjectOutput implements ObjectOutput, Cleanable {
 
     @Override
     public void cleanup() {
-        if(mH2o != null) {
+        if (mH2o != null) {
             mH2o.reset();
         }
     }

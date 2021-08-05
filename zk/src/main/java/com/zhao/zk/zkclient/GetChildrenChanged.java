@@ -6,7 +6,7 @@ import org.I0Itec.zkclient.ZkClient;
 import java.util.List;
 
 public class GetChildrenChanged {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         ZkClient zkClient = new ZkClient("119.45.52.68:2181");
         zkClient.createPersistent("/zkClient");
         Thread.sleep(1000);
@@ -15,7 +15,7 @@ public class GetChildrenChanged {
         zkClient.subscribeChildChanges("/zkClient", new IZkChildListener() {
             @Override
             public void handleChildChange(String parentPath, List<String> currentChilds) throws Exception {
-                System.out.println("父路径"+parentPath+"当前子路径的"+currentChilds);
+                System.out.println("父路径" + parentPath + "当前子路径的" + currentChilds);
             }
         });
         zkClient.createPersistent("/zkClient/child1");

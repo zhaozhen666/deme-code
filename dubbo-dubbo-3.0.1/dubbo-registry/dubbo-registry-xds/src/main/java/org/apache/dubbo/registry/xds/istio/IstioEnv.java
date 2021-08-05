@@ -70,7 +70,7 @@ public class IstioEnv implements XdsEnv {
         }
         if (serviceAccount == null) {
             throw new UnsupportedOperationException("Unable to found kubernetes service account token file. " +
-                    "Please check if work in Kubernetes and mount service account token file correctly.");
+                "Please check if work in Kubernetes and mount service account token file correctly.");
         }
     }
 

@@ -112,8 +112,8 @@ class MonitorBuilderTest {
     void build() {
         MonitorBuilder builder = new MonitorBuilder();
         builder.protocol("protocol").address("address").group("group").interval("interval").isDefault(true)
-                .password("password").username("username").version("version")
-                .appendParameter("default.num", "one").id("id");
+            .password("password").username("username").version("version")
+            .appendParameter("default.num", "one").id("id");
 
         MonitorConfig config = builder.build();
         MonitorConfig config2 = builder.build();

@@ -12,38 +12,42 @@ import lombok.Data;
 import java.net.SocketAddress;
 import java.util.HashMap;
 import java.util.Map;
+
 public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
     private Channel channel;
     private SocketAddress remoteAddr;
 
-    private Map<String,RpcFuture> pendingResultTable = new HashMap<>();
+    private Map<String, RpcFuture> pendingResultTable = new HashMap<>();
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
         this.remoteAddr = this.channel.remoteAddress();
 
     }
+
     public Channel getChannel() {
         return channel;
     }
+
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         super.channelRegistered(ctx);
-        this.channel=ctx.channel();
+        this.channel = ctx.channel();
     }
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) throws Exception {
-                String requestId = rpcResponse.getRequestId();
-                RpcFuture rpcFuture = pendingResultTable.get(requestId);
-                if (rpcFuture!=null){
-                    pendingResultTable.remove(requestId);
-                    rpcFuture.done(rpcResponse);
-                }
+        String requestId = rpcResponse.getRequestId();
+        RpcFuture rpcFuture = pendingResultTable.get(requestId);
+        if (rpcFuture != null) {
+            pendingResultTable.remove(requestId);
+            rpcFuture.done(rpcResponse);
+        }
     }
 
-    public SocketAddress getRemoteAddr(){
+    public SocketAddress getRemoteAddr() {
         return this.remoteAddr;
     }
 
@@ -51,11 +55,11 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
         channel.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
     }
 
-    public RpcFuture sendRequest(RpcRequest request){
-            RpcFuture rpcFuture = new RpcFuture(request);
-            pendingResultTable.put(request.getRequestId(),rpcFuture);
-            channel.writeAndFlush(request);
-            return rpcFuture;
+    public RpcFuture sendRequest(RpcRequest request) {
+        RpcFuture rpcFuture = new RpcFuture(request);
+        pendingResultTable.put(request.getRequestId(), rpcFuture);
+        channel.writeAndFlush(request);
+        return rpcFuture;
 
     }
 }

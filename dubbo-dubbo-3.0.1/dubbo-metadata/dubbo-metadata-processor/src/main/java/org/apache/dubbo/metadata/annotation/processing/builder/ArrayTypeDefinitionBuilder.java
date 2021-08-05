@@ -44,7 +44,7 @@ public class ArrayTypeDefinitionBuilder implements TypeBuilder<ArrayType> {
         TypeMirror componentType = type.getComponentType();
         TypeDefinition subTypeDefinition = TypeDefinitionBuilder.build(processingEnv, componentType, typeCache);
         typeDefinition.getItems()
-                .add(subTypeDefinition.getType());
+            .add(subTypeDefinition.getType());
         return typeDefinition;
     }
 

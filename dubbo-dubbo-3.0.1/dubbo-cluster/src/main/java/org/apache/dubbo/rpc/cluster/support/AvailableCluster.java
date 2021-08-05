@@ -23,7 +23,6 @@ import org.apache.dubbo.rpc.cluster.Directory;
 
 /**
  * AvailableCluster
- *
  */
 public class AvailableCluster implements Cluster {
 

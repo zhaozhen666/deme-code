@@ -165,7 +165,7 @@ public final class ReflectUtils {
 
     public static boolean isPrimitive(Class<?> cls) {
         return cls.isPrimitive() || cls == String.class || cls == Boolean.class || cls == Character.class
-                || Number.class.isAssignableFrom(cls) || Date.class.isAssignableFrom(cls);
+            || Number.class.isAssignableFrom(cls) || Date.class.isAssignableFrom(cls);
     }
 
     public static Class<?> getBoxedClass(Class<?> c) {
@@ -911,7 +911,7 @@ public final class ReflectUtils {
      */
     @Deprecated
     public static Method findMethodByMethodSignature(Class<?> clazz, String methodName, String[] parameterTypes)
-            throws NoSuchMethodException, ClassNotFoundException {
+        throws NoSuchMethodException, ClassNotFoundException {
         String signature = clazz.getName() + "." + methodName;
         if (parameterTypes != null && parameterTypes.length > 0) {
             signature += StringUtils.join(parameterTypes);
@@ -932,7 +932,7 @@ public final class ReflectUtils {
             }
             if (finded.size() > 1) {
                 String msg = String.format("Not unique method for method name(%s) in class(%s), find %d methods.",
-                        methodName, clazz.getName(), finded.size());
+                    methodName, clazz.getName(), finded.size());
                 throw new IllegalStateException(msg);
             }
             method = finded.get(0);
@@ -959,7 +959,7 @@ public final class ReflectUtils {
      */
     @Deprecated
     public static Method findMethodByMethodName(Class<?> clazz, String methodName)
-            throws NoSuchMethodException, ClassNotFoundException {
+        throws NoSuchMethodException, ClassNotFoundException {
         return findMethodByMethodSignature(clazz, methodName, null);
     }
 
@@ -972,8 +972,8 @@ public final class ReflectUtils {
             Constructor<?>[] constructors = clazz.getConstructors();
             for (Constructor<?> constructor : constructors) {
                 if (Modifier.isPublic(constructor.getModifiers())
-                        && constructor.getParameterTypes().length == 1
-                        && constructor.getParameterTypes()[0].isAssignableFrom(paramType)) {
+                    && constructor.getParameterTypes().length == 1
+                    && constructor.getParameterTypes()[0].isAssignableFrom(paramType)) {
                     targetConstructor = constructor;
                     break;
                 }
@@ -1113,24 +1113,24 @@ public final class ReflectUtils {
 
     public static boolean isBeanPropertyReadMethod(Method method) {
         return method != null
-                && Modifier.isPublic(method.getModifiers())
-                && !Modifier.isStatic(method.getModifiers())
-                && method.getReturnType() != void.class
-                && method.getDeclaringClass() != Object.class
-                && method.getParameterTypes().length == 0
-                && ((method.getName().startsWith("get") && method.getName().length() > 3)
-                || (method.getName().startsWith("is") && method.getName().length() > 2));
+            && Modifier.isPublic(method.getModifiers())
+            && !Modifier.isStatic(method.getModifiers())
+            && method.getReturnType() != void.class
+            && method.getDeclaringClass() != Object.class
+            && method.getParameterTypes().length == 0
+            && ((method.getName().startsWith("get") && method.getName().length() > 3)
+            || (method.getName().startsWith("is") && method.getName().length() > 2));
     }
 
     public static String getPropertyNameFromBeanReadMethod(Method method) {
         if (isBeanPropertyReadMethod(method)) {
             if (method.getName().startsWith("get")) {
                 return method.getName().substring(3, 4).toLowerCase()
-                        + method.getName().substring(4);
+                    + method.getName().substring(4);
             }
             if (method.getName().startsWith("is")) {
                 return method.getName().substring(2, 3).toLowerCase()
-                        + method.getName().substring(3);
+                    + method.getName().substring(3);
             }
         }
         return null;
@@ -1138,27 +1138,27 @@ public final class ReflectUtils {
 
     public static boolean isBeanPropertyWriteMethod(Method method) {
         return method != null
-                && Modifier.isPublic(method.getModifiers())
-                && !Modifier.isStatic(method.getModifiers())
-                && method.getDeclaringClass() != Object.class
-                && method.getParameterTypes().length == 1
-                && method.getName().startsWith("set")
-                && method.getName().length() > 3;
+            && Modifier.isPublic(method.getModifiers())
+            && !Modifier.isStatic(method.getModifiers())
+            && method.getDeclaringClass() != Object.class
+            && method.getParameterTypes().length == 1
+            && method.getName().startsWith("set")
+            && method.getName().length() > 3;
     }
 
     public static String getPropertyNameFromBeanWriteMethod(Method method) {
         if (isBeanPropertyWriteMethod(method)) {
             return method.getName().substring(3, 4).toLowerCase()
-                    + method.getName().substring(4);
+                + method.getName().substring(4);
         }
         return null;
     }
 
     public static boolean isPublicInstanceField(Field field) {
         return Modifier.isPublic(field.getModifiers())
-                && !Modifier.isStatic(field.getModifiers())
-                && !Modifier.isFinal(field.getModifiers())
-                && !field.isSynthetic();
+            && !Modifier.isStatic(field.getModifiers())
+            && !Modifier.isFinal(field.getModifiers())
+            && !field.isSynthetic();
     }
 
     public static Map<String, Field> getBeanPropertyFields(Class cl) {
@@ -1167,7 +1167,7 @@ public final class ReflectUtils {
             Field[] fields = cl.getDeclaredFields();
             for (Field field : fields) {
                 if (Modifier.isTransient(field.getModifiers())
-                        || Modifier.isStatic(field.getModifiers())) {
+                    || Modifier.isStatic(field.getModifiers())) {
                     continue;
                 }
 
@@ -1234,15 +1234,15 @@ public final class ReflectUtils {
         genericTypes.add(sourceClass.getGenericSuperclass());
 
         Set<ParameterizedType> parameterizedTypes = genericTypes.stream()
-                .filter(type -> type instanceof ParameterizedType)// filter ParameterizedType
-                .map(ParameterizedType.class::cast)  // cast to ParameterizedType
-                .collect(Collectors.toSet());
+            .filter(type -> type instanceof ParameterizedType)// filter ParameterizedType
+            .map(ParameterizedType.class::cast)  // cast to ParameterizedType
+            .collect(Collectors.toSet());
 
         if (parameterizedTypes.isEmpty()) { // If not found, try to search super types recursively
             genericTypes.stream()
-                    .filter(type -> type instanceof Class)
-                    .map(Class.class::cast)
-                    .forEach(superClass -> parameterizedTypes.addAll(findParameterizedTypes(superClass)));
+                .filter(type -> type instanceof Class)
+                .map(Class.class::cast)
+                .forEach(superClass -> parameterizedTypes.addAll(findParameterizedTypes(superClass)));
         }
 
         return unmodifiableSet(parameterizedTypes);                     // build as a Set
@@ -1292,16 +1292,16 @@ public final class ReflectUtils {
         try {
             beanInfo = Introspector.getBeanInfo(beanClass);
             propertyValue = (T) Stream.of(beanInfo.getMethodDescriptors())
-                    .filter(methodDescriptor -> methodName.equals(methodDescriptor.getName()))
-                    .findFirst()
-                    .map(method -> {
-                        try {
-                            return method.getMethod().invoke(bean);
-                        } catch (Exception e) {
-                            //ignore
-                        }
-                        return null;
-                    }).get();
+                .filter(methodDescriptor -> methodName.equals(methodDescriptor.getName()))
+                .findFirst()
+                .map(method -> {
+                    try {
+                        return method.getMethod().invoke(bean);
+                    } catch (Exception e) {
+                        //ignore
+                    }
+                    return null;
+                }).get();
         } catch (Exception e) {
 
         }
@@ -1310,6 +1310,7 @@ public final class ReflectUtils {
 
     /**
      * Check target bean class whether has specify method
+     *
      * @param beanClass
      * @param methodName
      * @return
@@ -1318,8 +1319,8 @@ public final class ReflectUtils {
         try {
             BeanInfo beanInfo = Introspector.getBeanInfo(beanClass);
             Optional<MethodDescriptor> descriptor = Stream.of(beanInfo.getMethodDescriptors())
-                    .filter(methodDescriptor -> methodName.equals(methodDescriptor.getName()))
-                    .findFirst();
+                .filter(methodDescriptor -> methodName.equals(methodDescriptor.getName()))
+                .findFirst();
             return descriptor.isPresent();
         } catch (Exception e) {
 
@@ -1358,19 +1359,21 @@ public final class ReflectUtils {
      * necessary. The {@code setAccessible(true)} method is only called
      * when actually necessary, to avoid unnecessary conflicts with a JVM
      * SecurityManager (if active).
+     *
      * @param method the method to make accessible
      * @see java.lang.reflect.Method#setAccessible
      */
     @SuppressWarnings("deprecation")  // on JDK 9
     public static void makeAccessible(Method method) {
         if ((!Modifier.isPublic(method.getModifiers()) ||
-                !Modifier.isPublic(method.getDeclaringClass().getModifiers())) && !method.isAccessible()) {
+            !Modifier.isPublic(method.getDeclaringClass().getModifiers())) && !method.isAccessible()) {
             method.setAccessible(true);
         }
     }
 
     /**
      * Get all field names of target type
+     *
      * @param type
      * @return
      */

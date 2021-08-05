@@ -98,7 +98,7 @@ public class Hessian2ObjectInput implements ObjectInput, Cleanable {
     @Override
     @SuppressWarnings("unchecked")
     public <T> T readObject(Class<T> cls) throws IOException,
-            ClassNotFoundException {
+        ClassNotFoundException {
         return (T) mH2i.readObject(cls);
     }
 
@@ -113,7 +113,7 @@ public class Hessian2ObjectInput implements ObjectInput, Cleanable {
 
     @Override
     public void cleanup() {
-        if(mH2i != null) {
+        if (mH2i != null) {
             mH2i.reset();
         }
     }

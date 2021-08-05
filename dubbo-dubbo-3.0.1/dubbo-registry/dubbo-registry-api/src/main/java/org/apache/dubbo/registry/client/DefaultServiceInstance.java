@@ -231,8 +231,8 @@ public class DefaultServiceInstance implements ServiceInstance {
         }
         DefaultServiceInstance that = (DefaultServiceInstance) o;
         boolean equals = Objects.equals(getServiceName(), that.getServiceName()) &&
-                Objects.equals(getHost(), that.getHost()) &&
-                Objects.equals(getPort(), that.getPort());
+            Objects.equals(getHost(), that.getHost()) &&
+            Objects.equals(getPort(), that.getPort());
         for (Map.Entry<String, String> entry : this.getMetadata().entrySet()) {
             if (entry.getKey().equals(REVISION_KEY)) {
                 continue;
@@ -262,13 +262,13 @@ public class DefaultServiceInstance implements ServiceInstance {
 
     public String toFullString() {
         return "DefaultServiceInstance{" +
-                ", serviceName='" + serviceName + '\'' +
-                ", host='" + host + '\'' +
-                ", port=" + port +
-                ", enabled=" + enabled +
-                ", healthy=" + healthy +
-                ", metadata=" + metadata +
-                '}';
+            ", serviceName='" + serviceName + '\'' +
+            ", host='" + host + '\'' +
+            ", port=" + port +
+            ", enabled=" + enabled +
+            ", healthy=" + healthy +
+            ", metadata=" + metadata +
+            '}';
     }
 
     public static class Endpoint {

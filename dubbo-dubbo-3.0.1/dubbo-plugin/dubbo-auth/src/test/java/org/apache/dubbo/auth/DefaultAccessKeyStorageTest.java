@@ -32,8 +32,8 @@ class DefaultAccessKeyStorageTest {
     @Test
     void testGetAccessKey() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
         DefaultAccessKeyStorage defaultAccessKeyStorage = new DefaultAccessKeyStorage();
         AccessKeyPair accessKey = defaultAccessKeyStorage.getAccessKey(url, mock(Invocation.class));
         assertNotNull(accessKey);

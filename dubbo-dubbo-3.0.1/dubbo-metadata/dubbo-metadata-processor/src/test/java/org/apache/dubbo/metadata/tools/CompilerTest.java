@@ -29,9 +29,9 @@ public class CompilerTest {
     public void testCompile() throws IOException {
         Compiler compiler = new Compiler();
         compiler.compile(
-                TestServiceImpl.class,
-                DefaultTestService.class,
-                GenericTestService.class);
+            TestServiceImpl.class,
+            DefaultTestService.class,
+            GenericTestService.class);
     }
 }
 

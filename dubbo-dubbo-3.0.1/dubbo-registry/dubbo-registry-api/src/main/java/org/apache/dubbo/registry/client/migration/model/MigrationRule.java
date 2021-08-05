@@ -49,21 +49,21 @@ import static org.apache.dubbo.registry.client.migration.MigrationRuleHandler.DU
  * delay: 60
  * force: false
  * interfaces:
- *   - serviceKey: DemoService:1.0.0
- *     threshold: 0.5
- *     proportion: 30
- *     delay: 30
- *     force: true
- *     step: APPLICATION_FIRST
- *   - serviceKey: GreetingService:1.0.0
- *     step: FORCE_APPLICATION
+ * - serviceKey: DemoService:1.0.0
+ * threshold: 0.5
+ * proportion: 30
+ * delay: 30
+ * force: true
+ * step: APPLICATION_FIRST
+ * - serviceKey: GreetingService:1.0.0
+ * step: FORCE_APPLICATION
  * applications:
- *  - serviceKey: TestApplication
- *    threshold: 0.3
- *    proportion: 20
- *    delay: 10
- *    force: false
- *    step: FORCE_INTERFACE
+ * - serviceKey: TestApplication
+ * threshold: 0.3
+ * proportion: 20
+ * delay: 10
+ * force: false
+ * step: FORCE_INTERFACE
  */
 public class MigrationRule {
     public static final MigrationRule INIT = new MigrationRule();
@@ -113,7 +113,7 @@ public class MigrationRule {
         Object interfaces = map.get("interfaces");
         if (interfaces != null && List.class.isAssignableFrom(interfaces.getClass())) {
             migrationRule.setInterfaces(((List<Map<String, Object>>) interfaces).stream()
-                    .map(SubMigrationRule::parseFromMap).collect(Collectors.toList()));
+                .map(SubMigrationRule::parseFromMap).collect(Collectors.toList()));
         }
 
         Object applications = map.get("applications");

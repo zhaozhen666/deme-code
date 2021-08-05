@@ -38,7 +38,7 @@ public class CodecAdapter implements Codec2 {
 
     @Override
     public void encode(Channel channel, ChannelBuffer buffer, Object message)
-            throws IOException {
+        throws IOException {
         UnsafeByteArrayOutputStream os = new UnsafeByteArrayOutputStream(1024);
         codec.encode(channel, os, message);
         buffer.writeBytes(os.toByteArray());

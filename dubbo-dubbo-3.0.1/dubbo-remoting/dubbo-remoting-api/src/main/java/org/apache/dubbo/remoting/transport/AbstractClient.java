@@ -63,8 +63,8 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
         } catch (Throwable t) {
             close();
             throw new RemotingException(url.toInetSocketAddress(), null,
-                    "Failed to start " + getClass().getSimpleName() + " " + NetUtils.getLocalAddress()
-                            + " connect to the server " + getRemoteAddress() + ", cause: " + t.getMessage(), t);
+                "Failed to start " + getClass().getSimpleName() + " " + NetUtils.getLocalAddress()
+                    + " connect to the server " + getRemoteAddress() + ", cause: " + t.getMessage(), t);
         }
 
         try {
@@ -79,13 +79,13 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
                 throw t;
             } else {
                 logger.warn("Failed to start " + getClass().getSimpleName() + " " + NetUtils.getLocalAddress()
-                        + " connect to the server " + getRemoteAddress() + " (check == false, ignore and retry later!), cause: " + t.getMessage(), t);
+                    + " connect to the server " + getRemoteAddress() + " (check == false, ignore and retry later!), cause: " + t.getMessage(), t);
             }
         } catch (Throwable t) {
             close();
             throw new RemotingException(url.toInetSocketAddress(), null,
-                    "Failed to start " + getClass().getSimpleName() + " " + NetUtils.getLocalAddress()
-                            + " connect to the server " + getRemoteAddress() + ", cause: " + t.getMessage(), t);
+                "Failed to start " + getClass().getSimpleName() + " " + NetUtils.getLocalAddress()
+                    + " connect to the server " + getRemoteAddress() + ", cause: " + t.getMessage(), t);
         }
     }
 
@@ -190,7 +190,7 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
 
             if (isClosed() || isClosing()) {
                 logger.warn("No need to connect to server " + getRemoteAddress() + " from " + getClass().getSimpleName() + " "
-                        + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion() + ", cause: client status is closed or closing.");
+                    + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion() + ", cause: client status is closed or closing.");
                 return;
             }
 
@@ -198,14 +198,14 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
 
             if (!isConnected()) {
                 throw new RemotingException(this, "Failed connect to server " + getRemoteAddress() + " from " + getClass().getSimpleName() + " "
-                                + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion()
-                                + ", cause: Connect wait timeout: " + getConnectTimeout() + "ms.");
+                    + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion()
+                    + ", cause: Connect wait timeout: " + getConnectTimeout() + "ms.");
 
             } else {
                 if (logger.isInfoEnabled()) {
                     logger.info("Successed connect to server " + getRemoteAddress() + " from " + getClass().getSimpleName() + " "
-                                    + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion()
-                                    + ", channel is " + this.getChannel());
+                        + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion()
+                        + ", channel is " + this.getChannel());
                 }
             }
 
@@ -214,8 +214,8 @@ public abstract class AbstractClient extends AbstractEndpoint implements Client 
 
         } catch (Throwable e) {
             throw new RemotingException(this, "Failed connect to server " + getRemoteAddress() + " from " + getClass().getSimpleName() + " "
-                            + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion()
-                            + ", cause: " + e.getMessage(), e);
+                + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion()
+                + ", cause: " + e.getMessage(), e);
 
         } finally {
             connectLock.unlock();

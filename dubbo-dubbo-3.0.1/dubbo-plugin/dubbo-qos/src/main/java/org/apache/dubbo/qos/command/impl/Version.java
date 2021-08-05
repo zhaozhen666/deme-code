@@ -21,7 +21,7 @@ import org.apache.dubbo.qos.command.CommandContext;
 import org.apache.dubbo.qos.command.annotation.Cmd;
 
 @Cmd(name = "version", summary = "version command(show dubbo version)", example = {
-        "version"
+    "version"
 })
 public class Version implements BaseCommand {
 

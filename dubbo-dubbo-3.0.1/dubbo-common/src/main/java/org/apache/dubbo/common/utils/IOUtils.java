@@ -236,6 +236,7 @@ public class IOUtils {
 
     /**
      * use like spring code
+     *
      * @param resourceLocation
      * @return
      */
@@ -248,22 +249,20 @@ public class IOUtils {
             if (url == null) {
                 String description = "class path resource [" + path + "]";
                 throw new FileNotFoundException(description +
-                        " cannot be resolved to URL because it does not exist");
+                    " cannot be resolved to URL because it does not exist");
             }
             return url;
         }
         try {
             // try URL
             return new URL(resourceLocation);
-        }
-        catch (MalformedURLException ex) {
+        } catch (MalformedURLException ex) {
             // no URL -> treat as file path
             try {
                 return new File(resourceLocation).toURI().toURL();
-            }
-            catch (MalformedURLException ex2) {
+            } catch (MalformedURLException ex2) {
                 throw new FileNotFoundException("Resource location [" + resourceLocation +
-                        "] is neither a URL not a well-formed file path");
+                    "] is neither a URL not a well-formed file path");
             }
         }
     }

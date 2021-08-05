@@ -626,6 +626,6 @@ public class URL extends org.apache.dubbo.common.URL {
 
     public org.apache.dubbo.common.URL getOriginalURL() {
         return new org.apache.dubbo.common.URL(super.getProtocol(), super.getUsername(), super.getPassword(),
-                super.getHost(), super.getPort(), super.getPath(), super.getParameters());
+            super.getHost(), super.getPort(), super.getPath(), super.getParameters());
     }
 }

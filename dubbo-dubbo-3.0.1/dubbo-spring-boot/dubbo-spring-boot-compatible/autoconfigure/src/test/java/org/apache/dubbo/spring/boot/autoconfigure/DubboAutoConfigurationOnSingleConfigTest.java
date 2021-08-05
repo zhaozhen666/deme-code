@@ -47,19 +47,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Ignore
 @RunWith(SpringRunner.class)
 @TestPropertySource(
-        properties = {
-                "dubbo.application.name = dubbo-demo-application",
-                "dubbo.module.name = dubbo-demo-module",
-                "dubbo.registry.address = zookeeper://192.168.99.100:32770",
-                "dubbo.protocol.name=dubbo",
-                "dubbo.protocol.port=20880",
-                "dubbo.monitor.address=zookeeper://127.0.0.1:32770",
-                "dubbo.provider.host=127.0.0.1",
-                "dubbo.consumer.client=netty"
-        }
+    properties = {
+        "dubbo.application.name = dubbo-demo-application",
+        "dubbo.module.name = dubbo-demo-module",
+        "dubbo.registry.address = zookeeper://192.168.99.100:32770",
+        "dubbo.protocol.name=dubbo",
+        "dubbo.protocol.port=20880",
+        "dubbo.monitor.address=zookeeper://127.0.0.1:32770",
+        "dubbo.provider.host=127.0.0.1",
+        "dubbo.consumer.client=netty"
+    }
 )
 @SpringBootTest(
-        classes = {DubboAutoConfigurationOnSingleConfigTest.class}
+    classes = {DubboAutoConfigurationOnSingleConfigTest.class}
 )
 @EnableAutoConfiguration
 public class DubboAutoConfigurationOnSingleConfigTest {

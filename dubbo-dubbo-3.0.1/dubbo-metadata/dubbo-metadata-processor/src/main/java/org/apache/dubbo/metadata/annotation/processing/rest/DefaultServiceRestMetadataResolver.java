@@ -54,11 +54,11 @@ public class DefaultServiceRestMetadataResolver extends AbstractServiceRestMetad
     private static final String HTTP_REQUEST_METHOD = "POST";
 
     private static final List<String> MEDIA_TYPES = asList(
-            "application/json;",
-            "application/*+json",
-            "application/xml;charset=UTF-8",
-            "text/xml;charset=UTF-8",
-            "application/*+xml;charset=UTF-8"
+        "application/json;",
+        "application/*+json",
+        "application/xml;charset=UTF-8",
+        "text/xml;charset=UTF-8",
+        "application/*+xml;charset=UTF-8"
     );
 
     private final Set<ExecutableElement> hasComplexParameterTypeMethods = new LinkedHashSet<>();
@@ -66,7 +66,7 @@ public class DefaultServiceRestMetadataResolver extends AbstractServiceRestMetad
     @Override
     public boolean supports(ProcessingEnvironment processingEnvironment, TypeElement serviceType) {
         return !JAXRSServiceRestMetadataResolver.supports(serviceType) &&
-                !SpringMvcServiceRestMetadataResolver.supports(serviceType);
+            !SpringMvcServiceRestMetadataResolver.supports(serviceType);
     }
 
     @Override
@@ -105,7 +105,7 @@ public class DefaultServiceRestMetadataResolver extends AbstractServiceRestMetad
                 } else {
                     // The count of complex types must be only one, or return immediately
                     warn("The method[%s] contains more than one complex parameter type, " +
-                            "thus it will not be chosen as the REST service", method.toString());
+                        "thus it will not be chosen as the REST service", method.toString());
                 }
             }
             String parameterName = parameter.getSimpleName().toString();

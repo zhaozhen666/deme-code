@@ -58,7 +58,7 @@ public class HeaderExchangeServer implements ExchangeServer {
     private AtomicBoolean closed = new AtomicBoolean(false);
 
     private static final HashedWheelTimer IDLE_CHECK_TIMER = new HashedWheelTimer(new NamedThreadFactory("dubbo-server-idleCheck", true), 1,
-            TimeUnit.SECONDS, TICKS_PER_WHEEL);
+        TimeUnit.SECONDS, TICKS_PER_WHEEL);
 
     private CloseTimerTask closeTimerTask;
 
@@ -109,7 +109,7 @@ public class HeaderExchangeServer implements ExchangeServer {
                 sendChannelReadOnlyEvent();
             }
             while (HeaderExchangeServer.this.isRunning()
-                    && System.currentTimeMillis() - start < max) {
+                && System.currentTimeMillis() - start < max) {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
@@ -233,7 +233,7 @@ public class HeaderExchangeServer implements ExchangeServer {
     public void send(Object message) throws RemotingException {
         if (closed.get()) {
             throw new RemotingException(this.getLocalAddress(), null, "Failed to send message " + message
-                    + ", cause: The server " + getLocalAddress() + " is closed!");
+                + ", cause: The server " + getLocalAddress() + " is closed!");
         }
         server.send(message);
     }
@@ -242,7 +242,7 @@ public class HeaderExchangeServer implements ExchangeServer {
     public void send(Object message, boolean sent) throws RemotingException {
         if (closed.get()) {
             throw new RemotingException(this.getLocalAddress(), null, "Failed to send message " + message
-                    + ", cause: The server " + getLocalAddress() + " is closed!");
+                + ", cause: The server " + getLocalAddress() + " is closed!");
         }
         server.send(message, sent);
     }

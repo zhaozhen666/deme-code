@@ -26,7 +26,7 @@ public class PrefixedConfigurationTest {
 
     @Test
     public void testPrefixedConfiguration() {
-        Map<String,String> props = new LinkedHashMap<>();
+        Map<String, String> props = new LinkedHashMap<>();
         props.put("dubbo.protocol.name", "dubbo");
         props.put("dubbo.protocol.port", "1234");
         props.put("dubbo.protocols.rest.port", "2345");

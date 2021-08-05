@@ -189,10 +189,10 @@ public class MetadataInfo implements Serializable {
     @Override
     public String toString() {
         return "metadata{" +
-                "app='" + app + "'," +
-                "revision='" + revision + "'," +
-                "services=" + services +
-                "}";
+            "app='" + app + "'," +
+            "revision='" + revision + "'," +
+            "services=" + services +
+            "}";
     }
 
     public static class ServiceInfo implements Serializable {
@@ -230,10 +230,10 @@ public class MetadataInfo implements Serializable {
             List<MetadataParamsFilter> filters = loader.getActivateExtension(url, "params-filter");
             if (filters.size() == 0) {
                 params.putAll(
-                        url.removeParameters(
-                                MONITOR_KEY, BIND_IP_KEY, BIND_PORT_KEY, QOS_ENABLE,
-                                QOS_HOST, QOS_PORT, ACCEPT_FOREIGN_IP, VALIDATION_KEY, INTERFACES)
-                                .getParameters());
+                    url.removeParameters(
+                        MONITOR_KEY, BIND_IP_KEY, BIND_PORT_KEY, QOS_ENABLE,
+                        QOS_HOST, QOS_PORT, ACCEPT_FOREIGN_IP, VALIDATION_KEY, INTERFACES)
+                        .getParameters());
             }
             for (MetadataParamsFilter filter : filters) {
                 String[] paramsIncluded = filter.serviceParamsIncluded();
@@ -481,13 +481,13 @@ public class MetadataInfo implements Serializable {
         @Override
         public String toString() {
             return "service{" +
-                    "name='" + name + "'," +
-                    "group='" + group + "'," +
-                    "version='" + version + "'," +
-                    "protocol='" + protocol + "'," +
-                    "params=" + params + "," +
-                    "consumerParams=" + consumerParams +
-                    "}";
+                "name='" + name + "'," +
+                "group='" + group + "'," +
+                "version='" + version + "'," +
+                "protocol='" + protocol + "'," +
+                "params=" + params + "," +
+                "consumerParams=" + consumerParams +
+                "}";
         }
     }
 }

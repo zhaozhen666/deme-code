@@ -44,7 +44,7 @@ public class TestProcessor extends AbstractProcessor {
         return super.processingEnv;
     }
 
-    public SourceVersion getSupportedSourceVersion(){
+    public SourceVersion getSupportedSourceVersion() {
         return latestSupported();
     }
 }

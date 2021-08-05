@@ -28,7 +28,6 @@ import org.apache.dubbo.rpc.RpcException;
  * <p>
  * <a href="http://en.wikipedia.org/wiki/Computer_cluster">Cluster</a>
  * <a href="http://en.wikipedia.org/wiki/Fault-tolerant_system">Fault-Tolerant</a>
- *
  */
 @SPI(Cluster.DEFAULT)
 public interface Cluster {

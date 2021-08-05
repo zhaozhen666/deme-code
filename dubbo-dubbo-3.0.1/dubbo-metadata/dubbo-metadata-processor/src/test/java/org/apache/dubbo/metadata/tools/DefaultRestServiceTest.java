@@ -37,9 +37,9 @@ public class DefaultRestServiceTest {
     public void test() throws IOException {
         Compiler compiler = new Compiler();
         compiler.compile(User.class,
-                RestService.class,
-                DefaultRestService.class,
-                SpringRestService.class,
-                StandardRestService.class);
+            RestService.class,
+            DefaultRestService.class,
+            SpringRestService.class,
+            StandardRestService.class);
     }
 }

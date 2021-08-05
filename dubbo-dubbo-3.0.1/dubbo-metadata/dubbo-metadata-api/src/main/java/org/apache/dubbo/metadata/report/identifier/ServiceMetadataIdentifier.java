@@ -71,12 +71,12 @@ public class ServiceMetadataIdentifier extends BaseServiceMetadataIdentifier imp
     @Override
     public String toString() {
         return "ServiceMetadataIdentifier{" +
-                "revision='" + revision + '\'' +
-                ", protocol='" + protocol + '\'' +
-                ", serviceInterface='" + serviceInterface + '\'' +
-                ", version='" + version + '\'' +
-                ", group='" + group + '\'' +
-                ", side='" + side + '\'' +
-                "} " + super.toString();
+            "revision='" + revision + '\'' +
+            ", protocol='" + protocol + '\'' +
+            ", serviceInterface='" + serviceInterface + '\'' +
+            ", version='" + version + '\'' +
+            ", group='" + group + '\'' +
+            ", side='" + side + '\'' +
+            "} " + super.toString();
     }
 }

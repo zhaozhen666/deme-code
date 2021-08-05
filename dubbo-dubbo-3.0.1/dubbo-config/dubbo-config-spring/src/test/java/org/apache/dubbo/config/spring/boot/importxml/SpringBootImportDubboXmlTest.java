@@ -30,13 +30,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootTest(
-        properties = {
-                "dubbo.registry.protocol=zookeeper",
-                "dubbo.registry.address=localhost:2181"
-        },
-        classes = {
-                SpringBootImportDubboXmlTest.class
-        }
+    properties = {
+        "dubbo.registry.protocol=zookeeper",
+        "dubbo.registry.address=localhost:2181"
+    },
+    classes = {
+        SpringBootImportDubboXmlTest.class
+    }
 )
 @Configuration
 @ComponentScan
@@ -44,13 +44,13 @@ import org.springframework.context.annotation.ImportResource;
 public class SpringBootImportDubboXmlTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         ZooKeeperServer.start();
         DubboBootstrap.reset();
     }
 
     @AfterAll
-    public static void tearDown(){
+    public static void tearDown() {
         DubboBootstrap.reset();
     }
 

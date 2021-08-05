@@ -39,44 +39,44 @@ public class MeshAppRuleListenerTest {
         meshAppRuleListener.register(meshRuleRouter);
 
         meshAppRuleListener.receiveConfigInfo("apiVersion: service.dubbo.apache.org/v1alpha1\n" +
-                "kind: DestinationRule\n" +
-                "metadata: { name: demo-route }\n" +
-                "spec:\n" +
-                "  host: demo\n" +
-                "  subsets:\n" +
-                "    - labels: { env-sign: xxx, tag1: hello }\n" +
-                "      name: isolation\n" +
-                "    - labels: { env-sign: yyy }\n" +
-                "      name: testing-trunk\n" +
-                "    - labels: { env-sign: zzz }\n" +
-                "      name: testing\n" +
-                "  trafficPolicy:\n" +
-                "    loadBalancer: { simple: ROUND_ROBIN }\n" +
-                "\n" +
-                "---\n" +
-                "\n" +
-                "apiVersion: service.dubbo.apache.org/v1alpha1\n" +
-                "kind: VirtualService\n" +
-                "metadata: {name: demo-route}\n" +
-                "spec:\n" +
-                "  dubbo:\n" +
-                "    - routedetail:\n" +
-                "        - match:\n" +
-                "            - sourceLabels: {trafficLabel: xxx}\n" +
-                "          name: xxx-project\n" +
-                "          route:\n" +
-                "            - destination: {host: demo, subset: isolation}\n" +
-                "        - match:\n" +
-                "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
-                "          name: testing-trunk\n" +
-                "          route:\n" +
-                "            - destination: {host: demo, subset: testing-trunk}\n" +
-                "        - name: testing\n" +
-                "          route:\n" +
-                "            - destination: {host: demo, subset: testing}\n" +
-                "      services:\n" +
-                "        - {regex: ccc}\n" +
-                "  hosts: [demo]\n");
+            "kind: DestinationRule\n" +
+            "metadata: { name: demo-route }\n" +
+            "spec:\n" +
+            "  host: demo\n" +
+            "  subsets:\n" +
+            "    - labels: { env-sign: xxx, tag1: hello }\n" +
+            "      name: isolation\n" +
+            "    - labels: { env-sign: yyy }\n" +
+            "      name: testing-trunk\n" +
+            "    - labels: { env-sign: zzz }\n" +
+            "      name: testing\n" +
+            "  trafficPolicy:\n" +
+            "    loadBalancer: { simple: ROUND_ROBIN }\n" +
+            "\n" +
+            "---\n" +
+            "\n" +
+            "apiVersion: service.dubbo.apache.org/v1alpha1\n" +
+            "kind: VirtualService\n" +
+            "metadata: {name: demo-route}\n" +
+            "spec:\n" +
+            "  dubbo:\n" +
+            "    - routedetail:\n" +
+            "        - match:\n" +
+            "            - sourceLabels: {trafficLabel: xxx}\n" +
+            "          name: xxx-project\n" +
+            "          route:\n" +
+            "            - destination: {host: demo, subset: isolation}\n" +
+            "        - match:\n" +
+            "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
+            "          name: testing-trunk\n" +
+            "          route:\n" +
+            "            - destination: {host: demo, subset: testing-trunk}\n" +
+            "        - name: testing\n" +
+            "          route:\n" +
+            "            - destination: {host: demo, subset: testing}\n" +
+            "      services:\n" +
+            "        - {regex: ccc}\n" +
+            "  hosts: [demo]\n");
 
 
         ArgumentCaptor<VsDestinationGroup> captor = ArgumentCaptor.forClass(VsDestinationGroup.class);
@@ -115,44 +115,44 @@ public class MeshAppRuleListenerTest {
         meshAppRuleListener.register(meshRuleRouter);
 
         ConfigChangedEvent configChangedEvent = new ConfigChangedEvent("qinliujie", "HSF", "apiVersion: service.dubbo.apache.org/v1alpha1\n" +
-                "kind: DestinationRule\n" +
-                "metadata: { name: demo-route }\n" +
-                "spec:\n" +
-                "  host: demo\n" +
-                "  subsets:\n" +
-                "    - labels: { env-sign: xxx, tag1: hello }\n" +
-                "      name: isolation\n" +
-                "    - labels: { env-sign: yyy }\n" +
-                "      name: testing-trunk\n" +
-                "    - labels: { env-sign: zzz }\n" +
-                "      name: testing\n" +
-                "  trafficPolicy:\n" +
-                "    loadBalancer: { simple: ROUND_ROBIN }\n" +
-                "\n" +
-                "---\n" +
-                "\n" +
-                "apiVersion: service.dubbo.apache.org/v1alpha1\n" +
-                "kind: VirtualService\n" +
-                "metadata: {name: demo-route}\n" +
-                "spec:\n" +
-                "  dubbo:\n" +
-                "    - routedetail:\n" +
-                "        - match:\n" +
-                "            - sourceLabels: {trafficLabel: xxx}\n" +
-                "          name: xxx-project\n" +
-                "          route:\n" +
-                "            - destination: {host: demo, subset: isolation}\n" +
-                "        - match:\n" +
-                "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
-                "          name: testing-trunk\n" +
-                "          route:\n" +
-                "            - destination: {host: demo, subset: testing-trunk}\n" +
-                "        - name: testing\n" +
-                "          route:\n" +
-                "            - destination: {host: demo, subset: testing}\n" +
-                "      services:\n" +
-                "        - {regex: ccc}\n" +
-                "  hosts: [demo]\n", ConfigChangeType.MODIFIED);
+            "kind: DestinationRule\n" +
+            "metadata: { name: demo-route }\n" +
+            "spec:\n" +
+            "  host: demo\n" +
+            "  subsets:\n" +
+            "    - labels: { env-sign: xxx, tag1: hello }\n" +
+            "      name: isolation\n" +
+            "    - labels: { env-sign: yyy }\n" +
+            "      name: testing-trunk\n" +
+            "    - labels: { env-sign: zzz }\n" +
+            "      name: testing\n" +
+            "  trafficPolicy:\n" +
+            "    loadBalancer: { simple: ROUND_ROBIN }\n" +
+            "\n" +
+            "---\n" +
+            "\n" +
+            "apiVersion: service.dubbo.apache.org/v1alpha1\n" +
+            "kind: VirtualService\n" +
+            "metadata: {name: demo-route}\n" +
+            "spec:\n" +
+            "  dubbo:\n" +
+            "    - routedetail:\n" +
+            "        - match:\n" +
+            "            - sourceLabels: {trafficLabel: xxx}\n" +
+            "          name: xxx-project\n" +
+            "          route:\n" +
+            "            - destination: {host: demo, subset: isolation}\n" +
+            "        - match:\n" +
+            "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
+            "          name: testing-trunk\n" +
+            "          route:\n" +
+            "            - destination: {host: demo, subset: testing-trunk}\n" +
+            "        - name: testing\n" +
+            "          route:\n" +
+            "            - destination: {host: demo, subset: testing}\n" +
+            "      services:\n" +
+            "        - {regex: ccc}\n" +
+            "  hosts: [demo]\n", ConfigChangeType.MODIFIED);
 
 
         meshAppRuleListener.process(configChangedEvent);

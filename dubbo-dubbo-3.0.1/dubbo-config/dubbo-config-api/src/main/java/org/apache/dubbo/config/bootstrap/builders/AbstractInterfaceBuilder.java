@@ -35,7 +35,7 @@ import java.util.List;
  * @since 2.7
  */
 public abstract class AbstractInterfaceBuilder<T extends AbstractInterfaceConfig, B extends AbstractInterfaceBuilder<T, B>>
-        extends AbstractMethodBuilder<T, B> {
+    extends AbstractMethodBuilder<T, B> {
     /**
      * Local impl class name for the service interface
      */

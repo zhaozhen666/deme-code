@@ -97,20 +97,20 @@
 
         <!-- curator -->
         <!--<dependency>-->
-            <!--<groupId>org.apache.curator</groupId>-->
-            <!--<artifactId>curator-framework</artifactId>-->
-            <!--<version>2.13.0</version>-->
+        <!--<groupId>org.apache.curator</groupId>-->
+        <!--<artifactId>curator-framework</artifactId>-->
+        <!--<version>2.13.0</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.apache.curator</groupId>-->
-            <!--<artifactId>curator-recipes</artifactId>-->
-            <!--<version>2.13.0</version>-->
+        <!--<groupId>org.apache.curator</groupId>-->
+        <!--<artifactId>curator-recipes</artifactId>-->
+        <!--<version>2.13.0</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>fastjson</artifactId>-->
-            <!--<version>1.2.60</version>-->
+        <!--<groupId>com.alibaba</groupId>-->
+        <!--<artifactId>fastjson</artifactId>-->
+        <!--<version>1.2.60</version>-->
         <!--</dependency>-->
     </dependencies>
 </project>

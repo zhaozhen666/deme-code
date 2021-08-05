@@ -119,7 +119,7 @@ public class ServiceInstancesChangedListener {
             for (ServiceInstance instance : instances) {
                 String revision = getExportedServicesRevision(instance);
                 if (EMPTY_REVISION.equals(revision)) {
-                    if(logger.isDebugEnabled()) {
+                    if (logger.isDebugEnabled()) {
                         logger.debug("Find instance without valid service metadata: " + instance.getAddress());
                     }
                     continue;
@@ -135,7 +135,7 @@ public class ServiceInstancesChangedListener {
             }
         }
 
-        if(logger.isDebugEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug(newRevisionToMetadata.size() + " unique revisions: " + newRevisionToMetadata.keySet());
         }
 
@@ -271,7 +271,7 @@ public class ServiceInstancesChangedListener {
         }
 
         if (metadata == null
-                || (metadata == MetadataInfo.EMPTY && (failureCounter.get() < 3 || (System.currentTimeMillis() - lastFailureTime > 10000)))) {
+            || (metadata == MetadataInfo.EMPTY && (failureCounter.get() < 3 || (System.currentTimeMillis() - lastFailureTime > 10000)))) {
             metadata = getMetadataInfo(instance);
 
             if (metadata != MetadataInfo.EMPTY) {
@@ -280,7 +280,7 @@ public class ServiceInstancesChangedListener {
                 parseMetadata(revision, metadata, localServiceToRevisions);
             } else {
                 logger.error("Failed to get MetadataInfo for instance " + instance.getAddress() + "?revision=" + revision
-                        + "&cluster=" + instance.getRegistryCluster() + ", wait for retry.");
+                    + "&cluster=" + instance.getRegistryCluster() + ", wait for retry.");
                 lastFailureTime = System.currentTimeMillis();
                 failureCounter.incrementAndGet();
             }

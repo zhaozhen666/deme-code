@@ -84,7 +84,7 @@ public class FutureContext {
      *          }
      *      }
      * }</pre>
-     *
+     * <p>
      * Start from 2.7.3, you don't have to get Future from RpcContext, we recommend using Result directly:
      * <pre>{@code
      *      public final class TracingFilter implements Filter {
@@ -95,7 +95,6 @@ public class FutureContext {
      *          }
      *      }
      * }</pre>
-     *
      */
     @Deprecated
     public void setCompatibleFuture(CompletableFuture<?> compatibleFuture) {

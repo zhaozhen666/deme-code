@@ -107,14 +107,14 @@ public class RestProtocol extends AbstractProxyProtocol {
             ServletContext servletContext = ServletManager.getInstance().getServletContext(ServletManager.EXTERNAL_SERVER_PORT);
             if (servletContext == null) {
                 throw new RpcException("No servlet context found. Since you are using server='servlet', " +
-                        "make sure that you've configured " + BootstrapListener.class.getName() + " in web.xml");
+                    "make sure that you've configured " + BootstrapListener.class.getName() + " in web.xml");
             }
             String webappPath = servletContext.getContextPath();
             if (StringUtils.isNotEmpty(webappPath)) {
                 webappPath = webappPath.substring(1);
                 if (!contextPath.startsWith(webappPath)) {
                     throw new RpcException("Since you are using server='servlet', " +
-                            "make sure that the 'contextpath' property starts with the path of external webapp");
+                        "make sure that the 'contextpath' property starts with the path of external webapp");
                 }
                 contextPath = contextPath.substring(webappPath.length());
                 if (contextPath.startsWith("/")) {
@@ -150,32 +150,32 @@ public class RestProtocol extends AbstractProxyProtocol {
         }
         connectionMonitor.addConnectionManager(connectionManager);
         RequestConfig requestConfig = RequestConfig.custom()
-                .setConnectTimeout(url.getParameter(CONNECT_TIMEOUT_KEY, DEFAULT_CONNECT_TIMEOUT))
-                .setSocketTimeout(url.getParameter(TIMEOUT_KEY, DEFAULT_TIMEOUT))
-                .build();
+            .setConnectTimeout(url.getParameter(CONNECT_TIMEOUT_KEY, DEFAULT_CONNECT_TIMEOUT))
+            .setSocketTimeout(url.getParameter(TIMEOUT_KEY, DEFAULT_TIMEOUT))
+            .build();
 
         SocketConfig socketConfig = SocketConfig.custom()
-                .setSoKeepAlive(true)
-                .setTcpNoDelay(true)
-                .build();
+            .setSoKeepAlive(true)
+            .setTcpNoDelay(true)
+            .build();
 
         CloseableHttpClient httpClient = HttpClientBuilder.create()
-                .setConnectionManager(connectionManager)
-                .setKeepAliveStrategy((response, context) -> {
-                    HeaderElementIterator it = new BasicHeaderElementIterator(response.headerIterator(HTTP.CONN_KEEP_ALIVE));
-                    while (it.hasNext()) {
-                        HeaderElement he = it.nextElement();
-                        String param = he.getName();
-                        String value = he.getValue();
-                        if (value != null && param.equalsIgnoreCase(TIMEOUT_KEY)) {
-                            return Long.parseLong(value) * 1000;
-                        }
+            .setConnectionManager(connectionManager)
+            .setKeepAliveStrategy((response, context) -> {
+                HeaderElementIterator it = new BasicHeaderElementIterator(response.headerIterator(HTTP.CONN_KEEP_ALIVE));
+                while (it.hasNext()) {
+                    HeaderElement he = it.nextElement();
+                    String param = he.getName();
+                    String value = he.getValue();
+                    if (value != null && param.equalsIgnoreCase(TIMEOUT_KEY)) {
+                        return Long.parseLong(value) * 1000;
                     }
-                    return HTTPCLIENT_KEEPALIVEDURATION;
-                })
-                .setDefaultRequestConfig(requestConfig)
-                .setDefaultSocketConfig(socketConfig)
-                .build();
+                }
+                return HTTPCLIENT_KEEPALIVEDURATION;
+            })
+            .setDefaultRequestConfig(requestConfig)
+            .setDefaultSocketConfig(socketConfig)
+            .build();
 
         ApacheHttpClient4Engine engine = new ApacheHttpClient4Engine(httpClient/*, localContext*/);
 
@@ -238,9 +238,9 @@ public class RestProtocol extends AbstractProxyProtocol {
     }
 
     /**
-     *  getPath() will return: [contextpath + "/" +] path
-     *  1. contextpath is empty if user does not set through ProtocolConfig or ProviderConfig
-     *  2. path will never be empty, it's default value is the interface name.
+     * getPath() will return: [contextpath + "/" +] path
+     * 1. contextpath is empty if user does not set through ProtocolConfig or ProviderConfig
+     * 2. path will never be empty, it's default value is the interface name.
      *
      * @return return path only if user has explicitly gave then a value.
      */

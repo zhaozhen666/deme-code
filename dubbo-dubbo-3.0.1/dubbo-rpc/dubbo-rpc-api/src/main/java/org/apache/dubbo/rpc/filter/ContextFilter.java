@@ -94,7 +94,7 @@ public class ContextFilter implements Filter, Filter.Listener {
         }
 
         RpcContext.getServiceContext().setInvoker(invoker)
-                .setInvocation(invocation);
+            .setInvocation(invocation);
 
         RpcContext context = RpcContext.getServerAttachment();
 //                .setAttachments(attachments)  // merged from dubbox

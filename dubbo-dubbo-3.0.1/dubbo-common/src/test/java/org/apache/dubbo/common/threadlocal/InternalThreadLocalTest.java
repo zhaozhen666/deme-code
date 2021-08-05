@@ -59,7 +59,7 @@ public class InternalThreadLocalTest {
     public void testRemoveAll() throws InterruptedException {
         final InternalThreadLocal<Integer> internalThreadLocal = new InternalThreadLocal<Integer>();
         internalThreadLocal.set(1);
-        Assertions.assertEquals(1, (int)internalThreadLocal.get(), "set failed");
+        Assertions.assertEquals(1, (int) internalThreadLocal.get(), "set failed");
 
         final InternalThreadLocal<String> internalThreadLocalString = new InternalThreadLocal<String>();
         internalThreadLocalString.set("value");
@@ -94,7 +94,7 @@ public class InternalThreadLocalTest {
     public void testRemove() {
         final InternalThreadLocal<Integer> internalThreadLocal = new InternalThreadLocal<Integer>();
         internalThreadLocal.set(1);
-        Assertions.assertEquals(1, (int)internalThreadLocal.get(), "get method false!");
+        Assertions.assertEquals(1, (int) internalThreadLocal.get(), "get method false!");
 
         internalThreadLocal.remove();
         Assertions.assertNull(internalThreadLocal.get(), "remove failed!");
@@ -111,10 +111,10 @@ public class InternalThreadLocalTest {
             }
         };
         internalThreadLocal.set(1);
-        Assertions.assertEquals(1, (int)internalThreadLocal.get(), "get method false!");
+        Assertions.assertEquals(1, (int) internalThreadLocal.get(), "get method false!");
 
         internalThreadLocal.remove();
-        Assertions.assertEquals(2, (int)valueToRemove[0], "onRemove method failed!");
+        Assertions.assertEquals(2, (int) valueToRemove[0], "onRemove method failed!");
     }
 
     @Test
@@ -173,7 +173,7 @@ public class InternalThreadLocalTest {
                 }
                 long end = System.nanoTime();
                 System.out.println("take[" + TimeUnit.NANOSECONDS.toMillis(end - start) +
-                        "]ms");
+                    "]ms");
                 LockSupport.unpark(mainThread);
             }
         });
@@ -208,7 +208,7 @@ public class InternalThreadLocalTest {
                 }
                 long end = System.nanoTime();
                 System.out.println("take[" + TimeUnit.NANOSECONDS.toMillis(end - start) +
-                        "]ms");
+                    "]ms");
                 LockSupport.unpark(mainThread);
             }
         });

@@ -45,7 +45,7 @@ import static org.springframework.util.ReflectionUtils.invokeMethod;
  * @since 2.7.6
  */
 public class DubboConfigDefaultPropertyValueBeanPostProcessor extends GenericBeanPostProcessorAdapter<AbstractConfig>
-        implements MergedBeanDefinitionPostProcessor, PriorityOrdered {
+    implements MergedBeanDefinitionPostProcessor, PriorityOrdered {
 
     /**
      * The bean name of {@link DubboConfigDefaultPropertyValueBeanPostProcessor}

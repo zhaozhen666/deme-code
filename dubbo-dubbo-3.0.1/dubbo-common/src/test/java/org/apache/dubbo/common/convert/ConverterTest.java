@@ -34,10 +34,10 @@ public class ConverterTest {
     @Test
     public void testGetConverter() {
         getExtensionLoader(Converter.class)
-                .getSupportedExtensionInstances()
-                .forEach(converter -> {
-                    assertSame(converter, getConverter(converter.getSourceType(), converter.getTargetType()));
-                });
+            .getSupportedExtensionInstances()
+            .forEach(converter -> {
+                assertSame(converter, getConverter(converter.getSourceType(), converter.getTargetType()));
+            });
     }
 
     @Test

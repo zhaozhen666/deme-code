@@ -150,7 +150,7 @@ public class ProtobufTypeBuilder implements TypeBuilder, Prioritized {
         Matcher matcher = MAP_PATTERN.matcher(typeName);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Map protobuf property " + fieldName + "of Type " +
-                    typeName + " can't be parsed.The type name should mathch[" + MAP_PATTERN.toString() + "].");
+                typeName + " can't be parsed.The type name should mathch[" + MAP_PATTERN.toString() + "].");
         }
     }
 
@@ -216,8 +216,8 @@ public class ProtobufTypeBuilder implements TypeBuilder, Prioritized {
         // 2. - setField(com.google.protobuf.Descriptors.FieldDescriptor field,java.lang.Object value)
         // 3. - setRepeatedField(com.google.protobuf.Descriptors.FieldDescriptor field,int index,java.lang.Object value）
         if ("setField".equals(methodName) && types[0].equals(Descriptors.FieldDescriptor.class)
-                || "setUnknownFields".equals(methodName) && types[0].equals(UnknownFieldSet.class)
-                || "setRepeatedField".equals(methodName) && types[0].equals(Descriptors.FieldDescriptor.class)) {
+            || "setUnknownFields".equals(methodName) && types[0].equals(UnknownFieldSet.class)
+            || "setRepeatedField".equals(methodName) && types[0].equals(Descriptors.FieldDescriptor.class)) {
             return false;
         }
 

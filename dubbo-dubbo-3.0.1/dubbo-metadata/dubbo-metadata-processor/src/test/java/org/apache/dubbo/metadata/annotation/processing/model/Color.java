@@ -36,8 +36,8 @@ public enum Color {
     @Override
     public String toString() {
         return "Color{" +
-                "value=" + value +
-                "} " + super.toString();
+            "value=" + value +
+            "} " + super.toString();
     }
 
     public int getValue() {

@@ -103,10 +103,10 @@ public abstract class AbstractMetadataReport implements MetadataReport {
         setUrl(reportServerURL);
         // Start file save timer
         String defaultFilename = System.getProperty("user.home") +
-                "/.dubbo/dubbo-metadata-" +
-                reportServerURL.getApplication() + "-" +
-                replace(reportServerURL.getAddress(), ":", "-") +
-                ".cache";
+            "/.dubbo/dubbo-metadata-" +
+            reportServerURL.getApplication() + "-" +
+            replace(reportServerURL.getAddress(), ":", "-") +
+            ".cache";
         String filename = reportServerURL.getParameter(FILE_KEY, defaultFilename);
         File file = null;
         if (ConfigUtils.isNotEmpty(filename)) {
@@ -125,7 +125,7 @@ public abstract class AbstractMetadataReport implements MetadataReport {
         loadProperties();
         syncReport = reportServerURL.getParameter(SYNC_REPORT_KEY, false);
         metadataReportRetry = new MetadataReportRetry(reportServerURL.getParameter(RETRY_TIMES_KEY, DEFAULT_METADATA_REPORT_RETRY_TIMES),
-                reportServerURL.getParameter(RETRY_PERIOD_KEY, DEFAULT_METADATA_REPORT_RETRY_PERIOD));
+            reportServerURL.getParameter(RETRY_PERIOD_KEY, DEFAULT_METADATA_REPORT_RETRY_PERIOD));
         // cycle report the data switch
         if (reportServerURL.getParameter(CYCLE_REPORT_KEY, DEFAULT_METADATA_REPORT_CYCLE_REPORT)) {
             ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory("DubboMetadataReportTimer", true));

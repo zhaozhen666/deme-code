@@ -73,7 +73,7 @@ public class RpcContextInterceptor implements ClientInterceptor, ServerIntercept
         // filter out all dubbo attachments and save in map
         if (keys != null) {
             keys.stream().filter(k -> k.toUpperCase().startsWith(DUBBO)).forEach(k ->
-                    attachments.put(k.substring(DUBBO.length()), headers.get(Metadata.Key.of(k, Metadata.ASCII_STRING_MARSHALLER)))
+                attachments.put(k.substring(DUBBO.length()), headers.get(Metadata.Key.of(k, Metadata.ASCII_STRING_MARSHALLER)))
             );
         }
 

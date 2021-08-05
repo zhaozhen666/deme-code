@@ -41,8 +41,8 @@ public class LoadBalancerSettings {
     @Override
     public String toString() {
         return "LoadBalancerSettings{" +
-                "simple=" + simple +
-                ", consistentHash=" + consistentHash +
-                '}';
+            "simple=" + simple +
+            ", consistentHash=" + consistentHash +
+            '}';
     }
 }

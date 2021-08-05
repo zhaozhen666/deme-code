@@ -14,7 +14,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class ResumeApplication8081 {
 
     public static void main(String[] args) {
-        SpringApplication.run(ResumeApplication8081.class,args);
+        SpringApplication.run(ResumeApplication8081.class, args);
     }
 
 }

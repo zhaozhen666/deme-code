@@ -21,33 +21,28 @@ package org.apache.dubbo.metadata.definition.common;
  */
 public interface TestService {
     /**
-     *
      * @param innerClass
      * @return
      */
     void m1(OuterClass.InnerClass innerClass);
 
     /**
-     *
      * @param a
      */
     void m2(int[] a);
 
     /**
-     *
      * @param s1
      * @return
      */
     ResultWithRawCollections m3(String s1);
 
     /**
-     *
      * @param color
      */
     void m4(ColorEnum color);
 
     /**
-     *
      * @param s1
      * @return
      */

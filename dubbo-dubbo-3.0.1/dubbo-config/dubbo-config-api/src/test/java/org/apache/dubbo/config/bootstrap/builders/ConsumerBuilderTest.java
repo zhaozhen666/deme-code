@@ -76,7 +76,7 @@ class ConsumerBuilderTest {
     void build() {
         ConsumerBuilder builder = new ConsumerBuilder();
         builder.isDefault(true).client("client").threadPool("threadPool").coreThreads(10).threads(100).queues(200)
-                .shareConnections(300).id("id");
+            .shareConnections(300).id("id");
 
         ConsumerConfig config = builder.build();
         ConsumerConfig config2 = builder.build();

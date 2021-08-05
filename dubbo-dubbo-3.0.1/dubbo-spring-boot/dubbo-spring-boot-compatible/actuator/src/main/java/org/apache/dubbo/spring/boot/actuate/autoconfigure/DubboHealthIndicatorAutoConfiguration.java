@@ -35,7 +35,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass(name = {
-        "org.springframework.boot.actuate.health.Health"
+    "org.springframework.boot.actuate.health.Health"
 })
 @ConditionalOnProperty(name = "management.health.dubbo.enabled", matchIfMissing = true, havingValue = "true")
 @EnableConfigurationProperties(DubboHealthIndicatorProperties.class)

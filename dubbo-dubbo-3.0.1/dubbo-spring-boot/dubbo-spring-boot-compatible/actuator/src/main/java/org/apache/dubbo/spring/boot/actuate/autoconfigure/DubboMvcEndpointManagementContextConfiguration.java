@@ -35,7 +35,7 @@ import org.springframework.context.annotation.Bean;
  */
 @ManagementContextConfiguration
 @ConditionalOnClass(name = {
-        "org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter"
+    "org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter"
 })
 @ConditionalOnWebApplication
 public class DubboMvcEndpointManagementContextConfiguration {

@@ -427,6 +427,7 @@ public final class StringUtils {
 
     /**
      * Check the cs String whether contains non whitespace characters.
+     *
      * @param cs
      * @return
      */
@@ -746,9 +747,9 @@ public final class StringUtils {
         }
 
         return unmodifiableSet(values
-                .stream()
-                .map(String::trim)
-                .collect(LinkedHashSet::new, Set::add, Set::addAll));
+            .stream()
+            .map(String::trim)
+            .collect(LinkedHashSet::new, Set::add, Set::addAll));
     }
 
     /**
@@ -937,20 +938,20 @@ public final class StringUtils {
         if (str == null) {
             return false;
         }
-        return str.chars().allMatch(ch -> (ch == separator) || isWord((char)ch) );
+        return str.chars().allMatch(ch -> (ch == separator) || isWord((char) ch));
     }
 
     private static boolean isWord(String str) {
         if (str == null) {
             return false;
         }
-        return str.chars().allMatch(ch -> isWord((char)ch));
+        return str.chars().allMatch(ch -> isWord((char) ch));
     }
 
     private static boolean isWord(char ch) {
         if ((ch >= 'A' && ch <= 'Z') ||
-                (ch >= 'a' && ch <= 'z') ||
-                (ch >= '0' && ch <= '9')) {
+            (ch >= 'a' && ch <= 'z') ||
+            (ch >= '0' && ch <= '9')) {
             return true;
         }
         return false;
@@ -960,6 +961,7 @@ public final class StringUtils {
      * Convert snake_case or SNAKE_CASE to kebab-case.
      * <p>
      * NOTE: Return itself if it's not a snake case.
+     *
      * @param snakeName
      * @param split
      * @return
@@ -978,6 +980,7 @@ public final class StringUtils {
 
     /**
      * Convert camelCase or snake_case/SNAKE_CASE to kebab-case
+     *
      * @param str
      * @param split
      * @return
@@ -1127,6 +1130,7 @@ public final class StringUtils {
 
     /**
      * Decode parameters string to map
+     *
      * @param rawParameters format like '[{a:b},{c:d}]'
      * @return
      */
@@ -1154,6 +1158,7 @@ public final class StringUtils {
 
     /**
      * Encode parameters map to string, like '[{a:b},{c:d}]'
+     *
      * @param params
      * @return
      */
@@ -1164,7 +1169,7 @@ public final class StringUtils {
 
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        params.forEach((key,value) -> {
+        params.forEach((key, value) -> {
             // {key:value},
             if (hasText(value)) {
                 sb.append("{").append(key).append(":").append(value).append("},");
@@ -1172,7 +1177,7 @@ public final class StringUtils {
         });
         // delete last separator ','
         if (sb.charAt(sb.length() - 1) == ',') {
-            sb.deleteCharAt(sb.length()-1);
+            sb.deleteCharAt(sb.length() - 1);
         }
         sb.append("]");
         return sb.toString();
@@ -1193,7 +1198,7 @@ public final class StringUtils {
         int lo = decodeHexNibble(s.charAt(pos + 1));
         if (hi == -1 || lo == -1) {
             throw new IllegalArgumentException(String.format(
-                    "invalid hex byte '%s' at index %d of '%s'", s.subSequence(pos, pos + 2), pos, s));
+                "invalid hex byte '%s' at index %d of '%s'", s.subSequence(pos, pos + 2), pos, s));
         }
         return (byte) ((hi << 4) + lo);
     }
@@ -1213,6 +1218,7 @@ public final class StringUtils {
 
     /**
      * Test str whether starts with the prefix ignore case.
+     *
      * @param str
      * @param prefix
      * @return

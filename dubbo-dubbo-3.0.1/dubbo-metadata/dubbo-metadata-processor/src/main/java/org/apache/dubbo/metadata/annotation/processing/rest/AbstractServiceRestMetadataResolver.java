@@ -73,7 +73,7 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
                                              Set<? extends TypeElement> annotations) {
 
         info("%s is processing the service type[%s] with annotations[%s]", processorName, serviceType,
-                annotations.stream().map(t -> "@" + t.toString()).collect(Collectors.joining(",")));
+            annotations.stream().map(t -> "@" + t.toString()).collect(Collectors.joining(",")));
 
         ServiceRestMetadata serviceRestMetadata = new ServiceRestMetadata();
 
@@ -95,7 +95,7 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
 
             serviceMethods.forEach(serviceMethod -> {
                 resolveRestMethodMetadata(processingEnv, serviceType, serviceInterfaceType, serviceMethod)
-                        .ifPresent(serviceRestMetadata.getMeta()::add);
+                    .ifPresent(serviceRestMetadata.getMeta()::add);
             });
 
         } finally {
@@ -237,9 +237,9 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
         parameter.getAnnotationMirrors().forEach(annotation -> {
             String annotationType = annotation.getAnnotationType().toString();
             parameterProcessorsMap.getOrDefault(annotationType, emptyList())
-                    .forEach(parameterProcessor -> {
-                        parameterProcessor.process(annotation, parameter, parameterIndex, method, metadata);
-                    });
+                .forEach(parameterProcessor -> {
+                    parameterProcessor.process(annotation, parameter, parameterIndex, method, metadata);
+                });
         });
     }
 
@@ -269,12 +269,12 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
 //        load(AnnotatedMethodParameterProcessor.class, AnnotatedMethodParameterProcessor.class.getClassLoader())
 
         getExtensionLoader(AnnotatedMethodParameterProcessor.class)
-                .getSupportedExtensionInstances()
-                .forEach(processor -> {
-                    List<AnnotatedMethodParameterProcessor> processors =
-                            parameterProcessorsMap.computeIfAbsent(processor.getAnnotationType(), k -> new LinkedList<>());
-                    processors.add(processor);
-                });
+            .getSupportedExtensionInstances()
+            .forEach(processor -> {
+                List<AnnotatedMethodParameterProcessor> processors =
+                    parameterProcessorsMap.computeIfAbsent(processor.getAnnotationType(), k -> new LinkedList<>());
+                processors.add(processor);
+            });
 
         return parameterProcessorsMap;
     }

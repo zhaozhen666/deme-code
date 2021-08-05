@@ -29,7 +29,7 @@ import java.util.List;
  * @since 2.7
  */
 public abstract class AbstractServiceBuilder<T extends AbstractServiceConfig, B extends AbstractServiceBuilder<T, B>>
-        extends AbstractInterfaceBuilder<T, B> {
+    extends AbstractInterfaceBuilder<T, B> {
 
     /**
      * The service version
@@ -211,7 +211,7 @@ public abstract class AbstractServiceBuilder<T extends AbstractServiceConfig, B 
         return getThis();
     }
 
-    public  B serialization(String serialization) {
+    public B serialization(String serialization) {
         this.serialization = serialization;
         return getThis();
     }

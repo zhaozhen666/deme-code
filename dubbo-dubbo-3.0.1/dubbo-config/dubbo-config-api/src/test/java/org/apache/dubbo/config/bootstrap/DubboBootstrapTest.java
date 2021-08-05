@@ -120,7 +120,7 @@ public class DubboBootstrapTest {
 
         // load configs from props
         DubboBootstrap.getInstance()
-                .initialize();
+            .initialize();
 
         serviceConfig.refresh();
 

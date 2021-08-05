@@ -27,6 +27,7 @@ public class CustomArgument implements Serializable {
 
     public CustomArgument() {
     }
+
     public CustomArgument(Type type, String name) {
         super();
         this.type = type;

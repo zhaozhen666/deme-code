@@ -61,11 +61,11 @@ public class FileRouterFactory implements RouterFactory {
             // FIXME: this code looks useless
             boolean runtime = url.getParameter(RUNTIME_KEY, false);
             URL script = URLBuilder.from(url)
-                    .setProtocol(protocol)
-                    .addParameter(TYPE_KEY, type)
-                    .addParameter(RUNTIME_KEY, runtime)
-                    .addParameterAndEncoded(RULE_KEY, rule)
-                    .build();
+                .setProtocol(protocol)
+                .addParameter(TYPE_KEY, type)
+                .addParameter(RUNTIME_KEY, runtime)
+                .addParameterAndEncoded(RULE_KEY, rule)
+                .build();
 
             return routerFactory.getRouter(script);
         } catch (IOException e) {

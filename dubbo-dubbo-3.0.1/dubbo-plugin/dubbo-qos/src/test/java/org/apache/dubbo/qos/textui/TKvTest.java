@@ -30,8 +30,8 @@ public class TKvTest {
         tKv.add("KEY-3", "1234567890");
 
         TTable tTable = new TTable(new TTable.ColumnDefine[]{
-                new TTable.ColumnDefine(),
-                new TTable.ColumnDefine(20, false, TTable.Align.LEFT)
+            new TTable.ColumnDefine(),
+            new TTable.ColumnDefine(20, false, TTable.Align.LEFT)
         });
 
         String kv = tKv.rendering();

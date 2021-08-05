@@ -155,7 +155,6 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     // AbstractChannelBuffer
 
 
-
     @Override
     public void clear() {
         buffer.clear();

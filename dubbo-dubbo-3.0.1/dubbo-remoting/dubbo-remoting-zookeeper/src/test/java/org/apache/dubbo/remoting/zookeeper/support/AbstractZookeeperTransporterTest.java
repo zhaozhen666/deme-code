@@ -47,7 +47,7 @@ public class AbstractZookeeperTransporterTest {
         zkServerPort = NetUtils.getAvailablePort();
         zkServer = new TestingServer(zkServerPort, true);
         zookeeperClient = new CuratorZookeeperTransporter().connect(URL.valueOf("zookeeper://127.0.0.1:" +
-                zkServerPort + "/service"));
+            zkServerPort + "/service"));
         abstractZookeeperTransporter = new CuratorZookeeperTransporter();
     }
 

@@ -35,7 +35,9 @@ public class AdUnit {
     @Column(name = "unit_status", nullable = false)
     private Integer unitStatus;
 
-    /** 广告位类型(开屏, 贴片, 中贴...) */
+    /**
+     * 广告位类型(开屏, 贴片, 中贴...)
+     */
     @Basic
     @Column(name = "position_type", nullable = false)
     private Integer positionType;

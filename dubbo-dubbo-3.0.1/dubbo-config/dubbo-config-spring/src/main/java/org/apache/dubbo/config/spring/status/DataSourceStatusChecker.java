@@ -45,14 +45,14 @@ public class DataSourceStatusChecker implements StatusChecker {
     @Override
     public Status check() {
         Optional<ApplicationContext> context =
-                SpringExtensionFactory.getContexts().stream().filter(Objects::nonNull).findFirst();
+            SpringExtensionFactory.getContexts().stream().filter(Objects::nonNull).findFirst();
 
         if (!context.isPresent()) {
             return new Status(Status.Level.UNKNOWN);
         }
 
         Map<String, DataSource> dataSources =
-                context.get().getBeansOfType(DataSource.class, false, false);
+            context.get().getBeansOfType(DataSource.class, false, false);
         if (CollectionUtils.isEmptyMap(dataSources)) {
             return new Status(Status.Level.UNKNOWN);
         }

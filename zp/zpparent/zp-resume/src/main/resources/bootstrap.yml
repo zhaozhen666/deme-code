@@ -24,7 +24,7 @@ spring:
       enabled: true
 
 rocketmq:
-      name-server: 127.0.0.1:9876
+  name-server: 127.0.0.1:9876
 eureka:
   client:
     service-url:

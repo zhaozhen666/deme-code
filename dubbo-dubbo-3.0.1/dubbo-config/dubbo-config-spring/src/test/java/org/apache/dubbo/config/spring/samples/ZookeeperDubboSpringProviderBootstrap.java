@@ -38,7 +38,7 @@ public class ZookeeperDubboSpringProviderBootstrap {
 
     public static void main(String[] args) throws Exception {
         AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(ZookeeperDubboSpringProviderBootstrap.class);
+            new AnnotationConfigApplicationContext(ZookeeperDubboSpringProviderBootstrap.class);
         System.in.read();
         context.close();
     }

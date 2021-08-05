@@ -27,6 +27,7 @@ import org.roaringbitmap.RoaringBitmap;
 
 /**
  * BitList based on BitMap implementation.
+ *
  * @param <E>
  * @since 3.0
  */
@@ -61,7 +62,7 @@ public class BitList<E> implements List<E> {
 
     public BitList<E> intersect(List<E> b, List<E> totalList) {
         RoaringBitmap resultMap = rootMap.clone();
-        resultMap.and(((BitList)b).rootMap);
+        resultMap.and(((BitList) b).rootMap);
         return new BitList<>(totalList, resultMap);
     }
 
@@ -93,7 +94,7 @@ public class BitList<E> implements List<E> {
 
             @Override
             public E next() {
-                prev = (int)rootMap.nextValue(prev + 1);
+                prev = (int) rootMap.nextValue(prev + 1);
                 return unmodifiableList.get(prev);
             }
 
@@ -120,9 +121,13 @@ public class BitList<E> implements List<E> {
         Object[] arr = toArray();
         if (a.length < size)
         // Make a new array of a's runtime type, but my contents:
-        { return (T[])Arrays.copyOf(arr, size, a.getClass()); }
+        {
+            return (T[]) Arrays.copyOf(arr, size, a.getClass());
+        }
         System.arraycopy(arr, 0, a, 0, size);
-        if (a.length > size) { a[size] = null; }
+        if (a.length > size) {
+            a[size] = null;
+        }
         return null;
     }
 

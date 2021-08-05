@@ -47,14 +47,14 @@ import static org.springframework.util.ObjectUtils.containsElement;
 public class AwaitingNonWebApplicationListener implements SmartApplicationListener {
 
     private static final String[] WEB_APPLICATION_CONTEXT_CLASSES = new String[]{
-            "org.springframework.web.context.WebApplicationContext",
-            "org.springframework.boot.web.reactive.context.ReactiveWebApplicationContext"
+        "org.springframework.web.context.WebApplicationContext",
+        "org.springframework.boot.web.reactive.context.ReactiveWebApplicationContext"
     };
 
     private static final Logger logger = LoggerFactory.getLogger(AwaitingNonWebApplicationListener.class);
 
     private static final Class<? extends ApplicationEvent>[] SUPPORTED_APPLICATION_EVENTS =
-            of(ApplicationReadyEvent.class, ContextClosedEvent.class);
+        of(ApplicationReadyEvent.class, ContextClosedEvent.class);
 
     private static final AtomicBoolean awaited = new AtomicBoolean(false);
 

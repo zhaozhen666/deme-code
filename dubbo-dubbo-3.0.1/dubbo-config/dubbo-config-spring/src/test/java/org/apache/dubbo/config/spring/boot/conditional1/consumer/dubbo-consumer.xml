@@ -18,19 +18,20 @@
   ~
   -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://code.alibabatech.com/schema/dubbo
-		http://code.alibabatech.com/schema/dubbo/dubbo.xsd" default-lazy-init ="false">
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd" default-lazy-init="false">
 
-	<dubbo:application name="consumer-app"/>
+    <dubbo:application name="consumer-app"/>
 
-	<dubbo:registry client="curator" address="${dubbo.registry.address}"/>
+    <dubbo:registry client="curator" address="${dubbo.registry.address}"/>
 
-	<dubbo:protocol name="dubbo" port="${myapp.dubbo.port:20880}"/>
+    <dubbo:protocol name="dubbo" port="${myapp.dubbo.port:20880}"/>
 
-	<dubbo:reference id="helloService" group="${myapp.group:foo}" interface="org.apache.dubbo.config.spring.api.HelloService" init="false"/>
+    <dubbo:reference id="helloService" group="${myapp.group:foo}"
+                     interface="org.apache.dubbo.config.spring.api.HelloService" init="false"/>
 
 </beans>

@@ -15,11 +15,12 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 public class DeliverApplication8091 {
     public static void main(String[] args) {
-        SpringApplication.run(DeliverApplication8091.class,args);
+        SpringApplication.run(DeliverApplication8091.class, args);
     }
+
     @Bean
 //    @LoadBalanced
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
 }

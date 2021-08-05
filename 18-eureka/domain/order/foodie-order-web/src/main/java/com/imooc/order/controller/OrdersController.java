@@ -55,7 +55,7 @@ public class OrdersController extends BaseController {
             HttpServletResponse response) {
 
         if (submitOrderBO.getPayMethod() != PayMethod.WEIXIN.type
-            && submitOrderBO.getPayMethod() != PayMethod.ALIPAY.type ) {
+                && submitOrderBO.getPayMethod() != PayMethod.ALIPAY.type) {
             return IMOOCJSONResult.errorMsg("支付方式不支持！");
         }
 
@@ -95,16 +95,16 @@ public class OrdersController extends BaseController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.add("imoocUserId","imooc");
-        headers.add("password","imooc");
+        headers.add("imoocUserId", "imooc");
+        headers.add("password", "imooc");
 
         HttpEntity<MerchantOrdersVO> entity =
                 new HttpEntity<>(merchantOrdersVO, headers);
 
         ResponseEntity<IMOOCJSONResult> responseEntity =
                 restTemplate.postForEntity(paymentUrl,
-                                            entity,
-                                            IMOOCJSONResult.class);
+                        entity,
+                        IMOOCJSONResult.class);
         IMOOCJSONResult paymentResult = responseEntity.getBody();
         if (paymentResult.getStatus() != 200) {
             logger.error("发送错误：{}", paymentResult.getMsg());

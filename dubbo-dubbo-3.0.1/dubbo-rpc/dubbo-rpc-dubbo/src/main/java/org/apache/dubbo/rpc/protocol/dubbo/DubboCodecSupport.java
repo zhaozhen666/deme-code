@@ -35,7 +35,7 @@ public class DubboCodecSupport {
             return CodecSupport.getSerializationById((byte) serializationType_obj);
         }
         return ExtensionLoader.getExtensionLoader(Serialization.class).getExtension(
-                url.getParameter(org.apache.dubbo.remoting.Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
+            url.getParameter(org.apache.dubbo.remoting.Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
     }
 
     public static Serialization getResponseSerialization(URL url, AppResponse appResponse) {
@@ -48,6 +48,6 @@ public class DubboCodecSupport {
             }
         }
         return ExtensionLoader.getExtensionLoader(Serialization.class).getExtension(
-                url.getParameter(Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
+            url.getParameter(Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
     }
 }

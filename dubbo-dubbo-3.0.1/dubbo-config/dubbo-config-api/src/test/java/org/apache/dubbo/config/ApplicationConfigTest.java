@@ -236,7 +236,7 @@ public class ApplicationConfigTest {
     public void testMetaData() {
         ApplicationConfig config = new ApplicationConfig();
         Map<String, String> metaData = config.getMetaData();
-        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: "+metaData);
+        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: " + metaData);
     }
 
     @Test
@@ -250,8 +250,8 @@ public class ApplicationConfigTest {
             ApplicationConfig applicationConfig = new ApplicationConfig();
 
             DubboBootstrap.getInstance()
-                    .application(applicationConfig)
-                    .initialize();
+                .application(applicationConfig)
+                .initialize();
 
             Assertions.assertEquals(owner, applicationConfig.getOwner());
             Assertions.assertEquals("1.2.3", applicationConfig.getVersion());
@@ -271,8 +271,8 @@ public class ApplicationConfigTest {
             applicationConfig.setId("demo-app");
 
             DubboBootstrap.getInstance()
-                    .application(applicationConfig)
-                    .initialize();
+                .application(applicationConfig)
+                .initialize();
 
             Assertions.assertEquals("demo-app", applicationConfig.getId());
             Assertions.assertEquals("demo-app", applicationConfig.getName());
@@ -293,8 +293,8 @@ public class ApplicationConfigTest {
             applicationConfig.setName("demo-app");
 
             DubboBootstrap.getInstance()
-                    .application(applicationConfig)
-                    .initialize();
+                .application(applicationConfig)
+                .initialize();
 
             Assertions.assertEquals(owner, applicationConfig.getOwner());
             Assertions.assertEquals("1.2.3", applicationConfig.getVersion());
@@ -310,7 +310,7 @@ public class ApplicationConfigTest {
 
         try {
             DubboBootstrap.getInstance()
-                    .initialize();
+                .initialize();
 
             ApplicationConfig applicationConfig = DubboBootstrap.getInstance().getApplication();
 
@@ -331,7 +331,7 @@ public class ApplicationConfigTest {
 
         try {
             DubboBootstrap.getInstance()
-                    .initialize();
+                .initialize();
 
             ApplicationConfig applicationConfig = DubboBootstrap.getInstance().getApplication();
 

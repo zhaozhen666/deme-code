@@ -62,7 +62,7 @@ public class TagRouter extends AbstractRouter implements ConfigurationListener {
     public synchronized void process(ConfigChangedEvent event) {
         if (logger.isDebugEnabled()) {
             logger.debug("Notification of tag rule, change type is: " + event.getChangeType() + ", raw rule is:\n " +
-                    event.getContent());
+                event.getContent());
         }
 
         try {
@@ -73,7 +73,7 @@ public class TagRouter extends AbstractRouter implements ConfigurationListener {
             }
         } catch (Exception e) {
             logger.error("Failed to parse the raw tag router rule and it will not take effect, please check if the " +
-                    "rule matches with the template, the raw rule is:\n ", e);
+                "rule matches with the template, the raw rule is:\n ", e);
         }
     }
 
@@ -96,7 +96,7 @@ public class TagRouter extends AbstractRouter implements ConfigurationListener {
 
         List<Invoker<T>> result = invokers;
         String tag = StringUtils.isEmpty(invocation.getAttachment(TAG_KEY)) ? url.getParameter(TAG_KEY) :
-                invocation.getAttachment(TAG_KEY);
+            invocation.getAttachment(TAG_KEY);
 
         // if we are requesting for a Provider with a specific tag
         if (StringUtils.isNotEmpty(tag)) {
@@ -121,7 +121,7 @@ public class TagRouter extends AbstractRouter implements ConfigurationListener {
             // FAILOVER: return all Providers without any tags.
             else {
                 List<Invoker<T>> tmp = filterInvoker(invokers, invoker -> addressNotMatches(invoker.getUrl(),
-                        tagRouterRuleCopy.getAddresses()));
+                    tagRouterRuleCopy.getAddresses()));
                 return filterInvoker(tmp, invoker -> StringUtils.isEmpty(invoker.getUrl().getParameter(TAG_KEY)));
             }
         } else {
@@ -162,7 +162,7 @@ public class TagRouter extends AbstractRouter implements ConfigurationListener {
         List<Invoker<T>> result;
         // Dynamic param
         String tag = StringUtils.isEmpty(invocation.getAttachment(TAG_KEY)) ? url.getParameter(TAG_KEY) :
-                invocation.getAttachment(TAG_KEY);
+            invocation.getAttachment(TAG_KEY);
         // Tag request
         if (!StringUtils.isEmpty(tag)) {
             result = filterInvoker(invokers, invoker -> tag.equals(invoker.getUrl().getParameter(TAG_KEY)));
@@ -196,8 +196,8 @@ public class TagRouter extends AbstractRouter implements ConfigurationListener {
         }
 
         return invokers.stream()
-                .filter(predicate)
-                .collect(Collectors.toList());
+            .filter(predicate)
+            .collect(Collectors.toList());
     }
 
     private boolean addressMatches(URL url, List<String> addresses) {
@@ -240,7 +240,7 @@ public class TagRouter extends AbstractRouter implements ConfigurationListener {
 
         if (StringUtils.isEmpty(providerApplication)) {
             logger.error("TagRouter must getConfig from or subscribe to a specific application, but the application " +
-                    "in this TagRouter is not specified.");
+                "in this TagRouter is not specified.");
             return;
         }
 

@@ -64,8 +64,8 @@ import static org.springframework.core.BridgeMethodResolver.isVisibilityBridgeMe
  */
 @SuppressWarnings("unchecked")
 public abstract class AbstractAnnotationBeanPostProcessor extends
-        InstantiationAwareBeanPostProcessorAdapter implements MergedBeanDefinitionPostProcessor, Ordered,
-        BeanFactoryAware, BeanClassLoaderAware, EnvironmentAware, DisposableBean {
+    InstantiationAwareBeanPostProcessorAdapter implements MergedBeanDefinitionPostProcessor, Ordered,
+    BeanFactoryAware, BeanClassLoaderAware, EnvironmentAware, DisposableBean {
 
     private final static int CACHE_SIZE = Integer.getInteger("", 32);
 
@@ -74,7 +74,7 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
     private final Class<? extends Annotation>[] annotationTypes;
 
     private final ConcurrentMap<String, AbstractAnnotationBeanPostProcessor.AnnotatedInjectionMetadata> injectionMetadataCache =
-            new ConcurrentHashMap<String, AbstractAnnotationBeanPostProcessor.AnnotatedInjectionMetadata>(CACHE_SIZE);
+        new ConcurrentHashMap<String, AbstractAnnotationBeanPostProcessor.AnnotatedInjectionMetadata>(CACHE_SIZE);
 
     private final ConcurrentMap<String, Object> injectedObjectsCache = new ConcurrentHashMap<String, Object>(CACHE_SIZE);
 
@@ -120,7 +120,7 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         Assert.isInstanceOf(ConfigurableListableBeanFactory.class, beanFactory,
-                "AnnotationInjectedBeanPostProcessor requires a ConfigurableListableBeanFactory");
+            "AnnotationInjectedBeanPostProcessor requires a ConfigurableListableBeanFactory");
         this.beanFactory = (ConfigurableListableBeanFactory) beanFactory;
     }
 
@@ -132,14 +132,14 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
             try {
                 prepareInjection(metadata);
             } catch (Exception e) {
-                logger.error("Prepare injection of @"+getAnnotationType().getSimpleName()+" failed", e);
+                logger.error("Prepare injection of @" + getAnnotationType().getSimpleName() + " failed", e);
             }
         }
     }
 
     @Override
     public PropertyValues postProcessPropertyValues(
-            PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
+        PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
 
         try {
             AnnotatedInjectionMetadata metadata = findInjectionMetadata(beanName, bean.getClass(), pvs);
@@ -149,7 +149,7 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
             throw ex;
         } catch (Throwable ex) {
             throw new BeanCreationException(beanName, "Injection of @" + getAnnotationType().getSimpleName()
-                    + " dependencies is failed", ex);
+                + " dependencies is failed", ex);
         }
         return pvs;
     }
@@ -223,10 +223,10 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
 
                     if (attributes != null && method.equals(ClassUtils.getMostSpecificMethod(method, beanClass))) {
                         if (Modifier.isStatic(method.getModifiers())) {
-                            throw new IllegalStateException("When using @"+annotationType.getName() +" to inject interface proxy, it is not supported on static methods: "+method);
+                            throw new IllegalStateException("When using @" + annotationType.getName() + " to inject interface proxy, it is not supported on static methods: " + method);
                         }
                         if (method.getParameterTypes().length != 1) {
-                            throw new IllegalStateException("When using @"+annotationType.getName() +" to inject interface proxy, the method must have only one parameter: "+method);
+                            throw new IllegalStateException("When using @" + annotationType.getName() + " to inject interface proxy, the method must have only one parameter: " + method);
                         }
                         PropertyDescriptor pd = BeanUtils.findPropertyForMethod(bridgedMethod, beanClass);
                         elements.add(new AnnotatedMethodElement(method, pd, attributes));
@@ -262,7 +262,7 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
                         this.injectionMetadataCache.put(cacheKey, metadata);
                     } catch (NoClassDefFoundError err) {
                         throw new IllegalStateException("Failed to introspect object class [" + clazz.getName() +
-                                "] for annotation metadata: could not find class that it depends on", err);
+                            "] for annotation metadata: could not find class that it depends on", err);
                     }
                 }
             }
@@ -358,6 +358,7 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
 
     /**
      * Prepare injection data after found injection elements
+     *
      * @param metadata
      * @throws Exception
      */
@@ -436,7 +437,7 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
                 return false;
             }
             //IGNORE Spring CGLIB enhanced class
-            if (targetClass.isAssignableFrom(clazz) &&  clazz.getName().contains("$$EnhancerBySpringCGLIB$$")) {
+            if (targetClass.isAssignableFrom(clazz) && clazz.getName().contains("$$EnhancerBySpringCGLIB$$")) {
                 return false;
             }
             return true;
@@ -479,11 +480,9 @@ public abstract class AbstractAnnotationBeanPostProcessor extends
             if (injectedType == null) {
                 if (this.isField) {
                     injectedType = ((Field) this.member).getType();
-                }
-                else if (this.pd != null) {
+                } else if (this.pd != null) {
                     return this.pd.getPropertyType();
-                }
-                else {
+                } else {
                     Method method = (Method) this.member;
                     if (method.getParameterTypes().length > 0) {
                         injectedType = method.getParameterTypes()[0];

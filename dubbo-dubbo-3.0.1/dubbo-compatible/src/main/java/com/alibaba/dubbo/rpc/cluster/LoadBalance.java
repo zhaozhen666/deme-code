@@ -35,10 +35,10 @@ public interface LoadBalance extends org.apache.dubbo.rpc.cluster.LoadBalance {
     @Override
     default <T> Invoker<T> select(List<Invoker<T>> invokers, URL url, Invocation invocation) throws RpcException {
         List<com.alibaba.dubbo.rpc.Invoker<T>> invs = invokers.stream().
-                map(invoker -> new com.alibaba.dubbo.rpc.Invoker.CompatibleInvoker<T>(invoker)).
-                collect(Collectors.toList());
+            map(invoker -> new com.alibaba.dubbo.rpc.Invoker.CompatibleInvoker<T>(invoker)).
+            collect(Collectors.toList());
 
         return select(invs, new com.alibaba.dubbo.common.URL(url),
-                new com.alibaba.dubbo.rpc.Invocation.CompatibleInvocation(invocation));
+            new com.alibaba.dubbo.rpc.Invocation.CompatibleInvocation(invocation));
     }
 }

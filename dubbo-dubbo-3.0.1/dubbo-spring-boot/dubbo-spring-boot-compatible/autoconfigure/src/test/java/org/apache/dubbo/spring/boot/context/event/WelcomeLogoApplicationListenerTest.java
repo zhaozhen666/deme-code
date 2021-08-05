@@ -31,7 +31,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-        classes = {WelcomeLogoApplicationListener.class}
+    classes = {WelcomeLogoApplicationListener.class}
 )
 public class WelcomeLogoApplicationListenerTest {
 

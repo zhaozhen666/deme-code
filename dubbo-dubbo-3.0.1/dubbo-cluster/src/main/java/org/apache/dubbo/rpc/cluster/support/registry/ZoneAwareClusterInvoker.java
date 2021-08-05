@@ -61,7 +61,7 @@ public class ZoneAwareClusterInvoker<T> extends AbstractClusterInvoker<T> {
         for (Invoker<T> invoker : invokers) {
             ClusterInvoker<T> clusterInvoker = (ClusterInvoker<T>) invoker;
             if (clusterInvoker.isAvailable() && clusterInvoker.getRegistryUrl()
-                    .getParameter(PREFERRED_KEY, false)) {
+                .getParameter(PREFERRED_KEY, false)) {
                 return clusterInvoker.invoke(invocation);
             }
         }
@@ -78,8 +78,8 @@ public class ZoneAwareClusterInvoker<T> extends AbstractClusterInvoker<T> {
             String force = invocation.getAttachment(REGISTRY_ZONE_FORCE);
             if (StringUtils.isNotEmpty(force) && "true".equalsIgnoreCase(force)) {
                 throw new IllegalStateException("No registry instance in zone or no available providers in the registry, zone: "
-                        + zone
-                        + ", registries: " + invokers.stream().map(invoker -> ((MockClusterInvoker<T>) invoker).getRegistryUrl().toString()).collect(Collectors.joining(",")));
+                    + zone
+                    + ", registries: " + invokers.stream().map(invoker -> ((MockClusterInvoker<T>) invoker).getRegistryUrl().toString()).collect(Collectors.joining(",")));
             }
         }
 

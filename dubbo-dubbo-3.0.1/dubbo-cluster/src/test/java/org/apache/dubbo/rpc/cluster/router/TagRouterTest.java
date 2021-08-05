@@ -33,24 +33,24 @@ public class TagRouterTest {
     @BeforeEach
     public void init() {
         client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", 60 * 1000, 60 * 1000,
-                new ExponentialBackoffRetry(1000, 3));
+            new ExponentialBackoffRetry(1000, 3));
         client.start();
     }
 
     @Test
     public void normalTagRuleTest() {
         String serviceStr = "---\n" +
-                "force: false\n" +
-                "runtime: true\n" +
-                "enabled: false\n" +
-                "priority: 1\n" +
-                "key: demo-provider\n" +
-                "tags:\n" +
-                "  - name: tag1\n" +
-                "    addresses: [\"30.5.120.37:20881\"]\n" +
-                "  - name: tag2\n" +
-                "    addresses: [\"30.5.120.37:20880\"]\n" +
-                "...";
+            "force: false\n" +
+            "runtime: true\n" +
+            "enabled: false\n" +
+            "priority: 1\n" +
+            "key: demo-provider\n" +
+            "tags:\n" +
+            "  - name: tag1\n" +
+            "    addresses: [\"30.5.120.37:20881\"]\n" +
+            "  - name: tag2\n" +
+            "    addresses: [\"30.5.120.37:20880\"]\n" +
+            "...";
 //        String serviceStr = "";
         try {
             String servicePath = "/dubbo/config/demo-provider/tag-router";
@@ -76,23 +76,23 @@ public class TagRouterTest {
      * </pre>
      */
     @Test
-    public void tagRouterRuleParseTest(){
+    public void tagRouterRuleParseTest() {
         String tagRouterRuleConfig = "---\n" +
-                "force: false\n" +
-                "runtime: true\n" +
-                "enabled: false\n" +
-                "priority: 1\n" +
-                "key: demo-provider\n" +
-                "tags:\n" +
-                "  - name: tag1\n" +
-                "    addresses: null\n" +
-                "  - name: tag2\n" +
-                "    addresses: [\"30.5.120.37:20880\"]\n" +
-                "  - name: tag3\n" +
-                "    addresses: []\n" +
-                "  - name: tag4\n" +
-                "    addresses: ~\n" +
-                "...";
+            "force: false\n" +
+            "runtime: true\n" +
+            "enabled: false\n" +
+            "priority: 1\n" +
+            "key: demo-provider\n" +
+            "tags:\n" +
+            "  - name: tag1\n" +
+            "    addresses: null\n" +
+            "  - name: tag2\n" +
+            "    addresses: [\"30.5.120.37:20880\"]\n" +
+            "  - name: tag3\n" +
+            "    addresses: []\n" +
+            "  - name: tag4\n" +
+            "    addresses: ~\n" +
+            "...";
 
         TagRouterRule tagRouterRule = TagRuleParser.parse(tagRouterRuleConfig);
 
@@ -105,10 +105,10 @@ public class TagRouterTest {
         assert tagRouterRule.getTagNames().contains("tag4");
         // assert addresses
         assert tagRouterRule.getAddresses().contains("30.5.120.37:20880");
-        assert tagRouterRule.getTagnameToAddresses().get("tag1")==null;
-        assert tagRouterRule.getTagnameToAddresses().get("tag2").size()==1;
-        assert tagRouterRule.getTagnameToAddresses().get("tag3")==null;
-        assert tagRouterRule.getTagnameToAddresses().get("tag4")==null;
-        assert tagRouterRule.getAddresses().size()==1;
+        assert tagRouterRule.getTagnameToAddresses().get("tag1") == null;
+        assert tagRouterRule.getTagnameToAddresses().get("tag2").size() == 1;
+        assert tagRouterRule.getTagnameToAddresses().get("tag3") == null;
+        assert tagRouterRule.getTagnameToAddresses().get("tag4") == null;
+        assert tagRouterRule.getAddresses().size() == 1;
     }
 }

@@ -52,7 +52,7 @@ public abstract class AbstractProxyTest {
         //Assertions.assertEquals(proxy.hashCode(), invoker.hashCode());
 
         Assertions.assertEquals(invoker.invoke(new RpcInvocation("echo", DemoService.class.getName(), DemoService.class.getName() + ":dubbo", new Class[]{String.class}, new Object[]{"aa"})).getValue()
-                , proxy.echo("aa"));
+            , proxy.echo("aa"));
     }
 
     @Test
@@ -66,7 +66,7 @@ public abstract class AbstractProxyTest {
         Assertions.assertEquals(invoker.getInterface(), DemoService.class);
 
         Assertions.assertEquals(invoker.invoke(new RpcInvocation("echo", DemoService.class.getName(), DemoService.class.getName() + ":dubbo", new Class[]{String.class}, new Object[]{"aa"})).getValue(),
-                origin.echo("aa"));
+            origin.echo("aa"));
 
     }
 

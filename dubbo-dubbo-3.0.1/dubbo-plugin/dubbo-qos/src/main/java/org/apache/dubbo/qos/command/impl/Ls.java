@@ -28,7 +28,7 @@ import org.apache.dubbo.rpc.model.ProviderModel;
 import java.util.Collection;
 
 @Cmd(name = "ls", summary = "ls service", example = {
-        "ls"
+    "ls"
 })
 public class Ls implements BaseCommand {
     @Override
@@ -46,8 +46,8 @@ public class Ls implements BaseCommand {
         Collection<ProviderModel> providerModelList = ApplicationModel.allProviderModels();
 
         TTable tTable = new TTable(new TTable.ColumnDefine[]{
-                new TTable.ColumnDefine(TTable.Align.MIDDLE),
-                new TTable.ColumnDefine(TTable.Align.MIDDLE)
+            new TTable.ColumnDefine(TTable.Align.MIDDLE),
+            new TTable.ColumnDefine(TTable.Align.MIDDLE)
         });
 
         //Header
@@ -68,8 +68,8 @@ public class Ls implements BaseCommand {
         Collection<ConsumerModel> consumerModelList = ApplicationModel.allConsumerModels();
 
         TTable tTable = new TTable(new TTable.ColumnDefine[]{
-                new TTable.ColumnDefine(TTable.Align.MIDDLE),
-                new TTable.ColumnDefine(TTable.Align.MIDDLE)
+            new TTable.ColumnDefine(TTable.Align.MIDDLE),
+            new TTable.ColumnDefine(TTable.Align.MIDDLE)
         });
 
         //Header

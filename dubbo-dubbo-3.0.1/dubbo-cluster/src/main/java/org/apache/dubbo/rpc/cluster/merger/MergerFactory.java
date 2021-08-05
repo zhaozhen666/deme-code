@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentMap;
 public class MergerFactory {
 
     private static final ConcurrentMap<Class<?>, Merger<?>> MERGER_CACHE =
-            new ConcurrentHashMap<Class<?>, Merger<?>>();
+        new ConcurrentHashMap<Class<?>, Merger<?>>();
 
     /**
      * Find the merger according to the returnType class, the merger will
@@ -66,7 +66,7 @@ public class MergerFactory {
 
     static void loadMergers() {
         Set<String> names = ExtensionLoader.getExtensionLoader(Merger.class)
-                .getSupportedExtensions();
+            .getSupportedExtensions();
         for (String name : names) {
             Merger m = ExtensionLoader.getExtensionLoader(Merger.class).getExtension(name);
             MERGER_CACHE.putIfAbsent(ReflectUtils.getGenericClass(m.getClass()), m);

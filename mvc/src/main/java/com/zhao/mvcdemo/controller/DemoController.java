@@ -13,9 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 public class DemoController {
     @Autowired
     private DemoService demoService;
+
     @RequestMapping("/query")
-    public String query(HttpServletRequest req, HttpServletResponse resp,String name){
-        System.out.println("参数为"+name);
+    public String query(HttpServletRequest req, HttpServletResponse resp, String name) {
+        System.out.println("参数为" + name);
         return demoService.getName(name);
     }
 }

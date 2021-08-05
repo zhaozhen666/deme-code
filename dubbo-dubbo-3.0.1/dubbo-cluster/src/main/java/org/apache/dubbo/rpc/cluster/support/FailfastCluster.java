@@ -22,7 +22,6 @@ import org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster;
 
 /**
  * {@link FailfastClusterInvoker}
- *
  */
 public class FailfastCluster extends AbstractCluster {
 

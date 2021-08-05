@@ -247,25 +247,25 @@ public class NetUtilsTest {
     @Test
     public void testMatchIpRangeMatchWhenIpv6Exception() throws UnknownHostException {
         IllegalArgumentException thrown =
-                assertThrows(IllegalArgumentException.class, () ->
-                        NetUtils.matchIpRange("234e:0:4567::3d:*", "234e:0:4567::3d:ff", 90));
+            assertThrows(IllegalArgumentException.class, () ->
+                NetUtils.matchIpRange("234e:0:4567::3d:*", "234e:0:4567::3d:ff", 90));
         assertTrue(thrown.getMessage().contains("If you config ip expression that contains '*'"));
 
         thrown = assertThrows(IllegalArgumentException.class, () ->
-                NetUtils.matchIpRange("234e:0:4567:3d", "234e:0:4567::3d:ff", 90));
+            NetUtils.matchIpRange("234e:0:4567:3d", "234e:0:4567::3d:ff", 90));
         assertTrue(thrown.getMessage().contains("The host is ipv6, but the pattern is not ipv6 pattern"));
 
         thrown =
-                assertThrows(IllegalArgumentException.class, () ->
-                        NetUtils.matchIpRange("192.168.1.1-65-3", "192.168.1.63", 90));
+            assertThrows(IllegalArgumentException.class, () ->
+                NetUtils.matchIpRange("192.168.1.1-65-3", "192.168.1.63", 90));
         assertTrue(thrown.getMessage().contains("There is wrong format of ip Address"));
     }
 
     @Test
     public void testMatchIpRangeMatchWhenIpWrongException() throws UnknownHostException {
         UnknownHostException thrown =
-                assertThrows(UnknownHostException.class, () ->
-                        NetUtils.matchIpRange("192.168.1.63", "192.168.1.ff", 90));
+            assertThrows(UnknownHostException.class, () ->
+                NetUtils.matchIpRange("192.168.1.63", "192.168.1.ff", 90));
         assertTrue(thrown.getMessage().contains("192.168.1.ff"));
     }
 
@@ -291,7 +291,7 @@ public class NetUtilsTest {
     @Test
     public void testMatchIpv4WithIpPort() throws UnknownHostException {
         NumberFormatException thrown =
-                assertThrows(NumberFormatException.class, () -> NetUtils.matchIpExpression("192.168.1.192/26:90", "192.168.1.199", 90));
+            assertThrows(NumberFormatException.class, () -> NetUtils.matchIpExpression("192.168.1.192/26:90", "192.168.1.199", 90));
         assertTrue(thrown instanceof NumberFormatException);
 
         assertTrue(NetUtils.matchIpRange("*.*.*.*:90", "192.168.1.63", 90));

@@ -377,8 +377,8 @@ public class RpcServiceContext extends RpcContext {
     @Override
     public String getLocalHost() {
         String host = localAddress == null ? null :
-                localAddress.getAddress() == null ? localAddress.getHostName()
-                        : NetUtils.filterLocalHost(localAddress.getAddress().getHostAddress());
+            localAddress.getAddress() == null ? localAddress.getHostName()
+                : NetUtils.filterLocalHost(localAddress.getAddress().getHostAddress());
         if (host == null || host.length() == 0) {
             return NetUtils.getLocalHost();
         }
@@ -403,8 +403,8 @@ public class RpcServiceContext extends RpcContext {
     @Override
     public String getRemoteHost() {
         return remoteAddress == null ? null :
-                remoteAddress.getAddress() == null ? remoteAddress.getHostName()
-                        : NetUtils.filterLocalHost(remoteAddress.getAddress().getHostAddress());
+            remoteAddress.getAddress() == null ? remoteAddress.getHostName()
+                : NetUtils.filterLocalHost(remoteAddress.getAddress().getHostAddress());
     }
 
     /**

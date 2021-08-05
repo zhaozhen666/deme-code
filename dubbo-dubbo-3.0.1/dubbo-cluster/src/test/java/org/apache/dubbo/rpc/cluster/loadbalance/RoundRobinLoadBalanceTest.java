@@ -40,7 +40,7 @@ public class RoundRobinLoadBalanceTest extends LoadBalanceBaseTest {
             int count = (int) invokeResult.getCount().get();
             // Because it's a strictly round robin, so the abs delta should be < 10 too
             Assertions.assertTrue(
-                    Math.abs(invokeResult.getExpected(loop) - count) < 10, "delta with expected count should < 10");
+                Math.abs(invokeResult.getExpected(loop) - count) < 10, "delta with expected count should < 10");
             invokeCount += count;
         }
         Assertions.assertEquals(invokeCount, loop, "select failed!");

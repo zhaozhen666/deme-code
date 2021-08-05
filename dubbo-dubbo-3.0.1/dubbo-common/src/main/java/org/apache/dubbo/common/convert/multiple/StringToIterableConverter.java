@@ -74,7 +74,7 @@ public abstract class StringToIterableConverter<T extends Iterable> implements S
     @Override
     public final int getPriority() {
         int level = getAllInterfaces(getSupportedType(), type ->
-                isAssignableFrom(Iterable.class, type)).size();
+            isAssignableFrom(Iterable.class, type)).size();
         return MIN_PRIORITY - level;
     }
 }

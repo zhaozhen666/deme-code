@@ -472,6 +472,7 @@ public class StringUtilsTest {
 
     /**
      * Test {@link StringUtils#toCommaDelimitedString(String, String...)}
+     *
      * @since 2.7.8
      */
     @Test

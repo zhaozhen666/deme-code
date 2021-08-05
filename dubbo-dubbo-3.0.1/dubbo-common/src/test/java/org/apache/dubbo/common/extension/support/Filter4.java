@@ -19,5 +19,5 @@ package org.apache.dubbo.common.extension.support;
 import org.apache.dubbo.common.extension.Activate;
 
 @Activate(before = "_2")
-public class Filter4 implements Filter0{
+public class Filter4 implements Filter0 {
 }

@@ -106,7 +106,7 @@ public class ConditionRouter extends AbstractRouter {
     }
 
     private static Map<String, MatchPair> parseRule(String rule)
-            throws ParseException {
+        throws ParseException {
         Map<String, MatchPair> condition = new HashMap<String, MatchPair>();
         if (StringUtils.isBlank(rule)) {
             return condition;
@@ -137,9 +137,9 @@ public class ConditionRouter extends AbstractRouter {
             else if ("=".equals(separator)) {
                 if (pair == null) {
                     throw new ParseException("Illegal route rule \""
-                            + rule + "\", The error char '" + separator
-                            + "' at index " + matcher.start() + " before \""
-                            + content + "\".", matcher.start());
+                        + rule + "\", The error char '" + separator
+                        + "' at index " + matcher.start() + " before \""
+                        + content + "\".", matcher.start());
                 }
 
                 values = pair.matches;
@@ -149,9 +149,9 @@ public class ConditionRouter extends AbstractRouter {
             else if ("!=".equals(separator)) {
                 if (pair == null) {
                     throw new ParseException("Illegal route rule \""
-                            + rule + "\", The error char '" + separator
-                            + "' at index " + matcher.start() + " before \""
-                            + content + "\".", matcher.start());
+                        + rule + "\", The error char '" + separator
+                        + "' at index " + matcher.start() + " before \""
+                        + content + "\".", matcher.start());
                 }
 
                 values = pair.mismatches;
@@ -161,15 +161,15 @@ public class ConditionRouter extends AbstractRouter {
             else if (",".equals(separator)) { // Should be separated by ','
                 if (values == null || values.isEmpty()) {
                     throw new ParseException("Illegal route rule \""
-                            + rule + "\", The error char '" + separator
-                            + "' at index " + matcher.start() + " before \""
-                            + content + "\".", matcher.start());
+                        + rule + "\", The error char '" + separator
+                        + "' at index " + matcher.start() + " before \""
+                        + content + "\".", matcher.start());
                 }
                 values.add(content);
             } else {
                 throw new ParseException("Illegal route rule \"" + rule
-                        + "\", The error char '" + separator + "' at index "
-                        + matcher.start() + " before \"" + content + "\".", matcher.start());
+                    + "\", The error char '" + separator + "' at index "
+                    + matcher.start() + " before \"" + content + "\".", matcher.start());
             }
         }
         return condition;
@@ -177,7 +177,7 @@ public class ConditionRouter extends AbstractRouter {
 
     @Override
     public <T> List<Invoker<T>> route(List<Invoker<T>> invokers, URL url, Invocation invocation)
-            throws RpcException {
+        throws RpcException {
         if (!enabled) {
             return invokers;
         }
@@ -283,6 +283,7 @@ public class ConditionRouter extends AbstractRouter {
      * Examples would be like this:
      * "arguments[0]=1", whenCondition is that the first argument is equal to '1'.
      * "arguments[1]=a", whenCondition is that the second argument is equal to 'a'.
+     *
      * @param matchPair
      * @param invocation
      * @return

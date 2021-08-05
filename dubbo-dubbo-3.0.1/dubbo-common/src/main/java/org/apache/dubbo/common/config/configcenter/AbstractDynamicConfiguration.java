@@ -88,7 +88,7 @@ public abstract class AbstractDynamicConfiguration implements DynamicConfigurati
 
     public AbstractDynamicConfiguration(URL url) {
         this(getThreadPoolPrefixName(url), getThreadPoolSize(url), getThreadPoolKeepAliveTime(url), getGroup(url),
-                getTimeout(url));
+            getTimeout(url));
     }
 
     public AbstractDynamicConfiguration(String threadPoolPrefixName,
@@ -236,7 +236,7 @@ public abstract class AbstractDynamicConfiguration implements DynamicConfigurati
                                                        int threadPoolSize,
                                                        long keepAliveTime) {
         return new ThreadPoolExecutor(threadPoolSize, threadPoolSize, keepAliveTime,
-                TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new NamedThreadFactory(threadPoolPrefixName, true));
+            TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new NamedThreadFactory(threadPoolPrefixName, true));
     }
 
     protected static String getThreadPoolPrefixName(URL url) {

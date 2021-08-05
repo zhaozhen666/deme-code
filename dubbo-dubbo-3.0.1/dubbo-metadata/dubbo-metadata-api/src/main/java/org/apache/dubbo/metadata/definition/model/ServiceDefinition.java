@@ -94,7 +94,7 @@ public class ServiceDefinition implements Serializable {
     @Override
     public String toString() {
         return "ServiceDefinition [canonicalName=" + canonicalName + ", codeSource=" + codeSource + ", methods="
-                + methods + "]";
+            + methods + "]";
     }
 
     @Override
@@ -107,9 +107,9 @@ public class ServiceDefinition implements Serializable {
         }
         ServiceDefinition that = (ServiceDefinition) o;
         return Objects.equals(getCanonicalName(), that.getCanonicalName()) &&
-                Objects.equals(getCodeSource(), that.getCodeSource()) &&
-                Objects.equals(getMethods(), that.getMethods()) &&
-                Objects.equals(getTypes(), that.getTypes());
+            Objects.equals(getCodeSource(), that.getCodeSource()) &&
+            Objects.equals(getMethods(), that.getMethods()) &&
+            Objects.equals(getTypes(), that.getTypes());
     }
 
     @Override

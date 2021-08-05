@@ -63,10 +63,10 @@ public class LdsProtocol extends AbstractProtocol<ListenerResult, DeltaListener>
     protected ListenerResult decodeDiscoveryResponse(DiscoveryResponse response) {
         if (getTypeUrl().equals(response.getTypeUrl())) {
             Set<String> set = response.getResourcesList().stream()
-                    .map(LdsProtocol::unpackListener)
-                    .filter(Objects::nonNull)
-                    .flatMap((e) -> decodeResourceToListener(e).stream())
-                    .collect(Collectors.toSet());
+                .map(LdsProtocol::unpackListener)
+                .filter(Objects::nonNull)
+                .flatMap((e) -> decodeResourceToListener(e).stream())
+                .collect(Collectors.toSet());
             return new ListenerResult(set);
         }
         return new ListenerResult();
@@ -74,13 +74,13 @@ public class LdsProtocol extends AbstractProtocol<ListenerResult, DeltaListener>
 
     private Set<String> decodeResourceToListener(Listener resource) {
         return resource.getFilterChainsList().stream()
-                .flatMap((e) -> e.getFiltersList().stream())
-                .map(Filter::getTypedConfig)
-                .map(LdsProtocol::unpackHttpConnectionManager)
-                .filter(Objects::nonNull)
-                .map(HttpConnectionManager::getRds)
-                .map(Rds::getRouteConfigName)
-                .collect(Collectors.toSet());
+            .flatMap((e) -> e.getFiltersList().stream())
+            .map(Filter::getTypedConfig)
+            .map(LdsProtocol::unpackHttpConnectionManager)
+            .filter(Objects::nonNull)
+            .map(HttpConnectionManager::getRds)
+            .map(Rds::getRouteConfigName)
+            .collect(Collectors.toSet());
     }
 
     private static Listener unpackListener(Any any) {

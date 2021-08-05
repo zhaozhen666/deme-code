@@ -120,7 +120,7 @@ public class GenericImplFilter implements Filter, Filter.Listener {
             }
 
             invocation.setAttachment(
-                    GENERIC_KEY, invoker.getUrl().getParameter(GENERIC_KEY));
+                GENERIC_KEY, invoker.getUrl().getParameter(GENERIC_KEY));
         }
         return invoker.invoke(invocation);
     }
@@ -141,7 +141,7 @@ public class GenericImplFilter implements Filter, Filter.Listener {
                 try {
                     Class<?> invokerInterface = invoker.getInterface();
                     if (!$INVOKE.equals(methodName) && !$INVOKE_ASYNC.equals(methodName)
-                            && invokerInterface.isAssignableFrom(GenericService.class)) {
+                        && invokerInterface.isAssignableFrom(GenericService.class)) {
                         try {
                             // find the real interface from url
                             String realInterface = invoker.getUrl().getParameter(Constants.INTERFACE);
@@ -215,15 +215,15 @@ public class GenericImplFilter implements Filter, Filter.Listener {
 
     private boolean isCallingGenericImpl(String generic, Invocation invocation) {
         return ProtocolUtils.isGeneric(generic)
-                && (!$INVOKE.equals(invocation.getMethodName()) && !$INVOKE_ASYNC.equals(invocation.getMethodName()))
-                && invocation instanceof RpcInvocation;
+            && (!$INVOKE.equals(invocation.getMethodName()) && !$INVOKE_ASYNC.equals(invocation.getMethodName()))
+            && invocation instanceof RpcInvocation;
     }
 
     private boolean isMakingGenericCall(String generic, Invocation invocation) {
         return (invocation.getMethodName().equals($INVOKE) || invocation.getMethodName().equals($INVOKE_ASYNC))
-                && invocation.getArguments() != null
-                && invocation.getArguments().length == 3
-                && ProtocolUtils.isGeneric(generic);
+            && invocation.getArguments() != null
+            && invocation.getArguments().length == 3
+            && ProtocolUtils.isGeneric(generic);
     }
 
 }

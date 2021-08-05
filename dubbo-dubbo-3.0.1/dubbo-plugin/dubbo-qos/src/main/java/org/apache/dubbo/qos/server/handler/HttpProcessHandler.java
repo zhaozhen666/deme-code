@@ -55,7 +55,7 @@ public class HttpProcessHandler extends SimpleChannelInboundHandler<HttpRequest>
 
     private static FullHttpResponse http(int httpCode, String result) {
         FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.valueOf(httpCode)
-                , Unpooled.wrappedBuffer(result.getBytes()));
+            , Unpooled.wrappedBuffer(result.getBytes()));
         HttpHeaders httpHeaders = response.headers();
         httpHeaders.set(HttpHeaderNames.CONTENT_TYPE, "text/plain");
         httpHeaders.set(HttpHeaderNames.CONTENT_LENGTH, response.content().readableBytes());

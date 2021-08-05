@@ -10,12 +10,12 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RpcClient {
 
     private String serverAddress;
-    private  long timeout;
-    private Map<Class<?>,Object> syncProxyInstanceMap = new ConcurrentHashMap<>();
-    private Map<Class<?>,Object> asyncProxyInstanceMap = new ConcurrentHashMap<>();
+    private long timeout;
+    private Map<Class<?>, Object> syncProxyInstanceMap = new ConcurrentHashMap<>();
+    private Map<Class<?>, Object> asyncProxyInstanceMap = new ConcurrentHashMap<>();
     private RpcConnectManager rpcConnectManager;
 
-//    public RpcClient(String serverAddress, long timeout) {
+    //    public RpcClient(String serverAddress, long timeout) {
 //        this.serverAddress = serverAddress;
 //        this.timeout = timeout;
 //    }
@@ -27,33 +27,33 @@ public class RpcClient {
     }
 
 
-    private  void connect(){
+    private void connect() {
         RpcConnectManager.getInstance().connect(serverAddress);
     }
 
-    private void stop(){
+    private void stop() {
         RpcConnectManager.getInstance().stop();
     }
 
-    public <T> T invokeSync(Class<T> interfaceClass){
-        if (syncProxyInstanceMap.containsKey(interfaceClass)){
-            return (T)syncProxyInstanceMap.get(interfaceClass);
-        }else {
+    public <T> T invokeSync(Class<T> interfaceClass) {
+        if (syncProxyInstanceMap.containsKey(interfaceClass)) {
+            return (T) syncProxyInstanceMap.get(interfaceClass);
+        } else {
             Object object = Proxy.newProxyInstance(interfaceClass.getClassLoader(),
                     new Class<?>[]{interfaceClass},
-                    new RpcProxyImpl<>(interfaceClass,timeout));
-            syncProxyInstanceMap.put(interfaceClass,object);
-            return (T)object;
+                    new RpcProxyImpl<>(interfaceClass, timeout));
+            syncProxyInstanceMap.put(interfaceClass, object);
+            return (T) object;
         }
 
     }
 
-    public <T> RpcAsyncProxy invokeAsync(Class<T> interfaceClass){
-        if (asyncProxyInstanceMap.containsKey(interfaceClass)){
+    public <T> RpcAsyncProxy invokeAsync(Class<T> interfaceClass) {
+        if (asyncProxyInstanceMap.containsKey(interfaceClass)) {
             return (RpcAsyncProxy) asyncProxyInstanceMap.get(interfaceClass);
-        }else {
-            RpcProxyImpl<T> asyncProxyInstance = new RpcProxyImpl<>(interfaceClass,timeout);
-            asyncProxyInstanceMap.put(interfaceClass,asyncProxyInstance);
+        } else {
+            RpcProxyImpl<T> asyncProxyInstance = new RpcProxyImpl<>(interfaceClass, timeout);
+            asyncProxyInstanceMap.put(interfaceClass, asyncProxyInstance);
             return asyncProxyInstance;
         }
 

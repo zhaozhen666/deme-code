@@ -25,7 +25,7 @@ import org.apache.dubbo.config.AbstractReferenceConfig;
  * @since 2.7
  */
 public abstract class AbstractReferenceBuilder<T extends AbstractReferenceConfig, B extends AbstractReferenceBuilder<T, B>>
-        extends AbstractInterfaceBuilder<T, B> {
+    extends AbstractInterfaceBuilder<T, B> {
 
     /**
      * Check if service provider exists, if not exists, it will be fast fail

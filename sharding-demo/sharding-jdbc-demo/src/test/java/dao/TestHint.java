@@ -17,14 +17,15 @@ import java.util.List;
 public class TestHint {
     @Resource
     CityRepository cityRepository;
+
     @Test
-    public void testHint(){
-        HintManager hintManager =HintManager.getInstance();
+    public void testHint() {
+        HintManager hintManager = HintManager.getInstance();
         hintManager.setDatabaseShardingValue(0L);
         List<City> list = cityRepository.findAll();
-        System.out.println("主库表大小"+list.size());
+        System.out.println("主库表大小" + list.size());
         hintManager.setDatabaseShardingValue(1L);
         List<City> list1 = cityRepository.findAll();
-        System.out.println("从库表大小"+list1.size());
+        System.out.println("从库表大小" + list1.size());
     }
 }

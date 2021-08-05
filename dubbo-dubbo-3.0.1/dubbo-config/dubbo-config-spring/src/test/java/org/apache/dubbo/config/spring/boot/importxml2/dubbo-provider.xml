@@ -22,7 +22,7 @@
        xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-<!--    <context:property-placeholder/>-->
+    <!--    <context:property-placeholder/>-->
 
     <dubbo:application name="${myapp.name:foo}"/>
 
@@ -32,6 +32,7 @@
 
     <dubbo:provider delay="-1"/>
 
-    <dubbo:reference id="helloService" group="${myapp.group:foo}" interface="org.apache.dubbo.config.spring.api.HelloService"/>
+    <dubbo:reference id="helloService" group="${myapp.group:foo}"
+                     interface="org.apache.dubbo.config.spring.api.HelloService"/>
 
 </beans>

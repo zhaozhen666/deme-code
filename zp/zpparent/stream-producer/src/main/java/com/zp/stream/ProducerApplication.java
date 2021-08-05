@@ -14,10 +14,11 @@ import org.springframework.messaging.MessageChannel;
 @EnableBinding({TestChannel.class})
 public class ProducerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ProducerApplication.class,args);
+        SpringApplication.run(ProducerApplication.class, args);
     }
+
     @Bean("stream-test-topic.errors")
-    MessageChannel testoutPutErrorChannel(){
+    MessageChannel testoutPutErrorChannel() {
         return new PublishSubscribeChannel();
     }
 

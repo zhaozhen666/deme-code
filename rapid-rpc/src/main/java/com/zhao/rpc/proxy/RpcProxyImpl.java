@@ -11,13 +11,14 @@ import java.lang.reflect.Method;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class RpcProxyImpl<T> implements InvocationHandler,RpcAsyncProxy {
+public class RpcProxyImpl<T> implements InvocationHandler, RpcAsyncProxy {
 
     private Class<T> clazz;
     private long timeout;
+
     public RpcProxyImpl(Class<T> interfaceClass, long timeout) {
-        this.clazz=interfaceClass;
-        this.timeout =timeout;
+        this.clazz = interfaceClass;
+        this.timeout = timeout;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class RpcProxyImpl<T> implements InvocationHandler,RpcAsyncProxy {
         request.setParamterTypes(method.getParameterTypes());
         request.setParamters(args);
         RpcClientHandler handler = RpcConnectManager.getInstance().chooseHandler();
-        RpcFuture future =handler.sendRequest(request);
+        RpcFuture future = handler.sendRequest(request);
 
         return future.get(timeout, TimeUnit.SECONDS);
     }
@@ -41,14 +42,14 @@ public class RpcProxyImpl<T> implements InvocationHandler,RpcAsyncProxy {
         request.setMethodName(funcName);
         request.setClassName(this.clazz.getName());
         request.setParamters(args);
-        Class<?> [] paramterTypes = new Class[args.length];
-        for (int i=0;i<args.length;i++){
+        Class<?>[] paramterTypes = new Class[args.length];
+        for (int i = 0; i < args.length; i++) {
             paramterTypes[i] = getClassType(args[i]);
 
         }
         request.setParamterTypes(paramterTypes);
         RpcClientHandler clientHandler = RpcConnectManager.getInstance().chooseHandler();
-        RpcFuture future= clientHandler.sendRequest(request);
+        RpcFuture future = clientHandler.sendRequest(request);
         return future;
     }
 

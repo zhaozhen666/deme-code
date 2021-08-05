@@ -93,11 +93,12 @@ class EnvironmentConfigurationTest {
         field.setAccessible(true);
         ((Map<String, String>) field.get(env)).put(name, val);
     }
+
     /**
      * Clean.
      */
     @AfterEach
-    public void clean(){
+    public void clean() {
 
     }
 

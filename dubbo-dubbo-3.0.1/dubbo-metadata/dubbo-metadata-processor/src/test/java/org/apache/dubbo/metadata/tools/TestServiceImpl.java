@@ -27,16 +27,16 @@ import java.io.Serializable;
  * @since 2.7.6
  */
 @com.alibaba.dubbo.config.annotation.Service(
-        interfaceName = "org.apache.dubbo.metadata.tools.TestService",
-        interfaceClass = TestService.class,
-        version = "3.0.0",
-        group = "test"
+    interfaceName = "org.apache.dubbo.metadata.tools.TestService",
+    interfaceClass = TestService.class,
+    version = "3.0.0",
+    group = "test"
 )
 @Service(
-        interfaceName = "org.apache.dubbo.metadata.tools.TestService",
-        interfaceClass = TestService.class,
-        version = "3.0.0",
-        group = "test"
+    interfaceName = "org.apache.dubbo.metadata.tools.TestService",
+    interfaceClass = TestService.class,
+    version = "3.0.0",
+    group = "test"
 )
 public class TestServiceImpl extends GenericTestService implements TestService, AutoCloseable, Serializable {
 

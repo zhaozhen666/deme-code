@@ -44,7 +44,7 @@ public class CountTelnetHandler implements TelnetHandler {
     public String telnet(final Channel channel, String message) {
         String service = (String) channel.getAttribute(ChangeTelnetHandler.SERVICE_KEY);
         if ((service == null || service.length() == 0)
-                && (message == null || message.length() == 0)) {
+            && (message == null || message.length() == 0)) {
             return "Please input service name, eg: \r\ncount XxxService\r\ncount XxxService xxxMethod\r\ncount XxxService xxxMethod 10\r\nor \"cd XxxService\" firstly.";
         }
         StringBuilder buf = new StringBuilder();
@@ -73,8 +73,8 @@ public class CountTelnetHandler implements TelnetHandler {
         Invoker<?> invoker = null;
         for (Exporter<?> exporter : DubboProtocol.getDubboProtocol().getExporters()) {
             if (service.equals(exporter.getInvoker().getInterface().getSimpleName())
-                    || service.equals(exporter.getInvoker().getInterface().getName())
-                    || service.equals(exporter.getInvoker().getUrl().getPath())) {
+                || service.equals(exporter.getInvoker().getInterface().getName())
+                || service.equals(exporter.getInvoker().getUrl().getPath())) {
                 invoker = exporter.getInvoker();
                 break;
             }
@@ -130,7 +130,7 @@ public class CountTelnetHandler implements TelnetHandler {
         if (method == null || method.length() == 0) {
             for (Method m : invoker.getInterface().getMethods()) {
                 RpcStatus count = RpcStatus.getStatus(url, m.getName());
-                table.add(createRow(m.getName(),count));
+                table.add(createRow(m.getName(), count));
             }
         } else {
             boolean found = false;
@@ -142,7 +142,7 @@ public class CountTelnetHandler implements TelnetHandler {
             }
             if (found) {
                 RpcStatus count = RpcStatus.getStatus(url, method);
-                table.add(createRow(method,count));
+                table.add(createRow(method, count));
             } else {
                 return "No such method " + method + " in class " + invoker.getInterface().getName();
             }
@@ -150,7 +150,7 @@ public class CountTelnetHandler implements TelnetHandler {
         return TelnetUtils.toTable(header, table);
     }
 
-    private List<String> createRow(String methodName,RpcStatus count) {
+    private List<String> createRow(String methodName, RpcStatus count) {
         List<String> row = new ArrayList<String>();
         row.add(methodName);
         row.add(String.valueOf(count.getTotal()));

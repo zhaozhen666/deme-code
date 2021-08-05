@@ -103,7 +103,7 @@ public class FutureAdapter<V> implements Future<V> {
                     }
                     callback.caught(t);
                 } else {
-                    AppResponse appResponse = (AppResponse)obj;
+                    AppResponse appResponse = (AppResponse) obj;
                     if (appResponse.hasException()) {
                         callback.caught(appResponse.getException());
                     } else {
@@ -135,7 +135,7 @@ public class FutureAdapter<V> implements Future<V> {
     public V get() throws InterruptedException, ExecutionException {
         try {
             return (V) (((Result) future.get()).recreate());
-        } catch (InterruptedException | ExecutionException e)  {
+        } catch (InterruptedException | ExecutionException e) {
             throw e;
         } catch (Throwable e) {
             throw new RpcException(e);
@@ -147,7 +147,7 @@ public class FutureAdapter<V> implements Future<V> {
     public V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
         try {
             return (V) (((Result) future.get(timeout, unit)).recreate());
-        } catch (InterruptedException | ExecutionException | TimeoutException e)  {
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
             throw e;
         } catch (Throwable e) {
             throw new RpcException(e);

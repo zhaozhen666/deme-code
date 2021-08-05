@@ -23,7 +23,7 @@
         </rollingPolicy>
     </appender>
     <root level="DEBUG">
-        <appender-ref ref = "consoleLog"/>
-        <appender-ref ref = "fileLog"/>
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileLog"/>
     </root>
 </configuration>

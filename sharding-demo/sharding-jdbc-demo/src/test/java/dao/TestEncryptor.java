@@ -16,8 +16,9 @@ import java.util.List;
 public class TestEncryptor {
     @Resource
     CUserRepository cUserRepository;
+
     @Test
-    public void testEncryptor(){
+    public void testEncryptor() {
         CUser cUser = new CUser();
         cUser.setName("zhen");
         cUser.setPwd("123456");
@@ -25,11 +26,11 @@ public class TestEncryptor {
     }
 
     @Test
-    public void testEncryptorLoad(){
+    public void testEncryptorLoad() {
 
-       List<CUser> list = cUserRepository.findByPwd("123456");
-       list.forEach(c->{
-           System.out.println(c.getId()+" "+c.getName()+" "+c.getPwd());
-       });
+        List<CUser> list = cUserRepository.findByPwd("123456");
+        list.forEach(c -> {
+            System.out.println(c.getId() + " " + c.getName() + " " + c.getPwd());
+        });
     }
 }

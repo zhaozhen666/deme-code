@@ -60,7 +60,7 @@ public class GenericServiceTest {
         service.setRef(new GenericService() {
 
             public Object $invoke(String method, String[] parameterTypes, Object[] args)
-                    throws GenericException {
+                throws GenericException {
                 if ("sayName".equals(method)) {
                     return "Generic " + args[0];
                 }
@@ -79,11 +79,11 @@ public class GenericServiceTest {
         reference.setUrl("dubbo://127.0.0.1:29581?generic=true&timeout=3000");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("generic-test"))
-                .registry(new RegistryConfig("N/A"))
-                .protocol(new ProtocolConfig("dubbo", 29581))
-                .service(service)
-                .reference(reference);
+            .application(new ApplicationConfig("generic-test"))
+            .registry(new RegistryConfig("N/A"))
+            .protocol(new ProtocolConfig("dubbo", 29581))
+            .service(service)
+            .reference(reference);
 
         bootstrap.start();
 
@@ -121,11 +121,11 @@ public class GenericServiceTest {
         reference.setGeneric(true);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("generic-test"))
-                .registry(new RegistryConfig("N/A"))
-                .protocol(new ProtocolConfig("dubbo", 29581))
-                .service(service)
-                .reference(reference);
+            .application(new ApplicationConfig("generic-test"))
+            .registry(new RegistryConfig("N/A"))
+            .protocol(new ProtocolConfig("dubbo", 29581))
+            .service(service)
+            .reference(reference);
 
         bootstrap.start();
 
@@ -159,11 +159,11 @@ public class GenericServiceTest {
         reference.setGeneric(GENERIC_SERIALIZATION_NATIVE_JAVA);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("generic-test"))
-                .registry(new RegistryConfig("N/A"))
-                .protocol(new ProtocolConfig("dubbo", 29581))
-                .service(service)
-                .reference(reference);
+            .application(new ApplicationConfig("generic-test"))
+            .registry(new RegistryConfig("N/A"))
+            .protocol(new ProtocolConfig("dubbo", 29581))
+            .service(service)
+            .reference(reference);
 
         bootstrap.start();
 
@@ -172,13 +172,13 @@ public class GenericServiceTest {
             String name = "kimi";
             ByteArrayOutputStream bos = new ByteArrayOutputStream(512);
             ExtensionLoader.getExtensionLoader(Serialization.class)
-                    .getExtension("nativejava").serialize(null, bos).writeObject(name);
+                .getExtension("nativejava").serialize(null, bos).writeObject(name);
             byte[] arg = bos.toByteArray();
             Object obj = genericService.$invoke("sayName", new String[]{String.class.getName()}, new Object[]{arg});
             Assertions.assertTrue(obj instanceof byte[]);
             byte[] result = (byte[]) obj;
             Assertions.assertEquals(ref.sayName(name), ExtensionLoader.getExtensionLoader(Serialization.class)
-                    .getExtension("nativejava").deserialize(null, new ByteArrayInputStream(result)).readObject().toString());
+                .getExtension("nativejava").deserialize(null, new ByteArrayInputStream(result)).readObject().toString());
 
             // getUsers
             List<User> users = new ArrayList<User>();
@@ -187,29 +187,29 @@ public class GenericServiceTest {
             users.add(user);
             bos = new ByteArrayOutputStream(512);
             ExtensionLoader.getExtensionLoader(Serialization.class)
-                    .getExtension("nativejava").serialize(null, bos).writeObject(users);
+                .getExtension("nativejava").serialize(null, bos).writeObject(users);
             obj = genericService.$invoke("getUsers",
-                    new String[]{List.class.getName()},
-                    new Object[]{bos.toByteArray()});
+                new String[]{List.class.getName()},
+                new Object[]{bos.toByteArray()});
             Assertions.assertTrue(obj instanceof byte[]);
             result = (byte[]) obj;
             Assertions.assertEquals(users,
-                    ExtensionLoader.getExtensionLoader(Serialization.class)
-                            .getExtension("nativejava")
-                            .deserialize(null, new ByteArrayInputStream(result))
-                            .readObject());
+                ExtensionLoader.getExtensionLoader(Serialization.class)
+                    .getExtension("nativejava")
+                    .deserialize(null, new ByteArrayInputStream(result))
+                    .readObject());
 
             // echo(int)
             bos = new ByteArrayOutputStream(512);
             ExtensionLoader.getExtensionLoader(Serialization.class).getExtension("nativejava")
-                    .serialize(null, bos).writeObject(Integer.MAX_VALUE);
+                .serialize(null, bos).writeObject(Integer.MAX_VALUE);
             obj = genericService.$invoke("echo", new String[]{int.class.getName()}, new Object[]{bos.toByteArray()});
             Assertions.assertTrue(obj instanceof byte[]);
             Assertions.assertEquals(Integer.MAX_VALUE,
-                    ExtensionLoader.getExtensionLoader(Serialization.class)
-                            .getExtension("nativejava")
-                            .deserialize(null, new ByteArrayInputStream((byte[]) obj))
-                            .readObject());
+                ExtensionLoader.getExtensionLoader(Serialization.class)
+                    .getExtension("nativejava")
+                    .deserialize(null, new ByteArrayInputStream((byte[]) obj))
+                    .readObject());
 
         } finally {
             bootstrap.stop();
@@ -229,11 +229,11 @@ public class GenericServiceTest {
         reference.setGeneric(GENERIC_SERIALIZATION_BEAN);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("generic-test"))
-                .registry(new RegistryConfig("N/A"))
-                .protocol(new ProtocolConfig("dubbo", 29581))
-                .service(service)
-                .reference(reference);
+            .application(new ApplicationConfig("generic-test"))
+            .registry(new RegistryConfig("N/A"))
+            .protocol(new ProtocolConfig("dubbo", 29581))
+            .service(service)
+            .reference(reference);
 
         bootstrap.start();
 
@@ -286,11 +286,11 @@ public class GenericServiceTest {
         ref.setUrl("dubbo://127.0.0.1:29581?scope=remote&generic=bean&timeout=3000");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("generic-test"))
-                .registry(new RegistryConfig("N/A"))
-                .protocol(new ProtocolConfig("dubbo", 29581))
-                .service(service)
-                .reference(ref);
+            .application(new ApplicationConfig("generic-test"))
+            .registry(new RegistryConfig("N/A"))
+            .protocol(new ProtocolConfig("dubbo", 29581))
+            .service(service)
+            .reference(ref);
 
         bootstrap.start();
 

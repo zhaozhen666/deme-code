@@ -53,10 +53,10 @@ public interface MethodUtils {
      */
     static boolean isSetter(Method method) {
         return method.getName().startsWith("set")
-                && !"set".equals(method.getName())
-                && Modifier.isPublic(method.getModifiers())
-                && method.getParameterCount() == 1
-                && ClassUtils.isPrimitive(method.getParameterTypes()[0]);
+            && !"set".equals(method.getName())
+            && Modifier.isPublic(method.getModifiers())
+            && method.getParameterCount() == 1
+            && ClassUtils.isPrimitive(method.getParameterTypes()[0]);
     }
 
     /**
@@ -69,11 +69,11 @@ public interface MethodUtils {
     static boolean isGetter(Method method) {
         String name = method.getName();
         return (name.startsWith("get") || name.startsWith("is"))
-                && !"get".equals(name) && !"is".equals(name)
-                && !"getClass".equals(name) && !"getObject".equals(name)
-                && Modifier.isPublic(method.getModifiers())
-                && method.getParameterTypes().length == 0
-                && ClassUtils.isPrimitive(method.getReturnType());
+            && !"get".equals(name) && !"is".equals(name)
+            && !"getClass".equals(name) && !"getObject".equals(name)
+            && Modifier.isPublic(method.getModifiers())
+            && method.getParameterTypes().length == 0
+            && ClassUtils.isPrimitive(method.getReturnType());
     }
 
     /**

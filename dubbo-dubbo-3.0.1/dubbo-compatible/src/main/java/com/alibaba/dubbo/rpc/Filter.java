@@ -25,9 +25,9 @@ public interface Filter extends org.apache.dubbo.rpc.Filter {
     @Override
     default org.apache.dubbo.rpc.Result invoke(org.apache.dubbo.rpc.Invoker<?> invoker,
                                                org.apache.dubbo.rpc.Invocation invocation)
-            throws org.apache.dubbo.rpc.RpcException {
+        throws org.apache.dubbo.rpc.RpcException {
         Result.CompatibleResult result = (Result.CompatibleResult) invoke(new Invoker.CompatibleInvoker<>(invoker),
-                new Invocation.CompatibleInvocation(invocation));
+            new Invocation.CompatibleInvocation(invocation));
         return result.getDelegate();
     }
 }

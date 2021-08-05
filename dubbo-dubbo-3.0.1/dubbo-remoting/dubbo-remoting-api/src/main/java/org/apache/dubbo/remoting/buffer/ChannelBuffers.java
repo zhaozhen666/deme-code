@@ -85,7 +85,7 @@ public final class ChannelBuffers {
         }
 
         ChannelBuffer buffer = new ByteBufferBackedChannelBuffer(
-                ByteBuffer.allocateDirect(capacity));
+            ByteBuffer.allocateDirect(capacity));
         buffer.clear();
         return buffer;
     }
@@ -112,7 +112,7 @@ public final class ChannelBuffers {
         return true;
     }
 
-    public static int hasCode(ChannelBuffer buffer){
+    public static int hasCode(ChannelBuffer buffer) {
         final int aLen = buffer.readableBytes();
         final int byteCount = aLen & 7;
 

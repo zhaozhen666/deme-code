@@ -79,7 +79,7 @@ public class XdsServiceDiscovery extends SelfHostMetaServiceDiscovery {
                 fillServiceInstance(serviceInstance);
                 instances.add(serviceInstance);
             } catch (Throwable t) {
-                logger.error("Error occurred when parsing endpoints. Endpoints List:" + endpoints,t);
+                logger.error("Error occurred when parsing endpoints. Endpoints List:" + endpoints, t);
             }
         });
         instances.sort(Comparator.comparingInt(ServiceInstance::hashCode));

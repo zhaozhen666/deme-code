@@ -30,7 +30,8 @@
     <dubbo:protocol name="${dubbo.protocol.name:foo-protocol}" port="${dubbo.protocol.port:20881}"/>
 
     <!-- service configuration -->
-    <dubbo:service interface="org.apache.dubbo.config.spring.api.DemoService" group="demo" version="1.2.3" ref="demoService"/>
+    <dubbo:service interface="org.apache.dubbo.config.spring.api.DemoService" group="demo" version="1.2.3"
+                   ref="demoService"/>
 
     <bean id="demoService" class="org.apache.dubbo.config.spring.impl.DemoServiceImpl"/>
 

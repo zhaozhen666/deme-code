@@ -48,7 +48,7 @@ public class ConfigUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(ConfigUtils.class);
     private static Pattern VARIABLE_PATTERN = Pattern.compile(
-            "\\$\\s*\\{?\\s*([\\._0-9a-zA-Z]+)\\s*\\}?");
+        "\\$\\s*\\{?\\s*([\\._0-9a-zA-Z]+)\\s*\\}?");
     private static volatile Properties PROPERTIES;
     private static int PID = -1;
 
@@ -61,15 +61,15 @@ public class ConfigUtils {
 
     public static boolean isEmpty(String value) {
         return StringUtils.isEmpty(value)
-                || "false".equalsIgnoreCase(value)
-                || "0".equalsIgnoreCase(value)
-                || "null".equalsIgnoreCase(value)
-                || "N/A".equalsIgnoreCase(value);
+            || "false".equalsIgnoreCase(value)
+            || "0".equalsIgnoreCase(value)
+            || "null".equalsIgnoreCase(value)
+            || "N/A".equalsIgnoreCase(value);
     }
 
     public static boolean isDefault(String value) {
         return "true".equalsIgnoreCase(value)
-                || "default".equalsIgnoreCase(value);
+            || "default".equalsIgnoreCase(value);
     }
 
     /**
@@ -159,6 +159,7 @@ public class ConfigUtils {
     /**
      * Get dubbo properties.
      * It is not recommended to use this method to modify dubbo properties.
+     *
      * @return
      */
     public static Properties getProperties() {
@@ -287,7 +288,7 @@ public class ConfigUtils {
         if (!allowMultiFile) {
             if (list.size() > 1) {
                 String errMsg = String.format("only 1 %s file is expected, but %d dubbo.properties files found on class path: %s",
-                        fileName, list.size(), list.toString());
+                    fileName, list.size(), list.toString());
                 logger.warn(errMsg);
             }
 
@@ -352,7 +353,7 @@ public class ConfigUtils {
     private static String readString(InputStream is) {
         StringBuilder stringBuilder = new StringBuilder();
         char[] buffer = new char[10];
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))){
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
             int n;
             while ((n = reader.read(buffer)) != -1) {
                 if (n < 10) {

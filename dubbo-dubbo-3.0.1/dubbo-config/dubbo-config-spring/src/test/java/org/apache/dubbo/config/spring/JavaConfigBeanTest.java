@@ -74,7 +74,7 @@ public class JavaConfigBeanTest {
         SysProps.setProperty("dubbo.provider.group", "test");
 
         AnnotationConfigApplicationContext consumerContext = new AnnotationConfigApplicationContext(
-                TestConfiguration.class, ConsumerConfiguration.class, ProviderConfiguration.class);
+            TestConfiguration.class, ConsumerConfiguration.class, ProviderConfiguration.class);
         try {
             consumerContext.start();
 
@@ -111,7 +111,7 @@ public class JavaConfigBeanTest {
             Assertions.assertEquals(5, referenceConfig.getRetries());
 
             DemoService referProxy = (DemoService) referenceConfig.get();
-            Assertions.assertTrue( referProxy instanceof DemoService);
+            Assertions.assertTrue(referProxy instanceof DemoService);
             String result = referProxy.sayName("dubbo");
             Assertions.assertEquals("say:dubbo", result);
 

@@ -74,11 +74,11 @@ public interface MultiValueConverter<S> extends Prioritized {
      */
     static MultiValueConverter<?> find(Class<?> sourceType, Class<?> targetType) {
         return getExtensionLoader(MultiValueConverter.class)
-                .getSupportedExtensionInstances()
-                .stream()
-                .filter(converter -> converter.accept(sourceType, targetType))
-                .findFirst()
-                .orElse(null);
+            .getSupportedExtensionInstances()
+            .stream()
+            .filter(converter -> converter.accept(sourceType, targetType))
+            .findFirst()
+            .orElse(null);
     }
 
     static <T> T convertIfPossible(Object source, Class<?> multiValueType, Class<?> elementType) {

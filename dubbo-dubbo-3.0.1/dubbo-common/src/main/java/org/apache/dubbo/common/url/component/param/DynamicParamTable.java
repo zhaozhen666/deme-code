@@ -82,7 +82,7 @@ public final class DynamicParamTable {
         values.add(new DynamicValues(null));
 
         ExtensionLoader.getExtensionLoader(DynamicParamSource.class)
-                .getSupportedExtensionInstances().forEach(source -> source.init(keys, values));
+            .getSupportedExtensionInstances().forEach(source -> source.init(keys, values));
 
         for (int i = 0; i < keys.size(); i++) {
             if (!KEYS.contains(keys.get(i))) {

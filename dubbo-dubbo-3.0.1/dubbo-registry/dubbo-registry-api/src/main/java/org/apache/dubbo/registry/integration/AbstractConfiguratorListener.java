@@ -39,7 +39,7 @@ public abstract class AbstractConfiguratorListener implements ConfigurationListe
 
     protected List<Configurator> configurators = Collections.emptyList();
     protected GovernanceRuleRepository ruleRepository = ExtensionLoader.getExtensionLoader(
-            GovernanceRuleRepository.class).getDefaultExtension();
+        GovernanceRuleRepository.class).getDefaultExtension();
 
     protected final void initWith(String key) {
         ruleRepository.addListener(key, this);
@@ -57,7 +57,7 @@ public abstract class AbstractConfiguratorListener implements ConfigurationListe
     public void process(ConfigChangedEvent event) {
         if (logger.isInfoEnabled()) {
             logger.info("Notification of overriding rule, change type is: " + event.getChangeType() +
-                    ", raw config content is:\n " + event.getContent());
+                ", raw config content is:\n " + event.getContent());
         }
 
         if (event.getChangeType().equals(ConfigChangeType.DELETED)) {
@@ -76,10 +76,10 @@ public abstract class AbstractConfiguratorListener implements ConfigurationListe
         try {
             // parseConfigurators will recognize app/service config automatically.
             configurators = Configurator.toConfigurators(ConfigParser.parseConfigurators(rawConfig))
-                    .orElse(configurators);
+                .orElse(configurators);
         } catch (Exception e) {
             logger.error("Failed to parse raw dynamic config and it will not take effect, the raw config is: " +
-                    rawConfig, e);
+                rawConfig, e);
             parseSuccess = false;
         }
         return parseSuccess;

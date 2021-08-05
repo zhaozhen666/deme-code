@@ -72,7 +72,7 @@ public class TTree implements TComponent {
                     treeSB.append("+");
                 }
                 if (isPrintCost
-                        && !node.isRoot()) {
+                    && !node.isRoot()) {
                     final String costPrefix = String.format("[%s,%sms]", (node.endTimestamp - root.beginTimestamp), (node.endTimestamp - node.beginTimestamp));
                     costPrefixLength = length(costPrefix);
                     treeSB.append(costPrefix);
@@ -86,11 +86,11 @@ public class TTree implements TComponent {
                             isFirst = false;
                         } else {
                             treeSB.append(prefix)
-                                    .append(repeat(' ', stepStringLength))
-                                    .append(hasChild ? "|" : EMPTY_STRING)
-                                    .append(repeat(' ', costPrefixLength))
-                                    .append(scanner.nextLine())
-                                    .append(System.lineSeparator());
+                                .append(repeat(' ', stepStringLength))
+                                .append(hasChild ? "|" : EMPTY_STRING)
+                                .append(repeat(' ', costPrefixLength))
+                                .append(scanner.nextLine())
+                                .append(System.lineSeparator());
                         }
                     }
                 }
@@ -113,11 +113,11 @@ public class TTree implements TComponent {
                 final boolean isLastFlag = index == size - 1;
                 final String currentPrefix = isLast ? prefix + STEP_EMPTY_BOARD : prefix + STEP_HAS_BOARD;
                 recursive(
-                        deep + 1,
-                        isLastFlag,
-                        currentPrefix,
-                        node.children.get(index),
-                        callback
+                    deep + 1,
+                    isLastFlag,
+                    currentPrefix,
+                    node.children.get(index),
+                    callback
                 );
             }
         }

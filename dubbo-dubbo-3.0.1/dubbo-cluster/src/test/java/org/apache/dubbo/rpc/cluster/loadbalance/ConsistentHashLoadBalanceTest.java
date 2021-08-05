@@ -48,10 +48,10 @@ public class ConsistentHashLoadBalanceTest extends LoadBalanceBaseTest {
         }
 
         Assertions.assertEquals(counter.size() - 1,
-                unHitedInvokerCount, "the number of unHitedInvoker should be counter.size() - 1");
+            unHitedInvokerCount, "the number of unHitedInvoker should be counter.size() - 1");
         Assertions.assertEquals(1, hitedInvokers.size(), "the number of hitedInvoker should be 1");
         Assertions.assertEquals(runs,
-                hitedInvokers.values().iterator().next().intValue(), "the number of hited count should be the number of runs");
+            hitedInvokers.values().iterator().next().intValue(), "the number of hited count should be the number of runs");
     }
 
     // https://github.com/apache/dubbo/issues/5429

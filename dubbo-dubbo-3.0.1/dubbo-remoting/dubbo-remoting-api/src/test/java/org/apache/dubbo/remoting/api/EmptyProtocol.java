@@ -26,7 +26,7 @@ public class EmptyProtocol implements WireProtocol {
     }
 
     @Override
-    public void configServerPipeline(ChannelPipeline pipeline,SslContext sslContext) {
+    public void configServerPipeline(ChannelPipeline pipeline, SslContext sslContext) {
 
     }
 

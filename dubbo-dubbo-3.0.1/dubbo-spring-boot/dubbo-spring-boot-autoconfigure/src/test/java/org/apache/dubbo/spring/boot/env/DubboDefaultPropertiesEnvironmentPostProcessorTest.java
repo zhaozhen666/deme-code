@@ -33,7 +33,7 @@ import java.util.HashMap;
 public class DubboDefaultPropertiesEnvironmentPostProcessorTest {
 
     private DubboDefaultPropertiesEnvironmentPostProcessor instance =
-            new DubboDefaultPropertiesEnvironmentPostProcessor();
+        new DubboDefaultPropertiesEnvironmentPostProcessor();
 
     private SpringApplication springApplication = new SpringApplication();
 

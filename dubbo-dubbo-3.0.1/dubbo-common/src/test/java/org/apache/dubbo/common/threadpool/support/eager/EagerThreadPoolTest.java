@@ -45,11 +45,11 @@ public class EagerThreadPoolTest {
     @Test
     public void getExecutor1() throws Exception {
         URL url = URL.valueOf("dubbo://10.20.130.230:20880/context/path?" +
-                THREAD_NAME_KEY + "=demo&" +
-                CORE_THREADS_KEY + "=1&" +
-                THREADS_KEY + "=2&" +
-                ALIVE_KEY + "=1000&" +
-                QUEUES_KEY + "=0");
+            THREAD_NAME_KEY + "=demo&" +
+            CORE_THREADS_KEY + "=1&" +
+            THREADS_KEY + "=2&" +
+            ALIVE_KEY + "=1000&" +
+            QUEUES_KEY + "=0");
         ThreadPool threadPool = new EagerThreadPool();
         ThreadPoolExecutor executor = (ThreadPoolExecutor) threadPool.getExecutor(url);
         assertThat(executor, instanceOf(EagerThreadPoolExecutor.class));
@@ -59,7 +59,7 @@ public class EagerThreadPoolTest {
         assertThat(executor.getQueue().remainingCapacity(), is(1));
         assertThat(executor.getQueue(), Matchers.<BlockingQueue<Runnable>>instanceOf(TaskQueue.class));
         assertThat(executor.getRejectedExecutionHandler(),
-                Matchers.<RejectedExecutionHandler>instanceOf(AbortPolicyWithReport.class));
+            Matchers.<RejectedExecutionHandler>instanceOf(AbortPolicyWithReport.class));
 
         final CountDownLatch latch = new CountDownLatch(1);
         executor.execute(() -> {

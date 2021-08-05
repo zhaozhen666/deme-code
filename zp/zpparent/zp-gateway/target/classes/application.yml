@@ -16,15 +16,15 @@ spring:
   cloud:
     gateway:
       routes:
-       - id: service-autodeliver-router
-         #uri: http://127.0.0.1:8091
-         uri: lb://zhao-service-autodeliver
-         predicates:
-          - Path= /autodeliver/**
-       - id: service-resume-router
-         #uri: http://127.0.0.1:8081
-         uri: lb://zhao-service-resume
-         predicates:
-           - Path=/resume/**
-         filters:
-           - StripPrefix=1
+        - id: service-autodeliver-router
+          #uri: http://127.0.0.1:8091
+          uri: lb://zhao-service-autodeliver
+          predicates:
+            - Path= /autodeliver/**
+        - id: service-resume-router
+          #uri: http://127.0.0.1:8081
+          uri: lb://zhao-service-resume
+          predicates:
+            - Path=/resume/**
+          filters:
+            - StripPrefix=1

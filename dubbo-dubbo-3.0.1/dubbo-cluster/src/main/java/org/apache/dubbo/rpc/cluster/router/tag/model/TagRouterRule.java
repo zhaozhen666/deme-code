@@ -54,7 +54,7 @@ public class TagRouterRule extends AbstractRouterRule {
         Object tags = map.get("tags");
         if (tags != null && List.class.isAssignableFrom(tags.getClass())) {
             tagRouterRule.setTags(((List<Map<String, Object>>) tags).stream()
-                    .map(Tag::parseFromMap).collect(Collectors.toList()));
+                .map(Tag::parseFromMap).collect(Collectors.toList()));
         }
 
         return tagRouterRule;
@@ -76,9 +76,9 @@ public class TagRouterRule extends AbstractRouterRule {
 
     public List<String> getAddresses() {
         return tags.stream()
-                .filter(tag -> CollectionUtils.isNotEmpty(tag.getAddresses()))
-                .flatMap(tag -> tag.getAddresses().stream())
-                .collect(Collectors.toList());
+            .filter(tag -> CollectionUtils.isNotEmpty(tag.getAddresses()))
+            .flatMap(tag -> tag.getAddresses().stream())
+            .collect(Collectors.toList());
     }
 
     public List<String> getTagNames() {

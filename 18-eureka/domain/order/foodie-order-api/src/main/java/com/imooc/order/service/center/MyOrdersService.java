@@ -52,6 +52,7 @@ public interface MyOrdersService {
 
     /**
      * 删除订单（逻辑删除）
+     *
      * @param userId
      * @param orderId
      * @return
@@ -62,6 +63,7 @@ public interface MyOrdersService {
 
     /**
      * 查询用户订单数
+     *
      * @param userId
      */
     @GetMapping("order/counts")
@@ -69,6 +71,7 @@ public interface MyOrdersService {
 
     /**
      * 获得分页的订单动向
+     *
      * @param userId
      * @param page
      * @param pageSize

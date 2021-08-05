@@ -146,7 +146,7 @@ public class ClassUtilsTest {
     public void testGetSizeMethod() {
         Assertions.assertEquals("getLength()", ClassUtils.getSizeMethod(GenericClass3.class));
     }
-    
+
     @Test
     public void testGetSimpleClassName() {
         Assertions.assertNull(ClassUtils.getSimpleClassName(null));

@@ -25,39 +25,39 @@ import java.util.function.Supplier;
 public class ScheduledCompletableFuture {
 
     public static <T> CompletableFuture<T> schedule(
-            ScheduledExecutorService executor,
-            Supplier<T> task,
-            long delay,
-            TimeUnit unit
+        ScheduledExecutorService executor,
+        Supplier<T> task,
+        long delay,
+        TimeUnit unit
     ) {
         CompletableFuture<T> completableFuture = new CompletableFuture<>();
         executor.schedule(
-                () -> {
-                    try {
-                        return completableFuture.complete(task.get());
-                    } catch (Throwable t) {
-                        return completableFuture.completeExceptionally(t);
-                    }
-                },
-                delay,
-                unit
+            () -> {
+                try {
+                    return completableFuture.complete(task.get());
+                } catch (Throwable t) {
+                    return completableFuture.completeExceptionally(t);
+                }
+            },
+            delay,
+            unit
         );
         return completableFuture;
     }
 
     public static <T> CompletableFuture<T> submit(
-            ScheduledExecutorService executor,
-            Supplier<T> task
+        ScheduledExecutorService executor,
+        Supplier<T> task
     ) {
         CompletableFuture<T> completableFuture = new CompletableFuture<>();
         executor.submit(
-                () -> {
-                    try {
-                        return completableFuture.complete(task.get());
-                    } catch (Throwable t) {
-                        return completableFuture.completeExceptionally(t);
-                    }
+            () -> {
+                try {
+                    return completableFuture.complete(task.get());
+                } catch (Throwable t) {
+                    return completableFuture.completeExceptionally(t);
                 }
+            }
         );
         return completableFuture;
     }

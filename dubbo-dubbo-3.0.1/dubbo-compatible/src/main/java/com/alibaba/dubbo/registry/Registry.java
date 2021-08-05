@@ -52,18 +52,18 @@ public interface Registry extends org.apache.dubbo.registry.Registry {
     @Override
     default void subscribe(URL url, NotifyListener listener) {
         this.subscribe(new com.alibaba.dubbo.common.URL(url),
-                new com.alibaba.dubbo.registry.NotifyListener.CompatibleNotifyListener(listener));
+            new com.alibaba.dubbo.registry.NotifyListener.CompatibleNotifyListener(listener));
     }
 
     @Override
     default void unsubscribe(URL url, NotifyListener listener) {
         this.unsubscribe(new com.alibaba.dubbo.common.URL(url),
-                new com.alibaba.dubbo.registry.NotifyListener.CompatibleNotifyListener(listener));
+            new com.alibaba.dubbo.registry.NotifyListener.CompatibleNotifyListener(listener));
     }
 
     @Override
     default List<URL> lookup(URL url) {
         return this.lookup(new com.alibaba.dubbo.common.URL(url)).stream().map(u -> u.getOriginalURL()).
-                collect(Collectors.toList());
+            collect(Collectors.toList());
     }
 }

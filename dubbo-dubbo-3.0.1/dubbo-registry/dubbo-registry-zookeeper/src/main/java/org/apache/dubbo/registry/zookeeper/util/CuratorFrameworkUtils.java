@@ -51,19 +51,19 @@ public abstract class CuratorFrameworkUtils {
     public static ServiceDiscovery<ZookeeperInstance> buildServiceDiscovery(CuratorFramework curatorFramework,
                                                                             String basePath) {
         return ServiceDiscoveryBuilder.builder(ZookeeperInstance.class)
-                .client(curatorFramework)
-                .basePath(basePath)
-                .build();
+            .client(curatorFramework)
+            .basePath(basePath)
+            .build();
     }
 
     public static CuratorFramework buildCuratorFramework(URL connectionURL) throws Exception {
         CuratorFramework curatorFramework = CuratorFrameworkFactory.builder()
-                .connectString(connectionURL.getBackupAddress())
-                .retryPolicy(buildRetryPolicy(connectionURL))
-                .build();
+            .connectString(connectionURL.getBackupAddress())
+            .retryPolicy(buildRetryPolicy(connectionURL))
+            .build();
         curatorFramework.start();
         curatorFramework.blockUntilConnected(BLOCK_UNTIL_CONNECTED_WAIT.getParameterValue(connectionURL),
-                BLOCK_UNTIL_CONNECTED_UNIT.getParameterValue(connectionURL));
+            BLOCK_UNTIL_CONNECTED_UNIT.getParameterValue(connectionURL));
         return curatorFramework;
     }
 
@@ -76,7 +76,7 @@ public abstract class CuratorFrameworkUtils {
 
 
     public static List<ServiceInstance> build(Collection<org.apache.curator.x.discovery.ServiceInstance<ZookeeperInstance>>
-                                                      instances) {
+                                                  instances) {
         return instances.stream().map(CuratorFrameworkUtils::build).collect(Collectors.toList());
     }
 
@@ -100,11 +100,11 @@ public abstract class CuratorFrameworkUtils {
         ZookeeperInstance zookeeperInstance = new ZookeeperInstance(null, serviceName, metadata);
         try {
             builder = builder()
-                    .id(id)
-                    .name(serviceName)
-                    .address(host)
-                    .port(port)
-                    .payload(zookeeperInstance);
+                .id(id)
+                .name(serviceName)
+                .address(host)
+                .port(port)
+                .payload(zookeeperInstance);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -37,12 +37,12 @@ public class HelpTelnetHandlerTest {
 
         // "help" command output
         String demoOutput =
-                "Command:\r\n" +
+            "Command:\r\n" +
                 "    help [command]\r\n" +
                 "Summary:\r\n" +
                 "    Show help.\r\n" +
                 "Detail:\r\n" +
                 "    Show help.";
-        Assertions.assertEquals(helpTelnetHandler.telnet(channel, "help"),demoOutput);
+        Assertions.assertEquals(helpTelnetHandler.telnet(channel, "help"), demoOutput);
     }
 }

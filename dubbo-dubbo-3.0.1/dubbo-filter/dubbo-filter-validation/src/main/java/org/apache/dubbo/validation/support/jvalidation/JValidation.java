@@ -22,6 +22,7 @@ import org.apache.dubbo.validation.support.AbstractValidation;
 
 /**
  * Creates a new instance of {@link Validator} using input argument url.
+ *
  * @see AbstractValidation
  * @see Validator
  */
@@ -29,6 +30,7 @@ public class JValidation extends AbstractValidation {
 
     /**
      * Return new instance of {@link JValidator}
+     *
      * @param url Valid URL instance
      * @return Instance of JValidator
      */

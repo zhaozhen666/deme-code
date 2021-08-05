@@ -106,7 +106,7 @@ public class NacosServiceName {
 
         // Not match comparison
         if (!StringUtils.isEquals(this.category, concreteServiceName.category)
-                && !matchRange(this.category, concreteServiceName.category)) {
+            && !matchRange(this.category, concreteServiceName.category)) {
             return false;
         }
 
@@ -125,12 +125,12 @@ public class NacosServiceName {
 
         // range condition
         if (!StringUtils.isEquals(this.version, concreteServiceName.version)
-                && !matchRange(this.version, concreteServiceName.version)) {
+            && !matchRange(this.version, concreteServiceName.version)) {
             return false;
         }
 
         if (!StringUtils.isEquals(this.group, concreteServiceName.group) &&
-                !matchRange(this.group, concreteServiceName.group)) {
+            !matchRange(this.group, concreteServiceName.group)) {
             return false;
         }
 
@@ -201,10 +201,10 @@ public class NacosServiceName {
 
     private String toValue() {
         return new StringBuilder(category)
-                .append(NAME_SEPARATOR).append(serviceInterface)
-                .append(NAME_SEPARATOR).append(version)
-                .append(NAME_SEPARATOR).append(group)
-                .toString();
+            .append(NAME_SEPARATOR).append(serviceInterface)
+            .append(NAME_SEPARATOR).append(version)
+            .append(NAME_SEPARATOR).append(group)
+            .toString();
     }
 
     @Override

@@ -43,9 +43,9 @@ public class CloseTimerTask extends AbstractTimerTask {
             Long now = now();
             // check ping & pong at server
             if ((lastRead != null && now - lastRead > idleTimeout)
-                    || (lastWrite != null && now - lastWrite > idleTimeout)) {
+                || (lastWrite != null && now - lastWrite > idleTimeout)) {
                 logger.warn("Close channel " + channel + ", because idleCheck timeout: "
-                        + idleTimeout + "ms");
+                    + idleTimeout + "ms");
                 channel.close();
             }
         } catch (Throwable t) {

@@ -287,13 +287,13 @@ class ProtocolBuilderTest {
     void build() {
         ProtocolBuilder builder = new ProtocolBuilder();
         builder.name("name").host("host").port(8080).contextpath("contextpath").threadpool("mockthreadpool")
-                .corethreads(1).threads(2).iothreads(3).queues(4).accepts(5).codec("mockcodec")
-                .serialization("serialization").charset("utf-8").payload(6).buffer(1024).heartbeat(1000)
-                .accesslog("accesslog").transporter("mocktransporter").exchanger("mockexchanger")
-                .dispatcher("mockdispatcher").networker("networker").server("server").client("client")
-                .telnet("mocktelnethandler").prompt("prompt").status("mockstatuschecker").register(true).keepAlive(false)
-                .optimizer("optimizer").extension("extension").isDefault(true)
-                .appendParameter("default.num", "one").id("id");
+            .corethreads(1).threads(2).iothreads(3).queues(4).accepts(5).codec("mockcodec")
+            .serialization("serialization").charset("utf-8").payload(6).buffer(1024).heartbeat(1000)
+            .accesslog("accesslog").transporter("mocktransporter").exchanger("mockexchanger")
+            .dispatcher("mockdispatcher").networker("networker").server("server").client("client")
+            .telnet("mocktelnethandler").prompt("prompt").status("mockstatuschecker").register(true).keepAlive(false)
+            .optimizer("optimizer").extension("extension").isDefault(true)
+            .appendParameter("default.num", "one").id("id");
 
         ProtocolConfig config = builder.build();
         ProtocolConfig config2 = builder.build();

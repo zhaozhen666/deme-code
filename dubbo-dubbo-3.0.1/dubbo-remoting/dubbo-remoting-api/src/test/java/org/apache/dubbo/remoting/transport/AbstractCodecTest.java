@@ -30,7 +30,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class AbstractCodecTest  {
+public class AbstractCodecTest {
 
     public void test_checkPayload_default8M() throws Exception {
         Channel channel = mock(Channel.class);
@@ -42,8 +42,8 @@ public class AbstractCodecTest  {
             AbstractCodec.checkPayload(channel, 15 * 1024 * 1024);
         } catch (IOException expected) {
             assertThat(expected.getMessage(), allOf(
-                    CoreMatchers.containsString("Data length too large: "),
-                    CoreMatchers.containsString("max payload: " + 8 * 1024 * 1024)
+                CoreMatchers.containsString("Data length too large: "),
+                CoreMatchers.containsString("max payload: " + 8 * 1024 * 1024)
             ));
         }
 

@@ -46,7 +46,7 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DubboRelaxedBinding2AutoConfigurationTest.class, properties = {
-        "dubbo.scan.basePackages = org.apache.dubbo.spring.boot.autoconfigure"
+    "dubbo.scan.basePackages = org.apache.dubbo.spring.boot.autoconfigure"
 })
 @EnableAutoConfiguration
 @PropertySource(value = "classpath:/dubbo.properties")

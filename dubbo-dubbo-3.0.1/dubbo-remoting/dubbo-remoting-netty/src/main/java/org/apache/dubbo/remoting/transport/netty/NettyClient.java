@@ -49,8 +49,8 @@ public class NettyClient extends AbstractClient {
     // ChannelFactory's closure has a DirectMemory leak, using static to avoid
     // https://issues.jboss.org/browse/NETTY-424
     private static final ChannelFactory CHANNEL_FACTORY = new NioClientSocketChannelFactory(Executors.newCachedThreadPool(new NamedThreadFactory("NettyClientBoss", true)),
-            Executors.newCachedThreadPool(new NamedThreadFactory("NettyClientWorker", true)),
-            Constants.DEFAULT_IO_THREADS);
+        Executors.newCachedThreadPool(new NamedThreadFactory("NettyClientWorker", true)),
+        Constants.DEFAULT_IO_THREADS);
     private ClientBootstrap bootstrap;
 
     private volatile Channel channel; // volatile, please copy reference to use
@@ -122,12 +122,12 @@ public class NettyClient extends AbstractClient {
                 }
             } else if (future.getCause() != null) {
                 throw new RemotingException(this, "client(url: " + getUrl() + ") failed to connect to server "
-                        + getRemoteAddress() + ", error message is:" + future.getCause().getMessage(), future.getCause());
+                    + getRemoteAddress() + ", error message is:" + future.getCause().getMessage(), future.getCause());
             } else {
                 throw new RemotingException(this, "client(url: " + getUrl() + ") failed to connect to server "
-                        + getRemoteAddress() + " client-side timeout "
-                        + getConnectTimeout() + "ms (elapsed: " + (System.currentTimeMillis() - start) + "ms) from netty client "
-                        + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion());
+                    + getRemoteAddress() + " client-side timeout "
+                    + getConnectTimeout() + "ms (elapsed: " + (System.currentTimeMillis() - start) + "ms) from netty client "
+                    + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion());
             }
         } finally {
             if (!isConnected()) {

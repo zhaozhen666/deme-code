@@ -148,8 +148,8 @@ public class ExtensionLoader_Adaptive_Test {
             fail();
         } catch (IllegalStateException expected) {
             assertThat(expected.getMessage(),
-                    allOf(containsString("Can't create adaptive extension interface org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt"),
-                            containsString("No adaptive method exist on extension org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt, refuse to create the adaptive class")));
+                allOf(containsString("Can't create adaptive extension interface org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt"),
+                    containsString("No adaptive method exist on extension org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt, refuse to create the adaptive class")));
         }
         // report same error when get is invoked for multiple times
         try {
@@ -157,8 +157,8 @@ public class ExtensionLoader_Adaptive_Test {
             fail();
         } catch (IllegalStateException expected) {
             assertThat(expected.getMessage(),
-                    allOf(containsString("Can't create adaptive extension interface org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt"),
-                            containsString("No adaptive method exist on extension org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt, refuse to create the adaptive class")));
+                allOf(containsString("Can't create adaptive extension interface org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt"),
+                    containsString("No adaptive method exist on extension org.apache.dubbo.common.extension.ext5.NoAdaptiveMethodExt, refuse to create the adaptive class")));
         }
     }
 
@@ -175,8 +175,8 @@ public class ExtensionLoader_Adaptive_Test {
         } catch (UnsupportedOperationException expected) {
             assertThat(expected.getMessage(), containsString("method "));
             assertThat(
-                    expected.getMessage(),
-                    containsString("of interface org.apache.dubbo.common.extension.ext1.SimpleExt is not adaptive method!"));
+                expected.getMessage(),
+                containsString("of interface org.apache.dubbo.common.extension.ext1.SimpleExt is not adaptive method!"));
         }
     }
 
@@ -264,8 +264,8 @@ public class ExtensionLoader_Adaptive_Test {
         } catch (UnsupportedOperationException expected) {
             assertThat(expected.getMessage(), containsString("method "));
             assertThat(
-                    expected.getMessage(),
-                    containsString("of interface org.apache.dubbo.common.extension.ext2.Ext2 is not adaptive method!"));
+                expected.getMessage(),
+                containsString("of interface org.apache.dubbo.common.extension.ext2.Ext2 is not adaptive method!"));
         }
     }
 

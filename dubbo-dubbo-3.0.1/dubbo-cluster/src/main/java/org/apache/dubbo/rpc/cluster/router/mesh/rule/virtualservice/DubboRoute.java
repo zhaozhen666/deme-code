@@ -54,9 +54,9 @@ public class DubboRoute {
     @Override
     public String toString() {
         return "DubboRoute{" +
-                "name='" + name + '\'' +
-                ", services=" + services +
-                ", routedetail=" + routedetail +
-                '}';
+            "name='" + name + '\'' +
+            ", services=" + services +
+            ", routedetail=" + routedetail +
+            '}';
     }
 }

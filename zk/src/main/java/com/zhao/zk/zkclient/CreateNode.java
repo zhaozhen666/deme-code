@@ -8,7 +8,7 @@ public class CreateNode {
         ZkClient zkClient = new ZkClient("119.45.52.68:2181");
         System.out.println("connect success");
         //true代表可以递归创建目录
-        zkClient.createPersistent("/zkclient/persistent/children",true);
+        zkClient.createPersistent("/zkclient/persistent/children", true);
         System.out.println("create node success");
     }
 }

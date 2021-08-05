@@ -22,7 +22,6 @@ import org.apache.dubbo.rpc.cluster.ConfiguratorFactory;
 
 /**
  * AbsentConfiguratorFactory
- *
  */
 public class AbsentConfiguratorFactory implements ConfiguratorFactory {
 

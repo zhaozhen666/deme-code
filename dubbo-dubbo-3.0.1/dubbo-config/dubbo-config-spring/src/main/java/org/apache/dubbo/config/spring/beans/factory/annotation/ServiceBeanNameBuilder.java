@@ -63,8 +63,8 @@ public class ServiceBeanNameBuilder {
 
     private ServiceBeanNameBuilder(AnnotationAttributes attributes, Class<?> defaultInterfaceClass, Environment environment) {
         this(resolveInterfaceName(attributes, defaultInterfaceClass), environment);
-        this.group(getAttribute(attributes,"group"));
-        this.version(getAttribute(attributes,"version"));
+        this.group(getAttribute(attributes, "group"));
+        this.version(getAttribute(attributes, "version"));
     }
 
     /**

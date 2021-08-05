@@ -55,13 +55,13 @@ public class ServiceDefinitionBuilderTest extends AbstractAnnotationProcessingTe
 
         // types
         List<String> typeNames = Arrays.asList(
-                "org.apache.dubbo.metadata.tools.TestServiceImpl",
-                "org.apache.dubbo.metadata.tools.GenericTestService",
-                "org.apache.dubbo.metadata.tools.DefaultTestService",
-                "org.apache.dubbo.metadata.tools.TestService",
-                "java.lang.AutoCloseable",
-                "java.io.Serializable",
-                "java.util.EventListener"
+            "org.apache.dubbo.metadata.tools.TestServiceImpl",
+            "org.apache.dubbo.metadata.tools.GenericTestService",
+            "org.apache.dubbo.metadata.tools.DefaultTestService",
+            "org.apache.dubbo.metadata.tools.TestService",
+            "java.lang.AutoCloseable",
+            "java.io.Serializable",
+            "java.util.EventListener"
         );
         for (String typeName : typeNames) {
             String gotTypeName = getTypeName(typeName, serviceDefinition.getTypes());

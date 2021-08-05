@@ -17,13 +17,14 @@ public class RpcFuture implements Future<Object> {
     private RpcRequest request;
     private RpcResponse response;
     private long startTime;
-    private static final long  TIME_LIMIT = 5000;
+    private static final long TIME_LIMIT = 5000;
 
     private List<RpcCallBack> pendingCallBack = new ArrayList<>();
     private ReentrantLock lock = new ReentrantLock();
     private Sync sync;
 
-    private ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(16,16,60,TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(65536));
+    private ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(16, 16, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(65536));
+
     public RpcFuture(RpcRequest request) {
         this.request = request;
         this.startTime = System.currentTimeMillis();
@@ -32,13 +33,13 @@ public class RpcFuture implements Future<Object> {
 
     public void done(RpcResponse response) {
 
-        this.response =response;
+        this.response = response;
         boolean success = sync.release(1);
-        if (success){
+        if (success) {
             invokeCallBacks();
         }
-        long costTime = System.currentTimeMillis()-startTime;
-        if (costTime>TIME_LIMIT){
+        long costTime = System.currentTimeMillis() - startTime;
+        if (costTime > TIME_LIMIT) {
             log.warn("time too long");
         }
     }
@@ -46,10 +47,10 @@ public class RpcFuture implements Future<Object> {
     private void invokeCallBacks() {
         lock.lock();
         try {
-            for (RpcCallBack rpcCallBack :pendingCallBack){
+            for (RpcCallBack rpcCallBack : pendingCallBack) {
                 runCallBack(rpcCallBack);
             }
-        }finally {
+        } finally {
             lock.unlock();
         }
 
@@ -61,9 +62,9 @@ public class RpcFuture implements Future<Object> {
         threadPoolExecutor.submit(new Runnable() {
             @Override
             public void run() {
-                if (response.getThrowable()==null){
+                if (response.getThrowable() == null) {
                     rpcCallBack.success(response.getResult());
-                }else {
+                } else {
                     rpcCallBack.failure(response.getThrowable());
                 }
             }
@@ -71,22 +72,23 @@ public class RpcFuture implements Future<Object> {
     }
 
 
-    public RpcFuture addCallBack(RpcCallBack callBack){
+    public RpcFuture addCallBack(RpcCallBack callBack) {
         lock.lock();
         try {
-            if (isDone()){
+            if (isDone()) {
                 runCallBack(callBack);
-            }else {
+            } else {
                 this.pendingCallBack.add(callBack);
             }
-        }finally {
+        } finally {
             lock.unlock();
         }
         return this;
     }
+
     @Override
     public boolean cancel(boolean mayInterruptIfRunning) {
-         throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -102,50 +104,50 @@ public class RpcFuture implements Future<Object> {
     @Override
     public Object get() throws InterruptedException, ExecutionException {
         sync.acquire(-1);
-        if (this.response!=null){
+        if (this.response != null) {
             return this.response.getResult();
         }
-            return null;
+        return null;
 
     }
 
     @Override
     public Object get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
-        boolean success = sync.tryAcquireNanos(-1,unit.toNanos(timeout));
-        if (success){
-            if (this.response!=null){
+        boolean success = sync.tryAcquireNanos(-1, unit.toNanos(timeout));
+        if (success) {
+            if (this.response != null) {
                 return this.response.getResult();
             }
             return null;
-        }else {
-            throw new RuntimeException(" timeout exception requestId "+this.request.getRequestId()
-                    +" className "+this.request.getClassName()
-                    +" methodName "+this.request.getMethodName());
+        } else {
+            throw new RuntimeException(" timeout exception requestId " + this.request.getRequestId()
+                    + " className " + this.request.getClassName()
+                    + " methodName " + this.request.getMethodName());
         }
     }
 
     class Sync extends AbstractQueuedSynchronizer {
-        private int done =1;
-        private int pending =0;
+        private int done = 1;
+        private int pending = 0;
 
 
         @Override
         protected boolean tryAcquire(int acquires) {
-            return getState()==done? true:false;
+            return getState() == done ? true : false;
         }
 
         @Override
         protected boolean tryRelease(int arg) {
-            if (getState()==pending){
-                if (compareAndSetState(pending,done)){
+            if (getState() == pending) {
+                if (compareAndSetState(pending, done)) {
                     return true;
                 }
             }
             return false;
         }
 
-        public Boolean isDone(){
-            return getState()==done;
+        public Boolean isDone() {
+            return getState() == done;
         }
     }
 }

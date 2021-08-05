@@ -41,14 +41,14 @@ import java.util.Map;
  * issue: https://github.com/apache/dubbo-spring-boot-project/issues/779
  */
 @SpringBootTest(
-        properties = {
-                "dubbo.application.name=consumer-app",
-                "dubbo.registry.address=N/A",
-                "myapp.group=demo"
-        },
-        classes = {
-                JavaConfigAnnotationReferenceBeanConditionalTest.class
-        }
+    properties = {
+        "dubbo.application.name=consumer-app",
+        "dubbo.registry.address=N/A",
+        "myapp.group=demo"
+    },
+    classes = {
+        JavaConfigAnnotationReferenceBeanConditionalTest.class
+    }
 )
 @Configuration
 //@ComponentScan
@@ -56,13 +56,13 @@ import java.util.Map;
 public class JavaConfigAnnotationReferenceBeanConditionalTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         ZooKeeperServer.start();
         DubboBootstrap.reset();
     }
 
     @AfterAll
-    public static void tearDown(){
+    public static void tearDown() {
         DubboBootstrap.reset();
     }
 
@@ -81,7 +81,7 @@ public class JavaConfigAnnotationReferenceBeanConditionalTest {
         Assertions.assertNull(helloServiceMap.get("myHelloService"));
     }
 
-    @Order(Integer.MAX_VALUE-2)
+    @Order(Integer.MAX_VALUE - 2)
     @Configuration
     public static class AnnotationBeanConfiguration {
 
@@ -94,7 +94,7 @@ public class JavaConfigAnnotationReferenceBeanConditionalTest {
     }
 
 
-    @Order(Integer.MAX_VALUE-1)
+    @Order(Integer.MAX_VALUE - 1)
     @Configuration
     public static class ConditionalBeanConfiguration {
 

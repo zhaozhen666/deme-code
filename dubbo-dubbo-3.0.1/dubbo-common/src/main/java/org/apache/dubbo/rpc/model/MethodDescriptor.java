@@ -60,9 +60,9 @@ public class MethodDescriptor {
         Class<?>[] parameterTypes = method.getParameterTypes();
         if (parameterTypes.length == 1 && isStreamType(parameterTypes[0])) {
             this.parameterClasses = new Class<?>[]{
-                    (Class<?>) ((ParameterizedType) method.getGenericReturnType()).getActualTypeArguments()[0]};
+                (Class<?>) ((ParameterizedType) method.getGenericReturnType()).getActualTypeArguments()[0]};
             this.returnClass = (Class<?>) ((ParameterizedType) method.getGenericParameterTypes()[0])
-                    .getActualTypeArguments()[0];
+                .getActualTypeArguments()[0];
             if (needWrap()) {
                 rpcType = RpcType.STREAM_WRAP;
             } else {
@@ -88,8 +88,8 @@ public class MethodDescriptor {
         this.returnTypes = returnTypesResult;
         this.paramDesc = ReflectUtils.getDesc(parameterClasses);
         this.compatibleParamSignatures = Stream.of(parameterClasses)
-                .map(Class::getName)
-                .toArray(String[]::new);
+            .map(Class::getName)
+            .toArray(String[]::new);
         this.generic = (methodName.equals($INVOKE) || methodName.equals($INVOKE_ASYNC)) && parameterClasses.length == 3;
     }
 

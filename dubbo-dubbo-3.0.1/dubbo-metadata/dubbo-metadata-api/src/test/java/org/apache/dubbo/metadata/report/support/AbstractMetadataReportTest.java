@@ -61,6 +61,36 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * <p>
  * Test {@link MetadataReport#getExportedURLsContent(String, String)} method
  * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#saveExportedURLs(String, String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLs(String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLsContent(String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLs(String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLsContent(String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#saveExportedURLs(String, String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLs(String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLsContent(String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLs(String, String)} method
+ * @since 2.7.8
+ * <p>
+ * Test {@link MetadataReport#getExportedURLsContent(String, String)} method
+ * @since 2.7.8
  *//*
 
 public class AbstractMetadataReportTest {

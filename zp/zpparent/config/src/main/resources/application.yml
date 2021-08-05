@@ -19,7 +19,7 @@ spring:
           username: 1182867739@qq.com
           password: zz351848
           search-paths:
-             - zhao-config-repo
+            - zhao-config-repo
           uri: https://gitee.com/kylezhen/zhao-config-repo.git
       label: main
     bus:

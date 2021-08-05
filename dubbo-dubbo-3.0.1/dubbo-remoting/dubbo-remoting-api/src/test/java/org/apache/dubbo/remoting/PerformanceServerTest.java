@@ -43,7 +43,7 @@ import static org.apache.dubbo.remoting.Constants.DEFAULT_BUFFER_SIZE;
  * <p>
  * mvn clean test -Dtest=*PerformanceServerTest -Dport=9911
  */
-public class PerformanceServerTest  {
+public class PerformanceServerTest {
 
     private static final Logger logger = LoggerFactory.getLogger(PerformanceServerTest.class);
     private static ExchangeServer server = null;
@@ -78,9 +78,9 @@ public class PerformanceServerTest  {
 
         // Start server
         ExchangeServer server = Exchangers.bind("exchange://0.0.0.0:" + port + "?transporter="
-                + transporter + "&serialization="
-                + serialization + "&threadpool=" + threadpool
-                + "&threads=" + threads + "&iothreads=" + iothreads + "&buffer=" + buffer + "&channel.handler=" + channelHandler, new ExchangeHandlerAdapter() {
+            + transporter + "&serialization="
+            + serialization + "&threadpool=" + threadpool
+            + "&threads=" + threads + "&iothreads=" + iothreads + "&buffer=" + buffer + "&channel.handler=" + channelHandler, new ExchangeHandlerAdapter() {
             public String telnet(Channel channel, String message) throws RemotingException {
                 return "echo: " + message + "\r\ntelnet> ";
             }

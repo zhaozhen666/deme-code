@@ -46,12 +46,13 @@ public class LfuCache implements Cache {
     private final LFUCache store;
 
     /**
-     *  Initialize LfuCache, it uses constructor argument <b>cache.size</b> value as its storage max size.
-     *  If nothing is provided then it will use 1000 as default size value. <b>cache.evictionFactor</b> value as its eviction factor.
-     *  If nothing is provided then it will use 0.3 as default value.
+     * Initialize LfuCache, it uses constructor argument <b>cache.size</b> value as its storage max size.
+     * If nothing is provided then it will use 1000 as default size value. <b>cache.evictionFactor</b> value as its eviction factor.
+     * If nothing is provided then it will use 0.3 as default value.
+     *
      * @param url A valid URL instance
      */
-    public LfuCache (URL url) {
+    public LfuCache(URL url) {
         final int max = url.getParameter("cache.size", 1000);
         final float factor = url.getParameter("cache.evictionFactor", 0.75f);
         this.store = new LFUCache(max, factor);
@@ -59,7 +60,8 @@ public class LfuCache implements Cache {
 
     /**
      * API to store value against a key in the calling thread scope.
-     * @param key  Unique identifier for the object being store.
+     *
+     * @param key   Unique identifier for the object being store.
      * @param value Value getting store
      */
     @Override
@@ -69,6 +71,7 @@ public class LfuCache implements Cache {
 
     /**
      * API to return stored value using a key against the calling thread specific store.
+     *
      * @param key Unique identifier for cache lookup
      * @return Return stored object against key
      */

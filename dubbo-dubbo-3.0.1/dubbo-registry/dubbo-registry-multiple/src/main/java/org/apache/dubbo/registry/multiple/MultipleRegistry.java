@@ -61,7 +61,7 @@ public class MultipleRegistry extends AbstractRegistry {
         boolean defaultRegistry = url.getParameter(CommonConstants.DEFAULT_KEY, true);
         if (defaultRegistry && effectServiceRegistryURLs.isEmpty() && effectReferenceRegistryURLs.isEmpty()) {
             throw new IllegalArgumentException("Illegal registry url. You need to configure parameter " +
-                    REGISTRY_FOR_SERVICE + " or " + REGISTRY_FOR_REFERENCE);
+                REGISTRY_FOR_SERVICE + " or " + REGISTRY_FOR_REFERENCE);
         }
     }
 
@@ -279,8 +279,8 @@ public class MultipleRegistry extends AbstractRegistry {
                 }
                 // empty protocol
                 if (tmpUrls.size() == 1
-                        && tmpUrls.get(0) != null
-                        && EMPTY_PROTOCOL.equals(tmpUrls.get(0).getProtocol())) {
+                    && tmpUrls.get(0) != null
+                    && EMPTY_PROTOCOL.equals(tmpUrls.get(0).getProtocol())) {
                     // if only one empty
                     if (emptyURL == null) {
                         emptyURL = tmpUrls.get(0);

@@ -62,10 +62,10 @@ import static org.apache.dubbo.common.utils.MethodUtils.invokeMethod;
 public interface TypeUtils {
 
     List<String> SIMPLE_TYPES = asList(
-            ClassUtils.SIMPLE_TYPES
-                    .stream()
-                    .map(Class::getName)
-                    .toArray(String[]::new)
+        ClassUtils.SIMPLE_TYPES
+            .stream()
+            .map(Class::getName)
+            .toArray(String[]::new)
     );
 
     static boolean isSimpleType(Element element) {
@@ -192,9 +192,9 @@ public interface TypeUtils {
                                                   boolean includeSuperTypes,
                                                   boolean includeSuperInterfaces) {
         return ofDeclaredTypes(getHierarchicalTypes(ofTypeElement(type),
-                includeSelf,
-                includeSuperTypes,
-                includeSuperInterfaces));
+            includeSelf,
+            includeSuperTypes,
+            includeSuperInterfaces));
     }
 
     static List<TypeMirror> getInterfaces(TypeElement type, Predicate<TypeMirror>... interfaceFilters) {
@@ -321,23 +321,23 @@ public interface TypeUtils {
 
     static Set<DeclaredType> ofDeclaredTypes(Iterable<? extends Element> elements) {
         return elements == null ?
-                emptySet() :
-                stream(elements.spliterator(), false)
-                        .map(TypeUtils::ofTypeElement)
-                        .filter(Objects::nonNull)
-                        .map(Element::asType)
-                        .map(TypeUtils::ofDeclaredType)
-                        .filter(Objects::nonNull)
-                        .collect(LinkedHashSet::new, Set::add, Set::addAll);
+            emptySet() :
+            stream(elements.spliterator(), false)
+                .map(TypeUtils::ofTypeElement)
+                .filter(Objects::nonNull)
+                .map(Element::asType)
+                .map(TypeUtils::ofDeclaredType)
+                .filter(Objects::nonNull)
+                .collect(LinkedHashSet::new, Set::add, Set::addAll);
     }
 
     static Set<TypeElement> ofTypeElements(Iterable<? extends TypeMirror> types) {
         return types == null ?
-                emptySet() :
-                stream(types.spliterator(), false)
-                        .map(TypeUtils::ofTypeElement)
-                        .filter(Objects::nonNull)
-                        .collect(LinkedHashSet::new, Set::add, Set::addAll);
+            emptySet() :
+            stream(types.spliterator(), false)
+                .map(TypeUtils::ofTypeElement)
+                .filter(Objects::nonNull)
+                .collect(LinkedHashSet::new, Set::add, Set::addAll);
     }
 
     static List<DeclaredType> listDeclaredTypes(Iterable<? extends Element> elements) {

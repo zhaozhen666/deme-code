@@ -29,6 +29,7 @@ import static org.apache.dubbo.config.Constants.PRODUCTION_ENVIRONMENT;
 
 /**
  * This is a builder for build {@link ApplicationConfig}.
+ *
  * @since 2.7
  */
 public class ApplicationBuilder extends AbstractBuilder<ApplicationConfig, ApplicationBuilder> {

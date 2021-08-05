@@ -27,7 +27,6 @@ import java.util.List;
 
 /**
  * AvailableCluster
- *
  */
 public class AvailableClusterInvoker<T> extends AbstractClusterInvoker<T> {
 

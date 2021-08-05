@@ -294,8 +294,8 @@ public class PojoUtilsTest {
         jsonObject.put("1", "test");
         @SuppressWarnings("unchecked")
         Map<Integer, Object> value = (Map<Integer, Object>) PojoUtils.realize(jsonObject,
-                method.getParameterTypes()[0],
-                method.getGenericParameterTypes()[0]);
+            method.getParameterTypes()[0],
+            method.getGenericParameterTypes()[0]);
         method.invoke(new PojoUtilsTest(), value);
         assertEquals("test", value.get(1));
     }
@@ -310,9 +310,9 @@ public class PojoUtilsTest {
         list.add(jsonObject);
         @SuppressWarnings("unchecked")
         List<Map<Integer, Object>> result = (List<Map<Integer, Object>>) PojoUtils.realize(
-                list,
-                method.getParameterTypes()[0],
-                method.getGenericParameterTypes()[0]);
+            list,
+            method.getParameterTypes()[0],
+            method.getGenericParameterTypes()[0]);
         method.invoke(new PojoUtilsTest(), result);
         assertEquals("test", result.get(0).get(1));
     }

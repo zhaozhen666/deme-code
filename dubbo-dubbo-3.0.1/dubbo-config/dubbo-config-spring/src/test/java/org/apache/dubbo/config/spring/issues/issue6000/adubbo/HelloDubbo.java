@@ -24,6 +24,7 @@ import javax.annotation.Resource;
 @Component
 public class HelloDubbo {
     HelloService helloService;
+
     @Resource
     public void setHelloService(HelloService helloService) {
         this.helloService = helloService;

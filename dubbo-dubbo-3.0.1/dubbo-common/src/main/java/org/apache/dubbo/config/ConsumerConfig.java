@@ -63,8 +63,8 @@ public class ConsumerConfig extends AbstractReferenceConfig {
     private Integer shareconnections;
 
     /**
-     *  Url Merge Processor
-     *  Used to customize the URL merge of consumer and provider
+     * Url Merge Processor
+     * Used to customize the URL merge of consumer and provider
      */
     private String urlMergeProcessor;
 
@@ -78,11 +78,11 @@ public class ConsumerConfig extends AbstractReferenceConfig {
         super.setTimeout(timeout);
         String rmiTimeout = System.getProperty("sun.rmi.transport.tcp.responseTimeout");
         if (timeout != null && timeout > 0
-                && (StringUtils.isEmpty(rmiTimeout))) {
+            && (StringUtils.isEmpty(rmiTimeout))) {
             System.setProperty("sun.rmi.transport.tcp.responseTimeout", String.valueOf(timeout));
         }
     }
-    
+
     public String getClient() {
         return client;
     }

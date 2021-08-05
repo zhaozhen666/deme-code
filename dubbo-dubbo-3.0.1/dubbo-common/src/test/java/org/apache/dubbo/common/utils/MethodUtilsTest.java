@@ -88,11 +88,11 @@ public class MethodUtilsTest {
         Assertions.assertEquals(methodTestClazz.getValue(), "Test");
 
         Assertions.assertTrue(overrides(MethodOverrideClazz.class.getMethod("get"),
-                MethodTestClazz.class.getMethod("get")));
+            MethodTestClazz.class.getMethod("get")));
         Assertions.assertEquals(findNearestOverriddenMethod(MethodOverrideClazz.class.getMethod("get")),
-                MethodTestClazz.class.getMethod("get"));
+            MethodTestClazz.class.getMethod("get"));
         Assertions.assertEquals(findOverriddenMethod(MethodOverrideClazz.class.getMethod("get"), MethodOverrideClazz.class),
-                MethodTestClazz.class.getMethod("get"));
+            MethodTestClazz.class.getMethod("get"));
 
     }
 

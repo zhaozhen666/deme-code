@@ -227,17 +227,17 @@ public abstract class SelfHostMetaServiceDiscovery implements ServiceDiscovery {
 
             String consumerId = ApplicationModel.getName() + NetUtils.getLocalHost();
             String metadata = metadataService.getAndListenInstanceMetadata(
-                    consumerId, metadataString -> {
-                        if(logger.isDebugEnabled()) {
-                            logger.debug("Receive callback: " + metadataString + serviceInstance);
-                        }
-                        if (StringUtils.isEmpty(metadataString)) {
-                            // provider is shutdown
-                            metadataMap.remove(hostId);
-                        } else {
-                            metadataMap.put(hostId, metadataString);
-                        }
-                    });
+                consumerId, metadataString -> {
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("Receive callback: " + metadataString + serviceInstance);
+                    }
+                    if (StringUtils.isEmpty(metadataString)) {
+                        // provider is shutdown
+                        metadataMap.remove(hostId);
+                    } else {
+                        metadataMap.put(hostId, metadataString);
+                    }
+                });
             metadataMap.put(hostId, metadata);
             serviceInstance.setMetadata(JSONObject.parseObject(metadata, Map.class));
         }
@@ -246,11 +246,11 @@ public abstract class SelfHostMetaServiceDiscovery implements ServiceDiscovery {
     public final void notifyListener(String serviceName, ServiceInstancesChangedListener listener, List<ServiceInstance> instances) {
         String serviceInstanceRevision = RevisionResolver.calRevision(JSONObject.toJSONString(instances));
         boolean changed = !serviceInstanceRevision.equalsIgnoreCase(
-                serviceInstanceRevisionMap.put(serviceName, serviceInstanceRevision));
+            serviceInstanceRevisionMap.put(serviceName, serviceInstanceRevision));
 
         if (logger.isDebugEnabled()) {
             logger.debug("Service changed event received (possibly because of DNS polling). " +
-                    "Service Instance changed: " + changed + " Service Name: " + serviceName);
+                "Service Instance changed: " + changed + " Service Name: " + serviceName);
         }
 
         if (changed) {

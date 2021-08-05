@@ -99,8 +99,8 @@ public class PortUnificationServer {
             return SslProvider.JDK;
         }
         throw new IllegalStateException(
-                "Could not find any valid TLS provider, please check your dependency or deployment environment, " +
-                        "usually netty-tcnative, Conscrypt, or Jetty NPN/ALPN is needed.");
+            "Could not find any valid TLS provider, please check your dependency or deployment environment, " +
+                "usually netty-tcnative, Conscrypt, or Jetty NPN/ALPN is needed.");
     }
 
     public static SslContext buildServerSslContext(URL url) {
@@ -112,10 +112,10 @@ public class PortUnificationServer {
             String password = sslConfig.getServerKeyPassword();
             if (password != null) {
                 sslClientContextBuilder = SslContextBuilder.forServer(sslConfig.getServerKeyCertChainPathStream(),
-                        sslConfig.getServerPrivateKeyPathStream(), password);
+                    sslConfig.getServerPrivateKeyPathStream(), password);
             } else {
                 sslClientContextBuilder = SslContextBuilder.forServer(sslConfig.getServerKeyCertChainPathStream(),
-                        sslConfig.getServerPrivateKeyPathStream());
+                    sslConfig.getServerPrivateKeyPathStream());
             }
 
             if (sslConfig.getServerTrustCertCollectionPathStream() != null) {
@@ -156,35 +156,35 @@ public class PortUnificationServer {
 
         bossGroup = NettyEventLoopFactory.eventLoopGroup(1, "NettyServerBoss");
         workerGroup = NettyEventLoopFactory.eventLoopGroup(
-                getUrl().getPositiveParameter(IO_THREADS_KEY, Constants.DEFAULT_IO_THREADS),
-                "NettyServerWorker");
+            getUrl().getPositiveParameter(IO_THREADS_KEY, Constants.DEFAULT_IO_THREADS),
+            "NettyServerWorker");
 
         bootstrap.group(bossGroup, workerGroup)
-                .channel(NettyEventLoopFactory.serverSocketChannelClass())
-                .option(ChannelOption.SO_REUSEADDR, Boolean.TRUE)
-                .childOption(ChannelOption.TCP_NODELAY, Boolean.TRUE)
-                .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
-                .childHandler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    protected void initChannel(SocketChannel ch) throws Exception {
-                        // FIXME: should we use getTimeout()?
-                        int idleTimeout = UrlUtils.getIdleTimeout(getUrl());
-                        final ChannelPipeline p = ch.pipeline();
+            .channel(NettyEventLoopFactory.serverSocketChannelClass())
+            .option(ChannelOption.SO_REUSEADDR, Boolean.TRUE)
+            .childOption(ChannelOption.TCP_NODELAY, Boolean.TRUE)
+            .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
+            .childHandler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                protected void initChannel(SocketChannel ch) throws Exception {
+                    // FIXME: should we use getTimeout()?
+                    int idleTimeout = UrlUtils.getIdleTimeout(getUrl());
+                    final ChannelPipeline p = ch.pipeline();
 //                        p.addLast(new LoggingHandler(LogLevel.DEBUG));
-                        // TODO add SSL support
-                        final boolean enableSSL = getUrl().getParameter(SSL_ENABLED_KEY, false);
-                        final PortUnificationServerHandler puHandler;
-                        if (enableSSL) {
-                            final SslContext sslContext = buildServerSslContext(getUrl());
-                            puHandler = new PortUnificationServerHandler(sslContext, protocols);
-                        } else {
-                            puHandler = new PortUnificationServerHandler(protocols);
-                        }
-                        p.addLast("server-idle-handler", new IdleStateHandler(0, 0, idleTimeout, MILLISECONDS));
-                        p.addLast("negotiation", puHandler);
-                        channelGroup = puHandler.getChannels();
+                    // TODO add SSL support
+                    final boolean enableSSL = getUrl().getParameter(SSL_ENABLED_KEY, false);
+                    final PortUnificationServerHandler puHandler;
+                    if (enableSSL) {
+                        final SslContext sslContext = buildServerSslContext(getUrl());
+                        puHandler = new PortUnificationServerHandler(sslContext, protocols);
+                    } else {
+                        puHandler = new PortUnificationServerHandler(protocols);
                     }
-                });
+                    p.addLast("server-idle-handler", new IdleStateHandler(0, 0, idleTimeout, MILLISECONDS));
+                    p.addLast("negotiation", puHandler);
+                    channelGroup = puHandler.getChannels();
+                }
+            });
         // bind
 
         String bindIp = getUrl().getParameter(Constants.BIND_IP_KEY, getUrl().getHost());

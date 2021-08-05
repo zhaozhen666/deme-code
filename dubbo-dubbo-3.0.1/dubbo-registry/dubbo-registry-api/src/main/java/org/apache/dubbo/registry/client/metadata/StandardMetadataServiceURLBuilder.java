@@ -84,12 +84,12 @@ public class StandardMetadataServiceURLBuilder implements MetadataServiceURLBuil
         String protocol = params.get(PROTOCOL_KEY);
         int port = Integer.parseInt(params.get(PORT_KEY));
         URLBuilder urlBuilder = new URLBuilder()
-                .setHost(host)
-                .setPort(port)
-                .setProtocol(protocol)
-                .setPath(MetadataService.class.getName())
-                .addParameter(TIMEOUT_KEY, ConfigurationUtils.get(METADATA_PROXY_TIMEOUT_KEY, DEFAULT_METADATA_TIMEOUT_VALUE))
-                .addParameter(SIDE_KEY, CONSUMER);
+            .setHost(host)
+            .setPort(port)
+            .setProtocol(protocol)
+            .setPath(MetadataService.class.getName())
+            .addParameter(TIMEOUT_KEY, ConfigurationUtils.get(METADATA_PROXY_TIMEOUT_KEY, DEFAULT_METADATA_TIMEOUT_VALUE))
+            .addParameter(SIDE_KEY, CONSUMER);
 
         // add parameters
         params.forEach(urlBuilder::addParameter);
@@ -103,28 +103,28 @@ public class StandardMetadataServiceURLBuilder implements MetadataServiceURLBuil
         Integer port = ApplicationModel.getApplicationConfig().getMetadataServicePort();
         if (port == null || port < 1) {
             logger.warn("Metadata Service Port is not provided, since DNS is not able to negotiate the metadata port " +
-                    "between Provider and Consumer, will try to use instance port as the default metadata port.");
+                "between Provider and Consumer, will try to use instance port as the default metadata port.");
             port = instancePort;
         }
 
         if (port == null || port < 1) {
             String message = "Metadata Service Port should be specified for consumer. " +
-                    "Please set dubbo.application.metadataServicePort and " +
-                    "make sure it has been set on provider side. " +
-                    "ServiceName: " + serviceName + " Host: " + host;
+                "Please set dubbo.application.metadataServicePort and " +
+                "make sure it has been set on provider side. " +
+                "ServiceName: " + serviceName + " Host: " + host;
             throw new IllegalStateException(message);
         }
 
         URLBuilder urlBuilder = new URLBuilder()
-                .setHost(host)
-                .setPort(port)
-                .setProtocol(DUBBO_PROTOCOL)
-                .setPath(MetadataService.class.getName())
-                .addParameter(TIMEOUT_KEY, ConfigurationUtils.get(METADATA_PROXY_TIMEOUT_KEY, DEFAULT_METADATA_TIMEOUT_VALUE))
-                .addParameter(Constants.RECONNECT_KEY, false)
-                .addParameter(SIDE_KEY, CONSUMER)
-                .addParameter(GROUP_KEY, serviceName)
-                .addParameter(VERSION_KEY, MetadataService.VERSION);
+            .setHost(host)
+            .setPort(port)
+            .setProtocol(DUBBO_PROTOCOL)
+            .setPath(MetadataService.class.getName())
+            .addParameter(TIMEOUT_KEY, ConfigurationUtils.get(METADATA_PROXY_TIMEOUT_KEY, DEFAULT_METADATA_TIMEOUT_VALUE))
+            .addParameter(Constants.RECONNECT_KEY, false)
+            .addParameter(SIDE_KEY, CONSUMER)
+            .addParameter(GROUP_KEY, serviceName)
+            .addParameter(VERSION_KEY, MetadataService.VERSION);
 
         // add ServiceInstance Metadata notify support
         urlBuilder.addParameter("getAndListenInstanceMetadata.1.callback", true);

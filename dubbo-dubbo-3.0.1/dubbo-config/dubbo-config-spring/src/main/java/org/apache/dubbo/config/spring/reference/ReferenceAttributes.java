@@ -56,7 +56,7 @@ public interface ReferenceAttributes {
 
     String CLIENT = "client";
 
-//    /**
+    //    /**
 //     * When enable, prefer to call local service in the same JVM if it's present, default value is true
 //     * @deprecated using scope="local" or scope="remote" instead
 //     */

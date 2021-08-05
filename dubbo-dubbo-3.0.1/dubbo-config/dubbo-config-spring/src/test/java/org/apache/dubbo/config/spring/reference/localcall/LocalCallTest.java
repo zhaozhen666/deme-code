@@ -34,7 +34,7 @@ import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:/org/apache/dubbo/config/spring/reference/localcall/local-call-provider.xml",
-        "classpath:/org/apache/dubbo/config/spring/reference/localcall/local-call-consumer.xml"})
+    "classpath:/org/apache/dubbo/config/spring/reference/localcall/local-call-consumer.xml"})
 @DirtiesContext(classMode = AFTER_EACH_TEST_METHOD)
 public class LocalCallTest {
 

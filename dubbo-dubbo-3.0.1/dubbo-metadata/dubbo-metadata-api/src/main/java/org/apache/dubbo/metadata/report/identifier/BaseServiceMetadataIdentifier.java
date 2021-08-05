@@ -45,10 +45,10 @@ public class BaseServiceMetadataIdentifier {
     String getIdentifierKey(String... params) {
 
         return serviceInterface
-                + KEY_SEPARATOR + (version == null ? "" : version)
-                + KEY_SEPARATOR + (group == null ? "" : group)
-                + KEY_SEPARATOR + (side == null ? "" : side)
-                + joinParams(KEY_SEPARATOR, params);
+            + KEY_SEPARATOR + (version == null ? "" : version)
+            + KEY_SEPARATOR + (group == null ? "" : group)
+            + KEY_SEPARATOR + (side == null ? "" : side)
+            + joinParams(KEY_SEPARATOR, params);
     }
 
     private String joinParams(String joinChar, String... params) {
@@ -72,11 +72,11 @@ public class BaseServiceMetadataIdentifier {
 
     private String getFilePathKey(String pathTag, String... params) {
         return pathTag
-                + (StringUtils.isEmpty(toServicePath()) ? "" : (PATH_SEPARATOR + toServicePath()))
-                + (version == null ? "" : (PATH_SEPARATOR + version))
-                + (group == null ? "" : (PATH_SEPARATOR + group))
-                + (side == null ? "" : (PATH_SEPARATOR + side))
-                + joinParams(PATH_SEPARATOR, params);
+            + (StringUtils.isEmpty(toServicePath()) ? "" : (PATH_SEPARATOR + toServicePath()))
+            + (version == null ? "" : (PATH_SEPARATOR + version))
+            + (group == null ? "" : (PATH_SEPARATOR + group))
+            + (side == null ? "" : (PATH_SEPARATOR + side))
+            + joinParams(PATH_SEPARATOR, params);
     }
 
     public String toServicePath() {

@@ -109,11 +109,11 @@ public class DNSServiceDiscovery extends SelfHostMetaServiceDiscovery {
     public void addServiceInstancesChangedListener(ServiceInstancesChangedListener listener) throws NullPointerException, IllegalArgumentException {
         listener.getServiceNames().forEach(serviceName -> {
             ScheduledFuture<?> scheduledFuture = pollingExecutorService.scheduleAtFixedRate(() -> {
-                        List<ServiceInstance> instances = getInstances(serviceName);
-                        instances.sort(Comparator.comparingInt(ServiceInstance::hashCode));
-                        notifyListener(serviceName, listener, instances);
-                    },
-                    pollingCycle, pollingCycle, TimeUnit.MILLISECONDS);
+                    List<ServiceInstance> instances = getInstances(serviceName);
+                    instances.sort(Comparator.comparingInt(ServiceInstance::hashCode));
+                    notifyListener(serviceName, listener, instances);
+                },
+                pollingCycle, pollingCycle, TimeUnit.MILLISECONDS);
 
             pollingExecutorMap.put(serviceName, scheduledFuture);
         });

@@ -51,7 +51,7 @@ public class SerializeClassCheckerTest {
             serializeClassChecker.validateClass(int.class.getName().toUpperCase(Locale.ROOT));
         }
 
-        Assertions.assertThrows(IllegalArgumentException.class, ()-> {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
             serializeClassChecker.validateClass(Socket.class.getName());
         });
     }
@@ -75,10 +75,10 @@ public class SerializeClassCheckerTest {
 
         SerializeClassChecker serializeClassChecker = SerializeClassChecker.getInstance();
         for (int i = 0; i < 10; i++) {
-            Assertions.assertThrows(IllegalArgumentException.class, ()-> {
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
                 serializeClassChecker.validateClass(LinkedList.class.getName());
             });
-            Assertions.assertThrows(IllegalArgumentException.class, ()-> {
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
                 serializeClassChecker.validateClass(Integer.class.getName());
             });
         }
@@ -94,7 +94,7 @@ public class SerializeClassCheckerTest {
         SerializeClassChecker serializeClassChecker = SerializeClassChecker.getInstance();
         for (int i = 0; i < 10; i++) {
             serializeClassChecker.validateClass(LinkedList.class.getName());
-            Assertions.assertThrows(IllegalArgumentException.class, ()-> {
+            Assertions.assertThrows(IllegalArgumentException.class, () -> {
                 serializeClassChecker.validateClass(Integer.class.getName());
             });
         }

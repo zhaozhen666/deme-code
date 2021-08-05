@@ -33,7 +33,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.REGISTRY_ZONE_
 
 /**
  * Determines the zone information of current request.
- *
+ * <p>
  * active only when url has key 'cluster=zone-aware'
  */
 @Activate(group = CommonConstants.CONSUMER, value = "cluster:zone-aware")

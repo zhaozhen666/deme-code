@@ -32,9 +32,9 @@ public class TLadderTest {
         ladder.addItem("4");
         String result = ladder.rendering();
         String expected = "1" + System.lineSeparator() +
-                "  `-2" + System.lineSeparator() +
-                "    `-3" + System.lineSeparator() +
-                "      `-4" + System.lineSeparator();
+            "  `-2" + System.lineSeparator() +
+            "    `-3" + System.lineSeparator() +
+            "      `-4" + System.lineSeparator();
         assertThat(result, equalTo(expected));
         System.out.println(result);
     }

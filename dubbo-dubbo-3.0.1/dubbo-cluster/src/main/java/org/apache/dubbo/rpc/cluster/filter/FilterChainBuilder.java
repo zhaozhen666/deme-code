@@ -42,10 +42,11 @@ public interface FilterChainBuilder {
 
     /**
      * Works on provider side
+     *
      * @param <T>
      * @param <TYPE>
      */
-    class FilterChainNode<T, TYPE extends Invoker<T>, FILTER extends BaseFilter> implements Invoker<T>{
+    class FilterChainNode<T, TYPE extends Invoker<T>, FILTER extends BaseFilter> implements Invoker<T> {
         TYPE originalInvoker;
         Invoker<T> nextNode;
         FILTER filter;
@@ -138,11 +139,12 @@ public interface FilterChainBuilder {
 
     /**
      * Works on consumer side
+     *
      * @param <T>
      * @param <TYPE>
      */
     class ClusterFilterChainNode<T, TYPE extends ClusterInvoker<T>, FILTER extends BaseFilter>
-            extends FilterChainNode<T, TYPE, FILTER> implements ClusterInvoker<T> {
+        extends FilterChainNode<T, TYPE, FILTER> implements ClusterInvoker<T> {
         public ClusterFilterChainNode(TYPE originalInvoker, Invoker<T> nextNode, FILTER filter) {
             super(originalInvoker, nextNode, filter);
         }

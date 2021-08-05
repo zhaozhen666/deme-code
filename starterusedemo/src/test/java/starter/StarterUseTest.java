@@ -13,8 +13,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class StarterUseTest {
     @Autowired
     StarterBean starterBean;
+
     @Test
-    public void starUse(){
+    public void starUse() {
         System.out.println(starterBean);
     }
 }

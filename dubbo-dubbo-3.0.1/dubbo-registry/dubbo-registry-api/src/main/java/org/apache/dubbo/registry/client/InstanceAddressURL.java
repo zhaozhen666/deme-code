@@ -42,11 +42,12 @@ public class InstanceAddressURL extends URL {
     private volatile transient Map<String, Number> numbers;
     private volatile transient Map<String, Map<String, Number>> methodNumbers;
 
-    public InstanceAddressURL() {}
+    public InstanceAddressURL() {
+    }
 
     public InstanceAddressURL(
-            ServiceInstance instance,
-            MetadataInfo metadataInfo
+        ServiceInstance instance,
+        MetadataInfo metadataInfo
     ) {
         this.instance = instance;
         this.metadataInfo = metadataInfo;

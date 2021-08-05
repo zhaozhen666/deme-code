@@ -48,13 +48,13 @@ public interface ServiceDefinitionBuilder {
         // Get all super types and interface excluding the specified type
         // and then the result will be added into ServiceDefinition#getTypes()
         getHierarchicalTypes(type.asType(), Object.class)
-                .forEach(t -> TypeDefinitionBuilder.build(processingEnv, t, types));
+            .forEach(t -> TypeDefinitionBuilder.build(processingEnv, t, types));
 
         // Get all declared methods that will be added into ServiceDefinition#getMethods()
         getPublicNonStaticMethods(type, Object.class)
-                .stream()
-                .map(method -> MethodDefinitionBuilder.build(processingEnv, method, types))
-                .forEach(serviceDefinition.getMethods()::add);
+            .stream()
+            .map(method -> MethodDefinitionBuilder.build(processingEnv, method, types))
+            .forEach(serviceDefinition.getMethods()::add);
 
         serviceDefinition.setTypes(new ArrayList<>(types.values()));
 

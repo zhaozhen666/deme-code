@@ -118,7 +118,7 @@ public class ServiceDiscoveryRegistry implements Registry {
         ServiceDiscovery serviceDiscovery = getServiceDiscovery(registryURL);
         execute(() -> {
             serviceDiscovery.initialize(registryURL.addParameter(INTERFACE_KEY, ServiceDiscovery.class.getName())
-                    .removeParameter(REGISTRY_TYPE_KEY));
+                .removeParameter(REGISTRY_TYPE_KEY));
         });
         return serviceDiscovery;
     }
@@ -380,11 +380,11 @@ public class ServiceDiscoveryRegistry implements Registry {
 
     private static List<URL> filterSubscribedURLs(URL subscribedURL, List<URL> exportedURLs) {
         return exportedURLs.stream()
-                .filter(url -> isSameServiceInterface(subscribedURL, url))
-                .filter(url -> isSameParameter(subscribedURL, url, VERSION_KEY))
-                .filter(url -> isSameParameter(subscribedURL, url, GROUP_KEY))
-                .filter(url -> isCompatibleProtocol(subscribedURL, url))
-                .collect(Collectors.toList());
+            .filter(url -> isSameServiceInterface(subscribedURL, url))
+            .filter(url -> isSameParameter(subscribedURL, url, VERSION_KEY))
+            .filter(url -> isSameParameter(subscribedURL, url, GROUP_KEY))
+            .filter(url -> isCompatibleProtocol(subscribedURL, url))
+            .collect(Collectors.toList());
     }
 
     private static boolean isSameServiceInterface(URL one, URL another) {
@@ -402,7 +402,7 @@ public class ServiceDiscoveryRegistry implements Registry {
 
     private static boolean isCompatibleProtocol(String protocol, URL targetURL) {
         return protocol == null || Objects.equals(protocol, targetURL.getParameter(PROTOCOL_KEY))
-                || Objects.equals(protocol, targetURL.getProtocol());
+            || Objects.equals(protocol, targetURL.getProtocol());
     }
 
     public Map<String, ServiceInstancesChangedListener> getServiceListeners() {

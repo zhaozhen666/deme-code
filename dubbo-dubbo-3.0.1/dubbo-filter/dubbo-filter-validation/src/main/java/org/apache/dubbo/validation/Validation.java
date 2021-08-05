@@ -30,6 +30,7 @@ public interface Validation {
 
     /**
      * Return the instance of {@link Validator} for a given url.
+     *
      * @param url Invocation url
      * @return Instance of {@link Validator}
      */

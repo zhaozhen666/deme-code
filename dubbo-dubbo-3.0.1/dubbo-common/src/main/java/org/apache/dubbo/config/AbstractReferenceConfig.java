@@ -73,7 +73,6 @@ public abstract class AbstractReferenceConfig extends AbstractInterfaceConfig {
     protected Boolean stubevent;//= Constants.DEFAULT_STUB_EVENT;
 
 
-
     /**
      * declares which app or service this interface belongs to
      */
@@ -217,7 +216,6 @@ public abstract class AbstractReferenceConfig extends AbstractInterfaceConfig {
     public void setSticky(Boolean sticky) {
         this.sticky = sticky;
     }
-
 
 
     @Parameter(key = "provided-by")

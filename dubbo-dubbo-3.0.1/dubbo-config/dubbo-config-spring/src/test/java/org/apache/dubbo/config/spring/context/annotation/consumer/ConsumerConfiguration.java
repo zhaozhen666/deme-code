@@ -29,7 +29,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration("consumerConfiguration")
 @DubboComponentScan(
-        basePackageClasses = ConsumerConfiguration.class
+    basePackageClasses = ConsumerConfiguration.class
 )
 @PropertySource("META-INF/default.properties")
 public class ConsumerConfiguration {

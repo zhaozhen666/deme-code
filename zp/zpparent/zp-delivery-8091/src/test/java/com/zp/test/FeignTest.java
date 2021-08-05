@@ -13,10 +13,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class FeignTest {
     @Autowired
     ResumeFeignClient feignClient;
+
     @Test
-    public void feignTest(){
+    public void feignTest() {
         Integer port = feignClient.findDefaultResumeState(2195321L);
-        System.out.println("测试的结果"+port);
-     }
+        System.out.println("测试的结果" + port);
+    }
 
 }

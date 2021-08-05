@@ -76,7 +76,7 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
     protected void sendFeedback(Channel channel, Request request, Throwable t) throws RemotingException {
         if (request.isTwoWay()) {
             String msg = "Server side(" + url.getIp() + "," + url.getPort()
-                    + ") thread pool is exhausted, detail msg:" + t.getMessage();
+                + ") thread pool is exhausted, detail msg:" + t.getMessage();
             Response response = new Response(request.getId(), request.getVersion());
             response.setStatus(Response.SERVER_THREADPOOL_EXHAUSTED_ERROR);
             response.setErrorMessage(msg);
@@ -132,7 +132,7 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
      */
     public ExecutorService getSharedExecutorService() {
         ExecutorRepository executorRepository =
-                ExtensionLoader.getExtensionLoader(ExecutorRepository.class).getDefaultExtension();
+            ExtensionLoader.getExtensionLoader(ExecutorRepository.class).getDefaultExtension();
         ExecutorService executor = executorRepository.getExecutor(url);
         if (executor == null) {
             executor = executorRepository.createExecutorIfAbsent(url);

@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 public interface CommonConstants {
     String DUBBO = "dubbo";
 
-    String TRIPLE= "tri";
+    String TRIPLE = "tri";
 
     String PROVIDER = "provider";
 
@@ -413,7 +413,9 @@ public interface CommonConstants {
 
     String UTF8ENCODE = "UTF-8";
 
-    /** Pseudo URL prefix for loading from the class path: "classpath:". */
+    /**
+     * Pseudo URL prefix for loading from the class path: "classpath:".
+     */
     String CLASSPATH_URL_PREFIX = "classpath:";
 
     String DEFAULT_VERSION = "0.0.0";

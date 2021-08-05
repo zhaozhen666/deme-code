@@ -5,9 +5,11 @@ import org.apache.shardingsphere.core.strategy.keygen.SnowflakeShardingKeyGenera
 import org.apache.shardingsphere.spi.keygen.ShardingKeyGenerator;
 
 import java.util.Properties;
+
 @Slf4j
 public class MyShardingId implements ShardingKeyGenerator {
     private SnowflakeShardingKeyGenerator shardingKeyGenerator = new SnowflakeShardingKeyGenerator();
+
     @Override
     public Comparable<?> generateKey() {
         log.info("执行了自定义的id生成器");

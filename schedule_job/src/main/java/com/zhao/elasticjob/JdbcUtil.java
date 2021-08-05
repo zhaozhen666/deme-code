@@ -77,7 +77,7 @@ public class JdbcUtil {
      * @param obj
      */
     //调用者只需传入一个sql语句，和一个Object数组。该数组存储的是SQL语句中的占位符
-    public static void executeUpdate(String sql,Object...obj) {
+    public static void executeUpdate(String sql, Object... obj) {
         Connection con = getConnection();//调用getConnection()方法连接数据库
         PreparedStatement ps = null;
         try {
@@ -95,7 +95,6 @@ public class JdbcUtil {
     }
 
 
-
     /***
      * DQL查询
      * Result获取数据集
@@ -104,7 +103,7 @@ public class JdbcUtil {
      * @param obj
      * @return
      */
-    public static List<Map<String,Object>> executeQuery(String sql, Object...obj) {
+    public static List<Map<String, Object>> executeQuery(String sql, Object... obj) {
         Connection con = getConnection();
         ResultSet rs = null;
         PreparedStatement ps = null;

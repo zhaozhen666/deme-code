@@ -48,36 +48,36 @@ import java.util.function.Supplier;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-        classes = {
-                DubboEndpointAutoConfiguration.class,
-                DubboEndpointAutoConfigurationTest.class
-        },
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-        properties = {
-                "dubbo.service.version = 1.0.0",
-                "dubbo.application.id = my-application",
-                "dubbo.application.name = dubbo-demo-application",
-                "dubbo.module.id = my-module",
-                "dubbo.module.name = dubbo-demo-module",
-                "dubbo.registry.id = my-registry",
-                "dubbo.registry.address = N/A",
-                "dubbo.protocol.id=my-protocol",
-                "dubbo.protocol.name=dubbo",
-                "dubbo.protocol.port=20880",
-                "dubbo.provider.id=my-provider",
-                "dubbo.provider.host=127.0.0.1",
-                "dubbo.scan.basePackages=org.apache.dubbo.spring.boot.actuate.autoconfigure",
-                "endpoints.enabled = true",
-                "management.security.enabled = false",
-                "management.contextPath = /actuator",
-                "endpoints.dubbo.enabled = true",
-                "endpoints.dubbo.sensitive = false",
-                "endpoints.dubboshutdown.enabled = true",
-                "endpoints.dubboconfigs.enabled = true",
-                "endpoints.dubboservices.enabled = true",
-                "endpoints.dubboreferences.enabled = true",
-                "endpoints.dubboproperties.enabled = true",
-        })
+    classes = {
+        DubboEndpointAutoConfiguration.class,
+        DubboEndpointAutoConfigurationTest.class
+    },
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+    properties = {
+        "dubbo.service.version = 1.0.0",
+        "dubbo.application.id = my-application",
+        "dubbo.application.name = dubbo-demo-application",
+        "dubbo.module.id = my-module",
+        "dubbo.module.name = dubbo-demo-module",
+        "dubbo.registry.id = my-registry",
+        "dubbo.registry.address = N/A",
+        "dubbo.protocol.id=my-protocol",
+        "dubbo.protocol.name=dubbo",
+        "dubbo.protocol.port=20880",
+        "dubbo.provider.id=my-provider",
+        "dubbo.provider.host=127.0.0.1",
+        "dubbo.scan.basePackages=org.apache.dubbo.spring.boot.actuate.autoconfigure",
+        "endpoints.enabled = true",
+        "management.security.enabled = false",
+        "management.contextPath = /actuator",
+        "endpoints.dubbo.enabled = true",
+        "endpoints.dubbo.sensitive = false",
+        "endpoints.dubboshutdown.enabled = true",
+        "endpoints.dubboconfigs.enabled = true",
+        "endpoints.dubboservices.enabled = true",
+        "endpoints.dubboreferences.enabled = true",
+        "endpoints.dubboproperties.enabled = true",
+    })
 @EnableAutoConfiguration
 @Ignore
 public class DubboEndpointAutoConfigurationTest {
@@ -221,10 +221,10 @@ public class DubboEndpointAutoConfigurationTest {
     }
 
     @DubboService(
-            version = "${dubbo.service.version}",
-            application = "${dubbo.application.id}",
-            protocol = "${dubbo.protocol.id}",
-            registry = "${dubbo.registry.id}"
+        version = "${dubbo.service.version}",
+        application = "${dubbo.application.id}",
+        protocol = "${dubbo.protocol.id}",
+        registry = "${dubbo.registry.id}"
     )
     static class DefaultDemoService implements DemoService {
 

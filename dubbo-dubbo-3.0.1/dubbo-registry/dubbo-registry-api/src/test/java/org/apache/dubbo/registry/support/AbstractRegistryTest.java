@@ -551,7 +551,7 @@ public class AbstractRegistryTest {
         abstractRegistry.notify(testUrl, listener, urls);
         Assertions.assertTrue(notifySuccess);
         List<URL> cacheUrl = abstractRegistry.getCacheUrls(testUrl);
-        Assertions.assertEquals(1,cacheUrl.size());
+        Assertions.assertEquals(1, cacheUrl.size());
         URL nullUrl = URL.valueOf("http://1.2.3.4:9090/registry?check=false&file=N/A&interface=com.testa");
         cacheUrl = abstractRegistry.getCacheUrls(nullUrl);
         Assertions.assertTrue(Objects.isNull(cacheUrl));

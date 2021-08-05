@@ -206,8 +206,8 @@ public interface MetadataService {
      */
     static List<URL> toURLs(Iterable<String> urls) {
         return stream(urls.spliterator(), false)
-                .map(URL::valueOf)
-                .collect(Collectors.toList());
+            .map(URL::valueOf)
+            .collect(Collectors.toList());
     }
 
     /**

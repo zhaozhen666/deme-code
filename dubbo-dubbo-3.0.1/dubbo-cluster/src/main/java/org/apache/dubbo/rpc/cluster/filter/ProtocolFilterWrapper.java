@@ -40,7 +40,7 @@ public class ProtocolFilterWrapper implements Protocol {
 
     private final Protocol protocol;
     private static final FilterChainBuilder builder
-            = ExtensionLoader.getExtensionLoader(FilterChainBuilder.class).getDefaultExtension();
+        = ExtensionLoader.getExtensionLoader(FilterChainBuilder.class).getDefaultExtension();
 
     public ProtocolFilterWrapper(Protocol protocol) {
         if (protocol == null) {

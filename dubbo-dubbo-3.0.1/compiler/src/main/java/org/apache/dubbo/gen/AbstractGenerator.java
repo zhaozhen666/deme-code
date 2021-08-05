@@ -57,8 +57,8 @@ public abstract class AbstractGenerator extends Generator {
         final ProtoTypeMap typeMap = ProtoTypeMap.of(request.getProtoFileList());
 
         List<FileDescriptorProto> protosToGenerate = request.getProtoFileList().stream()
-                .filter(protoFile -> request.getFileToGenerateList().contains(protoFile.getName()))
-                .collect(Collectors.toList());
+            .filter(protoFile -> request.getFileToGenerateList().contains(protoFile.getName()))
+            .collect(Collectors.toList());
 
         List<ServiceContext> services = findServices(protosToGenerate, typeMap);
         return generateFiles(services);
@@ -104,17 +104,17 @@ public abstract class AbstractGenerator extends Generator {
         serviceContext.deprecated = serviceProto.getOptions() != null && serviceProto.getOptions().getDeprecated();
 
         List<Location> allLocationsForService = locations.stream()
-                .filter(location ->
-                    location.getPathCount() >= 2 &&
-                       location.getPath(0) == FileDescriptorProto.SERVICE_FIELD_NUMBER &&
-                       location.getPath(1) == serviceNumber
-                )
-                .collect(Collectors.toList());
+            .filter(location ->
+                location.getPathCount() >= 2 &&
+                    location.getPath(0) == FileDescriptorProto.SERVICE_FIELD_NUMBER &&
+                    location.getPath(1) == serviceNumber
+            )
+            .collect(Collectors.toList());
 
         Location serviceLocation = allLocationsForService.stream()
-                .filter(location -> location.getPathCount() == SERVICE_NUMBER_OF_PATHS)
-                .findFirst()
-                .orElseGet(Location::getDefaultInstance);
+            .filter(location -> location.getPathCount() == SERVICE_NUMBER_OF_PATHS)
+            .findFirst()
+            .orElseGet(Location::getDefaultInstance);
         serviceContext.javaDoc = getJavaDoc(getComments(serviceLocation), getServiceJavaDocPrefix());
 
         for (int methodNumber = 0; methodNumber < serviceProto.getMethodCount(); methodNumber++) {
@@ -143,12 +143,12 @@ public abstract class AbstractGenerator extends Generator {
         methodContext.methodNumber = methodNumber;
 
         Location methodLocation = locations.stream()
-                .filter(location ->
-                    location.getPathCount() == METHOD_NUMBER_OF_PATHS &&
-                        location.getPath(METHOD_NUMBER_OF_PATHS - 1) == methodNumber
-                )
-                .findFirst()
-                .orElseGet(Location::getDefaultInstance);
+            .filter(location ->
+                location.getPathCount() == METHOD_NUMBER_OF_PATHS &&
+                    location.getPath(METHOD_NUMBER_OF_PATHS - 1) == methodNumber
+            )
+            .findFirst()
+            .orElseGet(Location::getDefaultInstance);
         methodContext.javaDoc = getJavaDoc(getComments(methodLocation), getMethodJavaDocPrefix());
 
         if (!methodProto.getClientStreaming() && !methodProto.getServerStreaming()) {
@@ -176,17 +176,17 @@ public abstract class AbstractGenerator extends Generator {
 
     private List<PluginProtos.CodeGeneratorResponse.File> generateFiles(List<ServiceContext> services) {
         return services.stream()
-                .map(this::buildFile)
-                .collect(Collectors.toList());
+            .map(this::buildFile)
+            .collect(Collectors.toList());
     }
 
     private PluginProtos.CodeGeneratorResponse.File buildFile(ServiceContext context) {
         String content = applyTemplate(getClassPrefix() + getClassSuffix() + "Stub.mustache", context);
         return PluginProtos.CodeGeneratorResponse.File
-                .newBuilder()
-                .setName(absoluteFileName(context))
-                .setContent(content)
-                .build();
+            .newBuilder()
+            .setName(absoluteFileName(context))
+            .setContent(content)
+            .build();
     }
 
     private String absoluteFileName(ServiceContext ctx) {
@@ -205,13 +205,13 @@ public abstract class AbstractGenerator extends Generator {
     private String getJavaDoc(String comments, String prefix) {
         if (!comments.isEmpty()) {
             StringBuilder builder = new StringBuilder("/**\n")
-                    .append(prefix).append(" * <pre>\n");
+                .append(prefix).append(" * <pre>\n");
             Arrays.stream(HtmlEscapers.htmlEscaper().escape(comments).split("\n"))
-                    .map(line -> line.replace("*/", "&#42;&#47;").replace("*", "&#42;"))
-                    .forEach(line -> builder.append(prefix).append(" * ").append(line).append("\n"));
+                .map(line -> line.replace("*/", "&#42;&#47;").replace("*", "&#42;"))
+                .forEach(line -> builder.append(prefix).append(" * ").append(line).append("\n"));
             builder
-                    .append(prefix).append(" * </pre>\n")
-                    .append(prefix).append(" */");
+                .append(prefix).append(" * </pre>\n")
+                .append(prefix).append(" */");
             return builder.toString();
         }
         return null;

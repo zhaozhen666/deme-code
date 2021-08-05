@@ -35,7 +35,7 @@ public class StringToCharArrayConverterTest {
 
     @BeforeEach
     public void init() {
-        converter =  (StringToCharArrayConverter) getExtensionLoader(Converter.class).getExtension("string-to-char-array");
+        converter = (StringToCharArrayConverter) getExtensionLoader(Converter.class).getExtension("string-to-char-array");
     }
 
     @Test

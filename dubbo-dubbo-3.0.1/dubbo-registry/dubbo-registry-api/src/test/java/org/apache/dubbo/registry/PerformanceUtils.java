@@ -25,7 +25,6 @@ import java.util.List;
 
 /**
  * PerformanceUtils
- *
  */
 public class PerformanceUtils {
 
@@ -61,7 +60,7 @@ public class PerformanceUtils {
         environment.add("CPU: " + Runtime.getRuntime().availableProcessors() + " cores");
         environment.add("JVM: " + System.getProperty("java.vm.name") + " " + System.getProperty("java.runtime.version"));
         environment.add("Memory: " + DecimalFormat.getIntegerInstance().format(Runtime.getRuntime().totalMemory())
-                + " bytes (Max: " + DecimalFormat.getIntegerInstance().format(Runtime.getRuntime().maxMemory()) + " bytes)");
+            + " bytes (Max: " + DecimalFormat.getIntegerInstance().format(Runtime.getRuntime().maxMemory()) + " bytes)");
         NetworkInterface ni = PerformanceUtils.getNetworkInterface();
         if (ni != null) {
             environment.add("Network: " + ni.getDisplayName());

@@ -52,21 +52,21 @@ public abstract class AbstractRegistry implements Registry {
 
     public Map<com.alibaba.dubbo.common.URL, Set<com.alibaba.dubbo.registry.NotifyListener>> getSubscribed() {
         return abstractRegistry.getSubscribed().entrySet()
-                .stream()
-                .collect(Collectors.toMap(entry -> new com.alibaba.dubbo.common.URL(entry.getKey()),
-                        entry -> convertToNotifyListeners(entry.getValue())));
+            .stream()
+            .collect(Collectors.toMap(entry -> new com.alibaba.dubbo.common.URL(entry.getKey()),
+                entry -> convertToNotifyListeners(entry.getValue())));
     }
 
     public Map<com.alibaba.dubbo.common.URL, Map<String, List<com.alibaba.dubbo.common.URL>>> getNotified() {
         return abstractRegistry.getNotified().entrySet().stream()
-                .collect(Collectors.toMap(entry -> new com.alibaba.dubbo.common.URL(entry.getKey()),
-                        entry -> {
-                            return entry.getValue().entrySet()
-                                    .stream()
-                                    .collect(Collectors.toMap(e -> e.getKey(), e -> {
-                                        return e.getValue().stream().map(url -> new com.alibaba.dubbo.common.URL(url)).collect(Collectors.toList());
-                                    }));
+            .collect(Collectors.toMap(entry -> new com.alibaba.dubbo.common.URL(entry.getKey()),
+                entry -> {
+                    return entry.getValue().entrySet()
+                        .stream()
+                        .collect(Collectors.toMap(e -> e.getKey(), e -> {
+                            return e.getValue().stream().map(url -> new com.alibaba.dubbo.common.URL(url)).collect(Collectors.toList());
                         }));
+                }));
     }
 
 

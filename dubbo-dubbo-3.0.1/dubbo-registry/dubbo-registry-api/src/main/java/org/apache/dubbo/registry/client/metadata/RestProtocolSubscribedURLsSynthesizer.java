@@ -42,7 +42,7 @@ public class RestProtocolSubscribedURLsSynthesizer implements SubscribedURLsSynt
     @Override
     public boolean supports(URL subscribedURL) {
         return "rest".equals(subscribedURL.getProtocol()) ||
-                "rest".equals(subscribedURL.getParameter(PROTOCOL_KEY));
+            "rest".equals(subscribedURL.getParameter(PROTOCOL_KEY));
     }
 
     @Override
@@ -52,13 +52,13 @@ public class RestProtocolSubscribedURLsSynthesizer implements SubscribedURLsSynt
 
         return serviceInstances.stream().map(serviceInstance -> {
             URLBuilder urlBuilder = new URLBuilder()
-                    .setProtocol(protocol)
-                    .setHost(serviceInstance.getHost())
-                    .setPort(serviceInstance.getPort())
-                    .setPath(subscribedURL.getServiceInterface())
-                    .addParameter(SIDE_KEY, PROVIDER)
-                    .addParameter(APPLICATION_KEY, serviceInstance.getServiceName())
-                    .addParameter(REGISTER_KEY, TRUE.toString());
+                .setProtocol(protocol)
+                .setHost(serviceInstance.getHost())
+                .setPort(serviceInstance.getPort())
+                .setPath(subscribedURL.getServiceInterface())
+                .addParameter(SIDE_KEY, PROVIDER)
+                .addParameter(APPLICATION_KEY, serviceInstance.getServiceName())
+                .addParameter(REGISTER_KEY, TRUE.toString());
 
             return urlBuilder.build();
         }).collect(Collectors.toList());

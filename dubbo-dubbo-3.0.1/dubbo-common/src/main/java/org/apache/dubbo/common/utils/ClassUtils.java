@@ -46,38 +46,38 @@ public class ClassUtils {
     /**
      * Simple Types including:
      * <ul>
-     *     <li>{@link Void}</li>
-     *     <li>{@link Boolean}</li>
-     *     <li>{@link Character}</li>
-     *     <li>{@link Byte}</li>
-     *     <li>{@link Integer}</li>
-     *     <li>{@link Float}</li>
-     *     <li>{@link Double}</li>
-     *     <li>{@link String}</li>
-     *     <li>{@link BigDecimal}</li>
-     *     <li>{@link BigInteger}</li>
-     *     <li>{@link Date}</li>
-     *     <li>{@link Object}</li>
+     * <li>{@link Void}</li>
+     * <li>{@link Boolean}</li>
+     * <li>{@link Character}</li>
+     * <li>{@link Byte}</li>
+     * <li>{@link Integer}</li>
+     * <li>{@link Float}</li>
+     * <li>{@link Double}</li>
+     * <li>{@link String}</li>
+     * <li>{@link BigDecimal}</li>
+     * <li>{@link BigInteger}</li>
+     * <li>{@link Date}</li>
+     * <li>{@link Object}</li>
      * </ul>
      *
      * @see javax.management.openmbean.SimpleType
      * @since 2.7.6
      */
     public static final Set<Class<?>> SIMPLE_TYPES = ofSet(
-            Void.class,
-            Boolean.class,
-            Character.class,
-            Byte.class,
-            Short.class,
-            Integer.class,
-            Long.class,
-            Float.class,
-            Double.class,
-            String.class,
-            BigDecimal.class,
-            BigInteger.class,
-            Date.class,
-            Object.class
+        Void.class,
+        Boolean.class,
+        Character.class,
+        Byte.class,
+        Short.class,
+        Integer.class,
+        Long.class,
+        Float.class,
+        Double.class,
+        String.class,
+        BigDecimal.class,
+        BigInteger.class,
+        Date.class,
+        Object.class
     );
     /**
      * Prefix for internal array class names: "[L"
@@ -108,20 +108,20 @@ public class ClassUtils {
         Set<Class<?>> primitiveTypeNames = new HashSet<>(32);
         primitiveTypeNames.addAll(PRIMITIVE_WRAPPER_TYPE_MAP.values());
         primitiveTypeNames.addAll(Arrays
-                .asList(boolean[].class, byte[].class, char[].class, double[].class,
-                        float[].class, int[].class, long[].class, short[].class));
+            .asList(boolean[].class, byte[].class, char[].class, double[].class,
+                float[].class, int[].class, long[].class, short[].class));
         for (Class<?> primitiveTypeName : primitiveTypeNames) {
             PRIMITIVE_TYPE_NAME_MAP.put(primitiveTypeName.getName(), primitiveTypeName);
         }
     }
 
     public static Class<?> forNameWithThreadContextClassLoader(String name)
-            throws ClassNotFoundException {
+        throws ClassNotFoundException {
         return forName(name, Thread.currentThread().getContextClassLoader());
     }
 
     public static Class<?> forNameWithCallerClassLoader(String name, Class<?> caller)
-            throws ClassNotFoundException {
+        throws ClassNotFoundException {
         return forName(name, caller.getClassLoader());
     }
 
@@ -198,7 +198,7 @@ public class ClassUtils {
      * @see Class#forName(String, boolean, ClassLoader)
      */
     public static Class<?> forName(String name, ClassLoader classLoader)
-            throws ClassNotFoundException, LinkageError {
+        throws ClassNotFoundException, LinkageError {
 
         Class<?> clazz = resolvePrimitiveClassName(name);
         if (clazz != null) {
@@ -218,7 +218,7 @@ public class ClassUtils {
             String elementClassName = null;
             if (internalArrayMarker == 0) {
                 elementClassName = name
-                        .substring(INTERNAL_ARRAY_PREFIX.length(), name.length() - 1);
+                    .substring(INTERNAL_ARRAY_PREFIX.length(), name.length() - 1);
             } else if (name.startsWith("[")) {
                 elementClassName = name.substring(1);
             }
@@ -338,7 +338,7 @@ public class ClassUtils {
      */
     public static boolean isTypeMatch(Class<?> type, String value) {
         if ((type == boolean.class || type == Boolean.class)
-                && !("true".equals(value) || "false".equals(value))) {
+            && !("true".equals(value) || "false".equals(value))) {
             return false;
         }
         return true;
@@ -392,18 +392,18 @@ public class ClassUtils {
             if (isNotEmpty(interfaces)) {
                 // add current interfaces
                 Arrays.stream(interfaces)
-                        .filter(resolved::add)
-                        .forEach(cls -> {
-                            allInterfaces.add(cls);
-                            waitResolve.add(cls);
-                        });
+                    .filter(resolved::add)
+                    .forEach(cls -> {
+                        allInterfaces.add(cls);
+                        waitResolve.add(cls);
+                    });
             }
 
             // add all super classes to waitResolve
             getAllSuperClasses(clazz)
-                    .stream()
-                    .filter(resolved::add)
-                    .forEach(waitResolve::add);
+                .stream()
+                .filter(resolved::add)
+                .forEach(waitResolve::add);
 
             clazz = waitResolve.poll();
         }

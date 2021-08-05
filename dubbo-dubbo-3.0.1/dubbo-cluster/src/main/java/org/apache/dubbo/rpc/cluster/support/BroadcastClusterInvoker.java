@@ -58,7 +58,7 @@ public class BroadcastClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
         if (broadcastFailPercent < MIN_BROADCAST_FAIL_PERCENT || broadcastFailPercent > MAX_BROADCAST_FAIL_PERCENT) {
             logger.info(String.format("The value corresponding to the broadcast.fail.percent parameter must be between 0 and 100. " +
-                    "The current setting is %s, which is reset to 100.", broadcastFailPercent));
+                "The current setting is %s, which is reset to 100.", broadcastFailPercent));
             broadcastFailPercent = MAX_BROADCAST_FAIL_PERCENT;
         }
 
@@ -93,10 +93,10 @@ public class BroadcastClusterInvoker<T> extends AbstractClusterInvoker<T> {
         if (exception != null) {
             if (failIndex == failThresholdIndex) {
                 logger.debug(
-                        String.format("The number of BroadcastCluster call failures has reached the threshold %s", failThresholdIndex));
+                    String.format("The number of BroadcastCluster call failures has reached the threshold %s", failThresholdIndex));
             } else {
                 logger.debug(String.format("The number of BroadcastCluster call failures has not reached the threshold %s, fail size is %s",
-                        failIndex));
+                    failIndex));
             }
             throw exception;
         }

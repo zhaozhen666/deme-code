@@ -37,7 +37,6 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- *
  * Multiple duplicate Dubbo Reference annotations with the same attribute generate only one instance.
  * The test-case for https://github.com/apache/dubbo/issues/7003
  */

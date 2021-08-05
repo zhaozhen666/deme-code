@@ -72,7 +72,7 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
 
     protected final boolean isServiceAnnotationPresent(Class<?> serviceType) {
         return isAnyAnnotationPresent(serviceType, DubboService.class, Service.class,
-                com.alibaba.dubbo.config.annotation.Service.class);
+            com.alibaba.dubbo.config.annotation.Service.class);
     }
 
     /**
@@ -100,9 +100,9 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
     /**
      * Process the service type including the sub-routines:
      * <ul>
-     *     <li>{@link ServiceRestMetadata#setServiceInterface(String)}</li>
-     *     <li>{@link ServiceRestMetadata#setVersion(String)}</li>
-     *     <li>{@link ServiceRestMetadata#setGroup(String)}</li>
+     * <li>{@link ServiceRestMetadata#setServiceInterface(String)}</li>
+     * <li>{@link ServiceRestMetadata#setVersion(String)}</li>
+     * <li>{@link ServiceRestMetadata#setGroup(String)}</li>
      * </ul>
      *
      * @param serviceRestMetadata {@link ServiceRestMetadata}
@@ -131,7 +131,7 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
             if (!processRestMethodMetadata(serviceMethod, serviceType, serviceInterfaceClass, serviceRestMetadata.getMeta()::add)) {
                 Method declaredServiceMethod = entry.getValue();
                 processRestMethodMetadata(declaredServiceMethod, serviceType, serviceInterfaceClass,
-                        serviceRestMetadata.getMeta()::add);
+                    serviceRestMetadata.getMeta()::add);
             }
         }
     }
@@ -252,7 +252,7 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
      * @return If capable, return <code>true</code>
      */
     protected abstract boolean isRestCapableMethod(Method serviceMethod, Class<?> serviceType, Class<?>
-            serviceInterfaceClass);
+        serviceInterfaceClass);
 
     /**
      * Resolve the request method
@@ -263,7 +263,7 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
      * @return if can't be resolve, return <code>null</code>
      */
     protected abstract String resolveRequestMethod(Method serviceMethod, Class<?> serviceType, Class<?>
-            serviceInterfaceClass);
+        serviceInterfaceClass);
 
     /**
      * Resolve the request path
@@ -274,7 +274,7 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
      * @return if can't be resolve, return <code>null</code>
      */
     protected abstract String resolveRequestPath(Method serviceMethod, Class<?> serviceType, Class<?>
-            serviceInterfaceClass);
+        serviceInterfaceClass);
 
     /**
      * Resolve the {@link MethodDefinition}
@@ -310,19 +310,19 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
         for (Annotation annotation : annotations) {
             String annotationType = annotation.annotationType().getName();
             parameterProcessorsMap.getOrDefault(annotationType, emptyList())
-                    .forEach(processor -> {
-                        processor.process(annotation, parameter, parameterIndex, serviceMethod, serviceType,
-                                serviceInterfaceClass, metadata);
-                    });
+                .forEach(processor -> {
+                    processor.process(annotation, parameter, parameterIndex, serviceMethod, serviceType,
+                        serviceInterfaceClass, metadata);
+                });
         }
     }
 
     protected abstract void processProduces(Method serviceMethod, Class<?> serviceType, Class<?>
-            serviceInterfaceClass,
+        serviceInterfaceClass,
                                             Set<String> produces);
 
     protected abstract void processConsumes(Method serviceMethod, Class<?> serviceType, Class<?>
-            serviceInterfaceClass,
+        serviceInterfaceClass,
                                             Set<String> consumes);
 
     protected void postResolveRestMethodMetadata(Method serviceMethod, Class<?> serviceType,
@@ -332,12 +332,12 @@ public abstract class AbstractServiceRestMetadataResolver implements ServiceRest
     private static Map<String, List<AnnotatedMethodParameterProcessor>> loadAnnotatedMethodParameterProcessors() {
         Map<String, List<AnnotatedMethodParameterProcessor>> parameterProcessorsMap = new LinkedHashMap<>();
         getExtensionLoader(AnnotatedMethodParameterProcessor.class)
-                .getSupportedExtensionInstances()
-                .forEach(processor -> {
-                    List<AnnotatedMethodParameterProcessor> processors =
-                            parameterProcessorsMap.computeIfAbsent(processor.getAnnotationType(), k -> new LinkedList<>());
-                    processors.add(processor);
-                });
+            .getSupportedExtensionInstances()
+            .forEach(processor -> {
+                List<AnnotatedMethodParameterProcessor> processors =
+                    parameterProcessorsMap.computeIfAbsent(processor.getAnnotationType(), k -> new LinkedList<>());
+                processors.add(processor);
+            });
         return parameterProcessorsMap;
     }
 }

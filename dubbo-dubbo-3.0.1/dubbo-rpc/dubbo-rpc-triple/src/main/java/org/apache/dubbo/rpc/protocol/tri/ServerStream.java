@@ -53,8 +53,8 @@ public class ServerStream extends AbstractServerStream implements Stream {
         @Override
         public void onError(Throwable throwable) {
             final GrpcStatus status = GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                    .withCause(throwable)
-                    .withDescription("Biz exception");
+                .withCause(throwable)
+                .withDescription("Biz exception");
             transportError(status);
         }
 
@@ -79,7 +79,7 @@ public class ServerStream extends AbstractServerStream implements Stream {
                 subscribe((StreamObserver<Object>) result.getValue());
             } catch (Throwable t) {
                 transportError(GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                        .withDescription("Failed to create server's observer"));
+                    .withDescription("Failed to create server's observer"));
             }
         }
 
@@ -92,8 +92,8 @@ public class ServerStream extends AbstractServerStream implements Stream {
                 }
             } catch (Throwable t) {
                 transportError(GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                        .withDescription("Deserialize request failed")
-                        .withCause(t));
+                    .withDescription("Deserialize request failed")
+                    .withCause(t));
             }
         }
 

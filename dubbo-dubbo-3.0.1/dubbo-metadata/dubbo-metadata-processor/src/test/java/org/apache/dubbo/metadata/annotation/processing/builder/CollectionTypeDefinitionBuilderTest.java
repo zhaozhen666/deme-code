@@ -58,11 +58,11 @@ public class CollectionTypeDefinitionBuilderTest extends AbstractAnnotationProce
     protected void beforeEach() {
         builder = new CollectionTypeDefinitionBuilder();
         TypeElement testType = getType(CollectionTypeModel.class);
-        stringsField = findField( testType, "strings");
-        colorsField = findField( testType, "colors");
-        primitiveTypeModelsField = findField( testType, "primitiveTypeModels");
-        modelsField = findField( testType, "models");
-        modelArraysField = findField( testType, "modelArrays");
+        stringsField = findField(testType, "strings");
+        colorsField = findField(testType, "colors");
+        primitiveTypeModelsField = findField(testType, "primitiveTypeModels");
+        modelsField = findField(testType, "models");
+        modelArraysField = findField(testType, "modelArrays");
 
         assertEquals("strings", stringsField.getSimpleName().toString());
         assertEquals("colors", colorsField.getSimpleName().toString());
@@ -86,19 +86,19 @@ public class CollectionTypeDefinitionBuilderTest extends AbstractAnnotationProce
         buildAndAssertTypeDefinition(processingEnv, stringsField, "java.util.Collection<java.lang.String>", "java.lang.String", builder);
 
         buildAndAssertTypeDefinition(processingEnv, colorsField, "java.util.List<org.apache.dubbo.metadata.annotation.processing.model.Color>",
-                "org.apache.dubbo.metadata.annotation.processing.model.Color", builder);
+            "org.apache.dubbo.metadata.annotation.processing.model.Color", builder);
 
         buildAndAssertTypeDefinition(processingEnv, primitiveTypeModelsField,
-                "java.util.Queue<org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel>",
-                "org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel", builder);
+            "java.util.Queue<org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel>",
+            "org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel", builder);
 
         buildAndAssertTypeDefinition(processingEnv, modelsField,
-                "java.util.Deque<org.apache.dubbo.metadata.annotation.processing.model.Model>",
-                "org.apache.dubbo.metadata.annotation.processing.model.Model", builder);
+            "java.util.Deque<org.apache.dubbo.metadata.annotation.processing.model.Model>",
+            "org.apache.dubbo.metadata.annotation.processing.model.Model", builder);
 
         buildAndAssertTypeDefinition(processingEnv, modelArraysField,
-                "java.util.Set<org.apache.dubbo.metadata.annotation.processing.model.Model[]>",
-                "org.apache.dubbo.metadata.annotation.processing.model.Model[]", builder);
+            "java.util.Set<org.apache.dubbo.metadata.annotation.processing.model.Model[]>",
+            "org.apache.dubbo.metadata.annotation.processing.model.Model[]", builder);
 
 
     }

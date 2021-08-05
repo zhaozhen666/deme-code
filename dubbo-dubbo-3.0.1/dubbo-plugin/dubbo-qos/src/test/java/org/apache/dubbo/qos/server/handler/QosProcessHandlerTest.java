@@ -36,7 +36,7 @@ import static org.mockito.Mockito.verify;
 public class QosProcessHandlerTest {
     @Test
     public void testDecodeHttp() throws Exception {
-        ByteBuf buf = Unpooled.wrappedBuffer(new byte[] {'G'});
+        ByteBuf buf = Unpooled.wrappedBuffer(new byte[]{'G'});
         ChannelHandlerContext context = Mockito.mock(ChannelHandlerContext.class);
         ChannelPipeline pipeline = Mockito.mock(ChannelPipeline.class);
         Mockito.when(context.pipeline()).thenReturn(pipeline);
@@ -50,7 +50,7 @@ public class QosProcessHandlerTest {
 
     @Test
     public void testDecodeTelnet() throws Exception {
-        ByteBuf buf = Unpooled.wrappedBuffer(new byte[] {'A'});
+        ByteBuf buf = Unpooled.wrappedBuffer(new byte[]{'A'});
         ChannelHandlerContext context = Mockito.mock(ChannelHandlerContext.class);
         ChannelPipeline pipeline = Mockito.mock(ChannelPipeline.class);
         Mockito.when(context.pipeline()).thenReturn(pipeline);

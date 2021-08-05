@@ -82,9 +82,9 @@ public interface ServiceAnnotationUtils {
 
     static boolean isServiceAnnotationPresent(TypeElement annotatedType) {
         return SUPPORTED_ANNOTATION_TYPES.stream()
-                .filter(type -> isAnnotationPresent(annotatedType, type))
-                .findFirst()
-                .isPresent();
+            .filter(type -> isAnnotationPresent(annotatedType, type))
+            .findFirst()
+            .isPresent();
     }
 
     static AnnotationMirror getAnnotation(TypeElement annotatedClass) {

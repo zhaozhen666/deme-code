@@ -41,25 +41,25 @@ import java.util.Collection;
 import java.util.List;
 
 @SpringBootTest(
-        properties = {
-                "dubbo.application.NAME = dubbo-demo-application",
-                "dubbo.module.name = dubbo-demo-module",
-                "dubbo.registry.address = zookeeper://192.168.99.100:32770",
-                "dubbo.protocol.name=dubbo",
-                "dubbo.protocol.port=20880",
-                "dubbo.metrics.protocol=dubbo",
-                "dubbo.metrics.port=20880",
-                "dubbo.monitor.address=zookeeper://127.0.0.1:32770",
-                "dubbo.Config-center.address=zookeeper://127.0.0.1:2181",
-                "dubbo.config-Center.group=group1",
-                "dubbo.metadata-report.address=zookeeper://127.0.0.1:2182",
-                "dubbo.METADATA-REPORT.username=User",
-                "dubbo.provider.host=127.0.0.1",
-                "dubbo.consumer.client=netty"
-        },
-        classes = {
-                SpringBootConfigPropsTest.class
-        }
+    properties = {
+        "dubbo.application.NAME = dubbo-demo-application",
+        "dubbo.module.name = dubbo-demo-module",
+        "dubbo.registry.address = zookeeper://192.168.99.100:32770",
+        "dubbo.protocol.name=dubbo",
+        "dubbo.protocol.port=20880",
+        "dubbo.metrics.protocol=dubbo",
+        "dubbo.metrics.port=20880",
+        "dubbo.monitor.address=zookeeper://127.0.0.1:32770",
+        "dubbo.Config-center.address=zookeeper://127.0.0.1:2181",
+        "dubbo.config-Center.group=group1",
+        "dubbo.metadata-report.address=zookeeper://127.0.0.1:2182",
+        "dubbo.METADATA-REPORT.username=User",
+        "dubbo.provider.host=127.0.0.1",
+        "dubbo.consumer.client=netty"
+    },
+    classes = {
+        SpringBootConfigPropsTest.class
+    }
 )
 @Configuration
 @ComponentScan

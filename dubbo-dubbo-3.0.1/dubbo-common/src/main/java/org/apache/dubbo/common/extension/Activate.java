@@ -85,7 +85,7 @@ public @interface Activate {
 
     /**
      * Absolute ordering info, optional
-     *
+     * <p>
      * Ascending order, smaller values will be in the front o the list.
      *
      * @return absolute ordering info

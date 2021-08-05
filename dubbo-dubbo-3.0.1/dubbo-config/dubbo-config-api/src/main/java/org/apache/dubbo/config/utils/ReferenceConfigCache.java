@@ -243,7 +243,7 @@ public class ReferenceConfigCache {
     @Override
     public String toString() {
         return "ReferenceConfigCache(name: " + name
-                + ")";
+            + ")";
     }
 
     public interface KeyGenerator {

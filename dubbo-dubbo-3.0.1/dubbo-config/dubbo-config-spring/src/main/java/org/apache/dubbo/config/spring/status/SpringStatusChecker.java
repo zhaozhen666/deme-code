@@ -43,7 +43,7 @@ public class SpringStatusChecker implements StatusChecker {
         for (ApplicationContext c : SpringExtensionFactory.getContexts()) {
             // [Issue] SpringStatusChecker execute errors on non-XML Spring configuration
             // issue : https://github.com/apache/dubbo/issues/3615
-            if(c instanceof GenericWebApplicationContext) { // ignore GenericXmlApplicationContext
+            if (c instanceof GenericWebApplicationContext) { // ignore GenericXmlApplicationContext
                 continue;
             }
 

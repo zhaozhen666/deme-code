@@ -187,20 +187,20 @@ public abstract class AbstractProtocol<T, S extends DeltaResource<T>> implements
 
     protected DiscoveryRequest buildDiscoveryRequest(Set<String> resourceNames) {
         return DiscoveryRequest.newBuilder()
-                .setNode(node)
-                .setTypeUrl(getTypeUrl())
-                .addAllResourceNames(resourceNames)
-                .build();
+            .setNode(node)
+            .setTypeUrl(getTypeUrl())
+            .addAllResourceNames(resourceNames)
+            .build();
     }
 
     protected DiscoveryRequest buildDiscoveryRequest(Set<String> resourceNames, DiscoveryResponse response) {
         // for ACK
         return DiscoveryRequest.newBuilder()
-                .setNode(node)
-                .setTypeUrl(response.getTypeUrl())
-                .setVersionInfo(response.getVersionInfo())
-                .setResponseNonce(response.getNonce())
-                .build();
+            .setNode(node)
+            .setTypeUrl(response.getTypeUrl())
+            .setVersionInfo(response.getVersionInfo())
+            .setResponseNonce(response.getNonce())
+            .build();
     }
 
     protected abstract T decodeDiscoveryResponse(DiscoveryResponse response);

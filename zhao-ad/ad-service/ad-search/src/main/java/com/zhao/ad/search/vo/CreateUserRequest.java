@@ -11,7 +11,7 @@ import org.apache.commons.lang.StringUtils;
 public class CreateUserRequest {
     private String username;
 
-    public boolean isValid(){
+    public boolean isValid() {
         return !StringUtils.isEmpty(username);
     }
 }

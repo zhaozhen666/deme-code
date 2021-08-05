@@ -141,7 +141,7 @@ public class AbstractClusterInvokerTest {
         cluster = new AbstractClusterInvoker(dic) {
             @Override
             protected Result doInvoke(Invocation invocation, List invokers, LoadBalance loadbalance)
-                    throws RpcException {
+                throws RpcException {
                 return null;
             }
         };
@@ -149,7 +149,7 @@ public class AbstractClusterInvokerTest {
         cluster_nocheck = new AbstractClusterInvoker(dic, url.addParameterIfAbsent(CLUSTER_AVAILABLE_CHECK_KEY, Boolean.FALSE.toString())) {
             @Override
             protected Result doInvoke(Invocation invocation, List invokers, LoadBalance loadbalance)
-                    throws RpcException {
+                throws RpcException {
                 return null;
             }
         };
@@ -165,12 +165,12 @@ public class AbstractClusterInvokerTest {
         // setup attachment
         RpcContext.getClientAttachment().setAttachment(attachKey, attachValue);
         Map<String, Object> attachments = RpcContext.getClientAttachment().getObjectAttachments();
-        Assertions.assertTrue( attachments != null && attachments.size() == 1,"set attachment failed!");
+        Assertions.assertTrue(attachments != null && attachments.size() == 1, "set attachment failed!");
 
         cluster = new AbstractClusterInvoker(dic) {
             @Override
             protected Result doInvoke(Invocation invocation, List invokers, LoadBalance loadbalance)
-                    throws RpcException {
+                throws RpcException {
                 // attachment will be bind to invocation
                 String value = invocation.getAttachment(attachKey);
                 Assertions.assertNotNull(value);
@@ -186,7 +186,7 @@ public class AbstractClusterInvokerTest {
     @Test
     public void testSelect_Invokersize0() throws Exception {
         LoadBalance l = cluster.initLoadBalance(invokers, invocation);
-        Assertions.assertNotNull(l,"cluster.initLoadBalance returns null!");
+        Assertions.assertNotNull(l, "cluster.initLoadBalance returns null!");
         {
             Invoker invoker = cluster.select(l, null, null, null);
             Assertions.assertNull(invoker);
@@ -204,7 +204,7 @@ public class AbstractClusterInvokerTest {
         invokers.clear();
         invokers.add(invoker1);
         LoadBalance l = cluster.initLoadBalance(invokers, invocation);
-        Assertions.assertNotNull(l,"cluster.initLoadBalance returns null!");
+        Assertions.assertNotNull(l, "cluster.initLoadBalance returns null!");
         Invoker invoker = cluster.select(l, null, invokers, null);
         Assertions.assertEquals(invoker1, invoker);
     }
@@ -215,7 +215,7 @@ public class AbstractClusterInvokerTest {
         invokers.add(invoker2);
         invokers.add(invoker4);
         LoadBalance l = cluster.initLoadBalance(invokers, invocation);
-        Assertions.assertNotNull(l,"cluster.initLoadBalance returns null!");
+        Assertions.assertNotNull(l, "cluster.initLoadBalance returns null!");
         {
             selectedInvokers.clear();
             selectedInvokers.add(invoker4);
@@ -240,7 +240,7 @@ public class AbstractClusterInvokerTest {
     @Test
     public void testCloseAvailablecheck() {
         LoadBalance lb = mock(LoadBalance.class);
-        Map<String, String> queryMap = (Map<String, String> )url.getAttribute(REFER_KEY);
+        Map<String, String> queryMap = (Map<String, String>) url.getAttribute(REFER_KEY);
         URL tmpUrl = turnRegistryUrlToConsumerUrl(url, queryMap);
 
         when(lb.select(same(invokers), eq(tmpUrl), same(invocation))).thenReturn(invoker1);
@@ -258,10 +258,10 @@ public class AbstractClusterInvokerTest {
         String consumedProtocol = queryMap.get(PROTOCOL_KEY) == null ? DUBBO : queryMap.get(PROTOCOL_KEY);
 
         URL consumerUrlFrom = this.url
-                .setHost(host)
-                .setPort(0)
-                .setProtocol(consumedProtocol)
-                .setPath(path == null ? queryMap.get(INTERFACE_KEY) : path);
+            .setHost(host)
+            .setPort(0)
+            .setProtocol(consumedProtocol)
+            .setPath(path == null ? queryMap.get(INTERFACE_KEY) : path);
         return consumerUrlFrom.addParameters(queryMap).removeParameter(MONITOR_KEY);
     }
 
@@ -470,7 +470,7 @@ public class AbstractClusterInvokerTest {
             Long count = entry.getValue().get();
 //            System.out.println(count);
             if (entry.getKey().isAvailable())
-                Assertions.assertTrue(count > runs / invokers.size(),"count should > avg");
+                Assertions.assertTrue(count > runs / invokers.size(), "count should > avg");
         }
 
         Assertions.assertEquals(runs, counter.get(invoker2).get() + counter.get(invoker4).get());

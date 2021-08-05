@@ -48,7 +48,6 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
     private static final long serialVersionUID = 3033787999037024738L;
 
 
-
     /**
      * The interface class of the exported service
      */
@@ -78,7 +77,6 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
      * whether it is a GenericService
      */
     protected volatile String generic;
-
 
 
     public ServiceConfigBase() {
@@ -177,8 +175,8 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
         }
         if (!interfaceClass.isInstance(ref)) {
             throw new IllegalStateException("The class "
-                    + ref.getClass().getName() + " unimplemented interface "
-                    + interfaceClass + "!");
+                + ref.getClass().getName() + " unimplemented interface "
+                + interfaceClass + "!");
         }
     }
 
@@ -200,8 +198,8 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
         convertProviderIdToProvider();
         if (provider == null) {
             provider = ApplicationModel.getConfigManager()
-                    .getDefaultProvider()
-                    .orElseThrow(() -> new IllegalArgumentException("Default provider is not initialized"));
+                .getDefaultProvider()
+                .orElseThrow(() -> new IllegalArgumentException("Default provider is not initialized"));
         }
     }
 
@@ -248,7 +246,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
     protected void convertProviderIdToProvider() {
         if (provider == null && StringUtils.hasText(providerIds)) {
             provider = ApplicationModel.getConfigManager().getProvider(providerIds)
-                    .orElseThrow(() -> new IllegalStateException("Provider config not found: " + providerIds));
+                .orElseThrow(() -> new IllegalStateException("Provider config not found: " + providerIds));
         }
     }
 
@@ -270,7 +268,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
                 if (globalProtocol.isPresent()) {
                     tmpProtocols.add(globalProtocol.get());
                 } else {
-                    throw new IllegalStateException("Protocol not found: "+id);
+                    throw new IllegalStateException("Protocol not found: " + id);
                 }
             }
             setProtocols(tmpProtocols);
@@ -287,7 +285,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
         try {
             if (interfaceName != null && interfaceName.length() > 0) {
                 this.interfaceClass = Class.forName(interfaceName, true, Thread.currentThread()
-                        .getContextClassLoader());
+                    .getContextClassLoader());
             }
         } catch (ClassNotFoundException t) {
             throw new IllegalStateException(t.getMessage(), t);
@@ -303,7 +301,6 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
     public void setInterfaceClass(Class<?> interfaceClass) {
         setInterface(interfaceClass);
     }
-
 
 
     public void setInterface(Class<?> interfaceClass) {

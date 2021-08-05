@@ -2,15 +2,17 @@ package com.zhao.queue;
 
 import com.zhao.array.Array;
 
-public class ArrayQueue<E> implements Queue<E>{
+public class ArrayQueue<E> implements Queue<E> {
     private Array<E> array;
 
-    public ArrayQueue(int capacity){
+    public ArrayQueue(int capacity) {
         array = new Array<>(capacity);
     }
-    public ArrayQueue(){
+
+    public ArrayQueue() {
         array = new Array<>();
     }
+
     @Override
     public int getSize() {
         return array.getSize();
@@ -37,13 +39,13 @@ public class ArrayQueue<E> implements Queue<E>{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(String.format("Array:size=%d,capacity=%d\n",array.getSize(),array.getCapcity()));
+        builder.append(String.format("Array:size=%d,capacity=%d\n", array.getSize(), array.getCapcity()));
         builder.append("[");
-        for (int i=0;i<array.getSize();i++){
+        for (int i = 0; i < array.getSize(); i++) {
             builder.append(array.get(i));
-            if (i<array.getSize()-1){
+            if (i < array.getSize() - 1) {
                 builder.append(",");
             }
         }

@@ -23,10 +23,10 @@ configVersion: v2.7
 scope: application
 key: demo-consumer
 configs:
-- addresses:
-  - 127.0.0.1
-  parameters:
-    loadbalance: random
-    cluster: failfast
-    timeout: 6666
+  - addresses:
+      - 127.0.0.1
+    parameters:
+      loadbalance: random
+      cluster: failfast
+      timeout: 6666
 ...

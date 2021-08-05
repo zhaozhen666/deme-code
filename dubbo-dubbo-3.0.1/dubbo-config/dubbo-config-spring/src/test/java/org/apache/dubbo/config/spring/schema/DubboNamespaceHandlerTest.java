@@ -85,8 +85,8 @@ public class DubboNamespaceHandlerTest {
     @Test
     public void testProviderXml() {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
-                resourcePath + "/demo-provider.xml",
-                resourcePath + "/demo-provider-properties.xml"
+            resourcePath + "/demo-provider.xml",
+            resourcePath + "/demo-provider-properties.xml"
         );
         ctx.start();
 

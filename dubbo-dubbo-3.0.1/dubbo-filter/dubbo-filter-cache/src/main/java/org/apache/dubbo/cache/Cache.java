@@ -20,6 +20,7 @@ package org.apache.dubbo.cache;
  * Cache interface to support storing and retrieval of value against a lookup key. It has two operation <b>get</b> and <b>put</b>.
  * <li><b>put</b>-Storing value against a key.</li>
  * <li><b>get</b>-Retrieval of object.</li>
+ *
  * @see org.apache.dubbo.cache.support.lru.LruCache
  * @see org.apache.dubbo.cache.support.jcache.JCache
  * @see org.apache.dubbo.cache.support.expiring.ExpiringCache
@@ -28,13 +29,15 @@ package org.apache.dubbo.cache;
 public interface Cache {
     /**
      * API to store value against a key
-     * @param key  Unique identifier for the object being store.
+     *
+     * @param key   Unique identifier for the object being store.
      * @param value Value getting store
      */
     void put(Object key, Object value);
 
     /**
      * API to return stored value using a key.
+     *
      * @param key Unique identifier for cache lookup
      * @return Return stored object against key
      */

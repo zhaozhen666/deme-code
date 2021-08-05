@@ -65,7 +65,7 @@ import static org.apache.dubbo.rpc.Constants.TOKEN_KEY;
 public class TripleInvoker<T> extends AbstractInvoker<T> {
 
     private static final ConnectionManager CONNECTION_MANAGER = ExtensionLoader.getExtensionLoader(
-            ConnectionManager.class).getExtension("multiple");
+        ConnectionManager.class).getExtension("multiple");
     private final Connection connection;
     private final ReentrantLock destroyLock = new ReentrantLock();
 
@@ -83,7 +83,7 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
         final String methodName = RpcUtils.getMethodName(invocation);
         inv.setAttachment(PATH_KEY, getUrl().getPath());
         inv.setAttachment(Constants.SERIALIZATION_KEY,
-                getUrl().getParameter(Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
+            getUrl().getParameter(Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
         try {
             int timeout = calculateTimeout(invocation, methodName);
             invocation.put(TIMEOUT_KEY, timeout);
@@ -126,12 +126,12 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
             return result;
         } catch (TimeoutException e) {
             throw new RpcException(RpcException.TIMEOUT_EXCEPTION,
-                    "Invoke remote method timeout. method: " + invocation.getMethodName() + ", provider: " + getUrl()
-                            + ", cause: " + e.getMessage(), e);
+                "Invoke remote method timeout. method: " + invocation.getMethodName() + ", provider: " + getUrl()
+                    + ", cause: " + e.getMessage(), e);
         } catch (RemotingException e) {
             throw new RpcException(RpcException.NETWORK_EXCEPTION,
-                    "Failed to invoke remote method: " + invocation.getMethodName() + ", provider: " + getUrl()
-                            + ", cause: " + e.getMessage(), e);
+                "Failed to invoke remote method: " + invocation.getMethodName() + ", provider: " + getUrl()
+                    + ", cause: " + e.getMessage(), e);
         }
     }
 

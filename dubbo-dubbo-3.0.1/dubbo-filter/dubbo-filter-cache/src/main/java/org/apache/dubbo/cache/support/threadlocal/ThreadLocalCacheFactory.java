@@ -32,6 +32,7 @@ public class ThreadLocalCacheFactory extends AbstractCacheFactory {
 
     /**
      * Takes url as an method argument and return new instance of cache store implemented by ThreadLocalCache.
+     *
      * @param url url of the method
      * @return ThreadLocalCache instance of cache
      */

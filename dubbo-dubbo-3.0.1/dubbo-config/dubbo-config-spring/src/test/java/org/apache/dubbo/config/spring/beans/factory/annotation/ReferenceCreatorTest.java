@@ -66,35 +66,35 @@ import static org.springframework.util.ReflectionUtils.findField;
 public class ReferenceCreatorTest {
 
     @DubboReference(
-            //interfaceClass = HelloService.class,
-            version = "1.0.0", group = "TEST_GROUP", url = "dubbo://localhost:12345",
-            client = "client", generic = false, injvm = false,
-            check = false, init = false, lazy = true,
-            stubevent = true, reconnect = "reconnect", sticky = true,
-            proxy = "javassist", stub = "org.apache.dubbo.config.spring.api.HelloService", cluster = "failover",
-            connections = 3, callbacks = 1, onconnect = "onconnect", ondisconnect = "ondisconnect",
-            owner = "owner", layer = "layer", retries = 1,
-            loadbalance = "random", async = true, actives = 3,
-            sent = true, mock = "mock", validation = "validation",
-            timeout = 3, cache = "cache", filter = {"echo", "generic", "accesslog"},
-            listener = {"deprecated"}, parameters = {"n1=v1  ", "n2 = v2 ", "  n3 =   v3  "},
-            application = "application",
-            module = "module", consumer = "consumer", monitor = "monitor", registry = {"myregistry"},
-            // @since 2.7.3
-            id = "reference",
-            // @since 2.7.8
-            services = {"service1", "service2", "service3", "service2", "service1"},
-            providedBy = {"service1", "service2", "service3"},
-            methods = @Method(name = "sayHello",
-                    loadbalance = "loadbalance",
-                    oninvoke = "notifyService.onInvoke",
-                    onreturn = "notifyService.onReturn",
-                    onthrow = "notifyService.onThrow",
-                    timeout = 1000,
-                    retries = 2,
-                    parameters = {"a", "1", "b", "2"},
-                    arguments = @Argument(index = 0, callback = true)
-            )
+        //interfaceClass = HelloService.class,
+        version = "1.0.0", group = "TEST_GROUP", url = "dubbo://localhost:12345",
+        client = "client", generic = false, injvm = false,
+        check = false, init = false, lazy = true,
+        stubevent = true, reconnect = "reconnect", sticky = true,
+        proxy = "javassist", stub = "org.apache.dubbo.config.spring.api.HelloService", cluster = "failover",
+        connections = 3, callbacks = 1, onconnect = "onconnect", ondisconnect = "ondisconnect",
+        owner = "owner", layer = "layer", retries = 1,
+        loadbalance = "random", async = true, actives = 3,
+        sent = true, mock = "mock", validation = "validation",
+        timeout = 3, cache = "cache", filter = {"echo", "generic", "accesslog"},
+        listener = {"deprecated"}, parameters = {"n1=v1  ", "n2 = v2 ", "  n3 =   v3  "},
+        application = "application",
+        module = "module", consumer = "consumer", monitor = "monitor", registry = {"myregistry"},
+        // @since 2.7.3
+        id = "reference",
+        // @since 2.7.8
+        services = {"service1", "service2", "service3", "service2", "service1"},
+        providedBy = {"service1", "service2", "service3"},
+        methods = @Method(name = "sayHello",
+            loadbalance = "loadbalance",
+            oninvoke = "notifyService.onInvoke",
+            onreturn = "notifyService.onReturn",
+            onthrow = "notifyService.onThrow",
+            timeout = 1000,
+            retries = 2,
+            parameters = {"a", "1", "b", "2"},
+            arguments = @Argument(index = 0, callback = true)
+        )
     )
     private HelloService helloService;
 
@@ -117,8 +117,8 @@ public class ReferenceCreatorTest {
         // filter default value
         AnnotationAttributes attributes = AnnotationUtils.getAnnotationAttributes(reference, true);
         ReferenceConfig referenceBean = ReferenceCreator.create(attributes, context)
-                .defaultInterfaceClass(helloServiceField.getType())
-                .build();
+            .defaultInterfaceClass(helloServiceField.getType())
+            .build();
         Assertions.assertEquals(HelloService.class, referenceBean.getInterfaceClass());
         Assertions.assertEquals("org.apache.dubbo.config.spring.api.HelloService", referenceBean.getInterface());
         Assertions.assertEquals("1.0.0", referenceBean.getVersion());

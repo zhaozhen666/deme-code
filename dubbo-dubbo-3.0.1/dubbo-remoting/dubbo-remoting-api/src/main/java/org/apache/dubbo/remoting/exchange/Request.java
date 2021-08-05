@@ -63,7 +63,7 @@ public class Request {
             dataStr = data.toString();
         } catch (Throwable e) {
             dataStr = "<Fail toString of " + data.getClass() + ", cause: " +
-                    StringUtils.toString(e) + ">";
+                StringUtils.toString(e) + ">";
         }
         return dataStr;
     }
@@ -140,6 +140,6 @@ public class Request {
     @Override
     public String toString() {
         return "Request [id=" + mId + ", version=" + mVersion + ", twoway=" + mTwoWay + ", event=" + mEvent
-                + ", broken=" + mBroken + ", data=" + (mData == this ? "this" : safeToString(mData)) + "]";
+            + ", broken=" + mBroken + ", data=" + (mData == this ? "this" : safeToString(mData)) + "]";
     }
 }

@@ -98,14 +98,14 @@ class ReferenceBuilderTest {
 
         ReferenceBuilder<DemoService> builder = new ReferenceBuilder<>();
         builder.id("id")
-                .interfaceClass(DemoService.class)
-                .protocol("protocol")
-                .client("client")
-                .url("url")
-                .consumer(consumer)
-                .addMethod(method)
-                // introduced since 2.7.8
-                .services("test-service", "test-service2");
+            .interfaceClass(DemoService.class)
+            .protocol("protocol")
+            .client("client")
+            .url("url")
+            .consumer(consumer)
+            .addMethod(method)
+            // introduced since 2.7.8
+            .services("test-service", "test-service2");
 
         ReferenceConfig config = builder.build();
         ReferenceConfig config2 = builder.build();

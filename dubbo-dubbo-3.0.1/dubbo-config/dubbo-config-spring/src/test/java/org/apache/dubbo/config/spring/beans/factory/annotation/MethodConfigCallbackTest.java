@@ -40,11 +40,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        classes = {
-                ProviderConfiguration.class,
-                MethodConfigCallbackTest.class,
-                MethodConfigCallbackTest.MethodCallbackConfiguration.class
-        })
+    classes = {
+        ProviderConfiguration.class,
+        MethodConfigCallbackTest.class,
+        MethodConfigCallbackTest.MethodCallbackConfiguration.class
+    })
 @TestPropertySource(properties = {
     "dubbo.protocol.port=-1",
     "dubbo.registry.address=zookeeper://127.0.0.1:2181"
@@ -65,9 +65,9 @@ public class MethodConfigCallbackTest {
     @DubboReference(check = false,
         injvm = false, // Currently local call is not supported method callback cause by Injvm protocol is not supported ClusterFilter
         methods = {@Method(name = "sayHello",
-        oninvoke = "methodCallback.oninvoke",
-        onreturn = "methodCallback.onreturn",
-        onthrow = "methodCallback.onthrow")})
+            oninvoke = "methodCallback.oninvoke",
+            onreturn = "methodCallback.onreturn",
+            onthrow = "methodCallback.onthrow")})
     private HelloService helloServiceMethodCallBack;
 
     @Test

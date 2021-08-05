@@ -46,7 +46,6 @@ import static org.mockito.Mockito.mock;
 
 /**
  * FailoverClusterInvokerTest
- *
  */
 @SuppressWarnings("unchecked")
 public class FailoverClusterInvokerTest {
@@ -166,7 +165,7 @@ public class FailoverClusterInvokerTest {
             fail();
         } catch (RpcException expected) {
             assertTrue((expected.isTimeout() || expected.getCode() == 0));
-            assertTrue(expected.getMessage().indexOf((finalRetries+1) + " times") > 0);
+            assertTrue(expected.getMessage().indexOf((finalRetries + 1) + " times") > 0);
         }
     }
 

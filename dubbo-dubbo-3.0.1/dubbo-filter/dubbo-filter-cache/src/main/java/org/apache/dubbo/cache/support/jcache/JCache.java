@@ -58,12 +58,12 @@ public class JCache implements org.apache.dubbo.cache.Cache {
             try {
                 //configure the cache
                 MutableConfiguration config =
-                        new MutableConfiguration<>()
-                                .setTypes(Object.class, Object.class)
-                                .setExpiryPolicyFactory(CreatedExpiryPolicy.factoryOf(new Duration(TimeUnit.MILLISECONDS, url.getMethodParameter(method, "cache.write.expire", 60 * 1000))))
-                                .setStoreByValue(false)
-                                .setManagementEnabled(true)
-                                .setStatisticsEnabled(true);
+                    new MutableConfiguration<>()
+                        .setTypes(Object.class, Object.class)
+                        .setExpiryPolicyFactory(CreatedExpiryPolicy.factoryOf(new Duration(TimeUnit.MILLISECONDS, url.getMethodParameter(method, "cache.write.expire", 60 * 1000))))
+                        .setStoreByValue(false)
+                        .setManagementEnabled(true)
+                        .setStatisticsEnabled(true);
                 cache = cacheManager.createCache(key, config);
             } catch (CacheException e) {
                 // concurrent cache initialization

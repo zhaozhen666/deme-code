@@ -56,15 +56,15 @@ public class SimpleRegistryExporter {
 
     public static Exporter<RegistryService> export(int port, RegistryService registryService) {
         return protocol.export(PROXY_FACTORY.getInvoker(registryService, RegistryService.class,
-                new URLBuilder(DUBBO_PROTOCOL, NetUtils.getLocalHost(), port, RegistryService.class.getName())
-                        .setPath(RegistryService.class.getName())
-                        .addParameter(INTERFACE_KEY, RegistryService.class.getName())
-                        .addParameter(CLUSTER_STICKY_KEY, "true")
-                        .addParameter(CALLBACK_INSTANCES_LIMIT_KEY, "1000")
-                        .addParameter("ondisconnect", "disconnect")
-                        .addParameter("subscribe.1.callback", "true")
-                        .addParameter("unsubscribe.1.callback", "false")
-                        .build()));
+            new URLBuilder(DUBBO_PROTOCOL, NetUtils.getLocalHost(), port, RegistryService.class.getName())
+                .setPath(RegistryService.class.getName())
+                .addParameter(INTERFACE_KEY, RegistryService.class.getName())
+                .addParameter(CLUSTER_STICKY_KEY, "true")
+                .addParameter(CALLBACK_INSTANCES_LIMIT_KEY, "1000")
+                .addParameter("ondisconnect", "disconnect")
+                .addParameter("subscribe.1.callback", "true")
+                .addParameter("unsubscribe.1.callback", "false")
+                .build()));
     }
 
 }

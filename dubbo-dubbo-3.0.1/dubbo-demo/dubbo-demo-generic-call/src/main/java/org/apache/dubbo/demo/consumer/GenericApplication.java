@@ -54,16 +54,16 @@ public class GenericApplication {
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance();
         bootstrap.application(applicationConfig)
-                .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))
-                .reference(reference)
-                .start();
+            .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))
+            .reference(reference)
+            .start();
 
         // generic invoke
         GenericService genericService = (GenericService) ReferenceConfigCache.getCache().get(reference);
         while (true) {
             try {
                 Object genericInvokeResult = genericService.$invoke("sayHello", new String[]{String.class.getName()},
-                        new Object[]{"dubbo generic invoke"});
+                    new Object[]{"dubbo generic invoke"});
                 System.out.println(genericInvokeResult);
                 Thread.sleep(1000);
             } catch (Exception e) {

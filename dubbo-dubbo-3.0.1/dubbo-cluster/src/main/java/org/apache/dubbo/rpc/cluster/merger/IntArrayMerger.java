@@ -31,8 +31,8 @@ public class IntArrayMerger implements Merger<int[]> {
             return new int[0];
         }
         return Arrays.stream(items).filter(Objects::nonNull)
-                .flatMapToInt(Arrays::stream)
-                .toArray();
+            .flatMapToInt(Arrays::stream)
+            .toArray();
     }
 
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ErrorProducerService {
 
     @ServiceActivator(inputChannel = "stream-test-topic.errors")
-    public void receiveProducerError(Message message){
-        System.out.println("receive error msg :"+message);
+    public void receiveProducerError(Message message) {
+        System.out.println("receive error msg :" + message);
     }
 }

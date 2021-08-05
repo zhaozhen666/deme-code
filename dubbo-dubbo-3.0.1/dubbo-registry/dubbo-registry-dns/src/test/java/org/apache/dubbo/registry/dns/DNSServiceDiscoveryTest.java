@@ -88,7 +88,7 @@ public class DNSServiceDiscoveryTest {
         InstanceMetadataChangedListener changeListener = Mockito.mock(InstanceMetadataChangedListener.class);
 
         String metadataString = metadataService
-                .getAndListenInstanceMetadata("test", changeListener);
+            .getAndListenInstanceMetadata("test", changeListener);
 
         assertEquals(JSONObject.toJSONString(serviceInstance.getMetadata()), metadataString);
         assertEquals(serviceInstance, dnsServiceDiscovery.getLocalInstance());
@@ -109,10 +109,10 @@ public class DNSServiceDiscoveryTest {
         DNSServiceDiscovery dnsServiceDiscovery = new DNSServiceDiscovery();
 
         URL registryURL = URL.valueOf("dns://")
-                .addParameter(DNSClientConst.DNS_POLLING_CYCLE, 100)
-                .addParameter(Constants.ECHO_POLLING_CYCLE_KEY, 100);
+            .addParameter(DNSClientConst.DNS_POLLING_CYCLE, 100)
+            .addParameter(Constants.ECHO_POLLING_CYCLE_KEY, 100);
         ApplicationModel.getEnvironment().getAppExternalConfigMap()
-                .put(METADATA_PROXY_TIMEOUT_KEY, String.valueOf(500));
+            .put(METADATA_PROXY_TIMEOUT_KEY, String.valueOf(500));
         dnsServiceDiscovery.initialize(registryURL);
 
         WritableMetadataService metadataService = WritableMetadataService.getDefaultExtension();
@@ -164,7 +164,7 @@ public class DNSServiceDiscoveryTest {
 
         dnsServiceDiscovery.destroy();
         ApplicationModel.getEnvironment().getAppExternalConfigMap()
-                .remove(METADATA_PROXY_TIMEOUT_KEY);
+            .remove(METADATA_PROXY_TIMEOUT_KEY);
     }
 
     private ServiceConfig<MetadataService> exportMockMetadataService(MetadataService metadataService, int port) {

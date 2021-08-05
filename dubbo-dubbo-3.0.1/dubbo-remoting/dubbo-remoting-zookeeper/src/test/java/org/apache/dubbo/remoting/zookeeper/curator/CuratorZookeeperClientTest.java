@@ -51,7 +51,7 @@ public class CuratorZookeeperClientTest {
         int zkServerPort = NetUtils.getAvailablePort();
         zkServer = new TestingServer(zkServerPort, true);
         curatorClient = new CuratorZookeeperClient(URL.valueOf("zookeeper://127.0.0.1:" +
-                zkServerPort + "/org.apache.dubbo.registry.RegistryService"));
+            zkServerPort + "/org.apache.dubbo.registry.RegistryService"));
         client = CuratorFrameworkFactory.newClient(zkServer.getConnectString(), new ExponentialBackoffRetry(1000, 3));
         client.start();
     }

@@ -64,9 +64,9 @@ public class HeartbeatHandlerTest {
     @Test
     public void testServerHeartbeat() throws Exception {
         URL serverURL = URL.valueOf("telnet://localhost:" + NetUtils.getAvailablePort(56780))
-                .addParameter(Constants.EXCHANGER_KEY, HeaderExchanger.NAME)
-                .addParameter(Constants.TRANSPORTER_KEY, "netty3")
-                .addParameter(Constants.HEARTBEAT_KEY, 1000);
+            .addParameter(Constants.EXCHANGER_KEY, HeaderExchanger.NAME)
+            .addParameter(Constants.TRANSPORTER_KEY, "netty3")
+            .addParameter(Constants.HEARTBEAT_KEY, 1000);
         CountDownLatch connect = new CountDownLatch(1);
         CountDownLatch disconnect = new CountDownLatch(1);
         TestHeartbeatHandler handler = new TestHeartbeatHandler(connect, disconnect);
@@ -89,9 +89,9 @@ public class HeartbeatHandlerTest {
     @Test
     public void testHeartbeat() throws Exception {
         URL serverURL = URL.valueOf("telnet://localhost:" + NetUtils.getAvailablePort(56785))
-                .addParameter(Constants.EXCHANGER_KEY, HeaderExchanger.NAME)
-                .addParameter(Constants.TRANSPORTER_KEY, "netty3")
-                .addParameter(Constants.HEARTBEAT_KEY, 1000);
+            .addParameter(Constants.EXCHANGER_KEY, HeaderExchanger.NAME)
+            .addParameter(Constants.TRANSPORTER_KEY, "netty3")
+            .addParameter(Constants.HEARTBEAT_KEY, 1000);
         CountDownLatch connect = new CountDownLatch(1);
         CountDownLatch disconnect = new CountDownLatch(1);
         TestHeartbeatHandler handler = new TestHeartbeatHandler(connect, disconnect);
@@ -110,8 +110,8 @@ public class HeartbeatHandlerTest {
     public void testClientHeartbeat() throws Exception {
         FakeChannelHandlers.setTestingChannelHandlers();
         URL serverURL = URL.valueOf("telnet://localhost:" + NetUtils.getAvailablePort(56790))
-                .addParameter(Constants.EXCHANGER_KEY, HeaderExchanger.NAME)
-                .addParameter(Constants.TRANSPORTER_KEY, "netty3");
+            .addParameter(Constants.EXCHANGER_KEY, HeaderExchanger.NAME)
+            .addParameter(Constants.TRANSPORTER_KEY, "netty3");
         CountDownLatch connect = new CountDownLatch(1);
         CountDownLatch disconnect = new CountDownLatch(1);
         TestHeartbeatHandler handler = new TestHeartbeatHandler(connect, disconnect);

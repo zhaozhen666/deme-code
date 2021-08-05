@@ -58,11 +58,11 @@ public class ReferenceKeyTest {
         String helloService4 = getReferenceKey("helloService4");
 
         Assertions.assertEquals("ReferenceBean:org.apache.dubbo.config.spring.api.HelloService(methods=[{name=sayHello, retries=0, timeout=100}])",
-                helloService1);
+            helloService1);
         Assertions.assertEquals(helloService1, helloService2);
 
         Assertions.assertEquals("ReferenceBean:org.apache.dubbo.config.spring.api.HelloService(methods=[{arguments=[{callback=true, index=0}], name=sayHello, timeout=100}])",
-                helloService3);
+            helloService3);
         Assertions.assertEquals(helloService3, helloService4);
 
 
@@ -77,19 +77,19 @@ public class ReferenceKeyTest {
         String helloServiceWithArgument2 = getReferenceKey("helloServiceWithArgument2");
 
         Assertions.assertEquals("ReferenceBean:org.apache.dubbo.config.spring.api.HelloService(check=false,filter=[echo],parameters={a=2, b=1})",
-                helloServiceWithArray0);
+            helloServiceWithArray0);
         Assertions.assertNotEquals(helloServiceWithArray0, helloServiceWithArray1);
 
         Assertions.assertEquals("ReferenceBean:org.apache.dubbo.config.spring.api.HelloService(check=false,filter=[echo],parameters={a=1, b=2})",
-                helloServiceWithArray1);
+            helloServiceWithArray1);
         Assertions.assertEquals(helloServiceWithArray1, helloServiceWithArray2);
 
         Assertions.assertEquals("ReferenceBean:org.apache.dubbo.config.spring.api.HelloService(check=false,filter=[echo],methods=[{name=sayHello, parameters={c=1, d=2}, timeout=100}],parameters={a=1, b=2})",
-                helloServiceWithMethod1);
+            helloServiceWithMethod1);
         Assertions.assertEquals(helloServiceWithMethod1, helloServiceWithMethod2);
 
         Assertions.assertEquals("ReferenceBean:org.apache.dubbo.config.spring.api.HelloService(check=false,filter=[echo],methods=[{arguments=[{callback=true, type=String}, {type=int}], name=sayHello, timeout=100}],parameters={a=1, b=2})",
-                helloServiceWithArgument1);
+            helloServiceWithArgument1);
         Assertions.assertEquals(helloServiceWithArgument1, helloServiceWithArgument2);
 
     }
@@ -104,7 +104,7 @@ public class ReferenceKeyTest {
         Map<String, ReferenceBean> referenceBeanMap = context.getBeansOfType(ReferenceBean.class);
         Assertions.assertEquals(2, referenceBeanMap.size());
         Assertions.assertEquals("ReferenceBean:demo/org.apache.dubbo.config.spring.api.DemoService:1.2.3(consumer=my-consumer,init=false,methods=[{arguments=[{callback=true, index=0}], name=sayName, parameters={access-token=my-token, b=2}, retries=0}],parameters={connec.timeout=1000},protocol=dubbo,registryIds=my-registry,scope=remote,timeout=1000,url=dubbo://127.0.0.1:20813)",
-                referenceBeanMap.get("&demoService").getKey());
+            referenceBeanMap.get("&demoService").getKey());
 
     }
 
@@ -232,42 +232,42 @@ public class ReferenceKeyTest {
 
     @Configuration
     @ImportResource({"classpath:/org/apache/dubbo/config/spring/init-reference-keys.xml",
-            "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
+        "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
     static class ConsumerConfiguration {
 
         //both are reference beans, same as xml config
-        @DubboReference(group = "demo", version = "1.2.3", consumer="my-consumer", init=false,
-                methods={@Method(arguments={@Argument(callback=true, index=0)}, name="sayName", parameters={"access-token", "my-token", "b", "2"}, retries=0)},
-                parameters={"connec.timeout", "1000"},
-                protocol="dubbo",
-                registry="my-registry",
-                scope="remote",
-                timeout=1000,
-                url="dubbo://127.0.0.1:20813")
+        @DubboReference(group = "demo", version = "1.2.3", consumer = "my-consumer", init = false,
+            methods = {@Method(arguments = {@Argument(callback = true, index = 0)}, name = "sayName", parameters = {"access-token", "my-token", "b", "2"}, retries = 0)},
+            parameters = {"connec.timeout", "1000"},
+            protocol = "dubbo",
+            registry = "my-registry",
+            scope = "remote",
+            timeout = 1000,
+            url = "dubbo://127.0.0.1:20813")
         private DemoService demoService;
     }
 
 
     @Configuration
     @ImportResource({"classpath:/org/apache/dubbo/config/spring/init-reference-keys.xml",
-            "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
+        "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
     static class ConsumerConfiguration2 {
 
         //both are reference beans, same bean name and type, but difference attributes from xml config
-        @DubboReference(group = "demo", version = "1.2.3", consumer="my-consumer", init=false,
-                scope="local",
-                timeout=100)
+        @DubboReference(group = "demo", version = "1.2.3", consumer = "my-consumer", init = false,
+            scope = "local",
+            timeout = 100)
         private DemoService demoService;
     }
 
     @Configuration
     @ImportResource({"classpath:/org/apache/dubbo/config/spring/init-reference-keys.xml",
-            "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
+        "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
     static class ConsumerConfiguration3 {
 
         //both are reference beans, same bean name but difference interface type
-        @DubboReference(group = "demo", version = "1.2.3", consumer="my-consumer", init=false,
-                url="dubbo://127.0.0.1:20813")
+        @DubboReference(group = "demo", version = "1.2.3", consumer = "my-consumer", init = false,
+            url = "dubbo://127.0.0.1:20813")
         private HelloService demoService;
 
         @Autowired
@@ -276,7 +276,7 @@ public class ReferenceKeyTest {
 
     @Configuration
     @ImportResource({"classpath:/org/apache/dubbo/config/spring/init-reference-keys.xml",
-            "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
+        "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
     static class ConsumerConfiguration4 {
 
         //not reference bean: same bean name and type
@@ -288,7 +288,7 @@ public class ReferenceKeyTest {
 
     @Configuration
     @ImportResource({"classpath:/org/apache/dubbo/config/spring/init-reference-keys.xml",
-            "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
+        "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
     static class ConsumerConfiguration5 {
 
         //not reference bean: same bean name but difference type
@@ -300,12 +300,12 @@ public class ReferenceKeyTest {
 
     @Configuration
     @ImportResource({"classpath:/org/apache/dubbo/config/spring/init-reference-keys.xml",
-            "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
+        "classpath:/org/apache/dubbo/config/spring/init-reference-properties.xml"})
     static class ConsumerConfiguration6 {
 
         //both are reference beans, same bean name but difference interface type, fixed bean name
-        @DubboReference(id = "demoService", group = "demo", version = "1.2.3", consumer="my-consumer", init=false,
-                url="dubbo://127.0.0.1:20813")
+        @DubboReference(id = "demoService", group = "demo", version = "1.2.3", consumer = "my-consumer", init = false,
+            url = "dubbo://127.0.0.1:20813")
         private HelloService demoService;
 
 //        @Autowired

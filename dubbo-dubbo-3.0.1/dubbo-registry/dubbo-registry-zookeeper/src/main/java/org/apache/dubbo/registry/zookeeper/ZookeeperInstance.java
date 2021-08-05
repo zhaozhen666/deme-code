@@ -71,7 +71,7 @@ public class ZookeeperInstance {
     @Override
     public String toString() {
         return "ZookeeperInstance{" + "id='" + this.id + '\'' + ", name='" + this.name
-                + '\'' + ", metadata=" + this.metadata + '}';
+            + '\'' + ", metadata=" + this.metadata + '}';
     }
 
 }

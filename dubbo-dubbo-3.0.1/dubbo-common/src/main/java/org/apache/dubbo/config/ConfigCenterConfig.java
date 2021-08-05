@@ -63,6 +63,7 @@ public class ConfigCenterConfig extends AbstractConfig {
 
     /**
      * If the Config Center is given the highest priority, it will override all the other configurations
+     *
      * @deprecated no longer used
      */
     private Boolean highestPriority; // true;
@@ -76,7 +77,7 @@ public class ConfigCenterConfig extends AbstractConfig {
     private String configFile; // CommonConstants.DEFAULT_DUBBO_PROPERTIES;
 
     /* the .properties file under 'configFile' is global shared while .properties under this one is limited only to this application
-    */
+     */
     private String appConfigFile;
 
     /* If the Config Center product you use have some special parameters that is not covered by this class, you can add it to here.

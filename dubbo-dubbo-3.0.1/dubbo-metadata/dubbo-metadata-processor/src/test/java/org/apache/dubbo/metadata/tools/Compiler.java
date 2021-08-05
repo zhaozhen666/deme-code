@@ -105,9 +105,9 @@ public class Compiler {
 
     public boolean compile(Class<?>... sourceClasses) {
         JavaCompiler.CompilationTask task = javaCompiler.getTask(null, this.javaFileManager, null,
-                asList("-parameters", "-Xlint:unchecked", "-nowarn", "-Xlint:deprecation"),
+            asList("-parameters", "-Xlint:unchecked", "-nowarn", "-Xlint:deprecation"),
 //                null,
-                null, getJavaFileObjects(sourceClasses));
+            null, getJavaFileObjects(sourceClasses));
         if (!processors.isEmpty()) {
             task.setProcessors(processors);
         }

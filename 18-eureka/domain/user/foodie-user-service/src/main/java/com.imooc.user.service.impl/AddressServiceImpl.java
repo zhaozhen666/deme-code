@@ -95,7 +95,7 @@ public class AddressServiceImpl implements AddressService {
         UserAddress queryAddress = new UserAddress();
         queryAddress.setUserId(userId);
         queryAddress.setIsDefault(YesOrNo.YES.type);
-        List<UserAddress> list  = userAddressMapper.select(queryAddress);
+        List<UserAddress> list = userAddressMapper.select(queryAddress);
         for (UserAddress ua : list) {
             ua.setIsDefault(YesOrNo.NO.type);
             userAddressMapper.updateByPrimaryKeySelective(ua);

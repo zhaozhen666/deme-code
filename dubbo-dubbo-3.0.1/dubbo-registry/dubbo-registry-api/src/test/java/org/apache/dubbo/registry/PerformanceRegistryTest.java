@@ -26,9 +26,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * RegistryPerformanceTest
- *
  */
-public class PerformanceRegistryTest  {
+public class PerformanceRegistryTest {
 
     private static final Logger logger = LoggerFactory.getLogger(PerformanceRegistryTest.class);
 

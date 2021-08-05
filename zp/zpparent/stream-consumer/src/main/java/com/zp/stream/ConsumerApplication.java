@@ -17,7 +17,7 @@ import javax.validation.ValidationException;
 @EnableBinding({TestChannel.class})
 public class ConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class,args);
+        SpringApplication.run(ConsumerApplication.class, args);
     }
 
     @StreamListener("input")
@@ -25,8 +25,9 @@ public class ConsumerApplication {
         //System.out.println("input1 receive: " + message.getPayload() + ", foo header: " + message.getHeaders().get("foo"));
         throw new RuntimeException("oops");
     }
+
     @ServiceActivator(inputChannel = "stream-test-topic.test.errors")
-    public void receiveConsumeError(Message message){
-        System.out.println("receive error msg"+message.getPayload());
+    public void receiveConsumeError(Message message) {
+        System.out.println("receive error msg" + message.getPayload());
     }
 }

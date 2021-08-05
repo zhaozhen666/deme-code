@@ -135,7 +135,7 @@ public class ConfigurationUtils {
             Properties properties = new Properties();
             properties.load(new StringReader(content));
             properties.stringPropertyNames().forEach(
-                    k -> map.put(k, properties.getProperty(k))
+                k -> map.put(k, properties.getProperty(k))
             );
         }
         return map;
@@ -143,7 +143,7 @@ public class ConfigurationUtils {
 
     public static boolean isEmptyValue(Object value) {
         return value == null ||
-                value instanceof String && StringUtils.isBlank((String) value);
+            value instanceof String && StringUtils.isBlank((String) value);
     }
 
     /**
@@ -160,6 +160,7 @@ public class ConfigurationUtils {
      * props: {"name": "dubbo", "port" : "1234"}
      *
      * </pre>
+     *
      * @param configMaps
      * @param prefix
      * @param <V>

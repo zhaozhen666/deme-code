@@ -41,9 +41,9 @@ public class RpcExceptionMapper implements ExceptionMapper<RpcException> {
         ViolationReport report = new ViolationReport();
         for (ConstraintViolation cv : cve.getConstraintViolations()) {
             report.addConstraintViolation(new RestConstraintViolation(
-                    cv.getPropertyPath().toString(),
-                    cv.getMessage(),
-                    cv.getInvalidValue() == null ? "null" : cv.getInvalidValue().toString()));
+                cv.getPropertyPath().toString(),
+                cv.getMessage(),
+                cv.getInvalidValue() == null ? "null" : cv.getInvalidValue().toString()));
         }
         // TODO for now just do xml output
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(report).type(ContentType.TEXT_XML_UTF_8).build();

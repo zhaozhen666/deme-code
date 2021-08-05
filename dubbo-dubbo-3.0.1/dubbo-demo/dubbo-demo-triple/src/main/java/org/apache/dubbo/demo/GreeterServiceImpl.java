@@ -24,7 +24,7 @@ public class GreeterServiceImpl implements GreeterService {
     @Override
     public HelloReply sayHello(HelloRequest request) {
         return HelloReply.newBuilder()
-                .setMessage("Hello " + request.getName())
-                .build();
+            .setMessage("Hello " + request.getName())
+            .build();
     }
 }

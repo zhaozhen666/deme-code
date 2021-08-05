@@ -50,9 +50,9 @@ public class CollectionTypeBuilder implements TypeBuilder {
         Type[] actualTypeArgs = parameterizedType.getActualTypeArguments();
         if (actualTypeArgs == null || actualTypeArgs.length != 1) {
             throw new IllegalArgumentException(MessageFormat.format(
-                    "[ServiceDefinitionBuilder] Collection type [{0}] with unexpected amount of arguments [{1}]."
-                            + Arrays.toString(actualTypeArgs),
-                    type, actualTypeArgs));
+                "[ServiceDefinitionBuilder] Collection type [{0}] with unexpected amount of arguments [{1}]."
+                    + Arrays.toString(actualTypeArgs),
+                type, actualTypeArgs));
         }
 
         String colType = ClassUtils.getCanonicalNameForParameterizedType(parameterizedType);

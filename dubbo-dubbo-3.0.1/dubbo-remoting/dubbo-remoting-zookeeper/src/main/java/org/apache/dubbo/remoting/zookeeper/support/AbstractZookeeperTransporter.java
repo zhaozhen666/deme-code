@@ -169,7 +169,7 @@ public abstract class AbstractZookeeperTransporter implements ZookeeperTransport
         }
 
         return new ServiceConfigURL(url.getProtocol(), url.getUsername(), url.getPassword(), url.getHost(), url.getPort(),
-                ZookeeperTransporter.class.getName(), parameterMap);
+            ZookeeperTransporter.class.getName(), parameterMap);
     }
 
     /**

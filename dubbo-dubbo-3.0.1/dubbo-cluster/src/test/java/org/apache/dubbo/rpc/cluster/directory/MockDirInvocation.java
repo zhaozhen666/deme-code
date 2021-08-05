@@ -90,7 +90,7 @@ public class MockDirInvocation implements Invocation {
 
     @Override
     public void setAttachment(String key, Object value) {
-       setObjectAttachment(key, value);
+        setObjectAttachment(key, value);
     }
 
     @Override

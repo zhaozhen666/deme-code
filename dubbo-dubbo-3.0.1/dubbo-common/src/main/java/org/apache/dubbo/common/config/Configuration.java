@@ -115,7 +115,7 @@ public interface Configuration {
      * Gets a property from the configuration. The default value will return if the configuration doesn't contain
      * the mapping for the specified key.
      *
-     * @param key property to retrieve
+     * @param key          property to retrieve
      * @param defaultValue default value
      * @return the value to which this configuration maps the specified key, or default value if the configuration
      * contains no mapping for this key.

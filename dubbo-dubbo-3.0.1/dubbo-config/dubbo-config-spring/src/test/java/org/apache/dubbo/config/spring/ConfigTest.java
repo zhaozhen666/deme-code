@@ -148,9 +148,9 @@ public class ConfigTest {
             reference.setUrl("dubbo://127.0.0.1:12345");
 
             DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                    .application(new ApplicationConfig("consumer"))
-                    .reference(reference)
-                    .start();
+                .application(new ApplicationConfig("consumer"))
+                .reference(reference)
+                .start();
             HelloService helloService = bootstrap.getCache().get(reference);
 
             String hello = helloService.sayHello("hello");
@@ -187,9 +187,9 @@ public class ConfigTest {
         reference.setUrl(url);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("consumer"))
-                .reference(reference)
-                .start();
+            .application(new ApplicationConfig("consumer"))
+            .reference(reference)
+            .start();
         return bootstrap.getCache().get(reference);
     }
 
@@ -377,8 +377,8 @@ public class ConfigTest {
     @Disabled("waiting-to-fix")
     public void testAutowireAndAOP() throws Exception {
         ClassPathXmlApplicationContext providerContext = new ClassPathXmlApplicationContext(
-                resourcePath + "/demo-provider.xml",
-                resourcePath + "/demo-provider-properties.xml");
+            resourcePath + "/demo-provider.xml",
+            resourcePath + "/demo-provider-properties.xml");
         try {
             providerContext.start();
             ClassPathXmlApplicationContext byNameContext = new ClassPathXmlApplicationContext(resourcePath + "/aop-autowire-byname.xml");
@@ -439,11 +439,11 @@ public class ConfigTest {
         reference.setUrl("dubbo://" + NetUtils.getLocalHost() + ":20880?" + DemoService.class.getName() + "?check=false");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(application)
-                .provider(provider)
-                .service(service)
-                .reference(reference)
-                .start();
+            .application(application)
+            .provider(provider)
+            .service(service)
+            .reference(reference)
+            .start();
 
         try {
             List<URL> urls = service.getExportedUrls();
@@ -464,8 +464,8 @@ public class ConfigTest {
     @Test
     public void testInitReference() throws Exception {
         ClassPathXmlApplicationContext providerContext = new ClassPathXmlApplicationContext(
-                resourcePath + "/demo-provider.xml",
-                resourcePath + "/demo-provider-properties.xml");
+            resourcePath + "/demo-provider.xml",
+            resourcePath + "/demo-provider-properties.xml");
 
         try {
             providerContext.start();
@@ -474,7 +474,7 @@ public class ConfigTest {
             DubboBootstrap.reset(false);
 
             ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(resourcePath + "/init-reference.xml",
-                    resourcePath + "/init-reference-properties.xml");
+                resourcePath + "/init-reference-properties.xml");
             try {
                 ctx.start();
 
@@ -551,7 +551,7 @@ public class ConfigTest {
     @Test
     public void test_RpcContext_getUrls() throws Exception {
         ClassPathXmlApplicationContext providerContext = new ClassPathXmlApplicationContext(
-                resourcePath + "/demo-provider-long-waiting.xml");
+            resourcePath + "/demo-provider-long-waiting.xml");
 
         try {
             providerContext.start();
@@ -587,7 +587,7 @@ public class ConfigTest {
         try {
             providerContext.start();
             ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
-                    resourcePath + "/init-reference-retry-false.xml");
+                resourcePath + "/init-reference-retry-false.xml");
             try {
                 ctx.start();
                 DemoService demoService = (DemoService) ctx.getBean("demoService");
@@ -618,7 +618,7 @@ public class ConfigTest {
         try {
             providerContext.start();
             ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(resourcePath + "/init-reference.xml",
-                    resourcePath + "/init-reference-properties.xml");
+                resourcePath + "/init-reference-properties.xml");
             try {
                 ctx.start();
                 DemoService demoService = (DemoService) ctx.getBean("demoService");
@@ -685,12 +685,12 @@ public class ConfigTest {
         reference.setUrl("dubbo://127.0.0.1:13123");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(application)
-                .registry(registry)
-                .protocol(protocol)
-                .service(service)
-                .reference(reference)
-                .start();
+            .application(application)
+            .registry(registry)
+            .protocol(protocol)
+            .service(service)
+            .reference(reference)
+            .start();
 
         try {
             URL url = service.getExportedUrls().get(0);
@@ -726,7 +726,7 @@ public class ConfigTest {
         SysProps.setProperty("dubbo.protocols.dubbo.port", "20814");
         SysProps.setProperty("dubbo.protocols.tri.port", "10914");
         ClassPathXmlApplicationContext providerContext = new ClassPathXmlApplicationContext(resourcePath +
-                "/override-multi-protocol.xml");
+            "/override-multi-protocol.xml");
         try {
             providerContext.start();
             ConfigManager configManager = ApplicationModel.getConfigManager();
@@ -811,12 +811,12 @@ public class ConfigTest {
             reference.setRetries(2);
 
             DubboBootstrap.getInstance()
-                    .application(new ApplicationConfig("testSystemPropertyOverrideReferenceConfig"))
-                    .registry(new RegistryConfig(RegistryConfig.NO_AVAILABLE))
-                    .protocol(protocolConfig)
-                    .service(service)
-                    .reference(reference)
-                    .start();
+                .application(new ApplicationConfig("testSystemPropertyOverrideReferenceConfig"))
+                .registry(new RegistryConfig(RegistryConfig.NO_AVAILABLE))
+                .protocol(protocolConfig)
+                .service(service)
+                .reference(reference)
+                .start();
             // override retries
             assertEquals(Integer.valueOf(5), reference.getRetries());
             // set default value of check
@@ -843,8 +843,8 @@ public class ConfigTest {
             serviceConfig.setRef(new DemoServiceImpl());
 
             DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                    .service(serviceConfig)
-                    .start();
+                .service(serviceConfig)
+                .start();
             try {
                 assertEquals("sysover", serviceConfig.getApplication().getName());
                 assertEquals("sysowner", serviceConfig.getApplication().getOwner());
@@ -885,11 +885,11 @@ public class ConfigTest {
             service.setProtocol(protocol);
 
             DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                    .application(application)
-                    .registry(registry)
-                    .protocol(protocol)
-                    .service(service)
-                    .start();
+                .application(application)
+                .registry(registry)
+                .protocol(protocol)
+                .service(service)
+                .start();
 
             try {
                 URL url = service.getExportedUrls().get(0);
@@ -927,11 +927,11 @@ public class ConfigTest {
             service.setProtocol(protocol);
 
             DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                    .application(application)
-                    .registry(registry)
-                    .protocol(protocol)
-                    .service(service)
-                    .start();
+                .application(application)
+                .registry(registry)
+                .protocol(protocol)
+                .service(service)
+                .start();
 
             try {
                 URL url = service.getExportedUrls().get(0);
@@ -954,7 +954,7 @@ public class ConfigTest {
     @SuppressWarnings("unchecked")
     public void testCustomizeParameter() throws Exception {
         ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext(resourcePath + "/customize-parameter.xml");
+            new ClassPathXmlApplicationContext(resourcePath + "/customize-parameter.xml");
         try {
             context.start();
             ServiceBean<DemoService> serviceBean = (ServiceBean<DemoService>) context.getBean("demoServiceExport");
@@ -1034,11 +1034,11 @@ public class ConfigTest {
 
 
             DubboBootstrap.getInstance()
-                    .application(application)
-                    .registry(registry)
-                    .protocol(protocol)
-                    .service(service)
-                    .start();
+                .application(application)
+                .registry(registry)
+                .protocol(protocol)
+                .service(service)
+                .start();
 
             assertEquals(port, service.getExportedUrls().get(0).getPort());
         } finally {
@@ -1079,16 +1079,16 @@ public class ConfigTest {
         helloService.setProtocol(protocol);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(application)
-                .registry(registry)
-                .protocol(protocol)
-                .service(demoService)
-                .service(helloService);
+            .application(application)
+            .registry(registry)
+            .protocol(protocol)
+            .service(demoService)
+            .service(helloService);
         try {
             bootstrap.start();
 
             assertEquals(demoService.getExportedUrls().get(0).getPort(),
-                    helloService.getExportedUrls().get(0).getPort());
+                helloService.getExportedUrls().get(0).getPort());
         } finally {
             bootstrap.stop();
         }
@@ -1109,9 +1109,9 @@ public class ConfigTest {
         ref.setInterface(DemoService.class.getName());
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("test-refer-generic-export"))
-                .service(sc)
-                .reference(ref);
+            .application(new ApplicationConfig("test-refer-generic-export"))
+            .service(sc)
+            .reference(ref);
         try {
             bootstrap.start();
             fail();
@@ -1131,9 +1131,9 @@ public class ConfigTest {
         service.setRef((method, parameterTypes, args) -> null);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(new ApplicationConfig("test"))
-                .service(service)
-                .start();
+            .application(new ApplicationConfig("test"))
+            .service(service)
+            .start();
         try {
             Collection<Registry> collection = MockRegistryFactory.getCachedRegistry();
             MockRegistry registry = (MockRegistry) collection.iterator().next();

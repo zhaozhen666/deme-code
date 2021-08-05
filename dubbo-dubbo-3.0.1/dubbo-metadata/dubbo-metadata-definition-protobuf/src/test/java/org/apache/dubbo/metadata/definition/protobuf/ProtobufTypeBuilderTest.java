@@ -65,17 +65,17 @@ public class ProtobufTypeBuilderTest {
         assertThat(getTypeName(propertiesMap.get("name"), types), equalTo("java.lang.String"));
         assertThat(propertiesMap.containsKey("msg"), is(true));
         assertThat(getTypeName(propertiesMap.get("msg"), types),
-                equalTo("com.google.protobuf.ByteString"));
+            equalTo("com.google.protobuf.ByteString"));
         assertThat(propertiesMap.containsKey("phone"), is(true));
         assertThat(getTypeName(propertiesMap.get("phone"), types),
-                equalTo("java.util.List<org.apache.dubbo.metadata.definition.protobuf.model.GooglePB.PhoneNumber>"));
+            equalTo("java.util.List<org.apache.dubbo.metadata.definition.protobuf.model.GooglePB.PhoneNumber>"));
         assertThat(propertiesMap.containsKey("doubleMap"), is(true));
         assertThat(getTypeName(propertiesMap.get("doubleMap"), types),
-                equalTo("java.util.Map<java.lang.String,org.apache.dubbo.metadata.definition.protobuf.model.GooglePB$PhoneNumber>"));
+            equalTo("java.util.Map<java.lang.String,org.apache.dubbo.metadata.definition.protobuf.model.GooglePB$PhoneNumber>"));
         assertThat(getTypeName(propertiesMap.get("bytesList"), types),
-                equalTo("java.util.List<com.google.protobuf.ByteString>"));
+            equalTo("java.util.List<com.google.protobuf.ByteString>"));
         assertThat(getTypeName(propertiesMap.get("bytesMap"), types),
-                equalTo("java.util.Map<java.lang.String,com.google.protobuf.ByteString>"));
+            equalTo("java.util.Map<java.lang.String,com.google.protobuf.ByteString>"));
     }
 
     private static String getTypeName(String type, List<TypeDefinition> types) {

@@ -143,6 +143,7 @@ public class Environment extends LifecycleAdapter implements FrameworkExt {
 
     /**
      * Merge target map properties into app configuration
+     *
      * @param map
      */
     public void updateAppConfigMap(Map<String, String> map) {
@@ -198,6 +199,7 @@ public class Environment extends LifecycleAdapter implements FrameworkExt {
 
     /**
      * Get configuration map list for target instance
+     *
      * @param config
      * @param prefix
      * @return
@@ -221,6 +223,7 @@ public class Environment extends LifecycleAdapter implements FrameworkExt {
 
     /**
      * Get global configuration as map list
+     *
      * @return
      */
     public List<Map<String, String>> getConfigurationMaps() {

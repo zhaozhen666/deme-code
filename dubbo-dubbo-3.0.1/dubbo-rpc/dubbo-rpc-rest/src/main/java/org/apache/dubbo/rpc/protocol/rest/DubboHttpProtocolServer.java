@@ -59,7 +59,7 @@ public class DubboHttpProtocolServer extends BaseRestProtocolServer {
         }
         if (servletContext == null) {
             throw new RpcException("No servlet context found. If you are using server='servlet', " +
-                    "make sure that you've configured " + BootstrapListener.class.getName() + " in web.xml");
+                "make sure that you've configured " + BootstrapListener.class.getName() + " in web.xml");
         }
 
         servletContext.setAttribute(ResteasyDeployment.class.getName(), deployment);

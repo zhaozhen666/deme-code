@@ -86,8 +86,8 @@ public class MockRegistry implements Registry {
         List<URL> urls = new ArrayList<URL>();
 
         urls.add(url.setProtocol("mockprotocol")
-                .removeParameter(CATEGORY_KEY)
-                .addParameter(METHODS_KEY, "sayHello"));
+            .removeParameter(CATEGORY_KEY)
+            .addParameter(METHODS_KEY, "sayHello"));
 
         listener.notify(urls);
     }

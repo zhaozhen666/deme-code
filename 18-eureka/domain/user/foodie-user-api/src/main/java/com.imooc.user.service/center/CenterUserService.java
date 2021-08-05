@@ -9,6 +9,7 @@ public interface CenterUserService {
 
     /**
      * 根据用户id查询用户信息
+     *
      * @param userId
      * @return
      */
@@ -17,6 +18,7 @@ public interface CenterUserService {
 
     /**
      * 修改用户信息
+     *
      * @param userId
      * @param centerUserBO
      */
@@ -26,6 +28,7 @@ public interface CenterUserService {
 
     /**
      * 用户头像更新
+     *
      * @param userId
      * @param faceUrl
      * @return

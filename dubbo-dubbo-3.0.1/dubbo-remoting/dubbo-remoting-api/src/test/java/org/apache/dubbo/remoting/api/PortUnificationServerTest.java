@@ -29,7 +29,7 @@ public class PortUnificationServerTest {
     @Test
     public void testBind() throws RemotingException {
         URL url = new ServiceConfigURL(CommonConstants.TRIPLE, "localhost", 8898,
-                new String[]{Constants.BIND_PORT_KEY, String.valueOf(8898)});
+            new String[]{Constants.BIND_PORT_KEY, String.valueOf(8898)});
 
         final PortUnificationServer server = new PortUnificationServer(url);
         server.bind();

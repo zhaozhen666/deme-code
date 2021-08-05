@@ -36,11 +36,11 @@ import static org.apache.dubbo.config.spring.beans.factory.annotation.ServiceBea
  * @since 2.6.6
  */
 @Service(interfaceClass = DemoService.class, group = GROUP, version = VERSION,
-        application = "application", module = "module", registry = {"1", "2", "3"})
+    application = "application", module = "module", registry = {"1", "2", "3"})
 public class ServiceBeanNameBuilderTest {
 
     @Reference(interfaceClass = DemoService.class, group = "DUBBO", version = "${dubbo.version}",
-            application = "application", module = "module", registry = {"1", "2", "3"})
+        application = "application", module = "module", registry = {"1", "2", "3"})
     static final Class<?> INTERFACE_CLASS = DemoService.class;
 
     static final String GROUP = "DUBBO";
@@ -60,10 +60,10 @@ public class ServiceBeanNameBuilderTest {
         Service service = AnnotationUtils.getAnnotation(ServiceBeanNameBuilderTest.class, Service.class);
         ServiceBeanNameBuilder builder = ServiceBeanNameBuilder.create(service, INTERFACE_CLASS, environment);
         Assertions.assertEquals("ServiceBean:org.apache.dubbo.config.spring.api.DemoService:1.0.0:DUBBO",
-                builder.build());
+            builder.build());
 
         Assertions.assertEquals("ServiceBean:org.apache.dubbo.config.spring.api.DemoService:1.0.0:DUBBO",
-                builder.build());
+            builder.build());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class ServiceBeanNameBuilderTest {
         Reference reference = AnnotationUtils.getAnnotation(ReflectionUtils.findField(ServiceBeanNameBuilderTest.class, "INTERFACE_CLASS"), Reference.class);
         ServiceBeanNameBuilder builder = ServiceBeanNameBuilder.create(reference, INTERFACE_CLASS, environment);
         Assertions.assertEquals("ServiceBean:org.apache.dubbo.config.spring.api.DemoService:1.0.0:DUBBO",
-                builder.build());
+            builder.build());
     }
 
 }

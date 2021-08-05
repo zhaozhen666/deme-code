@@ -16,13 +16,13 @@ spring:
 zhao-service-resume:
   ribbon: #请求连接超时时间
     ConnectTimeout: 2000
-  #请求处理超时时间
+    #请求处理超时时间
     ReadTimeout: 5000
-  #对所有操作都进⾏重试
+    #对所有操作都进⾏重试
     OkToRetryOnAllOperations: true
-####根据如上配置，当访问到故障请求的时候，它会再尝试访问⼀次当前实例（次数由MaxAutoRetries配置），
-  ####如果不⾏，就换⼀个实例进⾏访问，如果还不⾏，再换⼀次实例访问（更换次数由MaxAutoRetriesNextServer配置），
-####如果依然不⾏，返回失败信息。
+    ####根据如上配置，当访问到故障请求的时候，它会再尝试访问⼀次当前实例（次数由MaxAutoRetries配置），
+    ####如果不⾏，就换⼀个实例进⾏访问，如果还不⾏，再换⼀次实例访问（更换次数由MaxAutoRetriesNextServer配置），
+    ####如果依然不⾏，返回失败信息。
     MaxAutoRetries: 0 #对当前选中实例重试次数，不包括第⼀次调⽤
     MaxAutoRetriesNextServer: 0 #切换实例的重试次数
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #负载策略调整

@@ -69,10 +69,10 @@ public interface FrameworkStatusReporter {
 
     static String createRegistrationReport(String status) {
         return "{\"application\":\"" +
-                ApplicationModel.getName() +
-                "\",\"status\":\"" +
-                status +
-                "\"}";
+            ApplicationModel.getName() +
+            "\",\"status\":\"" +
+            status +
+            "\"}";
     }
 
     static String createConsumptionReport(String interfaceName, String version, String group, String status) {

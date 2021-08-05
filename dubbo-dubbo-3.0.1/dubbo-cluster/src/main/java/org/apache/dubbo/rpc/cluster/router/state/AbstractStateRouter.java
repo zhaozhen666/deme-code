@@ -49,7 +49,7 @@ public abstract class AbstractStateRouter implements StateRouter {
 
     @Override
     public <T> void notify(List<Invoker<T>> invokers) {
-        this.invokers = (List)invokers;
+        this.invokers = (List) invokers;
     }
 
     @Override
@@ -86,7 +86,7 @@ public abstract class AbstractStateRouter implements StateRouter {
 
     @Override
     public <T> BitList<Invoker<T>> route(BitList<Invoker<T>> invokers, RouterCache<T> cache, URL url,
-        Invocation invocation) throws RpcException {
+                                         Invocation invocation) throws RpcException {
 
         List<String> tags = getTags(url, invocation);
 

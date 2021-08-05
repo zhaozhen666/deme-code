@@ -140,9 +140,9 @@ class ConfigCenterBuilderTest {
     void build() {
         ConfigCenterBuilder builder = new ConfigCenterBuilder();
         builder.check(true).protocol("protocol").address("address").appConfigFile("appConfigFile")
-                .cluster("cluster").configFile("configFile").group("group").highestPriority(false)
-                .namespace("namespace").password("password").timeout(1000L).username("usernama")
-                .appendParameter("default.num", "one").id("id");
+            .cluster("cluster").configFile("configFile").group("group").highestPriority(false)
+            .namespace("namespace").password("password").timeout(1000L).username("usernama")
+            .appendParameter("default.num", "one").id("id");
 
         ConfigCenterConfig config = builder.build();
         ConfigCenterConfig config2 = builder.build();

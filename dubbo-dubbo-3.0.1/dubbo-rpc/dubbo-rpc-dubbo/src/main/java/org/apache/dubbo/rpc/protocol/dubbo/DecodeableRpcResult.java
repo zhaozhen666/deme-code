@@ -82,7 +82,7 @@ public class DecodeableRpcResult extends AppResponse implements Codec, Decodeabl
         }
 
         ObjectInput in = CodecSupport.getSerialization(channel.getUrl(), serializationType)
-                .deserialize(channel.getUrl(), input);
+            .deserialize(channel.getUrl(), input);
 
         byte flag = in.readByte();
         switch (flag) {

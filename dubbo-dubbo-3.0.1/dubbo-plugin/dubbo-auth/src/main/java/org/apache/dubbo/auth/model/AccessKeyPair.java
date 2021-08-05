@@ -78,12 +78,12 @@ public class AccessKeyPair {
     @Override
     public String toString() {
         return "AccessKeyPair{" +
-                "accessKey='" + accessKey + '\'' +
-                ", secretKey='" + secretKey + '\'' +
-                ", consumerSide='" + consumerSide + '\'' +
-                ", providerSide='" + providerSide + '\'' +
-                ", creator='" + creator + '\'' +
-                ", options='" + options + '\'' +
-                '}';
+            "accessKey='" + accessKey + '\'' +
+            ", secretKey='" + secretKey + '\'' +
+            ", consumerSide='" + consumerSide + '\'' +
+            ", providerSide='" + providerSide + '\'' +
+            ", creator='" + creator + '\'' +
+            ", options='" + options + '\'' +
+            '}';
     }
 }

@@ -65,8 +65,8 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
         InetSocketAddress address = channel.getRemoteAddress();
         URL url = channel.getUrl();
         return url.getPort() == address.getPort() &&
-                NetUtils.filterLocalHost(url.getIp())
-                        .equals(NetUtils.filterLocalHost(address.getAddress().getHostAddress()));
+            NetUtils.filterLocalHost(url.getIp())
+                .equals(NetUtils.filterLocalHost(address.getAddress().getHostAddress()));
     }
 
     void handlerEvent(Channel channel, Request req) throws RemotingException {
@@ -157,7 +157,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
                 throw (RemotingException) exception;
             } else {
                 throw new RemotingException(channel.getLocalAddress(), channel.getRemoteAddress(),
-                        exception.getMessage(), exception);
+                    exception.getMessage(), exception);
             }
         }
     }

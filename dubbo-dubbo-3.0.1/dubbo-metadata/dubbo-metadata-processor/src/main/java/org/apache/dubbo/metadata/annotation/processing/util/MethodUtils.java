@@ -69,10 +69,10 @@ public interface MethodUtils {
 
     static List<ExecutableElement> getAllDeclaredMethods(TypeMirror type, Predicate<ExecutableElement>... methodFilters) {
         return getHierarchicalTypes(type)
-                .stream()
-                .map(t -> getDeclaredMethods(t, methodFilters))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+            .stream()
+            .map(t -> getDeclaredMethods(t, methodFilters))
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
     }
 
     static List<ExecutableElement> getAllDeclaredMethods(TypeMirror type) {
@@ -85,10 +85,10 @@ public interface MethodUtils {
 
     static List<ExecutableElement> getAllDeclaredMethods(TypeMirror type, Type... excludedTypes) {
         return getHierarchicalTypes(type, excludedTypes)
-                .stream()
-                .map(t -> getDeclaredMethods(t))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+            .stream()
+            .map(t -> getDeclaredMethods(t))
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
     }
 
     static List<ExecutableElement> getPublicNonStaticMethods(TypeElement type, Type... excludedTypes) {
@@ -124,8 +124,8 @@ public interface MethodUtils {
 
     static ExecutableElement findMethod(TypeMirror type, String methodName, CharSequence... parameterTypes) {
         return filterFirst(getAllDeclaredMethods(type),
-                method -> methodName.equals(method.getSimpleName().toString()),
-                method -> matchParameterTypes(method.getParameters(), parameterTypes)
+            method -> methodName.equals(method.getSimpleName().toString()),
+            method -> matchParameterTypes(method.getParameters(), parameterTypes)
         );
     }
 
@@ -146,11 +146,11 @@ public interface MethodUtils {
 
     static String[] getMethodParameterTypes(ExecutableElement method) {
         return method == null ?
-                new String[0] :
-                method.getParameters()
-                        .stream()
-                        .map(VariableElement::asType)
-                        .map(TypeUtils::toString)
-                        .toArray(String[]::new);
+            new String[0] :
+            method.getParameters()
+                .stream()
+                .map(VariableElement::asType)
+                .map(TypeUtils::toString)
+                .toArray(String[]::new);
     }
 }

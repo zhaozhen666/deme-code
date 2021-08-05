@@ -44,9 +44,9 @@ public class Application {
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance();
         bootstrap.application(new ApplicationConfig("dubbo-demo-api-consumer"))
-                .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))
-                .reference(reference)
-                .start();
+            .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))
+            .reference(reference)
+            .start();
 
         DemoService demoService = ReferenceConfigCache.getCache().get(reference);
         String message = demoService.sayHello("dubbo");
@@ -54,8 +54,8 @@ public class Application {
 
         // generic invoke
         GenericService genericService = (GenericService) demoService;
-        Object genericInvokeResult = genericService.$invoke("sayHello", new String[] { String.class.getName() },
-                new Object[] { "dubbo generic invoke" });
+        Object genericInvokeResult = genericService.$invoke("sayHello", new String[]{String.class.getName()},
+            new Object[]{"dubbo generic invoke"});
         System.out.println(genericInvokeResult);
     }
 

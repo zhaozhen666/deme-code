@@ -47,17 +47,17 @@ public class TLadder implements TComponent {
             // no separator is required for the first item
             if (deep == 0) {
                 ladderSB
-                        .append(item)
-                        .append(System.lineSeparator());
+                    .append(item)
+                    .append(System.lineSeparator());
             }
 
             // need separator for others
             else {
                 ladderSB
-                        .append(repeat(STEP_CHAR, deep * INDENT_STEP))
-                        .append(LADDER_CHAR)
-                        .append(item)
-                        .append(System.lineSeparator());
+                    .append(repeat(STEP_CHAR, deep * INDENT_STEP))
+                    .append(LADDER_CHAR)
+                    .append(item)
+                    .append(System.lineSeparator());
             }
 
             deep++;

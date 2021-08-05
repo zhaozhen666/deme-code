@@ -19,7 +19,7 @@ package com.alibaba.dubbo.rpc;
 
 @Deprecated
 public class RpcException extends org.apache.dubbo.rpc.RpcException {
-    
+
     public RpcException() {
         super();
     }

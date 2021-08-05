@@ -26,7 +26,8 @@ import javax.naming.LimitExceededException;
  * @see org.apache.dubbo.rpc.Invoker#invoke(Invocation)
  * @since 1.0
  */
-public /**final**/ class RpcException extends RuntimeException {
+public /**final**/
+class RpcException extends RuntimeException {
 
     public static final int UNKNOWN_EXCEPTION = 0;
     public static final int NETWORK_EXCEPTION = 1;

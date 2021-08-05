@@ -82,7 +82,7 @@ public class ReferenceCreator {
         this.attributes = attributes;
         this.applicationContext = applicationContext;
         this.classLoader = applicationContext.getClassLoader() != null ?
-                applicationContext.getClassLoader() : Thread.currentThread().getContextClassLoader();
+            applicationContext.getClassLoader() : Thread.currentThread().getContextClassLoader();
     }
 
     public final ReferenceConfig build() throws Exception {
@@ -148,7 +148,7 @@ public class ReferenceCreator {
         String applicationConfigBeanName = getAttribute(attributes, "application");
 
         ApplicationConfig applicationConfig =
-                getOptionalBean(applicationContext, applicationConfigBeanName, ApplicationConfig.class);
+            getOptionalBean(applicationContext, applicationConfigBeanName, ApplicationConfig.class);
 
         configBean.setApplication(applicationConfig);
 
@@ -159,7 +159,7 @@ public class ReferenceCreator {
         String moduleConfigBeanName = getAttribute(attributes, "module");
 
         ModuleConfig moduleConfig =
-                getOptionalBean(applicationContext, moduleConfigBeanName, ModuleConfig.class);
+            getOptionalBean(applicationContext, moduleConfigBeanName, ModuleConfig.class);
 
         configBean.setModule(moduleConfig);
 
@@ -182,13 +182,13 @@ public class ReferenceCreator {
                 }
                 if (interfaceClass != null) {
                     Assert.isTrue(interfaceClass.isInterface(),
-                            "The interfaceClass of @DubboReference is not an interface: "+interfaceClass.getName());
+                        "The interfaceClass of @DubboReference is not an interface: " + interfaceClass.getName());
                 }
                 // Not present 'interfaceClass' attribute, use default injection type of annotated
                 if (interfaceClass == null && defaultInterfaceClass != null) {
                     interfaceClass = defaultInterfaceClass;
                     Assert.isTrue(interfaceClass.isInterface(),
-                            "The class of field or method that was annotated @DubboReference is not an interface!");
+                        "The class of field or method that was annotated @DubboReference is not an interface!");
                 }
                 // Convert to interface class name, InterfaceClass will be determined later
                 referenceBean.setInterface(interfaceClass.getName());
@@ -206,7 +206,7 @@ public class ReferenceCreator {
             } else if (consumer instanceof ConsumerConfig) {
                 consumerConfig = (ConsumerConfig) consumer;
             } else {
-                throw new IllegalArgumentException("Unexpected 'consumer' attribute value: "+consumer);
+                throw new IllegalArgumentException("Unexpected 'consumer' attribute value: " + consumer);
             }
             referenceBean.setConsumer(consumerConfig);
         }
@@ -302,7 +302,7 @@ public class ReferenceCreator {
                     String beanName = strValue.substring(0, index);
                     String methodName = strValue.substring(index + 1);
                     methodAttributes.put(callbackName, applicationContext.getBean(beanName));
-                    methodAttributes.put(callbackName+METHOD, methodName);
+                    methodAttributes.put(callbackName + METHOD, methodName);
                 } else {
                     methodAttributes.put(callbackName, applicationContext.getBean(strValue));
                 }

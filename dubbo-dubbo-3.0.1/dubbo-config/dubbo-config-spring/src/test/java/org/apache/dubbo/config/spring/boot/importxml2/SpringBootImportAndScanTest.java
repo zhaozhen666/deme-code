@@ -38,11 +38,11 @@ import org.springframework.context.annotation.ImportResource;
 import java.util.Map;
 
 @SpringBootTest(properties = {
-        //"dubbo.scan.base-packages=org.apache.dubbo.config.spring.boot.importxml2",
-        "dubbo.registry.address=N/A",
-        "myapp.dubbo.port=20881",
-        "myapp.name=dubbo-provider",
-        "myapp.group=test"
+    //"dubbo.scan.base-packages=org.apache.dubbo.config.spring.boot.importxml2",
+    "dubbo.registry.address=N/A",
+    "myapp.dubbo.port=20881",
+    "myapp.name=dubbo-provider",
+    "myapp.group=test"
 }, classes = SpringBootImportAndScanTest.class)
 @Configuration
 @ComponentScan

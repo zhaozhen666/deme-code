@@ -31,7 +31,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * ClientToServer
  */
-public abstract class ClientToServerTest  {
+public abstract class ClientToServerTest {
 
     protected static final String LOCALHOST = "127.0.0.1";
 

@@ -42,8 +42,8 @@ public class EnumBak {
     public void testNormal() {
         int port = NetUtils.getAvailablePort();
         URL serviceurl = URL.valueOf("dubbo://127.0.0.1:" + port + "/test?proxy=jdk"
-                + "&interface=" + DemoService.class.getName()
-                + "&timeout=" + Integer.MAX_VALUE
+            + "&interface=" + DemoService.class.getName()
+            + "&timeout=" + Integer.MAX_VALUE
         );
         DemoService demo = new DemoServiceImpl();
 

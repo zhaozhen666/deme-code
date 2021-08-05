@@ -95,7 +95,7 @@ class ModuleBuilderTest {
 
         ModuleBuilder builder = new ModuleBuilder();
         builder.name("name").version("version").owner("owner").organization("organization").addRegistry(registry)
-                .monitor(monitor).isDefault(false);
+            .monitor(monitor).isDefault(false);
 
         ModuleConfig config = builder.build();
         ModuleConfig config2 = builder.build();

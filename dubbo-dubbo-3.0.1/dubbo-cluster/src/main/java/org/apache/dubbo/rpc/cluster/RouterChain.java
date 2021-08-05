@@ -183,7 +183,7 @@ public class RouterChain<T> {
 
         List<Invoker<T>> finalInvokers = new ArrayList<>(finalBitListInvokers.size());
 
-        for(Invoker<T> invoker: finalBitListInvokers) {
+        for (Invoker<T> invoker : finalBitListInvokers) {
             finalInvokers.add(invoker);
         }
 
@@ -206,6 +206,7 @@ public class RouterChain<T> {
 
     /**
      * Build the asynchronous address cache for stateRouter.
+     *
      * @param notify Whether the addresses in registry has changed.
      */
     private void buildCache(boolean notify) {
@@ -234,10 +235,11 @@ public class RouterChain<T> {
 
     /**
      * Cache the address list for each StateRouter.
-     * @param router router
-     * @param orign The original address cache
+     *
+     * @param router   router
+     * @param orign    The original address cache
      * @param invokers The full address list
-     * @param notify Whether the addresses in registry has changed.
+     * @param notify   Whether the addresses in registry has changed.
      * @return
      */
     private RouterCache poolRouter(StateRouter router, AddrCache<T> orign, List<Invoker<T>> invokers, boolean notify) {

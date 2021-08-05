@@ -59,16 +59,16 @@ public class MyOrdersController extends BaseController {
         }
 
         PagedGridResult grid = myOrdersService.queryMyOrders(userId,
-                                                            orderStatus,
-                                                            page,
-                                                            pageSize);
+                orderStatus,
+                page,
+                pageSize);
 
         return IMOOCJSONResult.ok(grid);
     }
 
 
     // 商家发货没有后端，所以这个接口仅仅只是用于模拟
-    @ApiOperation(value="商家发货", notes="商家发货", httpMethod = "GET")
+    @ApiOperation(value = "商家发货", notes = "商家发货", httpMethod = "GET")
     @GetMapping("/deliver")
     public IMOOCJSONResult deliver(
             @ApiParam(name = "orderId", value = "订单id", required = true)
@@ -82,7 +82,7 @@ public class MyOrdersController extends BaseController {
     }
 
 
-    @ApiOperation(value="用户确认收货", notes="用户确认收货", httpMethod = "POST")
+    @ApiOperation(value = "用户确认收货", notes = "用户确认收货", httpMethod = "POST")
     @PostMapping("/confirmReceive")
     public IMOOCJSONResult confirmReceive(
             @ApiParam(name = "orderId", value = "订单id", required = true)
@@ -103,7 +103,7 @@ public class MyOrdersController extends BaseController {
         return IMOOCJSONResult.ok();
     }
 
-    @ApiOperation(value="用户删除订单", notes="用户删除订单", httpMethod = "POST")
+    @ApiOperation(value = "用户删除订单", notes = "用户删除订单", httpMethod = "POST")
     @PostMapping("/delete")
     public IMOOCJSONResult delete(
             @ApiParam(name = "orderId", value = "订单id", required = true)
@@ -125,9 +125,9 @@ public class MyOrdersController extends BaseController {
     }
 
 
-
     /**
      * 用于验证用户和订单是否有关联关系，避免非法用户调用
+     *
      * @return
      */
 //    private IMOOCJSONResult checkUserOrder(String userId, String orderId) {
@@ -137,7 +137,6 @@ public class MyOrdersController extends BaseController {
 //        }
 //        return IMOOCJSONResult.ok();
 //    }
-
     @ApiOperation(value = "查询订单动向", notes = "查询订单动向", httpMethod = "POST")
     @PostMapping("/trend")
     public IMOOCJSONResult trend(

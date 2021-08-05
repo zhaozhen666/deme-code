@@ -269,7 +269,7 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
         GenericBeanDefinition targetDefinition = new GenericBeanDefinition();
         targetDefinition.setBeanClass(interfaceClass);
         String beanName = (String) beanDefinition.getAttribute(BEAN_NAME);
-        beanDefinition.setDecoratedDefinition(new BeanDefinitionHolder(targetDefinition, beanName+"_decorated"));
+        beanDefinition.setDecoratedDefinition(new BeanDefinitionHolder(targetDefinition, beanName + "_decorated"));
 
         // signal object type since Spring 5.2
         beanDefinition.setAttribute(Constants.OBJECT_TYPE_ATTRIBUTE, interfaceClass);
@@ -285,8 +285,8 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
         for (Method setter : beanClass.getMethods()) {
             String name = setter.getName();
             if (name.length() > 3 && name.startsWith("set")
-                    && Modifier.isPublic(setter.getModifiers())
-                    && setter.getParameterTypes().length == 1) {
+                && Modifier.isPublic(setter.getModifiers())
+                && setter.getParameterTypes().length == 1) {
                 Class<?> type = setter.getParameterTypes()[0];
                 String beanProperty = name.substring(3, 4).toLowerCase() + name.substring(4);
                 // check the setter/getter whether match
@@ -302,8 +302,8 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
                     }
                 }
                 if (getter == null
-                        || !Modifier.isPublic(getter.getModifiers())
-                        || !type.equals(getter.getReturnType())) {
+                    || !Modifier.isPublic(getter.getModifiers())
+                    || !type.equals(getter.getReturnType())) {
                     continue;
                 }
                 beanPropsMap.put(beanProperty, type);
@@ -313,11 +313,11 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
 
     private static String getCompatibleDefaultValue(String property, String value) {
         if ("async".equals(property) && "false".equals(value)
-                || "timeout".equals(property) && "0".equals(value)
-                || "delay".equals(property) && "0".equals(value)
-                || "version".equals(property) && "0.0.0".equals(value)
-                || "stat".equals(property) && "-1".equals(value)
-                || "reliable".equals(property) && "false".equals(value)) {
+            || "timeout".equals(property) && "0".equals(value)
+            || "delay".equals(property) && "0".equals(value)
+            || "version".equals(property) && "0.0.0".equals(value)
+            || "stat".equals(property) && "-1".equals(value)
+            || "reliable".equals(property) && "false".equals(value)) {
             // backward compatibility for the default value in old version's xsd
             value = null;
         }
@@ -326,9 +326,9 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
 
     private static boolean isPrimitive(Class<?> cls) {
         return cls.isPrimitive() || cls == Boolean.class || cls == Byte.class
-                || cls == Character.class || cls == Short.class || cls == Integer.class
-                || cls == Long.class || cls == Float.class || cls == Double.class
-                || cls == String.class || cls == Date.class || cls == Class.class;
+            || cls == Character.class || cls == Short.class || cls == Integer.class
+            || cls == Long.class || cls == Float.class || cls == Double.class
+            || cls == String.class || cls == Date.class || cls == Class.class;
     }
 
     private static void parseNested(Element element, ParserContext parserContext, Class<?> beanClass, boolean registered, String tag, String property, String ref, BeanDefinition beanDefinition) {
@@ -343,7 +343,7 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
                 continue;
             }
             if (tag.equals(node.getNodeName())
-                    || tag.equals(node.getLocalName())) {
+                || tag.equals(node.getLocalName())) {
                 if (first) {
                     first = false;
                     String isDefault = resolveAttribute(element, "default", parserContext);
@@ -374,7 +374,7 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
             }
             Element element = (Element) nodeList.item(i);
             if ("property".equals(element.getNodeName())
-                    || "property".equals(element.getLocalName())) {
+                || "property".equals(element.getLocalName())) {
                 String name = resolveAttribute(element, "name", parserContext);
                 if (StringUtils.isNotEmpty(name)) {
                     String value = resolveAttribute(element, "value", parserContext);
@@ -403,7 +403,7 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
             }
             Element element = (Element) nodeList.item(i);
             if ("parameter".equals(element.getNodeName())
-                    || "parameter".equals(element.getLocalName())) {
+                || "parameter".equals(element.getLocalName())) {
                 if (parameters == null) {
                     parameters = new ManagedMap();
                 }
@@ -440,7 +440,7 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
                     methods = new ManagedList();
                 }
                 RootBeanDefinition methodBeanDefinition = parse(element,
-                        parserContext, MethodConfig.class, false);
+                    parserContext, MethodConfig.class, false);
                 String beanName = id + "." + methodName;
 
                 // If the PropertyValue named "id" can't be found,
@@ -450,7 +450,7 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
                 }
 
                 BeanDefinitionHolder methodBeanDefinitionHolder = new BeanDefinitionHolder(
-                        methodBeanDefinition, beanName);
+                    methodBeanDefinition, beanName);
                 methods.add(methodBeanDefinitionHolder);
             }
         }
@@ -488,10 +488,10 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
                     arguments = new ManagedList();
                 }
                 BeanDefinition argumentBeanDefinition = parse(element,
-                        parserContext, ArgumentConfig.class, false);
+                    parserContext, ArgumentConfig.class, false);
                 String name = id + "." + argumentIndex;
                 BeanDefinitionHolder argumentBeanDefinitionHolder = new BeanDefinitionHolder(
-                        argumentBeanDefinition, name);
+                    argumentBeanDefinition, name);
                 arguments.add(argumentBeanDefinitionHolder);
             }
         }

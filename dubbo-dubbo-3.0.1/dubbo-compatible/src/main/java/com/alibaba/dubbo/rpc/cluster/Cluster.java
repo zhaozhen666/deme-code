@@ -24,7 +24,7 @@ import org.apache.dubbo.rpc.cluster.Directory;
 public interface Cluster extends org.apache.dubbo.rpc.cluster.Cluster {
 
     <T> com.alibaba.dubbo.rpc.Invoker<T> join(com.alibaba.dubbo.rpc.cluster.Directory<T> directory) throws
-            com.alibaba.dubbo.rpc.RpcException;
+        com.alibaba.dubbo.rpc.RpcException;
 
     @Override
     default <T> Invoker<T> join(Directory<T> directory) throws RpcException {

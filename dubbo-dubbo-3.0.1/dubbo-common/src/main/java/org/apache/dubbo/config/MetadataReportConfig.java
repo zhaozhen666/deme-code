@@ -108,7 +108,7 @@ public class MetadataReportConfig extends AbstractConfig {
         // put the protocol of URL as the "metadata"
         map.put("metadata", url.getProtocol());
         return new ServiceConfigURL("metadata", url.getUsername(), url.getPassword(), url.getHost(),
-                url.getPort(), url.getPath(), map);
+            url.getPort(), url.getPath(), map);
 
     }
 

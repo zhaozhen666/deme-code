@@ -72,10 +72,10 @@ public class ServiceRestMetadataAnnotationProcessor extends AbstractServiceAnnot
     private void process(ProcessingEnvironment processingEnv, TypeElement serviceType,
                          Set<? extends TypeElement> annotations) {
         metadataProcessors
-                .stream()
-                .filter(processor -> supports(processor, processingEnv, serviceType))
-                .map(processor -> processor.resolve(processingEnv, serviceType, annotations))
-                .forEach(serviceRestMetadata::add);
+            .stream()
+            .filter(processor -> supports(processor, processingEnv, serviceType))
+            .map(processor -> processor.resolve(processingEnv, serviceType, annotations))
+            .forEach(serviceRestMetadata::add);
     }
 
     private boolean supports(ServiceRestMetadataResolver processor, ProcessingEnvironment processingEnv,

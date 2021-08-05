@@ -38,7 +38,7 @@ public class TomcatHttpBinderTest {
     public void shouldAbleHandleRequestForTomcatBinder() throws Exception {
         int port = NetUtils.getAvailablePort();
         URL url = new ServiceConfigURL("http", "localhost", port,
-                new String[]{Constants.BIND_PORT_KEY, String.valueOf(port)});
+            new String[]{Constants.BIND_PORT_KEY, String.valueOf(port)});
 
         HttpServer httpServer = new TomcatHttpBinder().bind(url, new HttpHandler() {
             @Override

@@ -33,7 +33,6 @@ public enum EventType {
     INITIALIZED(10);
 
 
-
     private final int intValue;     // Integer representation of value
     // for sending over wire
 

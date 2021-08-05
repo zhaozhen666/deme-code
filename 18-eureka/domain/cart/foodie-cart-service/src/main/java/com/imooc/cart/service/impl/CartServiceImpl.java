@@ -38,7 +38,7 @@ public class CartServiceImpl implements CartService {
             shopcartList = JsonUtils.jsonToList(shopcartJson, ShopcartBO.class);
             // 判断购物车中是否存在已有商品，如果有的话counts累加
             boolean isHaving = false;
-            for (ShopcartBO sc: shopcartList) {
+            for (ShopcartBO sc : shopcartList) {
                 String tmpSpecId = sc.getSpecId();
                 if (tmpSpecId.equals(shopcartBO.getSpecId())) {
                     sc.setBuyCounts(sc.getBuyCounts() + shopcartBO.getBuyCounts());
@@ -70,7 +70,7 @@ public class CartServiceImpl implements CartService {
             // redis中已经有购物车了
             List<ShopcartBO> shopcartList = JsonUtils.jsonToList(shopcartJson, ShopcartBO.class);
             // 判断购物车中是否存在已有商品，如果有的话则删除
-            for (ShopcartBO sc: shopcartList) {
+            for (ShopcartBO sc : shopcartList) {
                 String tmpSpecId = sc.getSpecId();
                 if (tmpSpecId.equals(itemSpecId)) {
                     shopcartList.remove(sc);

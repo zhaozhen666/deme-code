@@ -27,9 +27,10 @@ public class SerializablePerson implements Serializable {
 
     private String[] value = {"value1", "value2"};
 
-    public SerializablePerson(char description , boolean adult){
+    public SerializablePerson(char description, boolean adult) {
 
     }
+
     public String getName() {
         return name;
     }

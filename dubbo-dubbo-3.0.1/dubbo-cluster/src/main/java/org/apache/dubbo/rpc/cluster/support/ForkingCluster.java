@@ -22,7 +22,6 @@ import org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster;
 
 /**
  * {@link ForkingClusterInvoker}
- *
  */
 public class ForkingCluster extends AbstractCluster {
 

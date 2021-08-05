@@ -20,6 +20,7 @@ import org.apache.dubbo.config.ArgumentConfig;
 
 /**
  * This is a builder for build {@link ArgumentConfig}.
+ *
  * @since 2.7
  */
 public class ArgumentBuilder {

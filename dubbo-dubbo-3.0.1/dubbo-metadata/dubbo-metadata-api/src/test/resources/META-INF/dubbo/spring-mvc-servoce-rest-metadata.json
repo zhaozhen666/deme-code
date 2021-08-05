@@ -245,7 +245,10 @@
           "parameters": [
             {
               "type": "java.util.Map\u003cjava.lang.String,java.lang.Object\u003e",
-              "items": ["java.lang.String", "java.lang.Object"],
+              "items": [
+                "java.lang.String",
+                "java.lang.Object"
+              ],
               "enum": [],
               "properties": {}
             },

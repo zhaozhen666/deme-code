@@ -87,7 +87,7 @@ public class MigrationRuleHandler<T> {
             } else {
                 // migrate failed, do not save new step and rule
                 logger.warn("Migrate to " + step + " mode failed. Probably not satisfy the threshold you set "
-                        + threshold + ". Please try re-publish configuration if you still after check.");
+                    + threshold + ". Please try re-publish configuration if you still after check.");
                 report(step, originStep, "false");
             }
 
@@ -100,8 +100,8 @@ public class MigrationRuleHandler<T> {
     private void report(MigrationStep step, MigrationStep originStep, String success) {
         if (FrameworkStatusReporter.hasReporter()) {
             FrameworkStatusReporter.reportMigrationStepStatus(
-                    FrameworkStatusReporter.createMigrationStepReport(consumerURL.getServiceInterface(), consumerURL.getVersion(),
-                            consumerURL.getGroup(), String.valueOf(originStep), String.valueOf(step), success));
+                FrameworkStatusReporter.createMigrationStepReport(consumerURL.getServiceInterface(), consumerURL.getVersion(),
+                    consumerURL.getGroup(), String.valueOf(originStep), String.valueOf(step), success));
         }
     }
 

@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
 @Data
 @Table(name = "b_order")
 @Entity
@@ -13,7 +14,7 @@ public class Border implements Serializable {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name="is_del")
+    @Column(name = "is_del")
     private Boolean isDel;
     @Column(name = "company_id")
     private Integer companyId;
@@ -34,7 +35,7 @@ public class Border implements Serializable {
     @Column(name = "work_year")
     private String workYear;
     @Column(name = "name")
-    private  String name;
+    private String name;
     @Column(name = "position_name")
     private String positionName;
     @Column(name = "resume_id")

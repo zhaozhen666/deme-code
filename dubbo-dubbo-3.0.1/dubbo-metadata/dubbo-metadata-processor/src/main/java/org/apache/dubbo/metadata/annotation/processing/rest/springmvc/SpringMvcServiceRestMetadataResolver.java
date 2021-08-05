@@ -131,15 +131,15 @@ public class SpringMvcServiceRestMetadataResolver extends AbstractServiceRestMet
 
     private AnnotationMirror getMappingAnnotation(Element element) {
         return computeIfAbsent(valueOf(element), key ->
-                filterFirst(getAllAnnotations(element), annotation -> {
-                    DeclaredType annotationType = annotation.getAnnotationType();
-                    // try "@RequestMapping" first
-                    if (REQUEST_MAPPING_ANNOTATION_CLASS_NAME.equals(annotationType.toString())) {
-                        return true;
-                    }
-                    // try meta annotation
-                    return isAnnotationPresent(annotationType.asElement(), REQUEST_MAPPING_ANNOTATION_CLASS_NAME);
-                })
+            filterFirst(getAllAnnotations(element), annotation -> {
+                DeclaredType annotationType = annotation.getAnnotationType();
+                // try "@RequestMapping" first
+                if (REQUEST_MAPPING_ANNOTATION_CLASS_NAME.equals(annotationType.toString())) {
+                    return true;
+                }
+                // try meta annotation
+                return isAnnotationPresent(annotationType.asElement(), REQUEST_MAPPING_ANNOTATION_CLASS_NAME);
+            })
         );
     }
 

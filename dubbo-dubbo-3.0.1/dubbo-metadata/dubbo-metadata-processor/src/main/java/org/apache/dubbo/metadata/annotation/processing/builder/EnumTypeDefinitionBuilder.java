@@ -45,10 +45,10 @@ public class EnumTypeDefinitionBuilder implements DeclaredTypeDefinitionBuilder 
     public TypeDefinition build(ProcessingEnvironment processingEnv, DeclaredType type, Map<String, TypeDefinition> typeCache) {
         TypeDefinition typeDefinition = new TypeDefinition(type.toString());
         getDeclaredFields(type, FieldUtils::isEnumMemberField)
-                .stream()
-                .map(Element::getSimpleName)
-                .map(Name::toString)
-                .forEach(typeDefinition.getEnums()::add);
+            .stream()
+            .map(Element::getSimpleName)
+            .map(Name::toString)
+            .forEach(typeDefinition.getEnums()::add);
         return typeDefinition;
     }
 

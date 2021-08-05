@@ -63,19 +63,19 @@ public class MultipleRegistryTestUtil {
      */
     public static List<URL> getProviderURLsFromNotifyURLS(List<URL> urls) {
         Map<String, List<URL>> categoryUrls = urls.stream()
-                .filter(Objects::nonNull)
-                .filter(MultipleRegistryTestUtil::isValidCategory)
-                .filter(MultipleRegistryTestUtil::isNotCompatibleFor26x)
-                .collect(Collectors.groupingBy(url -> {
-                    if (UrlUtils.isConfigurator(url)) {
-                        return CONFIGURATORS_CATEGORY;
-                    } else if (UrlUtils.isRoute(url)) {
-                        return ROUTERS_CATEGORY;
-                    } else if (UrlUtils.isProvider(url)) {
-                        return PROVIDERS_CATEGORY;
-                    }
-                    return "";
-                }));
+            .filter(Objects::nonNull)
+            .filter(MultipleRegistryTestUtil::isValidCategory)
+            .filter(MultipleRegistryTestUtil::isNotCompatibleFor26x)
+            .collect(Collectors.groupingBy(url -> {
+                if (UrlUtils.isConfigurator(url)) {
+                    return CONFIGURATORS_CATEGORY;
+                } else if (UrlUtils.isRoute(url)) {
+                    return ROUTERS_CATEGORY;
+                } else if (UrlUtils.isProvider(url)) {
+                    return PROVIDERS_CATEGORY;
+                }
+                return "";
+            }));
 
         // providers
         List<URL> providerURLs = categoryUrls.getOrDefault(PROVIDERS_CATEGORY, Collections.emptyList());
@@ -86,9 +86,9 @@ public class MultipleRegistryTestUtil {
     private static boolean isValidCategory(URL url) {
         String category = url.getCategory(DEFAULT_CATEGORY);
         if ((ROUTERS_CATEGORY.equals(category) || ROUTE_PROTOCOL.equals(url.getProtocol())) ||
-                PROVIDERS_CATEGORY.equals(category) ||
-                CONFIGURATORS_CATEGORY.equals(category) || DYNAMIC_CONFIGURATORS_CATEGORY.equals(category) ||
-                APP_DYNAMIC_CONFIGURATORS_CATEGORY.equals(category)) {
+            PROVIDERS_CATEGORY.equals(category) ||
+            CONFIGURATORS_CATEGORY.equals(category) || DYNAMIC_CONFIGURATORS_CATEGORY.equals(category) ||
+            APP_DYNAMIC_CONFIGURATORS_CATEGORY.equals(category)) {
             return true;
         }
         return false;

@@ -48,7 +48,7 @@ public class CenterUserController extends BaseController {
             @ApiParam(name = "userId", value = "用户id", required = true)
             @RequestParam String userId,
             @ApiParam(name = "file", value = "用户头像", required = true)
-            MultipartFile file,
+                    MultipartFile file,
             HttpServletRequest request, HttpServletResponse response) {
 
         // .sh .php
@@ -76,7 +76,7 @@ public class CenterUserController extends BaseController {
 
                     if (!suffix.equalsIgnoreCase("png") &&
                             !suffix.equalsIgnoreCase("jpg") &&
-                            !suffix.equalsIgnoreCase("jpeg") ) {
+                            !suffix.equalsIgnoreCase("jpeg")) {
                         return IMOOCJSONResult.errorMsg("图片格式不正确！");
                     }
 
@@ -135,7 +135,6 @@ public class CenterUserController extends BaseController {
 
         return IMOOCJSONResult.ok();
     }
-
 
 
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息", httpMethod = "POST")

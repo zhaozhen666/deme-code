@@ -142,7 +142,7 @@ public interface AnnotationUtils {
      * @throws ClassCastException If the {@link Annotation annotation} type that client requires can't match actual type
      */
     static <A extends Annotation> A getAnnotation(AnnotatedElement annotatedElement, String annotationClassName)
-            throws ClassCastException {
+        throws ClassCastException {
         Class<? extends Annotation> annotationType = resolveAnnotationType(annotatedElement, annotationClassName);
         if (annotationType == null) {
             return null;
@@ -226,13 +226,13 @@ public interface AnnotationUtils {
     static List<Annotation> getMetaAnnotations(Class<? extends Annotation> annotationType,
                                                Predicate<Annotation>... metaAnnotationsToFilter) {
         return getDeclaredAnnotations(annotationType,
-                // Excludes the Java native annotation types or it causes the stack overflow, e.g,
-                // @Target annotates itself
-                excludedType(Target.class),
-                excludedType(Retention.class),
-                excludedType(Documented.class),
-                // Add other predicates
-                and(metaAnnotationsToFilter)
+            // Excludes the Java native annotation types or it causes the stack overflow, e.g,
+            // @Target annotates itself
+            excludedType(Target.class),
+            excludedType(Retention.class),
+            excludedType(Documented.class),
+            // Add other predicates
+            and(metaAnnotationsToFilter)
         );
     }
 
@@ -427,7 +427,7 @@ public interface AnnotationUtils {
             return isAnnotationPresent((Class) annotatedElement, annotationType);
         } else {
             return annotatedElement.isAnnotationPresent(annotationType) ||
-                    findMetaAnnotation(annotatedElement, annotationType) != null; // to find meta-annotation
+                findMetaAnnotation(annotatedElement, annotationType) != null; // to find meta-annotation
         }
     }
 
@@ -484,13 +484,14 @@ public interface AnnotationUtils {
 
     /**
      * Filter default value of Annotation type
+     *
      * @param annotationType annotation type from {@link Annotation#annotationType()}
      * @param attributes
      * @return
      */
     static Map<String, Object> filterDefaultValues(Class<? extends Annotation> annotationType, Map<String, Object> attributes) {
         Map<String, Object> filteredAttributes = new LinkedHashMap<>(attributes.size());
-        attributes.forEach((key,val) -> {
+        attributes.forEach((key, val) -> {
             if (!Objects.deepEquals(val, getDefaultValue(annotationType, key))) {
                 filteredAttributes.put(key, val);
             }
@@ -500,6 +501,7 @@ public interface AnnotationUtils {
 
     /**
      * Filter default value of Annotation type
+     *
      * @param annotation
      * @param attributes
      * @return
@@ -510,6 +512,7 @@ public interface AnnotationUtils {
 
     /**
      * Get attributes of annotation
+     *
      * @param annotation
      * @return
      */

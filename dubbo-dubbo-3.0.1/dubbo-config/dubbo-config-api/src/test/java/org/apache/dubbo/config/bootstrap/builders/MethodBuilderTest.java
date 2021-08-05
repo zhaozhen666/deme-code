@@ -161,9 +161,9 @@ class MethodBuilderTest {
         ArgumentConfig argument = new ArgumentConfig();
         MethodBuilder builder = new MethodBuilder();
         builder.name("name").stat(1).retry(true).reliable(false).executes(2).deprecated(true).sticky(false)
-                .isReturn(true).oninvoke("on-invoke-object").oninvokeMethod("on-invoke-method").service("service")
-                .onreturn("on-return-object").onreturnMethod("on-return-method").serviceId("serviceId")
-                .onthrow("on-throw-object").onthrowMethod("on-throw-method").addArgument(argument);
+            .isReturn(true).oninvoke("on-invoke-object").oninvokeMethod("on-invoke-method").service("service")
+            .onreturn("on-return-object").onreturnMethod("on-return-method").serviceId("serviceId")
+            .onthrow("on-throw-object").onthrowMethod("on-throw-method").addArgument(argument);
 
         MethodConfig config = builder.build();
         MethodConfig config2 = builder.build();

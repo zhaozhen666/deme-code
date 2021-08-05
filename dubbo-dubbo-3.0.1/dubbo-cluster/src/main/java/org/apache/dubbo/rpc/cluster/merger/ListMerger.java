@@ -35,8 +35,8 @@ public class ListMerger implements Merger<List<?>> {
             return Collections.emptyList();
         }
         return Stream.of(items).filter(Objects::nonNull)
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
 
     }
 

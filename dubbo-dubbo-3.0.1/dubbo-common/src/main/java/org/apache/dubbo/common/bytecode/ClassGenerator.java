@@ -283,7 +283,7 @@ public final class ClassGenerator {
 
     public Class<?> toClass() {
         return toClass(ClassUtils.getClassLoader(ClassGenerator.class),
-                getClass().getProtectionDomain());
+            getClass().getProtectionDomain());
     }
 
     public Class<?> toClass(ClassLoader loader, ProtectionDomain pd) {
@@ -295,7 +295,7 @@ public final class ClassGenerator {
             CtClass ctcs = mSuperClass == null ? null : mPool.get(mSuperClass);
             if (mClassName == null) {
                 mClassName = (mSuperClass == null || javassist.Modifier.isPublic(ctcs.getModifiers())
-                        ? ClassGenerator.class.getName() : mSuperClass + "$sc") + id;
+                    ? ClassGenerator.class.getName() : mSuperClass + "$sc") + id;
             }
             mCtc = mPool.makeClass(mClassName);
             if (mSuperClass != null) {
@@ -316,7 +316,7 @@ public final class ClassGenerator {
                 for (String code : mMethods) {
                     if (code.charAt(0) == ':') {
                         mCtc.addMethod(CtNewMethod.copy(getCtMethod(mCopyMethods.get(code.substring(1))),
-                                code.substring(1, code.indexOf('(')), mCtc, null));
+                            code.substring(1, code.indexOf('(')), mCtc, null));
                     } else {
                         mCtc.addMethod(CtNewMethod.make(code, mCtc));
                     }
@@ -329,11 +329,11 @@ public final class ClassGenerator {
                 for (String code : mConstructors) {
                     if (code.charAt(0) == ':') {
                         mCtc.addConstructor(CtNewConstructor
-                                .copy(getCtConstructor(mCopyConstructors.get(code.substring(1))), mCtc, null));
+                            .copy(getCtConstructor(mCopyConstructors.get(code.substring(1))), mCtc, null));
                     } else {
                         String[] sn = mCtc.getSimpleName().split("\\$+"); // inner class name include $.
                         mCtc.addConstructor(
-                                CtNewConstructor.make(code.replaceFirst(SIMPLE_NAME_TAG, sn[sn.length - 1]), mCtc));
+                            CtNewConstructor.make(code.replaceFirst(SIMPLE_NAME_TAG, sn[sn.length - 1]), mCtc));
                     }
                 }
             }
@@ -375,7 +375,7 @@ public final class ClassGenerator {
 
     private CtMethod getCtMethod(Method m) throws NotFoundException {
         return getCtClass(m.getDeclaringClass())
-                .getMethod(m.getName(), ReflectUtils.getDescWithoutMethodName(m));
+            .getMethod(m.getName(), ReflectUtils.getDescWithoutMethodName(m));
     }
 
     private CtConstructor getCtConstructor(Constructor<?> c) throws NotFoundException {

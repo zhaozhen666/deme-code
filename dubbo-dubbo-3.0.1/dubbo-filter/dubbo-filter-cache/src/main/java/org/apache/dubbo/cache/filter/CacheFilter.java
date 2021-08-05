@@ -48,10 +48,10 @@ import static org.apache.dubbo.common.constants.FilterConstants.CACHE_KEY;
  *        3)&lt;dubbo:provider cache="expiring" /&gt;
  *        4)&lt;dubbo:consumer cache="jcache" /&gt;
  *
- *If cache type is defined in method level then method level type will get precedence. According to above provided
- *example, if service has two method, method1 and method2, method2 will have cache type as <b>threadlocal</b> where others will
- *be backed by <b>lru</b>
- *</pre>
+ * If cache type is defined in method level then method level type will get precedence. According to above provided
+ * example, if service has two method, method1 and method2, method2 will have cache type as <b>threadlocal</b> where others will
+ * be backed by <b>lru</b>
+ * </pre>
  *
  * @see org.apache.dubbo.rpc.Filter
  * @see org.apache.dubbo.cache.support.lru.LruCacheFactory
@@ -62,7 +62,6 @@ import static org.apache.dubbo.common.constants.FilterConstants.CACHE_KEY;
  * @see org.apache.dubbo.cache.support.threadlocal.ThreadLocalCache
  * @see org.apache.dubbo.cache.support.expiring.ExpiringCacheFactory
  * @see org.apache.dubbo.cache.support.expiring.ExpiringCache
- *
  */
 @Activate(group = {CONSUMER, PROVIDER}, value = CACHE_KEY)
 public class CacheFilter implements Filter {
@@ -84,6 +83,7 @@ public class CacheFilter implements Filter {
      * If cache is configured, dubbo will invoke method on each method call. If cache value is returned by cache store
      * then it will return otherwise call the remote method and return value. If remote method's return value has error
      * then it will not cache the value.
+     *
      * @param invoker    service
      * @param invocation invocation.
      * @return Cache returned value if found by the underlying cache store. If cache miss it will call target method.
@@ -122,7 +122,7 @@ public class CacheFilter implements Filter {
 
         private final Object value;
 
-        public ValueWrapper (Object value) {
+        public ValueWrapper(Object value) {
             this.value = value;
         }
 

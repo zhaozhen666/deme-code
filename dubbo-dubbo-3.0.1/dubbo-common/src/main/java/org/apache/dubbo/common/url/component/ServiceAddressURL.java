@@ -38,14 +38,14 @@ public abstract class ServiceAddressURL extends URL {
 //    private transient Map<String, String> allParameters;
 
     public ServiceAddressURL(
-            String protocol,
-            String username,
-            String password,
-            String host,
-            int port,
-            String path,
-            Map<String, String> parameters,
-            URL consumerURL
+        String protocol,
+        String username,
+        String password,
+        String host,
+        int port,
+        String path,
+        Map<String, String> parameters,
+        URL consumerURL
     ) {
         super(protocol, username, password, host, port, path, parameters);
         this.consumerURL = consumerURL;
@@ -179,7 +179,7 @@ public abstract class ServiceAddressURL extends URL {
         String remoteValue = super.getParameter(key);
         String localValue = consumerURL.getParameter(key);
         if (remoteValue != null && remoteValue.length() > 0
-                && localValue != null && localValue.length() > 0) {
+            && localValue != null && localValue.length() > 0) {
             value = remoteValue + "," + localValue;
             concatenatedPrams.put(key, value);
             return value;

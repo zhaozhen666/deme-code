@@ -38,25 +38,25 @@ import java.util.Map;
  * issue: https://github.com/apache/dubbo-spring-boot-project/issues/779
  */
 @SpringBootTest(
-        properties = {
-                "dubbo.registry.address=N/A"
-        },
-        classes = {
-                XmlReferenceBeanConditionalTest.class
-        }
+    properties = {
+        "dubbo.registry.address=N/A"
+    },
+    classes = {
+        XmlReferenceBeanConditionalTest.class
+    }
 )
 @Configuration
 //@ComponentScan
 public class XmlReferenceBeanConditionalTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         ZooKeeperServer.start();
         DubboBootstrap.reset();
     }
 
     @AfterAll
-    public static void tearDown(){
+    public static void tearDown() {
         DubboBootstrap.reset();
     }
 
@@ -75,14 +75,14 @@ public class XmlReferenceBeanConditionalTest {
         Assertions.assertNull(helloServiceMap.get("myHelloService"));
     }
 
-    @Order(Integer.MAX_VALUE-2)
+    @Order(Integer.MAX_VALUE - 2)
     @Configuration
     @ImportResource("classpath:/org/apache/dubbo/config/spring/boot/conditional1/consumer/dubbo-consumer.xml")
     public static class ConsumerConfiguration {
 
     }
 
-    @Order(Integer.MAX_VALUE-1)
+    @Order(Integer.MAX_VALUE - 1)
     @Configuration
     public static class ConsumerConfiguration2 {
 

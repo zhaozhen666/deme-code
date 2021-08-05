@@ -69,7 +69,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
      * The remote service group the customer/provider side will reference
      */
     protected String group;
-    
+
     protected ServiceMetadata serviceMetadata;
     /**
      * Local impl class name for the service interface
@@ -173,7 +173,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
 
     protected String tag;
 
-    private  Boolean auth;
+    private Boolean auth;
 
 
     /**
@@ -202,7 +202,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
         for (RegistryConfig registryConfig : registries) {
             if (!registryConfig.isValid()) {
                 throw new IllegalStateException("No registry config found or it's not a valid config! " +
-                        "The registry config is: " + registryConfig);
+                    "The registry config is: " + registryConfig);
             }
         }
     }
@@ -227,7 +227,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
                 return;
             }
             if (!interfaceClass.isInterface()) {
-                throw new IllegalStateException(interfaceName+" is not an interface");
+                throw new IllegalStateException(interfaceName + " is not an interface");
             }
 
             Map<String, String> configProperties = subPropsConfiguration.getProperties();
@@ -304,18 +304,18 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
         verifyStubAndLocal(stub, "Stub", interfaceClass);
     }
 
-    private void verifyStubAndLocal(String className, String label, Class<?> interfaceClass){
+    private void verifyStubAndLocal(String className, String label, Class<?> interfaceClass) {
         if (ConfigUtils.isNotEmpty(className)) {
             Class<?> localClass = ConfigUtils.isDefault(className) ?
-                    ReflectUtils.forName(interfaceClass.getName() + label) : ReflectUtils.forName(className);
-                        verify(interfaceClass, localClass);
-            }
+                ReflectUtils.forName(interfaceClass.getName() + label) : ReflectUtils.forName(className);
+            verify(interfaceClass, localClass);
+        }
     }
 
     private void verify(Class<?> interfaceClass, Class<?> localClass) {
         if (!interfaceClass.isAssignableFrom(localClass)) {
             throw new IllegalStateException("The local implementation class " + localClass.getName() +
-                    " not implement interface " + interfaceClass.getName());
+                " not implement interface " + interfaceClass.getName());
         }
 
         try {
@@ -323,7 +323,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
             ReflectUtils.findConstructor(localClass, interfaceClass);
         } catch (NoSuchMethodException e) {
             throw new IllegalStateException("No such constructor \"public " + localClass.getSimpleName() +
-                    "(" + interfaceClass.getName() + ")\" in local implementation class " + localClass.getName());
+                "(" + interfaceClass.getName() + ")\" in local implementation class " + localClass.getName());
         }
     }
 
@@ -391,7 +391,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
             }
         }
     }
-    
+
     protected void computeValidRegistryIds() {
         if (application != null && notHasSelfRegistryProperty()) {
             setRegistries(application.getRegistries());
@@ -623,7 +623,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
             ConfigManager configManager = ApplicationModel.getConfigManager();
             Collection<ConfigCenterConfig> configs = configManager.getConfigCenters();
             if (CollectionUtils.isEmpty(configs)
-                    || configs.stream().noneMatch(existed -> existed.equals(configCenter))) {
+                || configs.stream().noneMatch(existed -> existed.equals(configCenter))) {
                 configManager.addConfigCenter(configCenter);
             }
         }
@@ -680,7 +680,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
             ConfigManager configManager = ApplicationModel.getConfigManager();
             Collection<MetadataReportConfig> configs = configManager.getMetadataConfigs();
             if (CollectionUtils.isEmpty(configs)
-                    || configs.stream().noneMatch(existed -> existed.equals(metadataReportConfig))) {
+                || configs.stream().noneMatch(existed -> existed.equals(metadataReportConfig))) {
                 configManager.addMetadataReport(metadataReportConfig);
             }
         }
@@ -722,14 +722,14 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     public SslConfig getSslConfig() {
         return ApplicationModel.getConfigManager().getSsl().orElse(null);
     }
-    
+
     protected void initServiceMetadata(AbstractInterfaceConfig interfaceConfig) {
         serviceMetadata.setVersion(getVersion(interfaceConfig));
         serviceMetadata.setGroup(getGroup(interfaceConfig));
         serviceMetadata.setDefaultGroup(getGroup(interfaceConfig));
         serviceMetadata.setServiceInterfaceName(getInterface());
     }
-    
+
     public String getGroup(AbstractInterfaceConfig interfaceConfig) {
         return StringUtils.isEmpty(getGroup()) ? (interfaceConfig != null ? interfaceConfig.getGroup() : getGroup()) : getGroup();
     }
@@ -737,7 +737,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     public String getVersion(AbstractInterfaceConfig interfaceConfig) {
         return StringUtils.isEmpty(getVersion()) ? (interfaceConfig != null ? interfaceConfig.getVersion() : getVersion()) : getVersion();
     }
-    
+
     public String getVersion() {
         return version;
     }
@@ -753,11 +753,11 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     public void setGroup(String group) {
         this.group = group;
     }
-    
+
     public String getInterface() {
         return interfaceName;
     }
-    
+
     public void setInterface(String interfaceName) {
         this.interfaceName = interfaceName;
     }

@@ -53,10 +53,10 @@ class ProviderAuthFilterTest {
     @Test
     void testAuthEnabled() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test")
-                .addParameter(Constants.SERVICE_AUTH, true);
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SERVICE_AUTH, true);
         Invoker invoker = mock(Invoker.class);
         Invocation invocation = mock(Invocation.class);
         when(invoker.getUrl()).thenReturn(url);
@@ -69,10 +69,10 @@ class ProviderAuthFilterTest {
     @Test
     void testAuthFailed() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test")
-                .addParameter(Constants.SERVICE_AUTH, true);
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SERVICE_AUTH, true);
         Invoker invoker = mock(Invoker.class);
         Invocation invocation = mock(Invocation.class);
         when(invocation.getAttachment(Constants.REQUEST_SIGNATURE_KEY)).thenReturn(null);
@@ -87,10 +87,10 @@ class ProviderAuthFilterTest {
     @Test
     void testAuthFailedWhenNoSignature() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test")
-                .addParameter(Constants.SERVICE_AUTH, true);
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SERVICE_AUTH, true);
         Invoker invoker = mock(Invoker.class);
         Invocation invocation = mock(Invocation.class);
         when(invocation.getAttachment(Constants.REQUEST_SIGNATURE_KEY)).thenReturn(null);
@@ -104,8 +104,8 @@ class ProviderAuthFilterTest {
     @Test
     void testAuthFailedWhenNoAccessKeyPair() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test-provider")
-                .addParameter(Constants.SERVICE_AUTH, true);
+            .addParameter(CommonConstants.APPLICATION_KEY, "test-provider")
+            .addParameter(Constants.SERVICE_AUTH, true);
         Invoker invoker = mock(Invoker.class);
         Invocation invocation = mock(Invocation.class);
         when(invocation.getObjectAttachment(Constants.REQUEST_SIGNATURE_KEY)).thenReturn("dubbo");
@@ -127,12 +127,12 @@ class ProviderAuthFilterTest {
         Object[] originalParams = new Object[]{"dubbo1", "dubbo2"};
         long currentTimeMillis = System.currentTimeMillis();
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .setServiceInterface(service)
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test-provider")
-                .addParameter(Constants.PARAMETER_SIGNATURE_ENABLE_KEY, true)
-                .addParameter(Constants.SERVICE_AUTH, true);
+            .setServiceInterface(service)
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test-provider")
+            .addParameter(Constants.PARAMETER_SIGNATURE_ENABLE_KEY, true)
+            .addParameter(Constants.SERVICE_AUTH, true);
 
         Invoker invoker = mock(Invoker.class);
         Invocation invocation = mock(Invocation.class);
@@ -146,7 +146,7 @@ class ProviderAuthFilterTest {
 
 
         String requestString = String.format(Constants.SIGNATURE_STRING_FORMAT,
-                url.getColonSeparatedKey(), invocation.getMethodName(), "sk", currentTimeMillis);
+            url.getColonSeparatedKey(), invocation.getMethodName(), "sk", currentTimeMillis);
         String sign = SignatureUtils.sign(originalParams, requestString, "sk");
         when(invocation.getObjectAttachment(Constants.REQUEST_SIGNATURE_KEY)).thenReturn(sign);
 
@@ -162,11 +162,11 @@ class ProviderAuthFilterTest {
         String method = "test";
         long currentTimeMillis = System.currentTimeMillis();
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .setServiceInterface(service)
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test-provider")
-                .addParameter(Constants.SERVICE_AUTH, true);
+            .setServiceInterface(service)
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test-provider")
+            .addParameter(Constants.SERVICE_AUTH, true);
         Invoker invoker = mock(Invoker.class);
         Invocation invocation = mock(Invocation.class);
         when(invocation.getAttachment(Constants.AK_KEY)).thenReturn("ak");
@@ -177,7 +177,7 @@ class ProviderAuthFilterTest {
 
 
         String requestString = String.format(Constants.SIGNATURE_STRING_FORMAT,
-                url.getColonSeparatedKey(), invocation.getMethodName(), "sk", currentTimeMillis);
+            url.getColonSeparatedKey(), invocation.getMethodName(), "sk", currentTimeMillis);
         String sign = SignatureUtils.sign(requestString, "sk");
         when(invocation.getAttachment(Constants.REQUEST_SIGNATURE_KEY)).thenReturn(sign);
 

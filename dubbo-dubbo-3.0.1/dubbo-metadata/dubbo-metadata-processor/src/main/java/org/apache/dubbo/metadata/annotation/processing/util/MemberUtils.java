@@ -69,10 +69,10 @@ public interface MemberUtils {
 
     static List<? extends Element> getAllDeclaredMembers(TypeMirror type) {
         return getHierarchicalTypes(type)
-                .stream()
-                .map(MemberUtils::getDeclaredMembers)
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+            .stream()
+            .map(MemberUtils::getDeclaredMembers)
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
     }
 
     static boolean matchParameterTypes(List<? extends VariableElement> parameters, CharSequence... parameterTypes) {

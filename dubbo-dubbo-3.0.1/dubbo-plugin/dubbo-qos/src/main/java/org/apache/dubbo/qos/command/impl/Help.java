@@ -27,8 +27,8 @@ import java.util.Comparator;
 import java.util.List;
 
 @Cmd(name = "help", summary = "help command", example = {
-        "help",
-        "help online"
+    "help",
+    "help online"
 })
 public class Help implements BaseCommand {
     @Override
@@ -52,8 +52,8 @@ public class Help implements BaseCommand {
 
         final Cmd cmd = clazz.getAnnotation(Cmd.class);
         final TTable tTable = new TTable(new TTable.ColumnDefine[]{
-                new TTable.ColumnDefine(TTable.Align.RIGHT),
-                new TTable.ColumnDefine(80, false, TTable.Align.LEFT)
+            new TTable.ColumnDefine(TTable.Align.RIGHT),
+            new TTable.ColumnDefine(80, false, TTable.Align.LEFT)
         });
 
         tTable.addRow("COMMAND NAME", commandName);
@@ -79,8 +79,8 @@ public class Help implements BaseCommand {
     private String mainHelp() {
 
         final TTable tTable = new TTable(new TTable.ColumnDefine[]{
-                new TTable.ColumnDefine(TTable.Align.RIGHT),
-                new TTable.ColumnDefine(80, false, TTable.Align.LEFT)
+            new TTable.ColumnDefine(TTable.Align.RIGHT),
+            new TTable.ColumnDefine(80, false, TTable.Align.LEFT)
         });
 
         final List<Class<?>> classes = CommandHelper.getAllCommandClass();

@@ -3,6 +3,7 @@ package com.zhao.rpc.codec;
 import lombok.Data;
 
 import java.io.Serializable;
+
 @Data
 public class RpcResponse implements Serializable {
 

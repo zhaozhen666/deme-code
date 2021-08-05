@@ -49,10 +49,11 @@ import static org.apache.dubbo.common.constants.CommonConstants.TIMESTAMP_KEY;
  * <br/>
  * URLParam should operate as Copy-On-Write, each modify actions will return a new Object
  * <br/>
- *
+ * <p>
  * NOTE: URLParam is not support serialization! {@link DynamicParamTable} is related with
  * current running environment. If you want to make URL as a parameter, please call
  * {@link URL#toSerializableURL()} to create {@link URLPlainParam} instead.
+ *
  * @since 3.0
  */
 public class URLParam {
@@ -918,8 +919,8 @@ public class URLParam {
         URLParam urlParam = (URLParam) o;
 
         if (Objects.equals(KEY, urlParam.KEY)
-                && Objects.equals(DEFAULT_KEY, urlParam.DEFAULT_KEY)
-                && Arrays.equals(VALUE, urlParam.VALUE)) {
+            && Objects.equals(DEFAULT_KEY, urlParam.DEFAULT_KEY)
+            && Arrays.equals(VALUE, urlParam.VALUE)) {
             if (CollectionUtils.isNotEmptyMap(EXTRA_PARAMS)) {
                 if (CollectionUtils.isEmptyMap(urlParam.EXTRA_PARAMS) || EXTRA_PARAMS.size() != urlParam.EXTRA_PARAMS.size()) {
                     return false;
@@ -971,7 +972,7 @@ public class URLParam {
         for (int i = KEY.nextSetBit(0); i >= 0; i = KEY.nextSetBit(i + 1)) {
             String key = DynamicParamTable.getKey(i);
             String value = DEFAULT_KEY.get(i) ?
-                    DynamicParamTable.getDefaultValue(i) : DynamicParamTable.getValue(i, keyIndexToOffset(i));
+                DynamicParamTable.getDefaultValue(i) : DynamicParamTable.getValue(i, keyIndexToOffset(i));
             value = value == null ? "" : value.trim();
             stringJoiner.add(String.format("%s=%s", key, value));
         }

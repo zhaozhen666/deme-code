@@ -311,7 +311,7 @@ public abstract class AbstractChannelBuffer implements ChannelBuffer {
     @Override
     public boolean equals(Object o) {
         return o instanceof ChannelBuffer
-                && ChannelBuffers.equals(this, (ChannelBuffer) o);
+            && ChannelBuffers.equals(this, (ChannelBuffer) o);
     }
 
     @Override
@@ -327,10 +327,10 @@ public abstract class AbstractChannelBuffer implements ChannelBuffer {
     @Override
     public String toString() {
         return getClass().getSimpleName() + '(' +
-                "ridx=" + readerIndex + ", " +
-                "widx=" + writerIndex + ", " +
-                "cap=" + capacity() +
-                ')';
+            "ridx=" + readerIndex + ", " +
+            "widx=" + writerIndex + ", " +
+            "cap=" + capacity() +
+            ')';
     }
 
     protected void checkReadableBytes(int minimumReadableBytes) {

@@ -152,7 +152,7 @@ public interface ServiceDiscovery extends Prioritized {
      * @throws UnsupportedOperationException if not supported
      */
     default Page<ServiceInstance> getInstances(String serviceName, int offset, int pageSize) throws NullPointerException,
-            IllegalArgumentException {
+        IllegalArgumentException {
         return getInstances(serviceName, offset, pageSize, false);
     }
 
@@ -170,7 +170,7 @@ public interface ServiceDiscovery extends Prioritized {
      * @throws UnsupportedOperationException if not supported
      */
     default Page<ServiceInstance> getInstances(String serviceName, int offset, int pageSize, boolean healthyOnly) throws
-            NullPointerException, IllegalArgumentException, UnsupportedOperationException {
+        NullPointerException, IllegalArgumentException, UnsupportedOperationException {
         throw new UnsupportedOperationException("Current implementation does not support pagination query method.");
     }
 
@@ -187,7 +187,7 @@ public interface ServiceDiscovery extends Prioritized {
      * @throws UnsupportedOperationException if not supported
      */
     default Map<String, Page<ServiceInstance>> getInstances(Iterable<String> serviceNames, int offset, int requestSize) throws
-            NullPointerException, IllegalArgumentException {
+        NullPointerException, IllegalArgumentException {
         Map<String, Page<ServiceInstance>> instances = new LinkedHashMap<>();
         for (String serviceName : serviceNames) {
             instances.put(serviceName, getInstances(serviceName, offset, requestSize));
@@ -203,8 +203,8 @@ public interface ServiceDiscovery extends Prioritized {
         dispatchServiceInstancesChangedEvent(serviceName, getInstances(serviceName));
         if (otherServiceNames != null) {
             Stream.of(otherServiceNames)
-                    .filter(StringUtils::isNotEmpty)
-                    .forEach(this::dispatchServiceInstancesChangedEvent);
+                .filter(StringUtils::isNotEmpty)
+                .forEach(this::dispatchServiceInstancesChangedEvent);
         }
     }
 
@@ -212,7 +212,8 @@ public interface ServiceDiscovery extends Prioritized {
         dispatchServiceInstancesChangedEvent(new ServiceInstancesChangedEvent(serviceName, serviceInstances));
     }
 
-    default void dispatchServiceInstancesChangedEvent(ServiceInstancesChangedEvent event) {}
+    default void dispatchServiceInstancesChangedEvent(ServiceInstancesChangedEvent event) {
+    }
 
     /**
      * Add an instance of {@link ServiceInstancesChangedListener} for specified service
@@ -228,7 +229,7 @@ public interface ServiceDiscovery extends Prioritized {
      * @throws IllegalArgumentException
      */
     default void addServiceInstancesChangedListener(ServiceInstancesChangedListener listener)
-            throws NullPointerException, IllegalArgumentException {
+        throws NullPointerException, IllegalArgumentException {
     }
 
     /**
@@ -238,7 +239,7 @@ public interface ServiceDiscovery extends Prioritized {
      * @throws IllegalArgumentException
      */
     default void removeServiceInstancesChangedListener(ServiceInstancesChangedListener listener)
-            throws IllegalArgumentException {
+        throws IllegalArgumentException {
     }
 
     default ServiceInstancesChangedListener createListener(Set<String> serviceNames) {

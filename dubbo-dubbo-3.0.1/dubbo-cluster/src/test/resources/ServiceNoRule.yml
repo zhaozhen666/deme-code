@@ -23,6 +23,6 @@ configVersion: v2.7
 scope: service
 key: serviceKey
 configs:
-- addresses: [127.0.0.1, 0.0.0.0]
-  applications: [app1, app2]
+  - addresses: [127.0.0.1, 0.0.0.0]
+    applications: [app1, app2]
 ...

@@ -63,9 +63,9 @@ public class KubernetesServiceDiscoveryTest {
         mockClient = mockServer.getClient();
 
         serverUrl = URL.valueOf(mockClient.getConfiguration().getMasterUrl())
-                .setProtocol("kubernetes")
-                .addParameter(KubernetesClientConst.USE_HTTPS, "false")
-                .addParameter(KubernetesClientConst.HTTP2_DISABLE, "true");
+            .setProtocol("kubernetes")
+            .addParameter(KubernetesClientConst.USE_HTTPS, "false")
+            .addParameter(KubernetesClientConst.HTTP2_DISABLE, "true");
 
         System.setProperty(Config.KUBERNETES_AUTH_TRYKUBECONFIG_SYSTEM_PROPERTY, "false");
         System.setProperty(Config.KUBERNETES_AUTH_TRYSERVICEACCOUNT_SYSTEM_PROPERTY, "false");
@@ -73,20 +73,20 @@ public class KubernetesServiceDiscoveryTest {
         selector = new HashMap<>(4);
         selector.put("l", "v");
         Pod pod = new PodBuilder()
-                .withNewMetadata().withName("TestServer").withLabels(selector).endMetadata()
-                .build();
+            .withNewMetadata().withName("TestServer").withLabels(selector).endMetadata()
+            .build();
 
         Service service = new ServiceBuilder()
-                .withNewMetadata().withName("TestService").endMetadata()
-                .withNewSpec().withSelector(selector).endSpec().build();
+            .withNewMetadata().withName("TestService").endMetadata()
+            .withNewSpec().withSelector(selector).endSpec().build();
 
         Endpoints endPoints = new EndpointsBuilder()
-                .withNewMetadata().withName("TestService").endMetadata()
-                .addNewSubset()
-                .addNewAddress().withIp("ip1")
-                .withNewTargetRef().withUid("uid1").withName("TestServer").endTargetRef().endAddress()
-                .addNewPort("Test", "Test", 12345, "TCP").endSubset()
-                .build();
+            .withNewMetadata().withName("TestService").endMetadata()
+            .addNewSubset()
+            .addNewAddress().withIp("ip1")
+            .withNewTargetRef().withUid("uid1").withName("TestServer").endTargetRef().endAddress()
+            .addNewPort("Test", "Test", 12345, "TCP").endSubset()
+            .build();
 
         mockClient.pods().create(pod);
         mockClient.services().create(service);
@@ -117,18 +117,18 @@ public class KubernetesServiceDiscoveryTest {
 
         serviceDiscovery.addServiceInstancesChangedListener(mockListener);
         mockClient.endpoints().withName("TestService")
-                .edit(endpoints ->
-                        new EndpointsBuilder(endpoints)
-                                .editFirstSubset()
-                                .addNewAddress()
-                                .withIp("ip2")
-                                .withNewTargetRef().withUid("uid2").withName("TestServer").endTargetRef()
-                                .endAddress().endSubset()
-                                .build());
+            .edit(endpoints ->
+                new EndpointsBuilder(endpoints)
+                    .editFirstSubset()
+                    .addNewAddress()
+                    .withIp("ip2")
+                    .withNewTargetRef().withUid("uid2").withName("TestServer").endTargetRef()
+                    .endAddress().endSubset()
+                    .build());
 
         Thread.sleep(5000);
         ArgumentCaptor<ServiceInstancesChangedEvent> eventArgumentCaptor =
-                ArgumentCaptor.forClass(ServiceInstancesChangedEvent.class);
+            ArgumentCaptor.forClass(ServiceInstancesChangedEvent.class);
         Mockito.verify(mockListener, Mockito.times(2)).onEvent(eventArgumentCaptor.capture());
         Assertions.assertEquals(2, eventArgumentCaptor.getValue().getServiceInstances().size());
 
@@ -161,7 +161,7 @@ public class KubernetesServiceDiscoveryTest {
 
         Thread.sleep(5000);
         ArgumentCaptor<ServiceInstancesChangedEvent> eventArgumentCaptor =
-                ArgumentCaptor.forClass(ServiceInstancesChangedEvent.class);
+            ArgumentCaptor.forClass(ServiceInstancesChangedEvent.class);
         Mockito.verify(mockListener, Mockito.times(1)).onEvent(eventArgumentCaptor.capture());
         Assertions.assertEquals(1, eventArgumentCaptor.getValue().getServiceInstances().size());
 

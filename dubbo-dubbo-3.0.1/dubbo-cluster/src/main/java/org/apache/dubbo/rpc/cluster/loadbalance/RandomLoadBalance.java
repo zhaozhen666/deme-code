@@ -43,8 +43,9 @@ public class RandomLoadBalance extends AbstractLoadBalance {
 
     /**
      * Select one invoker between a list using a random criteria
-     * @param invokers List of possible invokers
-     * @param url URL
+     *
+     * @param invokers   List of possible invokers
+     * @param url        URL
      * @param invocation Invocation
      * @param <T>
      * @return The selected invoker
@@ -54,7 +55,7 @@ public class RandomLoadBalance extends AbstractLoadBalance {
         // Number of invokers
         int length = invokers.size();
 
-        if (!needWeightLoadBalance(invokers,invocation)){
+        if (!needWeightLoadBalance(invokers, invocation)) {
             return invokers.get(ThreadLocalRandom.current().nextInt(length));
         }
 
@@ -102,7 +103,7 @@ public class RandomLoadBalance extends AbstractLoadBalance {
             String weight = invokerUrl.getMethodParameter(invocation.getMethodName(), WEIGHT_KEY);
             if (StringUtils.isNotEmpty(weight)) {
                 return true;
-            }else {
+            } else {
                 String timeStamp = invoker.getUrl().getParameter(TIMESTAMP_KEY);
                 if (StringUtils.isNotEmpty(timeStamp)) {
                     return true;

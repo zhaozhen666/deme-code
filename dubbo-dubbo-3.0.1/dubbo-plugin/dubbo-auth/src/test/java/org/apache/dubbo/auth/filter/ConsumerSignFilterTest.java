@@ -49,10 +49,10 @@ class ConsumerSignFilterTest {
     @Test
     void testAuthEnabled() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test")
-                .addParameter(Constants.SERVICE_AUTH, true);
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SERVICE_AUTH, true);
         Invoker invoker = mock(Invoker.class);
         Invocation invocation = mock(Invocation.class);
         when(invoker.getUrl()).thenReturn(url);

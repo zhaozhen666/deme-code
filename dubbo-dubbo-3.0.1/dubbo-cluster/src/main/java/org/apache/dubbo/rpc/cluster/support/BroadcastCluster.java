@@ -22,7 +22,6 @@ import org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster;
 
 /**
  * BroadcastCluster
- *
  */
 public class BroadcastCluster extends AbstractCluster {
 

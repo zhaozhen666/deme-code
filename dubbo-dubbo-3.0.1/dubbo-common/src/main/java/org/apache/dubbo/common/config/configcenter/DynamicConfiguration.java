@@ -102,6 +102,7 @@ public interface DynamicConfiguration extends Configuration, AutoCloseable {
 
     /**
      * get configItem which contains content and stat info.
+     *
      * @param key
      * @param group
      * @return
@@ -169,6 +170,7 @@ public interface DynamicConfiguration extends Configuration, AutoCloseable {
 
     /**
      * publish config mapped to this given key and given group with stat.
+     *
      * @param key
      * @param group
      * @param content
@@ -231,8 +233,8 @@ public interface DynamicConfiguration extends Configuration, AutoCloseable {
     static DynamicConfiguration getDynamicConfiguration() {
         Optional<DynamicConfiguration> optional = ApplicationModel.getEnvironment().getDynamicConfiguration();
         return optional.orElseGet(() -> getExtensionLoader(DynamicConfigurationFactory.class)
-                .getDefaultExtension()
-                .getDynamicConfiguration(null));
+            .getDefaultExtension()
+            .getDynamicConfiguration(null));
     }
 
     /**

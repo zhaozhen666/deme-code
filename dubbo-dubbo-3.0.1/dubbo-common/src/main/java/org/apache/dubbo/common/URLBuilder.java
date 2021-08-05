@@ -120,14 +120,14 @@ public final class URLBuilder extends ServiceConfigURL {
         Map<String, String> parameters = new HashMap<>(url.getParameters());
         Map<String, Object> attributes = new HashMap<>(url.getAttributes());
         return new URLBuilder(
-                protocol,
-                username,
-                password,
-                host,
-                port,
-                path,
-                parameters,
-                attributes);
+            protocol,
+            username,
+            password,
+            host,
+            port,
+            path,
+            parameters,
+            attributes);
     }
 
     public ServiceConfigURL build() {
@@ -336,7 +336,7 @@ public final class URLBuilder extends ServiceConfigURL {
         if (CollectionUtils.isEmptyMap(parameters)) {
             return this;
         }
-        for(Map.Entry<String, String> entry : parameters.entrySet()) {
+        for (Map.Entry<String, String> entry : parameters.entrySet()) {
             this.parameters.putIfAbsent(entry.getKey(), entry.getValue());
         }
         return this;
@@ -429,7 +429,7 @@ public final class URLBuilder extends ServiceConfigURL {
         Map<String, String> keyMap = methodParameters.get(method);
         String value = null;
         if (keyMap != null) {
-            value =  keyMap.get(key);
+            value = keyMap.get(key);
         }
         return value;
     }

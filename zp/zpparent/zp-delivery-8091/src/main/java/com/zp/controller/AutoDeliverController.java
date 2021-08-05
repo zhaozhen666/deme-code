@@ -21,6 +21,7 @@ public class AutoDeliverController {
     private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
+
     @GetMapping("/checkState/{userId}")
     public Integer findResumeOpenState(@PathVariable Long userId) {
         Integer forObject =
@@ -30,18 +31,19 @@ public class AutoDeliverController {
                 userId + "的默认简历当前状态为：" + forObject);
         return forObject;
     }
+
     @GetMapping("/checkAndBegin/{userId}")
     public Integer findResumeOpenStateEureka(@PathVariable Long userId) {
         List<ServiceInstance> list = discoveryClient.getInstances("zhao-service-resume");
         ServiceInstance serviceInstance = list.get(0);
-        list.stream().forEach(s->{
+        list.stream().forEach(s -> {
             System.out.println(s.getMetadata());
         });
 //        String host = serviceInstance.getHost();
 //        int port = serviceInstance.getPort();
         //String url = "http://"+host+":"+port+"/resume/openstate/"+userId;
-        String url = "http://zhao-service-resume/resume/openstate/"+userId;
-        System.out.println("从eureka中获取了请求地址"+url);
+        String url = "http://zhao-service-resume/resume/openstate/" + userId;
+        System.out.println("从eureka中获取了请求地址" + url);
         Integer forObject =
                 restTemplate.getForObject(url, Integer.class);
         return forObject;
@@ -49,15 +51,15 @@ public class AutoDeliverController {
 
     @GetMapping("/checkHystrix/{userId}")
     @HystrixCommand(threadPoolKey = "checkHystrix1",
-    threadPoolProperties = {
-            @HystrixProperty(name = "coreSize",value = "1"),
-            @HystrixProperty(name = "maxQueueSize",value = "20")
-    },
-    commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value="2000")
-    })
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "1"),
+                    @HystrixProperty(name = "maxQueueSize", value = "20")
+            },
+            commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")
+            })
     public Integer checkHystrix(@PathVariable Long userId) {
-        String url = "http://zhao-service-resume/resume/openstate/"+userId;
+        String url = "http://zhao-service-resume/resume/openstate/" + userId;
         Integer forObject =
                 restTemplate.getForObject(url, Integer.class);
         return forObject;
@@ -66,28 +68,28 @@ public class AutoDeliverController {
     @GetMapping("/checkHystrixFallback/{userId}")
     @HystrixCommand(threadPoolKey = "checkHystrix2",
             threadPoolProperties = {
-                    @HystrixProperty(name = "coreSize",value = "2"),
-                    @HystrixProperty(name = "maxQueueSize",value = "20")
+                    @HystrixProperty(name = "coreSize", value = "2"),
+                    @HystrixProperty(name = "maxQueueSize", value = "20")
             },
             commandProperties = {
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value="2000"),
-                    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds",value = "8000"),
-                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"),
-                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value="50"),
-                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value="3000")
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
+                    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "8000"),
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2"),
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "3000")
             },
             fallbackMethod = "customeFallback"
 
 
     )
     public Integer checkHystrixFallBack(@PathVariable Long userId) {
-        String url = "http://zhao-service-resume/resume/openstate/"+userId;
+        String url = "http://zhao-service-resume/resume/openstate/" + userId;
         Integer forObject =
                 restTemplate.getForObject(url, Integer.class);
         return forObject;
     }
 
-    public  Integer customeFallback(Long userId){
+    public Integer customeFallback(Long userId) {
         return -1;
     }
 }

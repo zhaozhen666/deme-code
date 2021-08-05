@@ -39,7 +39,7 @@ public class TraceTelnetHandler implements TelnetHandler {
     public String telnet(Channel channel, String message) {
         String service = (String) channel.getAttribute(ChangeTelnetHandler.SERVICE_KEY);
         if ((service == null || service.length() == 0)
-                && (message == null || message.length() == 0)) {
+            && (message == null || message.length() == 0)) {
             return "Please input service name, eg: \r\ntrace XxxService\r\ntrace XxxService xxxMethod\r\ntrace XxxService xxxMethod 10\r\nor \"cd XxxService\" firstly.";
         }
         String[] parts = message.split("\\s+");
@@ -64,8 +64,8 @@ public class TraceTelnetHandler implements TelnetHandler {
         Invoker<?> invoker = null;
         for (Exporter<?> exporter : DubboProtocol.getDubboProtocol().getExporters()) {
             if (service.equals(exporter.getInvoker().getInterface().getSimpleName())
-                    || service.equals(exporter.getInvoker().getInterface().getName())
-                    || service.equals(exporter.getInvoker().getUrl().getPath())) {
+                || service.equals(exporter.getInvoker().getInterface().getName())
+                || service.equals(exporter.getInvoker().getUrl().getPath())) {
                 invoker = exporter.getInvoker();
                 break;
             }

@@ -41,14 +41,14 @@ import java.util.Map;
  * issue: https://github.com/apache/dubbo-spring-boot-project/issues/779
  */
 @SpringBootTest(
-        properties = {
-                "dubbo.application.name=consumer-app",
-                "dubbo.registry.address=N/A",
-                "myapp.group=demo"
-        },
-        classes = {
-                JavaConfigRawReferenceBeanConditionalTest.class
-        }
+    properties = {
+        "dubbo.application.name=consumer-app",
+        "dubbo.registry.address=N/A",
+        "myapp.group=demo"
+    },
+    classes = {
+        JavaConfigRawReferenceBeanConditionalTest.class
+    }
 )
 @Configuration
 //@ComponentScan
@@ -56,13 +56,13 @@ import java.util.Map;
 public class JavaConfigRawReferenceBeanConditionalTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         ZooKeeperServer.start();
         DubboBootstrap.reset();
     }
 
     @AfterAll
-    public static void tearDown(){
+    public static void tearDown() {
         DubboBootstrap.reset();
     }
 
@@ -81,22 +81,22 @@ public class JavaConfigRawReferenceBeanConditionalTest {
         Assertions.assertNull(helloServiceMap.get("myHelloService"));
     }
 
-    @Order(Integer.MAX_VALUE-2)
+    @Order(Integer.MAX_VALUE - 2)
     @Configuration
     public static class RawReferenceBeanConfiguration {
 
         @Bean
         public ReferenceBean<HelloService> helloService() {
             return new ReferenceBeanBuilder()
-                    .setGroup("${myapp.group}")
-                    .setInit(false)
-                    .build();
+                .setGroup("${myapp.group}")
+                .setInit(false)
+                .build();
         }
 
     }
 
 
-    @Order(Integer.MAX_VALUE-1)
+    @Order(Integer.MAX_VALUE - 1)
     @Configuration
     public static class ConditionalBeanConfiguration {
 

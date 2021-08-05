@@ -26,7 +26,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * SpringContainer. (SPI, Singleton, ThreadSafe)
- *
+ * <p>
  * The container class implementation for Spring
  */
 public class SpringContainer implements Container {

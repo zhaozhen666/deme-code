@@ -39,11 +39,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class LoggerAdapterTest {
     static Stream<Arguments> data() {
         return Stream.of(
-                Arguments.of(JclLoggerAdapter.class, JclLogger.class),
-                Arguments.of(JdkLoggerAdapter.class, JdkLogger.class),
-                Arguments.of(Log4jLoggerAdapter.class, Log4jLogger.class),
-                Arguments.of(Slf4jLoggerAdapter.class, Slf4jLogger.class),
-                Arguments.of(Log4j2LoggerAdapter.class, Log4j2Logger.class)
+            Arguments.of(JclLoggerAdapter.class, JclLogger.class),
+            Arguments.of(JdkLoggerAdapter.class, JdkLogger.class),
+            Arguments.of(Log4jLoggerAdapter.class, Log4jLogger.class),
+            Arguments.of(Slf4jLoggerAdapter.class, Slf4jLogger.class),
+            Arguments.of(Log4j2LoggerAdapter.class, Log4j2Logger.class)
         );
     }
 

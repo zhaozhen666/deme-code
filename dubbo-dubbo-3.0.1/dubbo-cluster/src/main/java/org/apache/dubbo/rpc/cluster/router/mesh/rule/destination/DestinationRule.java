@@ -34,8 +34,8 @@ public class DestinationRule extends BaseRule {
     @Override
     public String toString() {
         return "DestinationRule{" +
-                "base=" + super.toString() +
-                ", spec=" + spec +
-                '}';
+            "base=" + super.toString() +
+            ", spec=" + spec +
+            '}';
     }
 }

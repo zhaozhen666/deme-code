@@ -27,8 +27,6 @@ import java.util.Collection;
 
 /**
  * ServerDelegate
- *
- *
  */
 public class ServerDelegate implements RemotingServer {
 

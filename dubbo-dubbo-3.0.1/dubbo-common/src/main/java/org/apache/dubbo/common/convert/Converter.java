@@ -82,11 +82,11 @@ public interface Converter<S, T> extends Prioritized {
      */
     static Converter<?, ?> getConverter(Class<?> sourceType, Class<?> targetType) {
         return getExtensionLoader(Converter.class)
-                .getSupportedExtensionInstances()
-                .stream()
-                .filter(converter -> converter.accept(sourceType, targetType))
-                .findFirst()
-                .orElse(null);
+            .getSupportedExtensionInstances()
+            .stream()
+            .filter(converter -> converter.accept(sourceType, targetType))
+            .findFirst()
+            .orElse(null);
     }
 
     /**

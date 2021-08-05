@@ -127,8 +127,8 @@ class MetadataReportBuilderTest {
     void build() {
         MetadataReportBuilder builder = new MetadataReportBuilder();
         builder.address("address").username("username").password("password").timeout(1000).group("group")
-                .retryTimes(1).retryPeriod(2).cycleReport(true).syncReport(false)
-                .appendParameter("default.num", "one").id("id");
+            .retryTimes(1).retryPeriod(2).cycleReport(true).syncReport(false)
+            .appendParameter("default.num", "one").id("id");
 
         MetadataReportConfig config = builder.build();
         MetadataReportConfig config2 = builder.build();

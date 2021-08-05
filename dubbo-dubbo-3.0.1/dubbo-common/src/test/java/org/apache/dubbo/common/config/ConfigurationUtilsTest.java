@@ -29,14 +29,14 @@ import static org.apache.dubbo.common.constants.CommonConstants.SHUTDOWN_WAIT_KE
 public class ConfigurationUtilsTest {
 
     @Test
-    public void testGetServerShutdownTimeout () {
+    public void testGetServerShutdownTimeout() {
         System.setProperty(SHUTDOWN_WAIT_KEY, " 10000");
         Assertions.assertEquals(10000, ConfigurationUtils.getServerShutdownTimeout());
         System.clearProperty(SHUTDOWN_WAIT_KEY);
     }
 
     @Test
-    public void testGetProperty () {
+    public void testGetProperty() {
         System.setProperty(SHUTDOWN_WAIT_KEY, " 10000");
         Assertions.assertEquals("10000", ConfigurationUtils.getProperty(SHUTDOWN_WAIT_KEY));
         System.clearProperty(SHUTDOWN_WAIT_KEY);

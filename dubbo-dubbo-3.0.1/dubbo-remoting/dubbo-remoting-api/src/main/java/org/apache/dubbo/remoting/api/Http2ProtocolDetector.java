@@ -33,7 +33,7 @@ public class Http2ProtocolDetector implements ProtocolDetector {
 
         // If the input so far doesn't match the preface, break the connection.
         if (bytesRead == 0 || !ByteBufUtil.equals(in, 0,
-                clientPrefaceString, 0, bytesRead)) {
+            clientPrefaceString, 0, bytesRead)) {
 
             return Result.UNRECOGNIZED;
         }

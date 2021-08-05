@@ -6,10 +6,11 @@ import com.zhao.ad.search.vo.AdPlanGetRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
 public class SponsorClientHystrix implements SponsorClient {
     @Override
     public CommonRespone<List<AdPlan>> getAdplanByFeign(AdPlanGetRequest request) {
-        return new CommonRespone<>(-1,"feign ad sponsor error");
+        return new CommonRespone<>(-1, "feign ad sponsor error");
     }
 }

@@ -18,6 +18,7 @@ public class AutoDeliverController {
     private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
+
     @GetMapping("/checkState/{userId}")
     public Integer findResumeOpenState(@PathVariable Long userId) {
         Integer forObject =
@@ -27,14 +28,15 @@ public class AutoDeliverController {
                 userId + "的默认简历当前状态为：" + forObject);
         return forObject;
     }
+
     @GetMapping("/checkAndBegin/{userId}")
     public Integer findResumeOpenStateEureka(@PathVariable Long userId) {
 //        List<ServiceInstance> list = discoveryClient.getInstances("lagou-service-resume");
 //        ServiceInstance serviceInstance = list.get(0);
 //        String host = serviceInstance.getHost();
 //        int port = serviceInstance.getPort();
-        String url = "http://zhao-service-resume/resume/openstate/"+userId;
-        System.out.println("从eureka中获取了请求地址"+url);
+        String url = "http://zhao-service-resume/resume/openstate/" + userId;
+        System.out.println("从eureka中获取了请求地址" + url);
         Integer forObject =
                 restTemplate.getForObject(url, Integer.class);
         return forObject;

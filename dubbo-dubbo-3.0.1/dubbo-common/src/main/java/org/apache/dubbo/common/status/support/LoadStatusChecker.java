@@ -39,7 +39,7 @@ public class LoadStatusChecker implements StatusChecker {
             load = (Double) method.invoke(operatingSystemMXBean, new Object[0]);
             if (load == -1) {
                 com.sun.management.OperatingSystemMXBean bean =
-                        (com.sun.management.OperatingSystemMXBean) operatingSystemMXBean;
+                    (com.sun.management.OperatingSystemMXBean) operatingSystemMXBean;
                 load = bean.getSystemCpuLoad();
             }
         } catch (Throwable e) {
@@ -47,7 +47,7 @@ public class LoadStatusChecker implements StatusChecker {
         }
         int cpu = operatingSystemMXBean.getAvailableProcessors();
         return new Status(load < 0 ? Status.Level.UNKNOWN : (load < cpu ? Status.Level.OK : Status.Level.WARN),
-                (load < 0 ? "" : "load:" + load + ",") + "cpu:" + cpu);
+            (load < 0 ? "" : "load:" + load + ",") + "cpu:" + cpu);
     }
 
 }

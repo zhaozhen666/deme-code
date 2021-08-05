@@ -115,6 +115,7 @@ public @interface Service {
 
     /**
      * Application associated name
+     *
      * @deprecated Do not set it and use the global Application Config
      */
     @Deprecated

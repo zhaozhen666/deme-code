@@ -429,7 +429,8 @@
         </xsd:attribute>
         <xsd:attribute name="publish-interface" type="xsd:boolean">
             <xsd:annotation>
-                <xsd:documentation><![CDATA[ Publish interface level url to registry, default true. ]]></xsd:documentation>
+                <xsd:documentation>
+                    <![CDATA[ Publish interface level url to registry, default true. ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute name="protocol" type="xsd:string">
@@ -647,12 +648,14 @@
         </xsd:attribute>
         <xsd:attribute name="publish-interface" type="xsd:boolean">
             <xsd:annotation>
-                <xsd:documentation><![CDATA[ Publish interface level url to registry, default true. ]]></xsd:documentation>
+                <xsd:documentation>
+                    <![CDATA[ Publish interface level url to registry, default true. ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute name="publish-instance" type="xsd:boolean">
             <xsd:annotation>
-                <xsd:documentation><![CDATA[ Publish instance level url to registry, default true. ]]></xsd:documentation>
+                <xsd:documentation>
+                    <![CDATA[ Publish instance level url to registry, default true. ]]></xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
     </xsd:complexType>
@@ -1021,7 +1024,8 @@
                 </xsd:attribute>
                 <xsd:attribute name="async-thread-num" type="xsd:integer">
                     <xsd:annotation>
-                        <xsd:documentation><![CDATA[ Thread num for asynchronous export-refer pool size. ]]></xsd:documentation>
+                        <xsd:documentation>
+                            <![CDATA[ Thread num for asynchronous export-refer pool size. ]]></xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
                 <xsd:anyAttribute namespace="##other" processContents="lax"/>
@@ -1417,7 +1421,8 @@
                 </xsd:attribute>
                 <xsd:attribute name="async-thread-num" type="xsd:integer">
                     <xsd:annotation>
-                        <xsd:documentation><![CDATA[ Thread num for asynchronous export-refer pool size. ]]></xsd:documentation>
+                        <xsd:documentation>
+                            <![CDATA[ Thread num for asynchronous export-refer pool size. ]]></xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
 

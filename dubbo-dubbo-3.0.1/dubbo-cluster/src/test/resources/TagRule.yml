@@ -24,8 +24,8 @@ enabled: true
 priority: 1
 key: demo-provider
 tags:
-- name: tag1
-  addresses: [30.5.120.16:20880]
-- name: tag2
-  addresses: [30.5.120.16:20881]
+  - name: tag1
+    addresses: [30.5.120.16:20880]
+  - name: tag2
+    addresses: [30.5.120.16:20881]
 ...

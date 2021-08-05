@@ -152,10 +152,10 @@ public class MulticastRegistry extends FailbackRegistry {
             String message = "Invalid multicast address " + multicastAddress;
             if (multicastAddress instanceof Inet4Address) {
                 throw new IllegalArgumentException(message + ", " +
-                        "ipv4 multicast address scope: 224.0.0.0 - 239.255.255.255.");
+                    "ipv4 multicast address scope: 224.0.0.0 - 239.255.255.255.");
             } else {
                 throw new IllegalArgumentException(message + ", " + "ipv6 multicast address must start with ff, " +
-                        "for example: ff01::1");
+                    "for example: ff01::1");
             }
         }
     }
@@ -214,7 +214,7 @@ public class MulticastRegistry extends FailbackRegistry {
                     if (UrlUtils.isMatch(url, u)) {
                         String host = remoteAddress != null && remoteAddress.getAddress() != null ? remoteAddress.getAddress().getHostAddress() : url.getIp();
                         if (url.getParameter("unicast", true) // Whether the consumer's machine has only one process
-                                && !NetUtils.getLocalHost().equals(host)) { // Multiple processes in the same machine cannot be unicast with unicast or there will be only one process receiving information
+                            && !NetUtils.getLocalHost().equals(host)) { // Multiple processes in the same machine cannot be unicast with unicast or there will be only one process receiving information
                             unicast(REGISTER + " " + u.toFullString(), host);
                         } else {
                             multicast(REGISTER + " " + u.toFullString());

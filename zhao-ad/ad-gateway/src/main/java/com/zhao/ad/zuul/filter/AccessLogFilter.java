@@ -19,7 +19,7 @@ public class AccessLogFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return FilterConstants.SEND_RESPONSE_FILTER_ORDER-1;
+        return FilterConstants.SEND_RESPONSE_FILTER_ORDER - 1;
     }
 
     @Override
@@ -29,11 +29,11 @@ public class AccessLogFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        RequestContext context =RequestContext.getCurrentContext();
+        RequestContext context = RequestContext.getCurrentContext();
         Long startTime = (Long) context.get("startTime");
         HttpServletRequest request = context.getRequest();
         String uri = request.getRequestURI();
-        log.info("uri "+uri + "take "+(System.currentTimeMillis()-startTime)+"s");
+        log.info("uri " + uri + "take " + (System.currentTimeMillis() - startTime) + "s");
         return null;
     }
 }

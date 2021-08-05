@@ -117,11 +117,11 @@ public class SelectTelnetHandlerTest {
     private void registerProvider(String key, Object impl, Class<?> interfaceClass) {
         ServiceDescriptor serviceDescriptor = repository.registerService(interfaceClass);
         repository.registerProvider(
-                key,
-                impl,
-                serviceDescriptor,
-                null,
-                null
+            key,
+            impl,
+            serviceDescriptor,
+            null,
+            null
         );
     }
 }

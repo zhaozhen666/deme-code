@@ -43,8 +43,8 @@ public class VirtualServiceSpec {
     @Override
     public String toString() {
         return "VirtualServiceSpec{" +
-                "hosts=" + hosts +
-                ", dubbo=" + dubbo +
-                '}';
+            "hosts=" + hosts +
+            ", dubbo=" + dubbo +
+            '}';
     }
 }

@@ -50,12 +50,12 @@ public class LFUCache<K, V> {
     public LFUCache(final int maxCapacity, final float evictionFactor) {
         if (maxCapacity <= 0) {
             throw new IllegalArgumentException("Illegal initial capacity: " +
-                    maxCapacity);
+                maxCapacity);
         }
         boolean factorInRange = evictionFactor <= 1 && evictionFactor > 0;
         if (!factorInRange || Float.isNaN(evictionFactor)) {
             throw new IllegalArgumentException("Illegal eviction factor value:"
-                    + evictionFactor);
+                + evictionFactor);
         }
         this.capacity = maxCapacity;
         this.evictionCount = (int) (capacity * evictionFactor);
@@ -191,7 +191,7 @@ public class LFUCache<K, V> {
          * @return retrieved node
          */
         static <K, V> CacheNode<K, V> withdrawNode(
-                final CacheNode<K, V> node) {
+            final CacheNode<K, V> node) {
             if (node != null && node.prev != null) {
                 node.prev.next = node.next;
                 if (node.next != null) {

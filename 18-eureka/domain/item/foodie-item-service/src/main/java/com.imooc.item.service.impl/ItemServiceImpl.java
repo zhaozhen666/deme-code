@@ -105,9 +105,9 @@ public class ItemServiceImpl implements ItemService {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedGridResult queryPagedComments(String itemId,
-                                                  Integer level,
-                                                  Integer page,
-                                                  Integer pageSize) {
+                                              Integer level,
+                                              Integer page,
+                                              Integer pageSize) {
 
         Map<String, Object> map = new HashMap<>();
         map.put("itemId", itemId);
@@ -128,6 +128,7 @@ public class ItemServiceImpl implements ItemService {
 
         return setterPagedGrid(list, page);
     }
+
     private PagedGridResult setterPagedGrid(List<?> list, Integer page) {
         PageInfo<?> pageList = new PageInfo<>(list);
         PagedGridResult grid = new PagedGridResult();
@@ -180,7 +181,7 @@ public class ItemServiceImpl implements ItemService {
 
         // 2. 判断库存，是否能够减少到0以下
 //        if (stock - buyCounts < 0) {
-            // 提示用户库存不够
+        // 提示用户库存不够
 //            10 - 3 -3 - 5 = -1
 //        }
 

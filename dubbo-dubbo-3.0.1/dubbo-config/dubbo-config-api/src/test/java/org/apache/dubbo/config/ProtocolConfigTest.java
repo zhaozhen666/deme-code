@@ -223,7 +223,7 @@ public class ProtocolConfigTest {
     public void testMetaData() {
         ProtocolConfig config = new ProtocolConfig();
         Map<String, String> metaData = config.getMetaData();
-        Assertions.assertEquals(0, metaData.size(), "actual: "+metaData);
+        Assertions.assertEquals(0, metaData.size(), "actual: " + metaData);
     }
 
     @Test
@@ -237,9 +237,9 @@ public class ProtocolConfigTest {
             ProtocolConfig protocolConfig = new ProtocolConfig();
 
             DubboBootstrap.getInstance()
-                    .application("test-app")
-                    .protocol(protocolConfig)
-                    .initialize();
+                .application("test-app")
+                .protocol(protocolConfig)
+                .initialize();
 
             Assertions.assertEquals("rest", protocolConfig.getName());
             Assertions.assertEquals(1234, protocolConfig.getPort());
@@ -256,9 +256,9 @@ public class ProtocolConfigTest {
             protocolConfig.setName("rest");
 
             DubboBootstrap.getInstance()
-                    .application("test-app")
-                    .protocol(protocolConfig)
-                    .initialize();
+                .application("test-app")
+                .protocol(protocolConfig)
+                .initialize();
 
             Assertions.assertEquals("rest", protocolConfig.getName());
             Assertions.assertEquals(1234, protocolConfig.getPort());
@@ -277,9 +277,9 @@ public class ProtocolConfigTest {
             protocolConfig.setId("rest1");
 
             DubboBootstrap.getInstance()
-                    .application("test-app")
-                    .protocol(protocolConfig)
-                    .initialize();
+                .application("test-app")
+                .protocol(protocolConfig)
+                .initialize();
 
             Assertions.assertEquals("rest", protocolConfig.getName());
             Assertions.assertEquals(1234, protocolConfig.getPort());
@@ -298,7 +298,7 @@ public class ProtocolConfigTest {
 
             DubboBootstrap bootstrap = DubboBootstrap.getInstance();
             bootstrap.application("test-app")
-                    .initialize();
+                .initialize();
 
             ConfigManager configManager = bootstrap.getConfigManager();
             Collection<ProtocolConfig> protocols = configManager.getProtocols();
@@ -322,7 +322,7 @@ public class ProtocolConfigTest {
 
             DubboBootstrap bootstrap = DubboBootstrap.getInstance();
             bootstrap.application("test-app")
-                    .initialize();
+                .initialize();
 
             ConfigManager configManager = bootstrap.getConfigManager();
             Collection<ProtocolConfig> protocols = configManager.getProtocols();
@@ -347,7 +347,7 @@ public class ProtocolConfigTest {
 
             DubboBootstrap bootstrap = DubboBootstrap.getInstance();
             bootstrap.application("test-app")
-                    .initialize();
+                .initialize();
 
             ConfigManager configManager = bootstrap.getConfigManager();
             Collection<ProtocolConfig> protocols = configManager.getProtocols();

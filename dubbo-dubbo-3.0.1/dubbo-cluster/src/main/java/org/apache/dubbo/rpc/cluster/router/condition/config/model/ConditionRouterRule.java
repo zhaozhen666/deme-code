@@ -36,7 +36,7 @@ public class ConditionRouterRule extends AbstractRouterRule {
         Object conditions = map.get("conditions");
         if (conditions != null && List.class.isAssignableFrom(conditions.getClass())) {
             conditionRouterRule.setConditions(((List<Object>) conditions).stream()
-                    .map(String::valueOf).collect(Collectors.toList()));
+                .map(String::valueOf).collect(Collectors.toList()));
         }
 
         return conditionRouterRule;

@@ -63,6 +63,7 @@ public class MetadataTest {
     }
 
     /**
+     *
      */
     @Test
     public void testRawMap() {

@@ -68,7 +68,7 @@ public class ZookeeperServiceDiscoveryChangeWatcher implements CuratorWatcher {
         this.notifier = new RegistryNotifier(zookeeperServiceDiscovery.getDelay(), getExecutorRepository().getServiceDiscoveryAddressNotificationExecutor()) {
             @Override
             protected void doNotify(Object rawAddresses) {
-                listeners.forEach(listener -> listener.onEvent((ServiceInstancesChangedEvent)rawAddresses));
+                listeners.forEach(listener -> listener.onEvent((ServiceInstancesChangedEvent) rawAddresses));
             }
         };
     }

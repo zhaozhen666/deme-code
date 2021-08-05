@@ -317,7 +317,6 @@ public class ServiceConfigTest {
     }
 
 
-
     @Test
     public void testExportWithoutRegistryConfig() {
         serviceWithoutRegistryConfig.export();

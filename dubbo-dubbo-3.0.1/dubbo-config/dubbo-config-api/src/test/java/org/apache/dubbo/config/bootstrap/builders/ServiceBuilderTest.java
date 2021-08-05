@@ -115,7 +115,7 @@ class ServiceBuilderTest {
 
         ServiceBuilder builder = new ServiceBuilder();
         builder.path("path").addMethod(method).provider(provider).providerIds("providerIds")
-                .generic(GENERIC_SERIALIZATION_DEFAULT);
+            .generic(GENERIC_SERIALIZATION_DEFAULT);
 
         ServiceConfig config = builder.build();
         ServiceConfig config2 = builder.build();

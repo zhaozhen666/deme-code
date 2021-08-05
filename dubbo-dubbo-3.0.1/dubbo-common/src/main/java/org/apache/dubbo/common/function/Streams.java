@@ -62,9 +62,9 @@ public interface Streams {
 
     static <T> T filterFirst(Iterable<T> values, Predicate<T>... predicates) {
         return stream(values.spliterator(), false)
-                .filter(and(predicates))
-                .findFirst()
-                .orElse(null);
+            .filter(and(predicates))
+            .findFirst()
+            .orElse(null);
     }
 }
 

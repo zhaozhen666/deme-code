@@ -19,7 +19,8 @@
     <dubbo:reference id="demoService3" interface="org.apache.dubbo.config.spring.api.DemoService" version="2.0.0"
                      group="default"/>
 
-    <dubbo:reference id="demoService4" interface="org.apache.dubbo.config.spring.api.DemoService" version="2.0.0" group="*"/>
+    <dubbo:reference id="demoService4" interface="org.apache.dubbo.config.spring.api.DemoService" version="2.0.0"
+                     group="*"/>
 
     <dubbo:reference id="demoService5" interface="org.apache.dubbo.config.spring.api.DemoService" version="2.0.0"
                      group="default,test"/>

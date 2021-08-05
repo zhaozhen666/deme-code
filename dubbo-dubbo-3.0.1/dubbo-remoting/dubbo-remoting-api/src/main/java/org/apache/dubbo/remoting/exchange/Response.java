@@ -169,6 +169,6 @@ public class Response {
     @Override
     public String toString() {
         return "Response [id=" + mId + ", version=" + mVersion + ", status=" + mStatus + ", event=" + mEvent
-                + ", error=" + mErrorMsg + ", result=" + (mResult == this ? "this" : mResult) + "]";
+            + ", error=" + mErrorMsg + ", result=" + (mResult == this ? "this" : mResult) + "]";
     }
 }

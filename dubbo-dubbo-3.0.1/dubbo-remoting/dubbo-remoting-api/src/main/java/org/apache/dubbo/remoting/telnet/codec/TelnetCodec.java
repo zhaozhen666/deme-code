@@ -52,13 +52,13 @@ public class TelnetCodec extends TransportCodec {
     private static final byte[] DOWN = new byte[]{27, 91, 66};
 
     private static final List<?> ENTER = Arrays.asList(
-            new byte[]{'\r', '\n'} /* Windows Enter */,
-            new byte[]{'\n'} /* Linux Enter */);
+        new byte[]{'\r', '\n'} /* Windows Enter */,
+        new byte[]{'\n'} /* Linux Enter */);
 
     private static final List<?> EXIT = Arrays.asList(
-            new byte[]{3} /* Windows Ctrl+C */,
-            new byte[]{-1, -12, -1, -3, 6} /* Linux Ctrl+C */,
-            new byte[]{-1, -19, -1, -3, 6} /* Linux Pause */);
+        new byte[]{3} /* Windows Ctrl+C */,
+        new byte[]{-1, -12, -1, -3, 6} /* Linux Ctrl+C */,
+        new byte[]{-1, -19, -1, -3, 6} /* Linux Pause */);
 
     private static Charset getCharset(Channel channel) {
         if (channel != null) {
@@ -115,7 +115,7 @@ public class TelnetCodec extends TransportCodec {
                     i = i + 2;
                 }
             } else if (b == -1 && i < message.length - 2
-                    && (message[i + 1] == -3 || message[i + 1] == -5)) { // handshake
+                && (message[i + 1] == -3 || message[i + 1] == -5)) { // handshake
                 i = i + 2;
             } else {
                 copy[index++] = message[i];

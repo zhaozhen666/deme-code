@@ -56,7 +56,7 @@ public class JavaConfigReferenceBeanTest {
     public void testAnnotationBean() {
         Assertions.assertEquals(0, SpringExtensionFactory.getContexts().size());
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfig.class,
-                AnnotationBeanConfiguration.class);
+            AnnotationBeanConfiguration.class);
 
         Map<String, HelloService> helloServiceMap = context.getBeansOfType(HelloService.class);
         Assertions.assertEquals(1, helloServiceMap.size());
@@ -86,7 +86,7 @@ public class JavaConfigReferenceBeanTest {
     public void testGenericReferenceBean() {
         Assertions.assertEquals(0, SpringExtensionFactory.getContexts().size());
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfig.class,
-                ReferenceBeanConfiguration.class);
+            ReferenceBeanConfiguration.class);
 
         Map<String, HelloService> helloServiceMap = context.getBeansOfType(HelloService.class);
         Assertions.assertEquals(2, helloServiceMap.size());
@@ -224,8 +224,8 @@ public class JavaConfigReferenceBeanTest {
         @Bean
         public ReferenceBean<HelloService> helloService() {
             return new ReferenceBeanBuilder()
-                    .setGroup("${myapp.group}")
-                    .build();
+                .setGroup("${myapp.group}")
+                .build();
         }
 
         @Bean
@@ -236,9 +236,9 @@ public class JavaConfigReferenceBeanTest {
         @Bean
         public ReferenceBean<GenericService> genericHelloService() {
             return new ReferenceBeanBuilder()
-                    .setGroup("${myapp.group}")
-                    .setInterface(HelloService.class)
-                    .build();
+                .setGroup("${myapp.group}")
+                .setInterface(HelloService.class)
+                .build();
         }
 
     }
@@ -250,9 +250,9 @@ public class JavaConfigReferenceBeanTest {
         @Bean
         public ReferenceBean helloService() {
             return new ReferenceBeanBuilder()
-                    .setGroup("${myapp.group}")
-                    .setInterface(HelloService.class)
-                    .build();
+                .setGroup("${myapp.group}")
+                .setInterface(HelloService.class)
+                .build();
         }
 
     }

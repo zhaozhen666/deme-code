@@ -148,7 +148,7 @@ public class ReflectUtilsTest {
     @Test
     public void testGetMethodName() throws Exception {
         assertThat(ReflectUtils.getName(Foo2.class.getDeclaredMethod("hello", int[].class)),
-                equalTo("java.util.List hello(int[])"));
+            equalTo("java.util.List hello(int[])"));
     }
 
     @Test
@@ -174,7 +174,7 @@ public class ReflectUtilsTest {
     @Test
     public void testGetDescMethod() throws Exception {
         assertThat(ReflectUtils.getDesc(Foo2.class.getDeclaredMethod("hello", int[].class)),
-                equalTo("hello([I)Ljava/util/List;"));
+            equalTo("hello([I)Ljava/util/List;"));
     }
 
     @Test
@@ -185,7 +185,7 @@ public class ReflectUtilsTest {
     @Test
     public void testGetDescWithoutMethodName() throws Exception {
         assertThat(ReflectUtils.getDescWithoutMethodName(Foo2.class.getDeclaredMethod("hello", int[].class)),
-                equalTo("([I)Ljava/util/List;"));
+            equalTo("([I)Ljava/util/List;"));
     }
 
     @Test
@@ -332,7 +332,7 @@ public class ReflectUtilsTest {
     public void testFindMethodByMethodSignature_override() throws Exception {
         {
             Method m = ReflectUtils.findMethodByMethodSignature(TestedClass.class,
-                    "overrideMethod", new String[]{"int"});
+                "overrideMethod", new String[]{"int"});
 
             assertEquals("overrideMethod", m.getName());
             Class<?>[] parameterTypes = m.getParameterTypes();
@@ -341,7 +341,7 @@ public class ReflectUtilsTest {
         }
         {
             Method m = ReflectUtils.findMethodByMethodSignature(TestedClass.class,
-                    "overrideMethod", new String[]{"java.lang.Integer"});
+                "overrideMethod", new String[]{"java.lang.Integer"});
 
             assertEquals("overrideMethod", m.getName());
             Class<?>[] parameterTypes = m.getParameterTypes();
@@ -405,7 +405,7 @@ public class ReflectUtilsTest {
     }
 
     @Test
-    public void testGetReturnTypes () throws Exception{
+    public void testGetReturnTypes() throws Exception {
         Class clazz = TypeClass.class;
 
         Type[] types = ReflectUtils.getReturnTypes(clazz.getMethod("getFuture"));

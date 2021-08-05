@@ -99,8 +99,8 @@ public class GenericServiceTest {
     @Test
     public void testGenericCompatible() {
         DubboBootstrap.getInstance()
-                .application("test-app")
-                .initialize();
+            .application("test-app")
+            .initialize();
 
         DemoService server = new DemoServiceImpl();
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
@@ -182,7 +182,7 @@ public class GenericServiceTest {
 
         GenericService client = proxyFactory.getProxy(invoker, true);
         Object result = client.$invoke("findComplexObject", new String[]{"java.lang.String", "int", "long", "java.lang.String[]", "java.util.List", "org.apache.dubbo.service.ComplexObject$TestEnum"},
-                new Object[]{var1, var2, l, var3, var4, testEnum});
+            new Object[]{var1, var2, l, var3, var4, testEnum});
         Assertions.assertNotNull(result);
         ComplexObject r = map2bean((Map) result);
         Assertions.assertEquals(r, createComplexObject(var1, var2, l, var3, var4, testEnum));

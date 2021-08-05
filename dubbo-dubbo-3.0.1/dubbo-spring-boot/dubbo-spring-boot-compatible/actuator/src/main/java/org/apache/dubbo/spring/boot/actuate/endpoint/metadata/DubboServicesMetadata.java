@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- *  {@link DubboService} Metadata
+ * {@link DubboService} Metadata
  *
  * @since 2.7.0
  */

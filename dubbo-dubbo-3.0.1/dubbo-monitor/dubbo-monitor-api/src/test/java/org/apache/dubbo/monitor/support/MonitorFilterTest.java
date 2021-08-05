@@ -63,8 +63,8 @@ public class MonitorFilterTest {
 
         public URL getUrl() {
             return URL.valueOf("dubbo://" + NetUtils.getLocalHost() + ":20880?" +
-                    APPLICATION_KEY + "=abc&" + SIDE_KEY + "=" + CONSUMER_SIDE)
-                    .putAttribute(MONITOR_KEY, URL.valueOf("dubbo://" + NetUtils.getLocalHost() + ":7070"));
+                APPLICATION_KEY + "=abc&" + SIDE_KEY + "=" + CONSUMER_SIDE)
+                .putAttribute(MONITOR_KEY, URL.valueOf("dubbo://" + NetUtils.getLocalHost() + ":7070"));
         }
 
         @Override

@@ -86,8 +86,8 @@ public class RpcInvocation implements Invocation, Serializable {
 
     public RpcInvocation(Invocation invocation, Invoker<?> invoker) {
         this(invocation.getMethodName(), invocation.getServiceName(), invocation.getProtocolServiceKey(),
-                invocation.getParameterTypes(), invocation.getArguments(), new LinkedHashMap<>(invocation.getObjectAttachments()),
-                invocation.getInvoker(), invocation.getAttributes());
+            invocation.getParameterTypes(), invocation.getArguments(), new LinkedHashMap<>(invocation.getObjectAttachments()),
+            invocation.getInvoker(), invocation.getAttributes());
         if (invoker != null) {
             URL url = invoker.getUrl();
             setAttachment(PATH_KEY, url.getPath());
@@ -116,7 +116,7 @@ public class RpcInvocation implements Invocation, Serializable {
 
     public RpcInvocation(Invocation invocation) {
         this(invocation.getMethodName(), invocation.getServiceName(), invocation.getProtocolServiceKey(), invocation.getParameterTypes(),
-                invocation.getArguments(), invocation.getObjectAttachments(), invocation.getInvoker(), invocation.getAttributes());
+            invocation.getArguments(), invocation.getObjectAttachments(), invocation.getInvoker(), invocation.getAttributes());
         this.targetServiceUniqueName = invocation.getTargetServiceUniqueName();
     }
 
@@ -454,8 +454,8 @@ public class RpcInvocation implements Invocation, Serializable {
     @Override
     public String toString() {
         return "RpcInvocation [methodName=" + methodName + ", parameterTypes="
-                + Arrays.toString(parameterTypes) + ", arguments=" + Arrays.toString(arguments)
-                + ", attachments=" + attachments + "]";
+            + Arrays.toString(parameterTypes) + ", arguments=" + Arrays.toString(arguments)
+            + ", attachments=" + attachments + "]";
     }
 
 }

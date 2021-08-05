@@ -36,10 +36,10 @@ public class URLBuilderTest {
     public void shouldAddParameter() {
         URL url1 = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?version=1.0.0&application=morgan");
         URL url2 = URLBuilder.from(url1)
-                .addParameter("newKey1", "newValue1") // string
-                .addParameter("newKey2", 2) // int
-                .addParameter("version", 1) // override
-                .build();
+            .addParameter("newKey1", "newValue1") // string
+            .addParameter("newKey2", 2) // int
+            .addParameter("version", 1) // override
+            .build();
         assertThat(url2.getParameter("newKey1"), equalTo("newValue1"));
         assertThat(url2.getParameter("newKey2"), equalTo("2"));
         assertThat(url2.getVersion(), equalTo("1"));
@@ -49,13 +49,13 @@ public class URLBuilderTest {
     public void shouldSet() {
         URL url1 = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?version=1.0.0&application=morgan");
         URL url2 = URLBuilder.from(url1)
-                .setProtocol("rest")
-                .setUsername("newUsername")
-                .setPassword("newPassword")
-                .setHost("newHost")
-                .setPath("newContext")
-                .setPort(1234)
-                .build();
+            .setProtocol("rest")
+            .setUsername("newUsername")
+            .setPassword("newPassword")
+            .setHost("newHost")
+            .setPath("newContext")
+            .setPort(1234)
+            .build();
         assertThat(url2.getProtocol(), equalTo("rest"));
         assertThat(url2.getUsername(), equalTo("newUsername"));
         assertThat(url2.getPassword(), equalTo("newPassword"));
@@ -64,8 +64,8 @@ public class URLBuilderTest {
         assertThat(url2.getPath(), equalTo("newContext"));
 
         url2 = URLBuilder.from(url1)
-                .setAddress("newHost2:2345")
-                .build();
+            .setAddress("newHost2:2345")
+            .build();
         assertThat(url2.getHost(), equalTo("newHost2"));
         assertThat(url2.getPort(), equalTo(2345));
     }
@@ -74,8 +74,8 @@ public class URLBuilderTest {
     public void shouldClearParameters() {
         URL url1 = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?version=1.0.0&application=morgan");
         URL url2 = URLBuilder.from(url1)
-                .clearParameters()
-                .build();
+            .clearParameters()
+            .build();
         assertThat(url2.getParameters().size(), equalTo(0));
     }
 
@@ -83,8 +83,8 @@ public class URLBuilderTest {
     public void shouldRemoveParameters() {
         URL url1 = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?version=1.0.0&application=morgan&key2=v2");
         URL url2 = URLBuilder.from(url1)
-                .removeParameters(Arrays.asList("key2", "application"))
-                .build();
+            .removeParameters(Arrays.asList("key2", "application"))
+            .build();
         assertThat(url2.getParameters().size(), equalTo(1));
         assertThat(url2.getVersion(), equalTo("1.0.0"));
     }
@@ -93,9 +93,9 @@ public class URLBuilderTest {
     public void shouldAddIfAbsent() {
         URL url1 = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?version=1.0.0&application=morgan&key2=v2");
         URL url2 = URLBuilder.from(url1)
-                .addParameterIfAbsent("absentKey", "absentValue")
-                .addParameterIfAbsent("version", "2.0.0") // should not override
-                .build();
+            .addParameterIfAbsent("absentKey", "absentValue")
+            .addParameterIfAbsent("version", "2.0.0") // should not override
+            .build();
         assertThat(url2.getVersion(), equalTo("1.0.0"));
         assertThat(url2.getParameter("absentKey"), equalTo("absentValue"));
     }
@@ -106,21 +106,21 @@ public class URLBuilderTest {
 
         // string pairs test
         URL url2 = URLBuilder.from(url1)
-                .addParameters("version", "1.0.0", "absentKey1", "absentValue1")
-                .build();
+            .addParameters("version", "1.0.0", "absentKey1", "absentValue1")
+            .build();
         assertThat(url2.getParameter("version"), equalTo("1.0.0"));
         assertThat(url2.getParameter("absentKey1"), equalTo("absentValue1"));
 
         // map test
-        Map<String, String> parameters = new HashMap<String, String>(){
+        Map<String, String> parameters = new HashMap<String, String>() {
             {
                 this.put("version", "2.0.0");
                 this.put("absentKey2", "absentValue2");
             }
         };
         url2 = URLBuilder.from(url1)
-                .addParameters(parameters)
-                .build();
+            .addParameters(parameters)
+            .build();
         assertThat(url2.getParameter("version"), equalTo("2.0.0"));
         assertThat(url2.getParameter("absentKey2"), equalTo("absentValue2"));
     }
@@ -129,15 +129,15 @@ public class URLBuilderTest {
     public void shouldAddParametersIfAbsent() {
         URL url1 = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?version=1.0.0&application=morgan&key2=v2");
 
-        Map<String, String> parameters = new HashMap<String, String>(){
+        Map<String, String> parameters = new HashMap<String, String>() {
             {
                 this.put("version", "2.0.0");
                 this.put("absentKey", "absentValue");
             }
         };
         URL url2 = URLBuilder.from(url1)
-                .addParametersIfAbsent(parameters)
-                .build();
+            .addParametersIfAbsent(parameters)
+            .build();
         assertThat(url2.getParameter("version"), equalTo("1.0.0"));
         assertThat(url2.getParameter("absentKey"), equalTo("absentValue"));
     }

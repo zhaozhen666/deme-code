@@ -70,12 +70,12 @@ public class SimpleRegistryService extends AbstractRegistryService {
         }
         List<URL> urls = getRegistered().get(service);
         if ((RegistryService.class.getName() + ":0.0.0").equals(service)
-                && CollectionUtils.isEmpty(urls)) {
+            && CollectionUtils.isEmpty(urls)) {
             register(service, new ServiceConfigURL("dubbo",
-                    NetUtils.getLocalHost(),
-                    RpcContext.getServiceContext().getLocalPort(),
-                    RegistryService.class.getName(),
-                    url.getParameters()));
+                NetUtils.getLocalHost(),
+                RpcContext.getServiceContext().getLocalPort(),
+                RegistryService.class.getName(),
+                url.getParameters()));
             List<String> rs = registries;
             if (rs != null && rs.size() > 0) {
                 for (String registry : rs) {
@@ -125,9 +125,9 @@ public class SimpleRegistryService extends AbstractRegistryService {
             for (Map.Entry<String, NotifyListener> entry : listeners.entrySet()) {
                 String service = entry.getKey();
                 super.unsubscribe(service, new ServiceConfigURL("subscribe",
-                        RpcContext.getServiceContext().getRemoteHost(),
-                        RpcContext.getServiceContext().getRemotePort(),
-                        RegistryService.class.getName(), getSubscribed(service)), entry.getValue());
+                    RpcContext.getServiceContext().getRemoteHost(),
+                    RpcContext.getServiceContext().getRemotePort(),
+                    RegistryService.class.getName(), getSubscribed(service)), entry.getValue());
             }
         }
     }

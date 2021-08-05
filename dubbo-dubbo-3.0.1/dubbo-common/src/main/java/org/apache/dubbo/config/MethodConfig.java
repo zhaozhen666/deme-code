@@ -181,6 +181,7 @@ public class MethodConfig extends AbstractMethodConfig {
 
     /**
      * TODO remove constructMethodConfig
+     *
      * @param methods
      * @return
      */
@@ -199,6 +200,7 @@ public class MethodConfig extends AbstractMethodConfig {
 
     /**
      * Get method prefixes
+     *
      * @return
      */
     @Override
@@ -207,7 +209,7 @@ public class MethodConfig extends AbstractMethodConfig {
         // parent prefix + method name
         if (parentPrefix != null) {
             List<String> prefixes = new ArrayList<>();
-            prefixes.add(parentPrefix + "." +this.getName());
+            prefixes.add(parentPrefix + "." + this.getName());
             return prefixes;
         } else {
             throw new IllegalStateException("The parent prefix of MethodConfig is null");

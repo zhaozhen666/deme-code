@@ -59,7 +59,7 @@ public abstract class DynamicDirectory<T> extends AbstractDirectory<T> implement
     protected static final Cluster CLUSTER = ExtensionLoader.getExtensionLoader(Cluster.class).getAdaptiveExtension();
 
     protected static final RouterFactory ROUTER_FACTORY = ExtensionLoader.getExtensionLoader(RouterFactory.class)
-            .getAdaptiveExtension();
+        .getAdaptiveExtension();
 
     protected final String serviceKey; // Initialization at construction time, assertion not null
     protected final Class<T> serviceType; // Initialization at construction time, assertion not null
@@ -146,9 +146,9 @@ public abstract class DynamicDirectory<T> extends AbstractDirectory<T> implement
         if (forbidden) {
             // 1. No service provider 2. Service providers are disabled
             throw new RpcException(RpcException.FORBIDDEN_EXCEPTION, "No provider available from registry " +
-                    getUrl().getAddress() + " for service " + getConsumerUrl().getServiceKey() + " on consumer " +
-                    NetUtils.getLocalHost() + " use dubbo version " + Version.getVersion() +
-                    ", please check status of providers(disabled, not registered or in blacklist).");
+                getUrl().getAddress() + " for service " + getConsumerUrl().getServiceKey() + " on consumer " +
+                NetUtils.getLocalHost() + " use dubbo version " + Version.getVersion() +
+                ", please check status of providers(disabled, not registered or in blacklist).");
         }
 
         if (multiGroup) {
@@ -204,10 +204,10 @@ public abstract class DynamicDirectory<T> extends AbstractDirectory<T> implement
     public void setRegisteredConsumerUrl(URL url) {
         if (!shouldSimplified) {
             this.registeredConsumerUrl = url.addParameters(CATEGORY_KEY, CONSUMERS_CATEGORY, CHECK_KEY,
-                    String.valueOf(false));
+                String.valueOf(false));
         } else {
             this.registeredConsumerUrl = URL.valueOf(url, DEFAULT_REGISTER_CONSUMER_KEYS, null).addParameters(
-                    CATEGORY_KEY, CONSUMERS_CATEGORY, CHECK_KEY, String.valueOf(false));
+                CATEGORY_KEY, CONSUMERS_CATEGORY, CHECK_KEY, String.valueOf(false));
         }
     }
 

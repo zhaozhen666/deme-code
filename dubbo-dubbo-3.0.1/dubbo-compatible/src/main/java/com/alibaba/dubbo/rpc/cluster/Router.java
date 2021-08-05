@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Deprecated
-public interface Router extends org.apache.dubbo.rpc.cluster.Router{
+public interface Router extends org.apache.dubbo.rpc.cluster.Router {
 
     @Override
     com.alibaba.dubbo.common.URL getUrl();
@@ -34,7 +34,7 @@ public interface Router extends org.apache.dubbo.rpc.cluster.Router{
     <T> List<com.alibaba.dubbo.rpc.Invoker<T>> route(List<com.alibaba.dubbo.rpc.Invoker<T>> invokers,
                                                      com.alibaba.dubbo.common.URL url,
                                                      com.alibaba.dubbo.rpc.Invocation invocation)
-            throws com.alibaba.dubbo.rpc.RpcException;
+        throws com.alibaba.dubbo.rpc.RpcException;
 
     int compareTo(Router o);
 
@@ -42,7 +42,7 @@ public interface Router extends org.apache.dubbo.rpc.cluster.Router{
     @Override
     default <T> List<Invoker<T>> route(List<Invoker<T>> invokers, URL url, Invocation invocation) throws RpcException {
         List<com.alibaba.dubbo.rpc.Invoker<T>> invs = invokers.stream().map(invoker -> new com.alibaba.dubbo.rpc.Invoker.CompatibleInvoker<T>(invoker)).
-                collect(Collectors.toList());
+            collect(Collectors.toList());
 
         List<com.alibaba.dubbo.rpc.Invoker<T>> res = this.route(invs, new com.alibaba.dubbo.common.URL(url), new com.alibaba.dubbo.rpc.Invocation.CompatibleInvocation(invocation));
 
@@ -65,11 +65,11 @@ public interface Router extends org.apache.dubbo.rpc.cluster.Router{
     }
 
     @Override
-    default int compareTo (org.apache.dubbo.rpc.cluster.Router o) {
+    default int compareTo(org.apache.dubbo.rpc.cluster.Router o) {
         if (!(o instanceof Router)) {
             return 1;
         }
 
-        return this.compareTo((Router)o);
+        return this.compareTo((Router) o);
     }
 }

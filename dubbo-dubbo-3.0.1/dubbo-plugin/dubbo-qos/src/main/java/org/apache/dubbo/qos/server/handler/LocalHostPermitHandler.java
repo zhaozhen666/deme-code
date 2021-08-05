@@ -29,7 +29,7 @@ import java.net.InetSocketAddress;
 public class LocalHostPermitHandler extends ChannelHandlerAdapter {
 
     // true means to accept foreign IP
-    private  boolean acceptForeignIp;
+    private boolean acceptForeignIp;
 
     public LocalHostPermitHandler(boolean acceptForeignIp) {
         this.acceptForeignIp = acceptForeignIp;
@@ -40,7 +40,7 @@ public class LocalHostPermitHandler extends ChannelHandlerAdapter {
         if (!acceptForeignIp) {
             if (!((InetSocketAddress) ctx.channel().remoteAddress()).getAddress().isLoopbackAddress()) {
                 ByteBuf cb = Unpooled.wrappedBuffer((QosConstants.BR_STR + "Foreign Ip Not Permitted."
-                        + QosConstants.BR_STR).getBytes());
+                    + QosConstants.BR_STR).getBytes());
                 ctx.writeAndFlush(cb).addListener(ChannelFutureListener.CLOSE);
             }
         }

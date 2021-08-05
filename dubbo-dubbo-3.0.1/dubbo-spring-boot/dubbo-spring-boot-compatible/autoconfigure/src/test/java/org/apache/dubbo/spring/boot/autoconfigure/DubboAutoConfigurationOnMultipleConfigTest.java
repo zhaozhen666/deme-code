@@ -53,23 +53,23 @@ import static org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncl
 @Ignore
 @RunWith(SpringRunner.class)
 @TestPropertySource(
-        properties = {
-                "dubbo.applications.application1.NAME = dubbo-demo-application",
-                "dubbo.modules.module1.name = dubbo-demo-module",
-                "dubbo.registries.registry1.address = zookeeper://192.168.99.100:32770",
-                "dubbo.protocols.protocol1.name=dubbo",
-                "dubbo.protocols.protocol1.pORt=20880",
-                "dubbo.monitors.monitor1.Address=zookeeper://127.0.0.1:32770",
-                "dubbo.providers.provider1.host=127.0.0.1",
-                "dubbo.consumers.consumer1.client=netty",
-                "dubbo.config.multiple=true",
-                "dubbo.scan.basePackages=org.apache.dubbo.spring.boot.dubbo, org.apache.dubbo.spring.boot.condition"
-        }
+    properties = {
+        "dubbo.applications.application1.NAME = dubbo-demo-application",
+        "dubbo.modules.module1.name = dubbo-demo-module",
+        "dubbo.registries.registry1.address = zookeeper://192.168.99.100:32770",
+        "dubbo.protocols.protocol1.name=dubbo",
+        "dubbo.protocols.protocol1.pORt=20880",
+        "dubbo.monitors.monitor1.Address=zookeeper://127.0.0.1:32770",
+        "dubbo.providers.provider1.host=127.0.0.1",
+        "dubbo.consumers.consumer1.client=netty",
+        "dubbo.config.multiple=true",
+        "dubbo.scan.basePackages=org.apache.dubbo.spring.boot.dubbo, org.apache.dubbo.spring.boot.condition"
+    }
 )
 @SpringBootTest(
-        classes = {
-                DubboAutoConfigurationOnMultipleConfigTest.class
-        }
+    classes = {
+        DubboAutoConfigurationOnMultipleConfigTest.class
+    }
 )
 @EnableAutoConfiguration
 public class DubboAutoConfigurationOnMultipleConfigTest {

@@ -115,8 +115,8 @@ public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
         super.preProcessRefresh();
         if (consumer == null) {
             consumer = ApplicationModel.getConfigManager()
-                    .getDefaultConsumer()
-                    .orElseThrow(() -> new IllegalArgumentException("Default consumer is not initialized"));
+                .getDefaultConsumer()
+                .orElseThrow(() -> new IllegalArgumentException("Default consumer is not initialized"));
         }
     }
 
@@ -146,6 +146,7 @@ public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
     /**
      * Get service interface class of this reference.
      * The actual service type of remote provider.
+     *
      * @return
      */
     public Class<?> getServiceInterfaceClass() {
@@ -163,6 +164,7 @@ public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
     /**
      * Get proxy interface class of this reference.
      * The proxy interface class is used to create proxy instance.
+     *
      * @return
      */
     public Class<?> getInterfaceClass() {
@@ -181,6 +183,7 @@ public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
 
     /**
      * Determine the interface of the proxy class
+     *
      * @param generic
      * @param interfaceName
      * @return

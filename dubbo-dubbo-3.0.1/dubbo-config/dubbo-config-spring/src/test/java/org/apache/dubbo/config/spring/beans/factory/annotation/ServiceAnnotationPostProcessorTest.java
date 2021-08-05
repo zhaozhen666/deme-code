@@ -44,14 +44,14 @@ import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER
  */
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        classes = {
-                ServiceAnnotationTestConfiguration.class,
-                ServiceAnnotationPostProcessorTest.class,
-                ServiceAnnotationPostProcessorTest.DuplicatedScanConfig.class
-        })
+    classes = {
+        ServiceAnnotationTestConfiguration.class,
+        ServiceAnnotationPostProcessorTest.class,
+        ServiceAnnotationPostProcessorTest.DuplicatedScanConfig.class
+    })
 @DirtiesContext(classMode = AFTER_EACH_TEST_METHOD)
 @TestPropertySource(properties = {
-        "provider.package = org.apache.dubbo.config.spring.context.annotation.provider",
+    "provider.package = org.apache.dubbo.config.spring.context.annotation.provider",
 })
 @EnableDubbo(scanBasePackages = "${provider.package}")
 public class ServiceAnnotationPostProcessorTest {
@@ -81,7 +81,7 @@ public class ServiceAnnotationPostProcessorTest {
         Assertions.assertEquals(3, serviceBeansMap.size());
 
         Map<String, ServiceAnnotationPostProcessor> beanPostProcessorsMap =
-                beanFactory.getBeansOfType(ServiceAnnotationPostProcessor.class);
+            beanFactory.getBeansOfType(ServiceAnnotationPostProcessor.class);
 
         Assertions.assertEquals(2, beanPostProcessorsMap.size());
 

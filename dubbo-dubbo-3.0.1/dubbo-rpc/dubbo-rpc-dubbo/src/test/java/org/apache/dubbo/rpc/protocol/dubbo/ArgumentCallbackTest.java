@@ -77,12 +77,12 @@ public class ArgumentCallbackTest {
     public void initOrResetUrl(int callbacks, int timeout) throws Exception {
         int port = NetUtils.getAvailablePort();
         consumerUrl = serviceURL = URL.valueOf("dubbo://127.0.0.1:" + port + "/" + IDemoService.class.getName() + "?group=test"
-                + "&xxx.0.callback=true"
-                + "&xxx2.0.callback=true"
-                + "&unxxx2.0.callback=false"
-                + "&timeout=" + timeout
-                + "&retries=0"
-                + "&" + CALLBACK_INSTANCES_LIMIT_KEY + "=" + callbacks
+            + "&xxx.0.callback=true"
+            + "&xxx2.0.callback=true"
+            + "&unxxx2.0.callback=false"
+            + "&timeout=" + timeout
+            + "&retries=0"
+            + "&" + CALLBACK_INSTANCES_LIMIT_KEY + "=" + callbacks
         );
         //      uncomment is unblock invoking
 //        serviceURL = serviceURL.addParameter("yyy."+Constants.ASYNC_KEY,String.valueOf(true));
@@ -105,13 +105,13 @@ public class ArgumentCallbackTest {
         } catch (Exception e) {
         }
     }
-    
+
     @Test
     public void TestCallbackNormalWithBindPort() throws Exception {
         initOrResetUrl(1, 10000000);
-        consumerUrl = serviceURL.addParameter(Constants.BIND_PORT_KEY,"7653");
+        consumerUrl = serviceURL.addParameter(Constants.BIND_PORT_KEY, "7653");
         initOrResetService();
-       
+
         final AtomicInteger count = new AtomicInteger(0);
 
         demoProxy.xxx(new IDemoCallback() {

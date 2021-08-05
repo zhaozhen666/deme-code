@@ -115,10 +115,10 @@ public class FileSystemServiceDiscovery extends AbstractServiceDiscovery {
     @Override
     public List<ServiceInstance> getInstances(String serviceName) {
         return dynamicConfiguration.getConfigKeys(DEFAULT_GROUP)
-                .stream()
-                .map(serviceInstanceId -> dynamicConfiguration.getConfig(serviceInstanceId, serviceName))
-                .map(content -> JSON.parseObject(content, DefaultServiceInstance.class))
-                .collect(Collectors.toList());
+            .stream()
+            .map(serviceInstanceId -> dynamicConfiguration.getConfig(serviceInstanceId, serviceName))
+            .map(content -> JSON.parseObject(content, DefaultServiceInstance.class))
+            .collect(Collectors.toList());
     }
 
     @Override

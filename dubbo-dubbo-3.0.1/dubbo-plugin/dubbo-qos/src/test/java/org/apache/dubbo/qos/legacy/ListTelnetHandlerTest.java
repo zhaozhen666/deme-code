@@ -119,7 +119,7 @@ public class ListTelnetHandlerTest {
 
         String result = list.telnet(mockChannel, "");
         assertTrue(result.startsWith("Use default service org.apache.dubbo.qos.legacy.service.DemoService.\r\n" +
-                "org.apache.dubbo.qos.legacy.service.DemoService (as provider):\r\n"));
+            "org.apache.dubbo.qos.legacy.service.DemoService (as provider):\r\n"));
         for (Method method : DemoService.class.getMethods()) {
             assertTrue(result.contains(method.getName()));
         }
@@ -140,11 +140,11 @@ public class ListTelnetHandlerTest {
 
         ServiceDescriptor serviceDescriptor = repository.registerService(interfaceClass);
         repository.registerProvider(
-                key,
-                impl,
-                serviceDescriptor,
-                sc,
-                null
+            key,
+            impl,
+            serviceDescriptor,
+            sc,
+            null
         );
     }
 }

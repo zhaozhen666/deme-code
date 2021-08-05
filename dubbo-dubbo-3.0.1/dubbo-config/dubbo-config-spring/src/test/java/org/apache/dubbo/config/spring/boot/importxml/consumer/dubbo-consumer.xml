@@ -18,30 +18,31 @@
   ~
   -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://code.alibabatech.com/schema/dubbo
-		http://code.alibabatech.com/schema/dubbo/dubbo.xsd" default-lazy-init ="false">
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd" default-lazy-init="false">
 
-	<description>wisdom app Service Dubbo Admin Consumers</description>
-	<dubbo:application name="cimmdms"
-		owner="wisdom" organization="wisdom" logger="slf4j">
-		<dubbo:parameter key="qos.enable" value="false" />
-	</dubbo:application>
+    <description>wisdom app Service Dubbo Admin Consumers</description>
+    <dubbo:application name="cimmdms"
+                       owner="wisdom" organization="wisdom" logger="slf4j">
+        <dubbo:parameter key="qos.enable" value="false"/>
+    </dubbo:application>
 
-	<dubbo:protocol name="dubbo" accesslog="true" />
-	
-	<dubbo:registry id="cimmdmsSrvClientRegistry"
-		protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" client="curator"
-		group="dubboservice/wisdom/cimmdmsservice/group_mdms_dev"
-		subscribe="true" check="true">
-	</dubbo:registry>
+    <dubbo:protocol name="dubbo" accesslog="true"/>
 
-	<dubbo:consumer id="wisdomcimmdmsSrvConsumer"
-		registry="cimmdmsSrvClientRegistry" init="false" check="false"
-		retries="0" timeout="25000">
-		<dubbo:reference consumer="wisdomcimmdmsSrvConsumer" interface="org.apache.dubbo.config.spring.api.HelloService" id="mdmMessageProviderService" />
-	</dubbo:consumer>
+    <dubbo:registry id="cimmdmsSrvClientRegistry"
+                    protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" client="curator"
+                    group="dubboservice/wisdom/cimmdmsservice/group_mdms_dev"
+                    subscribe="true" check="true">
+    </dubbo:registry>
+
+    <dubbo:consumer id="wisdomcimmdmsSrvConsumer"
+                    registry="cimmdmsSrvClientRegistry" init="false" check="false"
+                    retries="0" timeout="25000">
+        <dubbo:reference consumer="wisdomcimmdmsSrvConsumer" interface="org.apache.dubbo.config.spring.api.HelloService"
+                         id="mdmMessageProviderService"/>
+    </dubbo:consumer>
 </beans>

@@ -173,9 +173,9 @@ public class TypeUtilsTest extends AbstractAnnotationProcessingTest {
     public void testIsPrimitiveType() {
         TypeElement type = getType(PrimitiveTypeModel.class);
         getDeclaredFields(type.asType())
-                .stream()
-                .map(VariableElement::asType)
-                .forEach(t -> assertTrue(isPrimitiveType(t)));
+            .stream()
+            .map(VariableElement::asType)
+            .forEach(t -> assertTrue(isPrimitiveType(t)));
 
         assertFalse(isPrimitiveType(getType(ArrayTypeModel.class)));
 

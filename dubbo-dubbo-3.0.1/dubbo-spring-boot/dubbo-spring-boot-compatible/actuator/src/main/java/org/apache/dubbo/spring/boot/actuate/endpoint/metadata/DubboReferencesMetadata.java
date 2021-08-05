@@ -49,11 +49,11 @@ public class DubboReferencesMetadata extends AbstractDubboMetadata {
     }
 
     private Map<String, Map<String, Object>> buildReferencesMetadata(
-            Map<InjectionMetadata.InjectedElement, ReferenceBean<?>> injectedElementReferenceBeanMap) {
+        Map<InjectionMetadata.InjectedElement, ReferenceBean<?>> injectedElementReferenceBeanMap) {
         Map<String, Map<String, Object>> referencesMetadata = new LinkedHashMap<>();
 
         for (Map.Entry<InjectionMetadata.InjectedElement, ReferenceBean<?>> entry :
-                injectedElementReferenceBeanMap.entrySet()) {
+            injectedElementReferenceBeanMap.entrySet()) {
 
             InjectionMetadata.InjectedElement injectedElement = entry.getKey();
 

@@ -101,7 +101,7 @@ public class AccessLogFilter implements Filter {
         try {
             String accessLogKey = invoker.getUrl().getParameter(ACCESS_LOG_KEY);
             if (ConfigUtils.isNotEmpty(accessLogKey)) {
-                AccessLogData logData = AccessLogData.newLogData(); 
+                AccessLogData logData = AccessLogData.newLogData();
                 logData.buildAccessLogData(invoker, inv);
                 log(accessLogKey, logData);
             }

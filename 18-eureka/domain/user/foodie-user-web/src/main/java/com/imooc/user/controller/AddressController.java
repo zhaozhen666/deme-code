@@ -56,6 +56,7 @@ public class AddressController {
 
         return IMOOCJSONResult.ok();
     }
+
     private IMOOCJSONResult checkAddress(AddressBO addressBO) {
         String receiver = addressBO.getReceiver();
         if (StringUtils.isBlank(receiver)) {

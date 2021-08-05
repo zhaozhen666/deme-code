@@ -59,7 +59,8 @@ public final class JavaBeanDescriptor implements Serializable, Iterable<Map.Entr
 
     private Map<Object, Object> properties = new LinkedHashMap<>();
 
-    public JavaBeanDescriptor() {}
+    public JavaBeanDescriptor() {
+    }
 
     public JavaBeanDescriptor(String className, int type) {
         notEmpty(className, "class name is empty");

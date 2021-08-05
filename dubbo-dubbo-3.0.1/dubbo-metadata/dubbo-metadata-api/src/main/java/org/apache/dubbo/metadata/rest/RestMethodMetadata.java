@@ -167,13 +167,13 @@ public class RestMethodMetadata implements Serializable {
         }
         RestMethodMetadata that = (RestMethodMetadata) o;
         return Objects.equals(getMethod(), that.getMethod()) &&
-                Objects.equals(getRequest(), that.getRequest()) &&
-                Objects.equals(getUrlIndex(), that.getUrlIndex()) &&
-                Objects.equals(getBodyIndex(), that.getBodyIndex()) &&
-                Objects.equals(getHeaderMapIndex(), that.getHeaderMapIndex()) &&
-                Objects.equals(getBodyType(), that.getBodyType()) &&
-                Objects.equals(getFormParams(), that.getFormParams()) &&
-                Objects.equals(getIndexToEncoded(), that.getIndexToEncoded());
+            Objects.equals(getRequest(), that.getRequest()) &&
+            Objects.equals(getUrlIndex(), that.getUrlIndex()) &&
+            Objects.equals(getBodyIndex(), that.getBodyIndex()) &&
+            Objects.equals(getHeaderMapIndex(), that.getHeaderMapIndex()) &&
+            Objects.equals(getBodyType(), that.getBodyType()) &&
+            Objects.equals(getFormParams(), that.getFormParams()) &&
+            Objects.equals(getIndexToEncoded(), that.getIndexToEncoded());
     }
 
     @Override

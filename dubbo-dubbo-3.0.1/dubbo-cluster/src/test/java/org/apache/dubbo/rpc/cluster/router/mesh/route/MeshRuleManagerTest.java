@@ -68,27 +68,27 @@ public class MeshRuleManagerTest {
             ApplicationModel.getEnvironment().setDynamicConfiguration(dynamicConfiguration);
 
             when(dynamicConfiguration.getConfig(anyString(), anyString(), anyLong())).thenReturn("apiVersion: service.dubbo.apache.org/v1alpha1\n" +
-                    "kind: VirtualService\n" +
-                    "metadata: {name: demo-route}\n" +
-                    "spec:\n" +
-                    "  dubbo:\n" +
-                    "    - routedetail:\n" +
-                    "        - match:\n" +
-                    "            - sourceLabels: {trafficLabel: xxx}\n" +
-                    "          name: xxx-project\n" +
-                    "          route:\n" +
-                    "            - destination: {host: demo, subset: isolation}\n" +
-                    "        - match:\n" +
-                    "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
-                    "          name: testing-trunk\n" +
-                    "          route:\n" +
-                    "            - destination: {host: demo, subset: testing-trunk}\n" +
-                    "        - name: testing\n" +
-                    "          route:\n" +
-                    "            - destination: {host: demo, subset: testing}\n" +
-                    "      services:\n" +
-                    "        - {regex: ccc}\n" +
-                    "  hosts: [demo]\n");
+                "kind: VirtualService\n" +
+                "metadata: {name: demo-route}\n" +
+                "spec:\n" +
+                "  dubbo:\n" +
+                "    - routedetail:\n" +
+                "        - match:\n" +
+                "            - sourceLabels: {trafficLabel: xxx}\n" +
+                "          name: xxx-project\n" +
+                "          route:\n" +
+                "            - destination: {host: demo, subset: isolation}\n" +
+                "        - match:\n" +
+                "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
+                "          name: testing-trunk\n" +
+                "          route:\n" +
+                "            - destination: {host: demo, subset: testing-trunk}\n" +
+                "        - name: testing\n" +
+                "          route:\n" +
+                "            - destination: {host: demo, subset: testing}\n" +
+                "      services:\n" +
+                "        - {regex: ccc}\n" +
+                "  hosts: [demo]\n");
 
             MeshRuleManager.subscribeAppRule("test");
 
@@ -122,27 +122,27 @@ public class MeshRuleManagerTest {
             ApplicationModel.getEnvironment().setDynamicConfiguration(dynamicConfiguration);
 
             when(dynamicConfiguration.getConfig(anyString(), anyString(), anyLong())).thenReturn("apiVersion: service.dubbo.apache.org/v1alpha1\n" +
-                    "kind: VirtualService\n" +
-                    "metadata: {name: demo-route}\n" +
-                    "spec:\n" +
-                    "  dubbo:\n" +
-                    "    - routedetail:\n" +
-                    "        - match:\n" +
-                    "            - sourceLabels: {trafficLabel: xxx}\n" +
-                    "          name: xxx-project\n" +
-                    "          route:\n" +
-                    "            - destination: {host: demo, subset: isolation}\n" +
-                    "        - match:\n" +
-                    "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
-                    "          name: testing-trunk\n" +
-                    "          route:\n" +
-                    "            - destination: {host: demo, subset: testing-trunk}\n" +
-                    "        - name: testing\n" +
-                    "          route:\n" +
-                    "            - destination: {host: demo, subset: testing}\n" +
-                    "      services:\n" +
-                    "        - {regex: ccc}\n" +
-                    "  hosts: [demo]\n");
+                "kind: VirtualService\n" +
+                "metadata: {name: demo-route}\n" +
+                "spec:\n" +
+                "  dubbo:\n" +
+                "    - routedetail:\n" +
+                "        - match:\n" +
+                "            - sourceLabels: {trafficLabel: xxx}\n" +
+                "          name: xxx-project\n" +
+                "          route:\n" +
+                "            - destination: {host: demo, subset: isolation}\n" +
+                "        - match:\n" +
+                "            - sourceLabels: {trafficLabel: testing-trunk}\n" +
+                "          name: testing-trunk\n" +
+                "          route:\n" +
+                "            - destination: {host: demo, subset: testing-trunk}\n" +
+                "        - name: testing\n" +
+                "          route:\n" +
+                "            - destination: {host: demo, subset: testing}\n" +
+                "      services:\n" +
+                "        - {regex: ccc}\n" +
+                "  hosts: [demo]\n");
 
             MeshRuleManager.subscribeAppRule("test");
 

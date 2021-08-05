@@ -57,8 +57,8 @@ public class ReferenceBeanManager implements ApplicationContextAware {
         if (!initialized) {
             //TODO add issue url to describe early initialization
             logger.warn("Early initialize reference bean before DubboConfigInitializationPostProcessor," +
-                    " the BeanPostProcessor has not been loaded at this time, which may cause abnormalities in some components (such as seata): " +
-                    referenceBeanName + " = " + ReferenceBeanSupport.generateReferenceKey(referenceBean, propertyResolver));
+                " the BeanPostProcessor has not been loaded at this time, which may cause abnormalities in some components (such as seata): " +
+                referenceBeanName + " = " + ReferenceBeanSupport.generateReferenceKey(referenceBean, propertyResolver));
         }
 
         String referenceKey = ReferenceBeanSupport.generateReferenceKey(referenceBean, propertyResolver);
@@ -67,7 +67,7 @@ public class ReferenceBeanManager implements ApplicationContextAware {
             if (referenceBean != oldReferenceBean) {
                 String oldReferenceKey = ReferenceBeanSupport.generateReferenceKey(oldReferenceBean, propertyResolver);
                 throw new IllegalStateException("Found duplicated ReferenceBean with id: " + referenceBeanName +
-                        ", old: " + oldReferenceKey + ", new: " + referenceKey);
+                    ", old: " + oldReferenceKey + ", new: " + referenceKey);
             }
             return;
         }
@@ -126,7 +126,7 @@ public class ReferenceBeanManager implements ApplicationContextAware {
      * @param referenceBean
      * @throws Exception
      */
-    private synchronized void  initReferenceBean(ReferenceBean referenceBean) throws Exception {
+    private synchronized void initReferenceBean(ReferenceBean referenceBean) throws Exception {
 
         if (referenceBean.getReferenceConfig() != null) {
             return;
@@ -140,8 +140,8 @@ public class ReferenceBeanManager implements ApplicationContextAware {
             //create real ReferenceConfig
             Map<String, Object> referenceAttributes = ReferenceBeanSupport.getReferenceAttributes(referenceBean);
             referenceConfig = ReferenceCreator.create(referenceAttributes, applicationContext)
-                    .defaultInterfaceClass(referenceBean.getObjectType())
-                    .build();
+                .defaultInterfaceClass(referenceBean.getObjectType())
+                .build();
 
             // set id if it is not a generated name
             if (referenceBean.getId() != null && !referenceBean.getId().contains("#")) {

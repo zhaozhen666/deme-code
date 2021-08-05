@@ -49,11 +49,11 @@ public class InvokerSideConfigUrlTest extends UrlTestBase {
     private ReferenceConfig<DemoService> refConf;
 
     private Object appConfForConsumerTable[][] = {
-            {"", "", "", "", "", "", "", "", "", ""},
+        {"", "", "", "", "", "", "", "", "", ""},
     };
 
     private Object appConfForReferenceTable[][] = {
-            {"", "", "", "", "", "", "", "", "", ""},
+        {"", "", "", "", "", "", "", "", "", ""},
     };
 
     private Object regConfForConsumerTable[][] = {
@@ -61,25 +61,25 @@ public class InvokerSideConfigUrlTest extends UrlTestBase {
 //            {"file", "registry.file", "string", "", "regConfForServiceTable.log", "", "", "", "", ""},
 //            {"wait", "registry.wait", "int", 0, 9000, "", "", "", "", ""},
 //            {"transport", "registry.transporter", "string", "netty", "mina", "", "", "", "", ""},
-            {"subscribe", "subscribe", "boolean", true, false, "", "", "", "", ""},
-            {"dynamic", "dynamic", "boolean", true, false, "", "", "", "", ""},
+        {"subscribe", "subscribe", "boolean", true, false, "", "", "", "", ""},
+        {"dynamic", "dynamic", "boolean", true, false, "", "", "", "", ""},
     };
 
     private Object regConfForReferenceTable[][] = {
-            {"timeout", "registry.timeout", "int", 5000, 9000, "", "", "", "", ""},
-            {"file", "registry.file", "string", "", "regConfForServiceTable.log", "", "", "", "", ""},
-            {"wait", "registry.wait", "int", 0, 9000, "", "", "", "", ""},
-            {"transport", "registry.transporter", "string", "netty", "mina", "", "", "", "", ""},
-            {"subscribe", "subscribe", "boolean", true, false, "", "", "", "", ""},
-            {"dynamic", "dynamic", "boolean", true, false, "", "", "", "", ""},
+        {"timeout", "registry.timeout", "int", 5000, 9000, "", "", "", "", ""},
+        {"file", "registry.file", "string", "", "regConfForServiceTable.log", "", "", "", "", ""},
+        {"wait", "registry.wait", "int", 0, 9000, "", "", "", "", ""},
+        {"transport", "registry.transporter", "string", "netty", "mina", "", "", "", "", ""},
+        {"subscribe", "subscribe", "boolean", true, false, "", "", "", "", ""},
+        {"dynamic", "dynamic", "boolean", true, false, "", "", "", "", ""},
     };
 
     private Object methodConfForReferenceTable[][] = {
-            {"actives", "eatTiger.actives", "int", 0, 90, "", "", "", "", ""},
-            {"executes", "eatTiger.executes", "int", 0, 90, "", "", "", "", ""},
-            {"deprecated", "eatTiger.deprecated", "boolean", false, true, "", "", "", "", ""},
-            {"async", "eatTiger.async", "boolean", false, true, "", "", "", "", ""},
-            {"timeout", "eatTiger.timeout", "int", 0, 90, "", "", "", "", ""},
+        {"actives", "eatTiger.actives", "int", 0, 90, "", "", "", "", ""},
+        {"executes", "eatTiger.executes", "int", 0, 90, "", "", "", "", ""},
+        {"deprecated", "eatTiger.deprecated", "boolean", false, true, "", "", "", "", ""},
+        {"async", "eatTiger.async", "boolean", false, true, "", "", "", "", ""},
+        {"timeout", "eatTiger.timeout", "int", 0, 90, "", "", "", "", ""},
     };
 
     private Object refConfTable[][] = {
@@ -87,38 +87,38 @@ public class InvokerSideConfigUrlTest extends UrlTestBase {
 //            {"group", "group", "string", "", "HaominTest", "", "", "", "", ""},
 
 //            {"delay", "delay", "int", 0, 5, "", "", "", "", ""}, // not boolean
-            {"timeout", "timeout", "int", 5000, 3000, "", "", "", "", ""},
-            {"retries", "retries", "int", 2, 5, "", "", "", "", ""},
-            {"connections", "connections", "boolean", 100, 20, "", "", "", "", ""},
-            {"loadbalance", "loadbalance", "string", "random", "roundrobin", "leastactive", "", "", ""},
-            {"async", "async", "boolean", false, true, "", "", "", "", ""},
-            //excluded = true
+        {"timeout", "timeout", "int", 5000, 3000, "", "", "", "", ""},
+        {"retries", "retries", "int", 2, 5, "", "", "", "", ""},
+        {"connections", "connections", "boolean", 100, 20, "", "", "", "", ""},
+        {"loadbalance", "loadbalance", "string", "random", "roundrobin", "leastactive", "", "", ""},
+        {"async", "async", "boolean", false, true, "", "", "", "", ""},
+        //excluded = true
 //            {"generic", "generic", "boolean", false, true, "", "", "", "", ""},
-            {"check", "check", "boolean", false, true, "", "", "", "", ""},
-            //{"local", "local", "string", "false", "HelloServiceLocal", "true", "", "", "", ""},
-            //{"local", "local", "string", "false", "true", "", "", "", "", ""},
-            //{"mock", "mock", "string", "false", "dubbo.test.HelloServiceMock", "true", "", "", "", ""},
-            {"mock", "mock", "string", "false", "false", "", "", "", "", ""},
-            {"proxy", "proxy", "boolean", "javassist", "jdk", "", "", "", "", ""},
-            {"client", "client", "string", "netty", "mina", "", "", "", "", ""},
-            {"client", "client", "string", "netty", "mina", "", "", "", "", ""},
-            {"owner", "owner", "string", "", "haomin,ludvik", "", "", "", "", ""},
-            {"actives", "actives", "int", 0, 30, "", "", "", "", ""},
-            {"cluster", "cluster", "string", "failover", "failfast", "failsafe", "failback", "forking", "", ""},
-            //excluded = true
+        {"check", "check", "boolean", false, true, "", "", "", "", ""},
+        //{"local", "local", "string", "false", "HelloServiceLocal", "true", "", "", "", ""},
+        //{"local", "local", "string", "false", "true", "", "", "", "", ""},
+        //{"mock", "mock", "string", "false", "dubbo.test.HelloServiceMock", "true", "", "", "", ""},
+        {"mock", "mock", "string", "false", "false", "", "", "", "", ""},
+        {"proxy", "proxy", "boolean", "javassist", "jdk", "", "", "", "", ""},
+        {"client", "client", "string", "netty", "mina", "", "", "", "", ""},
+        {"client", "client", "string", "netty", "mina", "", "", "", "", ""},
+        {"owner", "owner", "string", "", "haomin,ludvik", "", "", "", "", ""},
+        {"actives", "actives", "int", 0, 30, "", "", "", "", ""},
+        {"cluster", "cluster", "string", "failover", "failfast", "failsafe", "failback", "forking", "", ""},
+        //excluded = true
 //            {"filter", "service.filter", "string", "default", "-generic", "", "", "", "", ""},
-            //excluded = true
+        //excluded = true
 //            {"listener", "exporter.listener", "string", "default", "-deprecated", "", "", "", "", ""},
-            //{"", "", "", "", "", "", "", "", "", ""},
+        //{"", "", "", "", "", "", "", "", "", ""},
     };
 
     private Object consumerConfTable[][] = {{"timeout", "timeout", "int", 5000, 8000, "", "", "", "", ""}, {"retries", "retries", "int", 2, 5, "", "", "", "", ""}, {"loadbalance", "loadbalance", "string", "random", "leastactive", "", "", "", "", ""}, {"async", "async", "boolean", false, true, "", "", "", "", ""}, {"connections", "connections", "int", 100, 5, "", "", "", "", ""},
 //            {"generic", "generic", "boolean", false, false, "", "", "", "", ""},
-            {"check", "check", "boolean", true, false, "", "", "", "", ""},
-            {"proxy", "proxy", "string", "javassist", "jdk", "javassist", "", "", "", ""},
-            {"owner", "owner", "string", "", "haomin", "", "", "", "", ""}, {"actives", "actives", "int", 0, 5, "", "", "", "", ""}, {"cluster", "cluster", "string", "failover", "forking", "", "", "", "", ""},
-            {"filter", "", "string", "", "", "", "", "", "", ""},
-            {"listener", "", "string", "", "", "", "", "", "", ""},
+        {"check", "check", "boolean", true, false, "", "", "", "", ""},
+        {"proxy", "proxy", "string", "javassist", "jdk", "javassist", "", "", "", ""},
+        {"owner", "owner", "string", "", "haomin", "", "", "", "", ""}, {"actives", "actives", "int", 0, 5, "", "", "", "", ""}, {"cluster", "cluster", "string", "failover", "forking", "", "", "", "", ""},
+        {"filter", "", "string", "", "", "", "", "", "", ""},
+        {"listener", "", "string", "", "", "", "", "", "", ""},
 //            {"", "", "", "", "", "", "", "", "", ""},
     };
 

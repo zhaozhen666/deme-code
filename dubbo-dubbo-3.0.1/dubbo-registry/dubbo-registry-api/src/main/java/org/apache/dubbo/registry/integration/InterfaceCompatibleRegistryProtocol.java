@@ -47,9 +47,9 @@ public class InterfaceCompatibleRegistryProtocol extends RegistryProtocol {
     @Override
     protected URL getRegistryUrl(URL url) {
         return URLBuilder.from(url)
-                .setProtocol(url.getParameter(REGISTRY_KEY, DEFAULT_REGISTRY))
-                .removeParameter(REGISTRY_KEY)
-                .build();
+            .setProtocol(url.getParameter(REGISTRY_KEY, DEFAULT_REGISTRY))
+            .removeParameter(REGISTRY_KEY)
+            .build();
     }
 
     @Override

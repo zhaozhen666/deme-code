@@ -20,12 +20,14 @@ package org.apache.dubbo.common.stream;
 public interface StreamObserver<T> {
     /**
      * onNext
+     *
      * @param data
      */
     void onNext(T data);
 
     /**
      * onError
+     *
      * @param throwable
      */
     void onError(Throwable throwable);

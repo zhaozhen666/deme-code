@@ -64,8 +64,8 @@ public class ProtocolListenerWrapper implements Protocol {
             return protocol.export(invoker);
         }
         return new ListenerExporterWrapper<T>(protocol.export(invoker),
-                Collections.unmodifiableList(ExtensionLoader.getExtensionLoader(ExporterListener.class)
-                        .getActivateExtension(invoker.getUrl(), EXPORTER_LISTENER_KEY)));
+            Collections.unmodifiableList(ExtensionLoader.getExtensionLoader(ExporterListener.class)
+                .getActivateExtension(invoker.getUrl(), EXPORTER_LISTENER_KEY)));
     }
 
     @Override
@@ -77,9 +77,9 @@ public class ProtocolListenerWrapper implements Protocol {
         Invoker<T> invoker = protocol.refer(type, url);
         if (StringUtils.isEmpty(url.getParameter(REGISTRY_CLUSTER_TYPE_KEY))) {
             invoker = new ListenerInvokerWrapper<>(invoker,
-                    Collections.unmodifiableList(
-                            ExtensionLoader.getExtensionLoader(InvokerListener.class)
-                                    .getActivateExtension(url, INVOKER_LISTENER_KEY)));
+                Collections.unmodifiableList(
+                    ExtensionLoader.getExtensionLoader(InvokerListener.class)
+                        .getActivateExtension(url, INVOKER_LISTENER_KEY)));
         }
         return invoker;
     }

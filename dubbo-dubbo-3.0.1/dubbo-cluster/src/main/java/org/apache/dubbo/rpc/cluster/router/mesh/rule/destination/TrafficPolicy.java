@@ -34,7 +34,7 @@ public class TrafficPolicy {
     @Override
     public String toString() {
         return "TrafficPolicy{" +
-                "loadBalancer=" + loadBalancer +
-                '}';
+            "loadBalancer=" + loadBalancer +
+            '}';
     }
 }

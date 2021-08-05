@@ -173,7 +173,7 @@ class URL implements Serializable {
                String path,
                Map<String, String> parameters) {
         if (StringUtils.isEmpty(username)
-                && StringUtils.isNotEmpty(password)) {
+            && StringUtils.isNotEmpty(password)) {
             throw new IllegalArgumentException("Invalid url, password without username!");
         }
 
@@ -182,15 +182,15 @@ class URL implements Serializable {
     }
 
     protected URL(String protocol,
-               String username,
-               String password,
-               String host,
-               int port,
-               String path,
-               Map<String, String> parameters,
-               boolean modifiable) {
+                  String username,
+                  String password,
+                  String host,
+                  int port,
+                  String path,
+                  Map<String, String> parameters,
+                  boolean modifiable) {
         if (StringUtils.isEmpty(username)
-                && StringUtils.isNotEmpty(password)) {
+            && StringUtils.isNotEmpty(password)) {
             throw new IllegalArgumentException("Invalid url, password without username!");
         }
 
@@ -199,7 +199,7 @@ class URL implements Serializable {
     }
 
     public static URL cacheableValueOf(String url) {
-        URL cachedURL =  cachedURLs.get(url);
+        URL cachedURL = cachedURLs.get(url);
         if (cachedURL != null) {
             return cachedURL;
         }
@@ -276,7 +276,7 @@ class URL implements Serializable {
             }
         }
         return newMap.isEmpty() ? new ServiceConfigURL(url.getProtocol(), url.getUsername(), url.getPassword(), url.getHost(), url.getPort(), url.getPath(), (Map<String, String>) null)
-                : new ServiceConfigURL(url.getProtocol(), url.getUsername(), url.getPassword(), url.getHost(), url.getPort(), url.getPath(), newMap);
+            : new ServiceConfigURL(url.getProtocol(), url.getUsername(), url.getPassword(), url.getHost(), url.getPort(), url.getPath(), newMap);
     }
 
     public static String encode(String value) {
@@ -350,11 +350,11 @@ class URL implements Serializable {
 
     public String getAuthority() {
         if (StringUtils.isEmpty(getUsername())
-                && StringUtils.isEmpty(getPassword())) {
+            && StringUtils.isEmpty(getPassword())) {
             return null;
         }
         return (getUsername() == null ? "" : getUsername())
-                + ":" + (getPassword() == null ? "" : getPassword());
+            + ":" + (getPassword() == null ? "" : getPassword());
     }
 
     public String getHost() {
@@ -1153,7 +1153,7 @@ class URL implements Serializable {
             boolean first = true;
             for (Map.Entry<String, String> entry : new TreeMap<>(getParameters()).entrySet()) {
                 if (StringUtils.isNotEmpty(entry.getKey())
-                        && (includes == null || includes.contains(entry.getKey()))) {
+                    && (includes == null || includes.contains(entry.getKey()))) {
                     if (first) {
                         if (concat) {
                             buf.append("?");
@@ -1282,7 +1282,7 @@ class URL implements Serializable {
             return getServiceInterface();
         }
         return getServiceInterface() +
-                COLON_SEPARATOR + getVersion();
+            COLON_SEPARATOR + getVersion();
     }
 
     /**

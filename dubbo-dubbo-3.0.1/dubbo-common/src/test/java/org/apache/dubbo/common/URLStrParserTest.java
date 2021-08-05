@@ -63,7 +63,7 @@ public class URLStrParserTest {
 
         errorEncodedCases.forEach(errorCase -> {
             Assertions.assertThrows(RuntimeException.class,
-                    () -> URLStrParser.parseEncodedStr(errorCase));
+                () -> URLStrParser.parseEncodedStr(errorCase));
         });
     }
 
@@ -75,7 +75,7 @@ public class URLStrParserTest {
 
         errorDecodedCases.forEach(errorCase -> {
             Assertions.assertThrows(RuntimeException.class,
-                    () -> URLStrParser.parseDecodedStr(errorCase));
+                () -> URLStrParser.parseDecodedStr(errorCase));
         });
     }
 

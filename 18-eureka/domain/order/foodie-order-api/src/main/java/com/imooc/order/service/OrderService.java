@@ -14,6 +14,7 @@ public interface OrderService {
 
     /**
      * 用于创建订单相关信息
+     *
      * @param orderBO
      */
     @PostMapping("placeOrder")
@@ -21,6 +22,7 @@ public interface OrderService {
 
     /**
      * 修改订单状态
+     *
      * @param orderId
      * @param orderStatus
      */
@@ -30,6 +32,7 @@ public interface OrderService {
 
     /**
      * 查询订单状态
+     *
      * @param orderId
      * @return
      */

@@ -55,13 +55,13 @@ public abstract class AbstractDubboMetadata implements ApplicationContextAware, 
 
     private static boolean isSimpleType(Class<?> type) {
         return isPrimitiveOrWrapper(type)
-                || type == String.class
-                || type == BigDecimal.class
-                || type == BigInteger.class
-                || type == Date.class
-                || type == URL.class
-                || type == Class.class
-                ;
+            || type == String.class
+            || type == BigDecimal.class
+            || type == BigInteger.class
+            || type == Date.class
+            || type == URL.class
+            || type == Class.class
+            ;
     }
 
     @Override

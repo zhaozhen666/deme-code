@@ -194,7 +194,7 @@ public class ServiceInstanceMetadataUtils {
     public static boolean isDubboServiceInstance(ServiceInstance serviceInstance) {
         Map<String, String> metadata = serviceInstance.getMetadata();
         return metadata.containsKey(METADATA_SERVICE_URL_PARAMS_PROPERTY_NAME)
-                || metadata.containsKey(METADATA_SERVICE_URLS_PROPERTY_NAME);
+            || metadata.containsKey(METADATA_SERVICE_URLS_PROPERTY_NAME);
     }
 
     public static void setEndpoints(ServiceInstance serviceInstance, Map<String, Integer> protocolPorts) {
@@ -278,7 +278,7 @@ public class ServiceInstanceMetadataUtils {
 
     public static void customizeInstance(ServiceInstance instance) {
         ExtensionLoader<ServiceInstanceCustomizer> loader =
-                ExtensionLoader.getExtensionLoader(ServiceInstanceCustomizer.class);
+            ExtensionLoader.getExtensionLoader(ServiceInstanceCustomizer.class);
         // FIXME, sort customizer before apply
         loader.getSupportedExtensionInstances().forEach(customizer -> {
             // customizes

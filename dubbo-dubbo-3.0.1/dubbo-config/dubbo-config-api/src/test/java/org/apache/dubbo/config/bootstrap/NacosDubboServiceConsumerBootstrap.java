@@ -33,16 +33,16 @@ public class NacosDubboServiceConsumerBootstrap {
         ApplicationConfig applicationConfig = new ApplicationConfig("dubbo-nacos-consumer-demo");
         applicationConfig.setMetadataType(REMOTE_METADATA_STORAGE_TYPE);
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(applicationConfig)
-                // Nacos in service registry type
-                .registry("nacos", builder -> builder.address("nacos://127.0.0.1:8848?registry-type=service")
-                        .useAsConfigCenter(true)
-                        .useAsMetadataCenter(true))
-                // Nacos in traditional registry type
+            .application(applicationConfig)
+            // Nacos in service registry type
+            .registry("nacos", builder -> builder.address("nacos://127.0.0.1:8848?registry-type=service")
+                .useAsConfigCenter(true)
+                .useAsMetadataCenter(true))
+            // Nacos in traditional registry type
 //                .registry("nacos-traditional", builder -> builder.address("nacos://127.0.0.1:8848"))
-                .reference("echo", builder -> builder.interfaceClass(EchoService.class).protocol("dubbo"))
-                .reference("user", builder -> builder.interfaceClass(UserService.class).protocol("rest"))
-                .start();
+            .reference("echo", builder -> builder.interfaceClass(EchoService.class).protocol("dubbo"))
+            .reference("user", builder -> builder.interfaceClass(UserService.class).protocol("rest"))
+            .start();
 
         EchoService echoService = bootstrap.getCache().get(EchoService.class);
         UserService userService = bootstrap.getCache().get(UserService.class);

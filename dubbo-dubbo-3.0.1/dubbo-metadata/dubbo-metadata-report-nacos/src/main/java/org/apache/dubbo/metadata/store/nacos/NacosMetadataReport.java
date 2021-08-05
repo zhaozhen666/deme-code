@@ -109,9 +109,9 @@ public class NacosMetadataReport extends AbstractMetadataReport {
 
     private void setServerAddr(URL url, Properties properties) {
         StringBuilder serverAddrBuilder =
-                new StringBuilder(url.getHost()) // Host
-                        .append(":")
-                        .append(url.getPort()); // Port
+            new StringBuilder(url.getHost()) // Host
+                .append(":")
+                .append(url.getPort()); // Port
         // Append backup parameter as other servers
         String backup = url.getParameter(BACKUP_KEY);
         if (backup != null) {
@@ -266,7 +266,7 @@ public class NacosMetadataReport extends AbstractMetadataReport {
     public void addListener(String key, String group, ConfigurationListener listener) {
         String listenerKey = buildListenerKey(key, group);
         NacosConfigListener nacosConfigListener =
-                watchListenerMap.computeIfAbsent(listenerKey, k -> createTargetListener(key, group));
+            watchListenerMap.computeIfAbsent(listenerKey, k -> createTargetListener(key, group));
         nacosConfigListener.addListener(listener);
         try {
             configService.addListener(key, group, nacosConfigListener);

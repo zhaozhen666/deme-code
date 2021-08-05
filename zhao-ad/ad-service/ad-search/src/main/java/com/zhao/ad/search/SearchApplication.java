@@ -21,12 +21,12 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class SearchApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SearchApplication.class,args);
+        SpringApplication.run(SearchApplication.class, args);
     }
 
     @Bean
     @LoadBalanced
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
 }

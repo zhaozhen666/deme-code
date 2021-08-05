@@ -37,7 +37,7 @@ public class NettyTransporterTest {
     public void shouldAbleToBindNetty4() throws Exception {
         int port = NetUtils.getAvailablePort();
         URL url = new ServiceConfigURL("telnet", "localhost", port,
-                new String[]{Constants.BIND_PORT_KEY, String.valueOf(port)});
+            new String[]{Constants.BIND_PORT_KEY, String.valueOf(port)});
 
         RemotingServer server = new NettyTransporter().bind(url, new ChannelHandlerAdapter());
 
@@ -50,7 +50,7 @@ public class NettyTransporterTest {
 
         int port = NetUtils.getAvailablePort();
         URL url = new ServiceConfigURL("telnet", "localhost", port,
-                new String[]{Constants.BIND_PORT_KEY, String.valueOf(port)});
+            new String[]{Constants.BIND_PORT_KEY, String.valueOf(port)});
 
         new NettyTransporter().bind(url, new ChannelHandlerAdapter() {
 

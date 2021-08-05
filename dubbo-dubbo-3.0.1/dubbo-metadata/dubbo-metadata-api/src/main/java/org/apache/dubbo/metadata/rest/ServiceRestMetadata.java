@@ -84,9 +84,9 @@ public class ServiceRestMetadata implements Serializable {
         }
         ServiceRestMetadata that = (ServiceRestMetadata) o;
         return Objects.equals(getServiceInterface(), that.getServiceInterface()) &&
-                Objects.equals(getVersion(), that.getVersion()) &&
-                Objects.equals(getGroup(), that.getGroup()) &&
-                Objects.equals(getMeta(), that.getMeta());
+            Objects.equals(getVersion(), that.getVersion()) &&
+            Objects.equals(getGroup(), that.getGroup()) &&
+            Objects.equals(getMeta(), that.getMeta());
     }
 
     @Override

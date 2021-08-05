@@ -42,7 +42,7 @@ public class Slf4jLoggerTest {
         logger.trace("info");
 
         verify(locationAwareLogger, times(5)).log(isNull(Marker.class), anyString(),
-                anyInt(), anyString(), isNull(Object[].class), isNull(Throwable.class));
+            anyInt(), anyString(), isNull(Object[].class), isNull(Throwable.class));
 
         logger.error(new Exception("error"));
         logger.warn(new Exception("warn"));
@@ -57,6 +57,6 @@ public class Slf4jLoggerTest {
         logger.trace("trace", new Exception("trace"));
 
         verify(locationAwareLogger, times(10)).log(isNull(Marker.class), anyString(),
-                anyInt(), anyString(), isNull(Object[].class), any(Throwable.class));
+            anyInt(), anyString(), isNull(Object[].class), any(Throwable.class));
     }
 }

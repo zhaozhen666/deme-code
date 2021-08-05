@@ -26,12 +26,14 @@ public interface ServiceListener {
 
     /**
      * Callback when ServiceConfig is exported
+     *
      * @param sc
      */
     void exported(ServiceConfig sc);
 
     /**
      * Callback when ServiceConfig is unexported
+     *
      * @param sc
      */
     void unexported(ServiceConfig sc);

@@ -52,6 +52,7 @@ public @interface Reference {
 
     /**
      * Whether to enable generic invocation, default value is false
+     *
      * @deprecated Do not need specify generic value, judge by injection type and interface class
      */
     @Deprecated
@@ -115,6 +116,7 @@ public @interface Reference {
 
     /**
      * Application associated name
+     *
      * @deprecated Do not set it and use the global Application Config
      */
     @Deprecated

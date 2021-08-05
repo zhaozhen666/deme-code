@@ -40,7 +40,7 @@ public abstract class RegistryNotifier {
         this.delayTime = delayTime;
         if (scheduler == null) {
             this.scheduler = ExtensionLoader.getExtensionLoader(ExecutorRepository.class)
-                    .getDefaultExtension().getRegistryNotificationExecutor();
+                .getDefaultExtension().getRegistryNotificationExecutor();
         } else {
             this.scheduler = scheduler;
         }

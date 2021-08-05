@@ -85,10 +85,10 @@ public class NacosRegistry extends FailbackRegistry {
      * All supported categories
      */
     private static final List<String> ALL_SUPPORTED_CATEGORIES = Arrays.asList(
-            PROVIDERS_CATEGORY,
-            CONSUMERS_CATEGORY,
-            ROUTERS_CATEGORY,
-            CONFIGURATORS_CATEGORY
+        PROVIDERS_CATEGORY,
+        CONSUMERS_CATEGORY,
+        ROUTERS_CATEGORY,
+        CONFIGURATORS_CATEGORY
     );
 
     private static final int CATEGORY_INDEX = 0;
@@ -144,7 +144,7 @@ public class NacosRegistry extends FailbackRegistry {
             Set<String> serviceNames = getServiceNames(url, null);
             for (String serviceName : serviceNames) {
                 List<Instance> instances = namingService.getAllInstances(serviceName,
-                        getUrl().getGroup(Constants.DEFAULT_GROUP));
+                    getUrl().getGroup(Constants.DEFAULT_GROUP));
                 urls.addAll(buildURLs(url, instances));
             }
         });
@@ -162,7 +162,7 @@ public class NacosRegistry extends FailbackRegistry {
          * in https://github.com/apache/dubbo/issues/5978
          */
         execute(namingService -> namingService.registerInstance(serviceName,
-                getUrl().getGroup(Constants.DEFAULT_GROUP), instance));
+            getUrl().getGroup(Constants.DEFAULT_GROUP), instance));
     }
 
     @Override
@@ -171,9 +171,9 @@ public class NacosRegistry extends FailbackRegistry {
             String serviceName = getServiceName(url);
             Instance instance = createInstance(url);
             namingService.deregisterInstance(serviceName,
-                    getUrl().getGroup(Constants.DEFAULT_GROUP),
-                    instance.getIp()
-                    , instance.getPort());
+                getUrl().getGroup(Constants.DEFAULT_GROUP),
+                instance.getIp()
+                , instance.getPort());
         });
     }
 
@@ -207,7 +207,7 @@ public class NacosRegistry extends FailbackRegistry {
                  */
                 for (String serviceName : serviceNames) {
                     List<Instance> instances = namingService.getAllInstances(serviceName,
-                            getUrl().getGroup(Constants.DEFAULT_GROUP));
+                        getUrl().getGroup(Constants.DEFAULT_GROUP));
                     NacosInstanceManageUtil.initOrRefreshServiceInstanceList(serviceName, instances);
                     allCorrespondingInstanceList.addAll(instances);
                 }
@@ -219,7 +219,7 @@ public class NacosRegistry extends FailbackRegistry {
                 List<Instance> instances = new LinkedList<>();
                 for (String serviceName : serviceNames) {
                     instances.addAll(namingService.getAllInstances(serviceName
-                            , getUrl().getGroup(Constants.DEFAULT_GROUP)));
+                        , getUrl().getGroup(Constants.DEFAULT_GROUP)));
                     notifySubscriber(url, listener, instances);
                     subscribeEventListener(serviceName, url, listener);
                 }
@@ -295,12 +295,12 @@ public class NacosRegistry extends FailbackRegistry {
         execute(namingService -> {
 
             serviceNames.addAll(namingService.getServicesOfServer(1, Integer.MAX_VALUE,
-                    getUrl().getGroup(Constants.DEFAULT_GROUP)).getData()
-                    .stream()
-                    .map(NacosServiceName::new)
-                    .filter(serviceName::isCompatible)
-                    .map(NacosServiceName::toString)
-                    .collect(Collectors.toList()));
+                getUrl().getGroup(Constants.DEFAULT_GROUP)).getData()
+                .stream()
+                .map(NacosServiceName::new)
+                .filter(serviceName::isCompatible)
+                .map(NacosServiceName::toString)
+                .collect(Collectors.toList()));
 
         });
 
@@ -375,7 +375,7 @@ public class NacosRegistry extends FailbackRegistry {
 
             int pageIndex = 1;
             ListView<String> listView = namingService.getServicesOfServer(pageIndex, PAGINATION_SIZE,
-                    getUrl().getGroup(Constants.DEFAULT_GROUP));
+                getUrl().getGroup(Constants.DEFAULT_GROUP));
             // First page data
             List<String> firstPageData = listView.getData();
             // Append first page into list
@@ -392,7 +392,7 @@ public class NacosRegistry extends FailbackRegistry {
             // If more than 1 page
             while (pageIndex < pageNumbers) {
                 listView = namingService.getServicesOfServer(++pageIndex, PAGINATION_SIZE,
-                        getUrl().getGroup(Constants.DEFAULT_GROUP));
+                    getUrl().getGroup(Constants.DEFAULT_GROUP));
                 serviceNames.addAll(listView.getData());
             }
 
@@ -431,7 +431,7 @@ public class NacosRegistry extends FailbackRegistry {
             String serviceInterface = segments[SERVICE_INTERFACE_INDEX];
             // no match service interface
             if (!WILDCARD.equals(targetServiceInterface) &&
-                    !StringUtils.isEquals(targetServiceInterface, serviceInterface)) {
+                !StringUtils.isEquals(targetServiceInterface, serviceInterface)) {
                 return false;
             }
 
@@ -466,9 +466,9 @@ public class NacosRegistry extends FailbackRegistry {
         List<URL> urls = buildURLs(consumerURL, instances);
         if (urls.size() == 0) {
             URL empty = URLBuilder.from(consumerURL)
-                    .setProtocol(EMPTY_PROTOCOL)
-                    .addParameter(CATEGORY_KEY, DEFAULT_CATEGORY)
-                    .build();
+                .setProtocol(EMPTY_PROTOCOL)
+                .addParameter(CATEGORY_KEY, DEFAULT_CATEGORY)
+                .build();
             urls.add(empty);
         }
         return urls;
@@ -488,11 +488,11 @@ public class NacosRegistry extends FailbackRegistry {
     }
 
     private void subscribeEventListener(String serviceName, final URL url, final NotifyListener listener)
-            throws NacosException {
+        throws NacosException {
         EventListener eventListener = new RegistryChildListenerImpl(serviceName, url, listener);
         namingService.subscribe(serviceName,
-                getUrl().getGroup(Constants.DEFAULT_GROUP),
-                eventListener);
+            getUrl().getGroup(Constants.DEFAULT_GROUP),
+            eventListener);
     }
 
     /**
@@ -520,7 +520,7 @@ public class NacosRegistry extends FailbackRegistry {
      */
     private List<String> getCategories(URL url) {
         return ANY_VALUE.equals(url.getServiceInterface()) ?
-                ALL_SUPPORTED_CATEGORIES : Arrays.asList(DEFAULT_CATEGORY);
+            ALL_SUPPORTED_CATEGORIES : Arrays.asList(DEFAULT_CATEGORY);
     }
 
     private URL buildURL(URL consumerURL, Instance instance) {
@@ -528,10 +528,10 @@ public class NacosRegistry extends FailbackRegistry {
         String protocol = metadata.get(PROTOCOL_KEY);
         String path = metadata.get(PATH_KEY);
         URL url = new ServiceConfigURL(protocol,
-                instance.getIp(),
-                instance.getPort(),
-                path,
-                instance.getMetadata());
+            instance.getIp(),
+            instance.getPort(),
+            path,
+            instance.getMetadata());
         return new DubboServiceAddressURL(url.getUrlAddress(), url.getUrlParam(), consumerURL, null);
     }
 

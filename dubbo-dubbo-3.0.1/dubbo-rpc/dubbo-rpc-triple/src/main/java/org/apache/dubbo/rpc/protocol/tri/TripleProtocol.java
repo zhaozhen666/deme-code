@@ -43,9 +43,9 @@ public class TripleProtocol extends AbstractProtocol implements Protocol {
 
     private static final Logger logger = LoggerFactory.getLogger(TripleProtocol.class);
     private final PathResolver pathResolver = ExtensionLoader.getExtensionLoader(PathResolver.class)
-            .getDefaultExtension();
+        .getDefaultExtension();
     private final ExecutorRepository executorRepository = ExtensionLoader.getExtensionLoader(ExecutorRepository.class)
-            .getDefaultExtension();
+        .getDefaultExtension();
 
     @Override
     public int getDefaultPort() {

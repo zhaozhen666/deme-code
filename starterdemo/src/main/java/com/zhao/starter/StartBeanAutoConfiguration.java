@@ -10,8 +10,9 @@ public class StartBeanAutoConfiguration {
     static {
         System.out.println("custom auto configuration init ");
     }
+
     @Bean
-    public StarterBean starterBean(){
-        return  new StarterBean();
+    public StarterBean starterBean() {
+        return new StarterBean();
     }
 }

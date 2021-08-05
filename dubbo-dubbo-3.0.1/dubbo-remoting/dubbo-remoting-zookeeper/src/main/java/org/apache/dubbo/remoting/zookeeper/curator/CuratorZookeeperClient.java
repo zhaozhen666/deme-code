@@ -68,10 +68,10 @@ public class CuratorZookeeperClient extends AbstractZookeeperClient<CuratorZooke
             int timeout = url.getParameter(TIMEOUT_KEY, DEFAULT_CONNECTION_TIMEOUT_MS);
             int sessionExpireMs = url.getParameter(ZK_SESSION_EXPIRE_KEY, DEFAULT_SESSION_TIMEOUT_MS);
             CuratorFrameworkFactory.Builder builder = CuratorFrameworkFactory.builder()
-                    .connectString(url.getBackupAddress())
-                    .retryPolicy(new RetryNTimes(1, 1000))
-                    .connectionTimeoutMs(timeout)
-                    .sessionTimeoutMs(sessionExpireMs);
+                .connectString(url.getBackupAddress())
+                .retryPolicy(new RetryNTimes(1, 1000))
+                .connectionTimeoutMs(timeout)
+                .sessionTimeoutMs(sessionExpireMs);
             String authority = url.getAuthority();
             if (authority != null && authority.length() > 0) {
                 builder = builder.authorization("digest", authority.getBytes());
@@ -105,9 +105,9 @@ public class CuratorZookeeperClient extends AbstractZookeeperClient<CuratorZooke
             client.create().withMode(CreateMode.EPHEMERAL).forPath(path);
         } catch (NodeExistsException e) {
             logger.warn("ZNode " + path + " already exists, since we will only try to recreate a node on a session expiration" +
-                    ", this duplication might be caused by a delete delay from the zk server, which means the old expired session" +
-                    " may still holds this ZNode and the server just hasn't got time to do the deletion. In this case, " +
-                    "we can just try to delete and create again.", e);
+                ", this duplication might be caused by a delete delay from the zk server, which means the old expired session" +
+                " may still holds this ZNode and the server just hasn't got time to do the deletion. In this case, " +
+                "we can just try to delete and create again.", e);
             deletePath(path);
             createEphemeral(path);
         } catch (Exception e) {
@@ -138,9 +138,9 @@ public class CuratorZookeeperClient extends AbstractZookeeperClient<CuratorZooke
             client.create().withMode(CreateMode.EPHEMERAL).forPath(path, dataBytes);
         } catch (NodeExistsException e) {
             logger.warn("ZNode " + path + " already exists, since we will only try to recreate a node on a session expiration" +
-                    ", this duplication might be caused by a delete delay from the zk server, which means the old expired session" +
-                    " may still holds this ZNode and the server just hasn't got time to do the deletion. In this case, " +
-                    "we can just try to delete and create again.", e);
+                ", this duplication might be caused by a delete delay from the zk server, which means the old expired session" +
+                " may still holds this ZNode and the server just hasn't got time to do the deletion. In this case, " +
+                "we can just try to delete and create again.", e);
             deletePath(path);
             createEphemeral(path, data);
         } catch (Exception e) {
@@ -405,7 +405,7 @@ public class CuratorZookeeperClient extends AbstractZookeeperClient<CuratorZooke
                 CuratorZookeeperClient.this.stateChanged(StateListener.SESSION_LOST);
             } else if (state == ConnectionState.SUSPENDED) {
                 logger.warn("Curator zookeeper connection of session " + Long.toHexString(sessionId) + " timed out. " +
-                        "connection timeout value is " + timeout + ", session expire timeout value is " + sessionExpireMs);
+                    "connection timeout value is " + timeout + ", session expire timeout value is " + sessionExpireMs);
                 CuratorZookeeperClient.this.stateChanged(StateListener.SUSPENDED);
             } else if (state == ConnectionState.CONNECTED) {
                 lastSessionId = sessionId;
@@ -414,11 +414,11 @@ public class CuratorZookeeperClient extends AbstractZookeeperClient<CuratorZooke
             } else if (state == ConnectionState.RECONNECTED) {
                 if (lastSessionId == sessionId && sessionId != UNKNOWN_SESSION_ID) {
                     logger.warn("Curator zookeeper connection recovered from connection lose, " +
-                            "reuse the old session " + Long.toHexString(sessionId));
+                        "reuse the old session " + Long.toHexString(sessionId));
                     CuratorZookeeperClient.this.stateChanged(StateListener.RECONNECTED);
                 } else {
                     logger.warn("New session created after old session lost, " +
-                            "old session " + Long.toHexString(lastSessionId) + ", new session " + Long.toHexString(sessionId));
+                        "old session " + Long.toHexString(lastSessionId) + ", new session " + Long.toHexString(sessionId));
                     lastSessionId = sessionId;
                     CuratorZookeeperClient.this.stateChanged(StateListener.NEW_SESSION_CREATED);
                 }

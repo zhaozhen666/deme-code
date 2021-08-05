@@ -52,9 +52,9 @@ public class DestinationRuleSpec {
     @Override
     public String toString() {
         return "DestinationRuleSpec{" +
-                "host='" + host + '\'' +
-                ", subsets=" + subsets +
-                ", trafficPolicy=" + trafficPolicy +
-                '}';
+            "host='" + host + '\'' +
+            ", subsets=" + subsets +
+            ", trafficPolicy=" + trafficPolicy +
+            '}';
     }
 }

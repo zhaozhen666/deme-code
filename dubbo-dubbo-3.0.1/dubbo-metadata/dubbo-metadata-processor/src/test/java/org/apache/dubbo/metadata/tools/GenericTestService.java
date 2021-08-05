@@ -27,8 +27,8 @@ import java.util.EventListener;
  * @since 2.7.6
  */
 @Service(
-        version = "2.0.0",
-        group = "generic"
+    version = "2.0.0",
+    group = "generic"
 )
 public class GenericTestService extends DefaultTestService implements TestService, EventListener {
     @Override

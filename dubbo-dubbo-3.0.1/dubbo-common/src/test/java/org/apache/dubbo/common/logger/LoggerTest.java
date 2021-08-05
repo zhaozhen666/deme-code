@@ -37,11 +37,11 @@ public class LoggerTest {
 
     static Stream<Arguments> data() {
         return Stream.of(
-                Arguments.of(JclLoggerAdapter.class),
-                Arguments.of(JdkLoggerAdapter.class),
-                Arguments.of(Log4jLoggerAdapter.class),
-                Arguments.of(Slf4jLoggerAdapter.class),
-                Arguments.of(Log4j2LoggerAdapter.class)
+            Arguments.of(JclLoggerAdapter.class),
+            Arguments.of(JdkLoggerAdapter.class),
+            Arguments.of(Log4jLoggerAdapter.class),
+            Arguments.of(Slf4jLoggerAdapter.class),
+            Arguments.of(Log4j2LoggerAdapter.class)
         );
     }
 

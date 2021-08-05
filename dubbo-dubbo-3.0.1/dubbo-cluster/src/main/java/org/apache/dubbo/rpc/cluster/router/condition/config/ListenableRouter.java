@@ -59,7 +59,7 @@ public abstract class ListenableRouter extends AbstractRouter implements Configu
     public synchronized void process(ConfigChangedEvent event) {
         if (logger.isDebugEnabled()) {
             logger.debug("Notification of condition rule, change type is: " + event.getChangeType() +
-                    ", raw rule is:\n " + event.getContent());
+                ", raw rule is:\n " + event.getContent());
         }
 
         if (event.getChangeType().equals(ConfigChangeType.DELETED)) {
@@ -71,7 +71,7 @@ public abstract class ListenableRouter extends AbstractRouter implements Configu
                 generateConditions(routerRule);
             } catch (Exception e) {
                 logger.error("Failed to parse the raw condition rule and it will not take effect, please check " +
-                        "if the condition rule matches with the template, the raw rule is:\n " + event.getContent(), e);
+                    "if the condition rule matches with the template, the raw rule is:\n " + event.getContent(), e);
             }
         }
     }
@@ -107,9 +107,9 @@ public abstract class ListenableRouter extends AbstractRouter implements Configu
     private void generateConditions(ConditionRouterRule rule) {
         if (rule != null && rule.isValid()) {
             this.conditionRouters = rule.getConditions()
-                    .stream()
-                    .map(condition -> new ConditionRouter(condition, rule.isForce(), rule.isEnabled()))
-                    .collect(Collectors.toList());
+                .stream()
+                .map(condition -> new ConditionRouter(condition, rule.isForce(), rule.isEnabled()))
+                .collect(Collectors.toList());
         }
     }
 

@@ -45,8 +45,8 @@ public class TTable implements TComponent {
 
     public TTable(ColumnDefine[] columnDefineArray) {
         this.columnDefineArray = null == columnDefineArray
-                ? new ColumnDefine[0]
-                : columnDefineArray;
+            ? new ColumnDefine[0]
+            : columnDefineArray;
     }
 
     public TTable(int columnNum) {
@@ -75,13 +75,13 @@ public class TTable implements TComponent {
 
             // print first separation line
             if (isFirstRow
-                    && border.has(Border.BORDER_OUTER_TOP)) {
+                && border.has(Border.BORDER_OUTER_TOP)) {
                 tableSB.append(drawSeparationLine(widthCacheArray)).append(System.lineSeparator());
             }
 
             // print inner separation lines
             if (!isFirstRow
-                    && border.has(Border.BORDER_INNER_H)) {
+                && border.has(Border.BORDER_INNER_H)) {
                 tableSB.append(drawSeparationLine(widthCacheArray)).append(System.lineSeparator());
             }
 
@@ -91,7 +91,7 @@ public class TTable implements TComponent {
 
             // print ending separation line
             if (isLastRow
-                    && border.has(Border.BORDER_OUTER_BOTTOM)) {
+                && border.has(Border.BORDER_OUTER_BOTTOM)) {
                 tableSB.append(drawSeparationLine(widthCacheArray)).append(System.lineSeparator());
             }
 
@@ -122,10 +122,10 @@ public class TTable implements TComponent {
 
                     final String borderChar;
                     if (isFirstColOfRow
-                            && border.has(Border.BORDER_OUTER_LEFT)) {
+                        && border.has(Border.BORDER_OUTER_LEFT)) {
                         borderChar = "|";
                     } else if (!isFirstColOfRow
-                            && border.has(Border.BORDER_INNER_V)) {
+                        && border.has(Border.BORDER_INNER_V)) {
                         borderChar = "|";
                     } else {
                         borderChar = EMPTY_STRING;
@@ -134,7 +134,7 @@ public class TTable implements TComponent {
 
                     if (null == scannerArray[colIndex]) {
                         scannerArray[colIndex] = new Scanner(
-                                new StringReader(wrap(getData(rowIndex, columnDefineArray[colIndex]), width)));
+                            new StringReader(wrap(getData(rowIndex, columnDefineArray[colIndex]), width)));
                     }
                     final Scanner scanner = scannerArray[colIndex];
 
@@ -181,8 +181,8 @@ public class TTable implements TComponent {
 
     private String getData(int rowIndex, ColumnDefine columnDefine) {
         return columnDefine.getRowCount() <= rowIndex
-                ? EMPTY_STRING
-                : columnDefine.rows.get(rowIndex);
+            ? EMPTY_STRING
+            : columnDefine.rows.get(rowIndex);
     }
 
     private String getDataFormat(ColumnDefine columnDefine, int width, String data) {
@@ -246,19 +246,19 @@ public class TTable implements TComponent {
             final boolean isLastCol = colIndex == lastCol;
 
             if (isFirstCol
-                    && border.has(Border.BORDER_OUTER_LEFT)) {
+                && border.has(Border.BORDER_OUTER_LEFT)) {
                 separationLineSB.append("+");
             }
 
             if (!isFirstCol
-                    && border.has(Border.BORDER_INNER_V)) {
+                && border.has(Border.BORDER_INNER_V)) {
                 separationLineSB.append("+");
             }
 
             separationLineSB.append(repeat("-", width + 2 * padding));
 
             if (isLastCol
-                    && border.has(Border.BORDER_OUTER_RIGHT)) {
+                && border.has(Border.BORDER_OUTER_RIGHT)) {
                 separationLineSB.append("+");
             }
 
@@ -275,7 +275,7 @@ public class TTable implements TComponent {
             for (int index = 0; index < columnDefineArray.length; index++) {
                 final ColumnDefine columnDefine = columnDefineArray[index];
                 if (index < columnDataArray.length
-                        && null != columnDataArray[index]) {
+                    && null != columnDataArray[index]) {
                     columnDefine.rows.add(replaceTab(columnDataArray[index].toString()));
                 } else {
                     columnDefine.rows.add(EMPTY_STRING);
@@ -411,7 +411,7 @@ public class TTable implements TComponent {
 
     /**
      * visible width for the given string.
-     *
+     * <p>
      * for example: "abc\n1234"'s width is 4.
      *
      * @param string the given string

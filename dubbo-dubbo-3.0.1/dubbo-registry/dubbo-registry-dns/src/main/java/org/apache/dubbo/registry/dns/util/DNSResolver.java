@@ -60,15 +60,15 @@ public class DNSResolver {
         try {
             Future<List<InetAddress>> hostFuture = resolver.resolveAll(path);
             Future<AddressedEnvelope<DnsResponse, InetSocketAddress>> srvFuture =
-                    resolver.query(new DefaultDnsQuestion(path, DnsRecordType.SRV));
+                resolver.query(new DefaultDnsQuestion(path, DnsRecordType.SRV));
 
             try {
                 recordList.getHostnameList()
-                        .addAll(hostFuture
-                                .sync().getNow()
-                                .stream()
-                                .map(InetAddress::getHostAddress)
-                                .collect(Collectors.toList()));
+                    .addAll(hostFuture
+                        .sync().getNow()
+                        .stream()
+                        .map(InetAddress::getHostAddress)
+                        .collect(Collectors.toList()));
 
                 DnsResponse srvResponse = srvFuture.sync().getNow().content();
                 for (int i = 0; i < srvResponse.count(DnsSection.ANSWER); i++) {
@@ -106,15 +106,15 @@ public class DNSResolver {
 
     private static DnsNameResolver newResolver(String nameserver, int port, int maxQueriesPerResolve) {
         return new DnsNameResolverBuilder(GROUP.next())
-                .channelType(NioDatagramChannel.class)
-                .maxQueriesPerResolve(maxQueriesPerResolve)
-                .decodeIdn(true)
-                .optResourceEnabled(false)
-                .ndots(1)
-                .resolvedAddressTypes(ResolvedAddressTypes.IPV4_PREFERRED)
-                // ignore cache
-                .ttl(0, 1)
-                .nameServerProvider((hostname) -> sequential(new InetSocketAddress(nameserver, port)).stream())
-                .build();
+            .channelType(NioDatagramChannel.class)
+            .maxQueriesPerResolve(maxQueriesPerResolve)
+            .decodeIdn(true)
+            .optResourceEnabled(false)
+            .ndots(1)
+            .resolvedAddressTypes(ResolvedAddressTypes.IPV4_PREFERRED)
+            // ignore cache
+            .ttl(0, 1)
+            .nameServerProvider((hostname) -> sequential(new InetSocketAddress(nameserver, port)).stream())
+            .build();
     }
 }

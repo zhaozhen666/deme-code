@@ -116,7 +116,7 @@ public class PassportController extends BaseController {
 
         // 1. 实现登录
         Users userResult = userService.queryUserForLogin(username,
-                    MD5Utils.getMD5Str(password));
+                MD5Utils.getMD5Str(password));
 
         if (userResult == null) {
             return IMOOCJSONResult.errorMsg("用户名或密码不正确");

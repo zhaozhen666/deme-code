@@ -72,10 +72,10 @@ public interface FieldUtils {
 
     static List<VariableElement> getAllDeclaredFields(TypeMirror type, Predicate<VariableElement>... fieldFilters) {
         return getHierarchicalTypes(type)
-                .stream()
-                .map(t -> getDeclaredFields(t, fieldFilters))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+            .stream()
+            .map(t -> getDeclaredFields(t, fieldFilters))
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
     }
 
     static List<VariableElement> getAllDeclaredFields(TypeMirror type) {

@@ -106,19 +106,19 @@ public class DubboMonitor implements Monitor {
 
             // send statistics data
             URL url = statistics.getUrl()
-                    .addParameters(MonitorService.TIMESTAMP, timestamp,
-                            MonitorService.SUCCESS, String.valueOf(success),
-                            MonitorService.FAILURE, String.valueOf(failure),
-                            MonitorService.INPUT, String.valueOf(input),
-                            MonitorService.OUTPUT, String.valueOf(output),
-                            MonitorService.ELAPSED, String.valueOf(elapsed),
-                            MonitorService.CONCURRENT, String.valueOf(concurrent),
-                            MonitorService.MAX_INPUT, String.valueOf(maxInput),
-                            MonitorService.MAX_OUTPUT, String.valueOf(maxOutput),
-                            MonitorService.MAX_ELAPSED, String.valueOf(maxElapsed),
-                            MonitorService.MAX_CONCURRENT, String.valueOf(maxConcurrent),
-                            DEFAULT_PROTOCOL, protocol
-                    );
+                .addParameters(MonitorService.TIMESTAMP, timestamp,
+                    MonitorService.SUCCESS, String.valueOf(success),
+                    MonitorService.FAILURE, String.valueOf(failure),
+                    MonitorService.INPUT, String.valueOf(input),
+                    MonitorService.OUTPUT, String.valueOf(output),
+                    MonitorService.ELAPSED, String.valueOf(elapsed),
+                    MonitorService.CONCURRENT, String.valueOf(concurrent),
+                    MonitorService.MAX_INPUT, String.valueOf(maxInput),
+                    MonitorService.MAX_OUTPUT, String.valueOf(maxOutput),
+                    MonitorService.MAX_ELAPSED, String.valueOf(maxElapsed),
+                    MonitorService.MAX_CONCURRENT, String.valueOf(maxConcurrent),
+                    DEFAULT_PROTOCOL, protocol
+                );
             monitorService.collect(url.toSerializableURL());
 
             // reset

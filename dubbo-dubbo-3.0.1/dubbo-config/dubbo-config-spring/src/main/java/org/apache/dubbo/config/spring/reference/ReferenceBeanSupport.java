@@ -117,9 +117,9 @@ public class ReferenceBeanSupport {
             value = convertToString(key, value);
 
             beanNameBuilder.append(key)
-                    .append('=')
-                    .append(value)
-                    .append(',');
+                .append('=')
+                .append(value)
+                .append(',');
         }
 
         // replace the latest "," to be ")"
@@ -205,7 +205,7 @@ public class ReferenceBeanSupport {
             }
 
             if (value == null ||
-                    (value instanceof String && StringUtils.isBlank((String) value))
+                (value instanceof String && StringUtils.isBlank((String) value))
             ) {
                 //ignore null or blank string
                 continue;

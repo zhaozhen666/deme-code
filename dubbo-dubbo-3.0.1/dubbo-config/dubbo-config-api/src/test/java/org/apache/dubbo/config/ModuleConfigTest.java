@@ -107,6 +107,6 @@ public class ModuleConfigTest {
     public void testMetaData() {
         MonitorConfig config = new MonitorConfig();
         Map<String, String> metaData = config.getMetaData();
-        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: "+metaData);
+        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: " + metaData);
     }
 }

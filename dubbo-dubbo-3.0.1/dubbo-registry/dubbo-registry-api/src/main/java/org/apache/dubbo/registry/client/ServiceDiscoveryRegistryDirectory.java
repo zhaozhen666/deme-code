@@ -103,13 +103,13 @@ public class ServiceDiscoveryRegistryDirectory<T> extends DynamicDirectory<T> {
 
     /**
      * This implementation makes sure all application names related to serviceListener received address notification.
-     *
+     * <p>
      * FIXME, make sure deprecated "interface-application" mapping item be cleared in time.
      */
     @Override
     public boolean isNotificationReceived() {
         return serviceListener == null || serviceListener.isDestroyed()
-                || serviceListener.getAllInstances().size() == serviceListener.getServiceNames().size();
+            || serviceListener.getAllInstances().size() == serviceListener.getServiceNames().size();
     }
 
     private void refreshInvoker(List<URL> invokerUrls) {
@@ -174,9 +174,9 @@ public class ServiceDiscoveryRegistryDirectory<T> extends DynamicDirectory<T> {
             }
             if (!ExtensionLoader.getExtensionLoader(Protocol.class).hasExtension(instanceAddressURL.getProtocol())) {
                 logger.error(new IllegalStateException("Unsupported protocol " + instanceAddressURL.getProtocol() +
-                        " in notified url: " + instanceAddressURL + " from registry " + getUrl().getAddress() +
-                        " to consumer " + NetUtils.getLocalHost() + ", supported protocol: " +
-                        ExtensionLoader.getExtensionLoader(Protocol.class).getSupportedExtensions()));
+                    " in notified url: " + instanceAddressURL + " from registry " + getUrl().getAddress() +
+                    " to consumer " + NetUtils.getLocalHost() + ", supported protocol: " +
+                    ExtensionLoader.getExtensionLoader(Protocol.class).getSupportedExtensions()));
                 continue;
             }
 
@@ -216,7 +216,7 @@ public class ServiceDiscoveryRegistryDirectory<T> extends DynamicDirectory<T> {
         }
 
         return !oldURL.getMetadataInfo().getServiceInfo(getConsumerUrl().getProtocolServiceKey())
-                .equals(newURL.getMetadataInfo().getServiceInfo(getConsumerUrl().getProtocolServiceKey()));
+            .equals(newURL.getMetadataInfo().getServiceInfo(getConsumerUrl().getProtocolServiceKey()));
     }
 
     private List<Invoker<T>> toMergeInvokerList(List<Invoker<T>> invokers) {

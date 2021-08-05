@@ -76,7 +76,7 @@ public class DefaultTPSLimiterTest {
         for (int i = 1; i <= tenTimesLimitRate; i++) {
             Assertions.assertTrue(defaultTPSLimiter.isAllowable(url, invocation));
         }
-        
+
         Assertions.assertFalse(defaultTPSLimiter.isAllowable(url, invocation));
     }
 }

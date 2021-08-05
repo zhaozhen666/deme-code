@@ -46,6 +46,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.VERSION_KEY;
 import static org.apache.dubbo.monitor.Constants.COUNT_PROTOCOL;
 import static org.apache.dubbo.rpc.Constants.INPUT_KEY;
 import static org.apache.dubbo.rpc.Constants.OUTPUT_KEY;
+
 /**
  * MonitorFilter. (SPI, Singleton, ThreadSafe)
  */
@@ -125,7 +126,7 @@ public class MonitorFilter implements Filter, Filter.Listener {
         try {
             Object monitorUrl;
             monitorUrl = invoker.getUrl().getAttribute(MONITOR_KEY);
-            if(monitorUrl instanceof URL) {
+            if (monitorUrl instanceof URL) {
                 Monitor monitor = monitorFactory.getMonitor((URL) monitorUrl);
                 if (monitor == null) {
                     return;

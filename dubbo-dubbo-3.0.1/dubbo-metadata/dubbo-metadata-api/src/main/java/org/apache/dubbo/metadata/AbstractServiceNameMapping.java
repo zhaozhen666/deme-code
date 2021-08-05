@@ -62,7 +62,7 @@ public abstract class AbstractServiceNameMapping implements ServiceNameMapping {
 
         if (isEmpty(subscribedServices)) {
             Set<String> cachedServices = WritableMetadataService.getDefaultExtension().getCachedMapping(ServiceNameMapping.buildMappingKey(subscribedURL));
-            if(!isEmpty(cachedServices)) {
+            if (!isEmpty(cachedServices)) {
                 subscribedServices.addAll(cachedServices);
             }
         }

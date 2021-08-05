@@ -12,9 +12,9 @@ public class PositionDetail implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private  Long id;
+    private Long id;
     @Column(name = "pid")
-    private  Long pid;
+    private Long pid;
     @Column(name = "description")
-    private  String description;
+    private String description;
 }

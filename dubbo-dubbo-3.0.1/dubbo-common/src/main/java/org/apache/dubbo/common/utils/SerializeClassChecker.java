@@ -107,8 +107,8 @@ public class SerializeClassChecker {
     /**
      * Check if a class is in block list, using prefix match
      *
-     * @throws IllegalArgumentException if class is blocked
      * @param name class name ( all are convert to lower case )
+     * @throws IllegalArgumentException if class is blocked
      */
     public void validateClass(String name) {
         name = name.toLowerCase(Locale.ROOT);
@@ -139,12 +139,12 @@ public class SerializeClassChecker {
 
     private void error(String name) {
         String notice = "Trigger the safety barrier! " +
-                "Catch not allowed serialize class. " +
-                "Class name: " + name + " . " +
-                "This means currently maybe being attacking by others." +
-                "If you are sure this is a mistake, " +
-                "please add this class name to `" + CLASS_DESERIALIZE_ALLOWED_LIST +
-                "` as a system environment property.";
+            "Catch not allowed serialize class. " +
+            "Class name: " + name + " . " +
+            "This means currently maybe being attacking by others." +
+            "If you are sure this is a mistake, " +
+            "please add this class name to `" + CLASS_DESERIALIZE_ALLOWED_LIST +
+            "` as a system environment property.";
         if (counter.incrementAndGet() % 1000 == 0 || counter.get() < 100) {
             logger.error(notice);
         }

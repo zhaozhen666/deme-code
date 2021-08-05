@@ -41,24 +41,24 @@ import java.util.Collection;
 import java.util.List;
 
 @SpringBootTest(
-        properties = {
-                "dubbo.applications.application1.name = dubbo-demo-application",
-                "dubbo.modules.demo-module.name = dubbo-demo-module",
-                "dubbo.registries.my-registry.address = zookeeper://192.168.99.100:32770",
-                "dubbo.protocols.dubbo.port=20880",
-                "dubbo.metricses.my-metrics.protocol=dubbo",
-                "dubbo.metricses.my-metrics.port=20880",
-                "dubbo.monitors.my-monitor.address=zookeeper://127.0.0.1:32770",
-                "dubbo.config-centers.my-configcenter.address=zookeeper://127.0.0.1:2181",
-                "dubbo.config-centers.my-configcenter.group=group1",
-                "dubbo.metadata-reports.my-metadata.address=zookeeper://127.0.0.1:2182",
-                "dubbo.metadata-reports.my-metadata.username=User",
-                "dubbo.providers.my-provider.host=127.0.0.1",
-                "dubbo.consumers.my-consumer.client=netty"
-        },
-        classes = {
-                SpringBootMultipleConfigPropsTest.class
-        }
+    properties = {
+        "dubbo.applications.application1.name = dubbo-demo-application",
+        "dubbo.modules.demo-module.name = dubbo-demo-module",
+        "dubbo.registries.my-registry.address = zookeeper://192.168.99.100:32770",
+        "dubbo.protocols.dubbo.port=20880",
+        "dubbo.metricses.my-metrics.protocol=dubbo",
+        "dubbo.metricses.my-metrics.port=20880",
+        "dubbo.monitors.my-monitor.address=zookeeper://127.0.0.1:32770",
+        "dubbo.config-centers.my-configcenter.address=zookeeper://127.0.0.1:2181",
+        "dubbo.config-centers.my-configcenter.group=group1",
+        "dubbo.metadata-reports.my-metadata.address=zookeeper://127.0.0.1:2182",
+        "dubbo.metadata-reports.my-metadata.username=User",
+        "dubbo.providers.my-provider.host=127.0.0.1",
+        "dubbo.consumers.my-consumer.client=netty"
+    },
+    classes = {
+        SpringBootMultipleConfigPropsTest.class
+    }
 )
 @Configuration
 @ComponentScan

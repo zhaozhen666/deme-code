@@ -54,13 +54,13 @@ public class RdsProtocol extends AbstractProtocol<RouteResult, DeltaRoute> {
     protected RouteResult decodeDiscoveryResponse(DiscoveryResponse response) {
         if (getTypeUrl().equals(response.getTypeUrl())) {
             Map<String, Set<String>> map = response.getResourcesList().stream()
-                    .map(RdsProtocol::unpackRouteConfiguration)
-                    .filter(Objects::nonNull)
-                    .map(RdsProtocol::decodeResourceToListener)
-                    .reduce((a, b) -> {
-                        a.putAll(b);
-                        return a;
-                    }).orElse(new HashMap<>());
+                .map(RdsProtocol::unpackRouteConfiguration)
+                .filter(Objects::nonNull)
+                .map(RdsProtocol::decodeResourceToListener)
+                .reduce((a, b) -> {
+                    a.putAll(b);
+                    return a;
+                }).orElse(new HashMap<>());
             return new RouteResult(map);
         }
         return new RouteResult();
@@ -69,15 +69,15 @@ public class RdsProtocol extends AbstractProtocol<RouteResult, DeltaRoute> {
     private static Map<String, Set<String>> decodeResourceToListener(RouteConfiguration resource) {
         Map<String, Set<String>> map = new HashMap<>();
         resource.getVirtualHostsList()
-                .forEach(virtualHost -> {
-                    Set<String> cluster = virtualHost.getRoutesList().stream()
-                            .map(Route::getRoute)
-                            .map(RouteAction::getCluster)
-                            .collect(Collectors.toSet());
-                    for (String domain : virtualHost.getDomainsList()) {
-                        map.put(domain, cluster);
-                    }
-                });
+            .forEach(virtualHost -> {
+                Set<String> cluster = virtualHost.getRoutesList().stream()
+                    .map(Route::getRoute)
+                    .map(RouteAction::getCluster)
+                    .collect(Collectors.toSet());
+                for (String domain : virtualHost.getDomainsList()) {
+                    map.put(domain, cluster);
+                }
+            });
         return map;
     }
 

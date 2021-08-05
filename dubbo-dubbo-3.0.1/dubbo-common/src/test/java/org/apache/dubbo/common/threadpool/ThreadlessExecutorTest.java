@@ -32,24 +32,27 @@ public class ThreadlessExecutorTest {
     static {
         URL url = URL.valueOf("dubbo://127.0.0.1:12345");
         ExecutorService sharedExecutor =
-                ExtensionLoader.getExtensionLoader(ExecutorRepository.class)
-                        .getDefaultExtension().createExecutorIfAbsent(url);
+            ExtensionLoader.getExtensionLoader(ExecutorRepository.class)
+                .getDefaultExtension().createExecutorIfAbsent(url);
         executor = new ThreadlessExecutor(sharedExecutor);
     }
 
     @Test
     public void test() throws InterruptedException {
         for (int i = 0; i < 10; i++) {
-            executor.execute(()->{throw new RuntimeException("test");});
+            executor.execute(() -> {
+                throw new RuntimeException("test");
+            });
         }
 
         CompletableFuture<Object> stubFuture = new CompletableFuture<>();
         executor.setWaitingFuture(stubFuture);
-        Assertions.assertEquals(executor.getWaitingFuture(),stubFuture);
+        Assertions.assertEquals(executor.getWaitingFuture(), stubFuture);
 
         executor.waitAndDrain();
 
-        executor.execute(()->{});
+        executor.execute(() -> {
+        });
 
         executor.waitAndDrain();
 

@@ -76,13 +76,13 @@ public class DubboMethodMatch {
 
         Integer argc = dubboMethodMatch.getArgc();
         if (argc != null &&
-                ((argc != 0 && (parameters == null || parameters.length == 0)) || (argc != parameters.length))) {
+            ((argc != 0 && (parameters == null || parameters.length == 0)) || (argc != parameters.length))) {
             return false;
         }
         List<StringMatch> argp = dubboMethodMatch.getArgp();
         if (argp != null) {
             if (((parameterTypeList == null || parameterTypeList.length == 0) && argp.size() > 0)
-                    || (argp.size() != parameterTypeList.length)) {
+                || (argp.size() != parameterTypeList.length)) {
                 return false;
             }
 
@@ -117,12 +117,12 @@ public class DubboMethodMatch {
     @Override
     public String toString() {
         return "DubboMethodMatch{" +
-                "name_match=" + name_match +
-                ", argc=" + argc +
-                ", args=" + args +
-                ", argp=" + argp +
-                ", headers=" + headers +
-                '}';
+            "name_match=" + name_match +
+            ", argc=" + argc +
+            ", args=" + args +
+            ", argp=" + argp +
+            ", headers=" + headers +
+            '}';
     }
 }
 

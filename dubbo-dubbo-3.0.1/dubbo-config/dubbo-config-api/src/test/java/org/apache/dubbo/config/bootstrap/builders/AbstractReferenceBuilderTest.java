@@ -111,7 +111,7 @@ class AbstractReferenceBuilderTest {
     void build() {
         ReferenceBuilder builder = new ReferenceBuilder();
         builder.check(true).init(false).generic(true).injvm(false).lazy(true).reconnect("reconnect").sticky(false)
-                .version("version").group("group").id("id");
+            .version("version").group("group").id("id");
 
         ReferenceConfig config = builder.build();
         ReferenceConfig config2 = builder.build();

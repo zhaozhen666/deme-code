@@ -49,9 +49,9 @@ public class MetadataReportInstance {
         if (METADATA_REPORT_KEY.equals(url.getProtocol())) {
             String protocol = url.getParameter(METADATA_REPORT_KEY, DEFAULT_DIRECTORY);
             url = URLBuilder.from(url)
-                    .setProtocol(protocol)
-                    .removeParameter(METADATA_REPORT_KEY)
-                    .build();
+                .setProtocol(protocol)
+                .removeParameter(METADATA_REPORT_KEY)
+                .build();
         }
         url = url.addParameterIfAbsent(APPLICATION_KEY, ApplicationModel.getApplicationConfig().getName());
         String relatedRegistryId = config.getRegistry() == null ? DEFAULT_KEY : config.getRegistry();

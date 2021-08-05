@@ -79,7 +79,7 @@ public class MethodDefinition implements Serializable {
     @Override
     public String toString() {
         return "MethodDefinition [name=" + name + ", parameterTypes=" + Arrays.toString(parameterTypes)
-                + ", returnType=" + returnType + "]";
+            + ", returnType=" + returnType + "]";
     }
 
     @Override
@@ -92,8 +92,8 @@ public class MethodDefinition implements Serializable {
         }
         MethodDefinition that = (MethodDefinition) o;
         return Objects.equals(getName(), that.getName()) &&
-                Arrays.equals(getParameterTypes(), that.getParameterTypes()) &&
-                Objects.equals(getReturnType(), that.getReturnType());
+            Arrays.equals(getParameterTypes(), that.getParameterTypes()) &&
+            Objects.equals(getReturnType(), that.getReturnType());
     }
 
     @Override

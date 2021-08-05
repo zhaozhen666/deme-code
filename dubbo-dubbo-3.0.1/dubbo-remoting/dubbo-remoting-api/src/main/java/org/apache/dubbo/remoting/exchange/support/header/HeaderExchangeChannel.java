@@ -93,8 +93,8 @@ final class HeaderExchangeChannel implements ExchangeChannel {
             throw new RemotingException(this.getLocalAddress(), null, "Failed to send message " + message + ", cause: The channel " + this + " is closed!");
         }
         if (message instanceof Request
-                || message instanceof Response
-                || message instanceof String) {
+            || message instanceof Response
+            || message instanceof String) {
             channel.send(message, sent);
         } else {
             Request request = new Request();
@@ -166,7 +166,7 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         if (timeout > 0) {
             long start = System.currentTimeMillis();
             while (DefaultFuture.hasFuture(channel)
-                    && System.currentTimeMillis() - start < timeout) {
+                && System.currentTimeMillis() - start < timeout) {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {

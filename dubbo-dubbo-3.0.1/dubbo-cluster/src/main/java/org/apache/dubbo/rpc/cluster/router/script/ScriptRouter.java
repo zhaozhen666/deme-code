@@ -91,7 +91,7 @@ public class ScriptRouter extends AbstractRouter {
             function = compilable.compile(rule);
         } catch (ScriptException e) {
             logger.error("route error, rule has been ignored. rule: " + rule +
-                    ", url: " + RpcContext.getServiceContext().getUrl(), e);
+                ", url: " + RpcContext.getServiceContext().getUrl(), e);
         }
     }
 
@@ -132,7 +132,7 @@ public class ScriptRouter extends AbstractRouter {
                 return function.eval(bindings);
             } catch (ScriptException e) {
                 logger.error("route error, rule has been ignored. rule: " + rule + ", method:" +
-                        invocation.getMethodName() + ", url: " + RpcContext.getContext().getUrl(), e);
+                    invocation.getMethodName() + ", url: " + RpcContext.getContext().getUrl(), e);
                 return invokers;
             }
         }, accessControlContext));

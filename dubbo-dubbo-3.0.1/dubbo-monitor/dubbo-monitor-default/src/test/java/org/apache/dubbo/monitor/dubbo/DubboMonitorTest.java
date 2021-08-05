@@ -96,17 +96,17 @@ public class DubboMonitorTest {
     public void testCount() throws Exception {
         DubboMonitor monitor = new DubboMonitor(monitorInvoker, monitorService);
         URL statistics = new URLBuilder(DUBBO_PROTOCOL, "10.20.153.10", 0)
-                .addParameter(MonitorService.APPLICATION, "morgan")
-                .addParameter(MonitorService.INTERFACE, "MemberService")
-                .addParameter(MonitorService.METHOD, "findPerson")
-                .addParameter(MonitorService.CONSUMER, "10.20.153.11")
-                .addParameter(MonitorService.SUCCESS, 1)
-                .addParameter(MonitorService.FAILURE, 0)
-                .addParameter(MonitorService.ELAPSED, 3)
-                .addParameter(MonitorService.MAX_ELAPSED, 3)
-                .addParameter(MonitorService.CONCURRENT, 1)
-                .addParameter(MonitorService.MAX_CONCURRENT, 1)
-                .build();
+            .addParameter(MonitorService.APPLICATION, "morgan")
+            .addParameter(MonitorService.INTERFACE, "MemberService")
+            .addParameter(MonitorService.METHOD, "findPerson")
+            .addParameter(MonitorService.CONSUMER, "10.20.153.11")
+            .addParameter(MonitorService.SUCCESS, 1)
+            .addParameter(MonitorService.FAILURE, 0)
+            .addParameter(MonitorService.ELAPSED, 3)
+            .addParameter(MonitorService.MAX_ELAPSED, 3)
+            .addParameter(MonitorService.CONCURRENT, 1)
+            .addParameter(MonitorService.MAX_CONCURRENT, 1)
+            .build();
         monitor.collect(statistics.toSerializableURL());
         monitor.send();
         while (lastStatistics == null) {
@@ -132,17 +132,17 @@ public class DubboMonitorTest {
     public void testMonitorFactory() throws Exception {
         MockMonitorService monitorService = new MockMonitorService();
         URL statistics = new URLBuilder(DUBBO_PROTOCOL, "10.20.153.10", 0)
-                .addParameter(MonitorService.APPLICATION, "morgan")
-                .addParameter(MonitorService.INTERFACE, "MemberService")
-                .addParameter(MonitorService.METHOD, "findPerson")
-                .addParameter(MonitorService.CONSUMER, "10.20.153.11")
-                .addParameter(MonitorService.SUCCESS, 1)
-                .addParameter(MonitorService.FAILURE, 0)
-                .addParameter(MonitorService.ELAPSED, 3)
-                .addParameter(MonitorService.MAX_ELAPSED, 3)
-                .addParameter(MonitorService.CONCURRENT, 1)
-                .addParameter(MonitorService.MAX_CONCURRENT, 1)
-                .build();
+            .addParameter(MonitorService.APPLICATION, "morgan")
+            .addParameter(MonitorService.INTERFACE, "MemberService")
+            .addParameter(MonitorService.METHOD, "findPerson")
+            .addParameter(MonitorService.CONSUMER, "10.20.153.11")
+            .addParameter(MonitorService.SUCCESS, 1)
+            .addParameter(MonitorService.FAILURE, 0)
+            .addParameter(MonitorService.ELAPSED, 3)
+            .addParameter(MonitorService.MAX_ELAPSED, 3)
+            .addParameter(MonitorService.CONCURRENT, 1)
+            .addParameter(MonitorService.MAX_CONCURRENT, 1)
+            .build();
 
         Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
         ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
@@ -194,17 +194,17 @@ public class DubboMonitorTest {
     @Test
     public void testSum() {
         URL statistics = new URLBuilder(DUBBO_PROTOCOL, "10.20.153.11", 0)
-                .addParameter(MonitorService.APPLICATION, "morgan")
-                .addParameter(MonitorService.INTERFACE, "MemberService")
-                .addParameter(MonitorService.METHOD, "findPerson")
-                .addParameter(MonitorService.CONSUMER, "10.20.153.11")
-                .addParameter(MonitorService.SUCCESS, 1)
-                .addParameter(MonitorService.FAILURE, 0)
-                .addParameter(MonitorService.ELAPSED, 3)
-                .addParameter(MonitorService.MAX_ELAPSED, 3)
-                .addParameter(MonitorService.CONCURRENT, 1)
-                .addParameter(MonitorService.MAX_CONCURRENT, 1)
-                .build();
+            .addParameter(MonitorService.APPLICATION, "morgan")
+            .addParameter(MonitorService.INTERFACE, "MemberService")
+            .addParameter(MonitorService.METHOD, "findPerson")
+            .addParameter(MonitorService.CONSUMER, "10.20.153.11")
+            .addParameter(MonitorService.SUCCESS, 1)
+            .addParameter(MonitorService.FAILURE, 0)
+            .addParameter(MonitorService.ELAPSED, 3)
+            .addParameter(MonitorService.MAX_ELAPSED, 3)
+            .addParameter(MonitorService.CONCURRENT, 1)
+            .addParameter(MonitorService.MAX_CONCURRENT, 1)
+            .build();
         Invoker invoker = mock(Invoker.class);
         MonitorService monitorService = mock(MonitorService.class);
 
@@ -213,7 +213,7 @@ public class DubboMonitorTest {
 
         dubboMonitor.collect(statistics.toSerializableURL());
         dubboMonitor.collect(statistics.addParameter(MonitorService.SUCCESS, 3).addParameter(MonitorService.CONCURRENT, 2)
-                .addParameter(MonitorService.INPUT, 1).addParameter(MonitorService.OUTPUT, 2).toSerializableURL());
+            .addParameter(MonitorService.INPUT, 1).addParameter(MonitorService.OUTPUT, 2).toSerializableURL());
         dubboMonitor.collect(statistics.addParameter(MonitorService.SUCCESS, 6).addParameter(MonitorService.ELAPSED, 2).toSerializableURL());
 
         dubboMonitor.send();

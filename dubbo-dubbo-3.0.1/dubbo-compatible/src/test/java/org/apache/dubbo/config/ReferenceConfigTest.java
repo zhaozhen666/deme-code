@@ -68,11 +68,11 @@ public class ReferenceConfigTest {
         rc.setInjvm(false);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(application)
-                .registry(registry)
-                .protocol(protocol)
-                .service(demoService)
-                .reference(rc);
+            .application(application)
+            .registry(registry)
+            .protocol(protocol)
+            .service(demoService)
+            .reference(rc);
 
         try {
             bootstrap.start();

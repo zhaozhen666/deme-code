@@ -63,7 +63,7 @@ public class SignatureUtils {
         try {
             Mac mac = Mac.getInstance(HMAC_SHA256_ALGORITHM);
             SecretKeySpec signingKey = new SecretKeySpec(key.getBytes(),
-                    HMAC_SHA256_ALGORITHM);
+                HMAC_SHA256_ALGORITHM);
             mac.init(signingKey);
             // compute the hmac on input data bytes
             byte[] rawHmac = mac.doFinal(data);
@@ -72,7 +72,7 @@ public class SignatureUtils {
 
         } catch (Exception e) {
             throw new SignatureException("Failed to generate HMAC : "
-                    + e.getMessage());
+                + e.getMessage());
         }
         return result;
     }

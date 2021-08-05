@@ -34,15 +34,15 @@ public class DubboInterfaceConsumerBootstrap {
         interfaceRegistry.setAddress("zookeeper://127.0.0.1:2181");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application("dubbo-consumer-demo")
-                // Zookeeper
-                .registry(interfaceRegistry)
-                // Nacos
+            .application("dubbo-consumer-demo")
+            // Zookeeper
+            .registry(interfaceRegistry)
+            // Nacos
 //                .registry("consul", builder -> builder.address("consul://127.0.0.1:8500?registry.type=service&subscribed.services=dubbo-provider-demo"))
-                .reference("echo", builder -> builder.interfaceClass(EchoService.class).protocol("dubbo"))
-                .reference("user", builder -> builder.interfaceClass(UserService.class).protocol("rest"))
-                .start()
-                .await();
+            .reference("echo", builder -> builder.interfaceClass(EchoService.class).protocol("dubbo"))
+            .reference("user", builder -> builder.interfaceClass(UserService.class).protocol("rest"))
+            .start()
+            .await();
 
         EchoService echoService = bootstrap.getCache().get(EchoService.class);
         UserService userService = bootstrap.getCache().get(UserService.class);

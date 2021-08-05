@@ -21,17 +21,17 @@ import org.apache.dubbo.common.extension.SPI;
 @SPI
 public interface MetadataParamsFilter {
 
-   /**
-    * params that need to be sent to metadata center
-    *
-    * @return arrays of keys
-    */
-   String[] serviceParamsIncluded();
+    /**
+     * params that need to be sent to metadata center
+     *
+     * @return arrays of keys
+     */
+    String[] serviceParamsIncluded();
 
-   /**
-    * params that need to be sent to registry center
-    *
-    * @return arrays of keys
-    */
-   String[] instanceParamsIncluded();
+    /**
+     * params that need to be sent to registry center
+     *
+     * @return arrays of keys
+     */
+    String[] instanceParamsIncluded();
 }

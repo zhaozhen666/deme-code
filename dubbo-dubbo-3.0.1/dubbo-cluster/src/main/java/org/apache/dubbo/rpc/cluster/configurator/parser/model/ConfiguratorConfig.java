@@ -48,7 +48,7 @@ public class ConfiguratorConfig {
         Object configs = map.get("configs");
         if (configs != null && List.class.isAssignableFrom(configs.getClass())) {
             configuratorConfig.setConfigs(((List<Map<String, Object>>) configs).stream()
-                    .map(ConfigItem::parseFromMap).collect(Collectors.toList()));
+                .map(ConfigItem::parseFromMap).collect(Collectors.toList()));
         }
 
         return configuratorConfig;

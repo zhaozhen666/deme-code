@@ -32,7 +32,7 @@ public class RouterTest {
     private static List<Router> routers = new ArrayList<>();
 
     @BeforeAll
-    public static void setUp () {
+    public static void setUp() {
         CompatibleRouter compatibleRouter = new CompatibleRouter();
         routers.add(compatibleRouter);
         CompatibleRouter2 compatibleRouter2 = new CompatibleRouter2();
@@ -42,7 +42,7 @@ public class RouterTest {
     }
 
     @Test
-    public void testCompareTo () {
+    public void testCompareTo() {
         try {
             Collections.sort(routers);
             Assertions.assertTrue(true);

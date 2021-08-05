@@ -33,12 +33,12 @@
     <!-- service configuration -->
     <dubbo:service interface="org.apache.dubbo.config.spring.api.DemoService"
                    class="org.apache.dubbo.config.spring.impl.DemoServiceImpl">
-        <dubbo:method name="sayName" timeout="500" />
+        <dubbo:method name="sayName" timeout="500"/>
     </dubbo:service>
 
     <dubbo:service interface="org.apache.dubbo.config.spring.api.DemoService"
                    class="org.apache.dubbo.config.spring.impl.DemoServiceImpl_LongWaiting">
-        <dubbo:method name="sayName" timeout="1000" />
+        <dubbo:method name="sayName" timeout="1000"/>
     </dubbo:service>
 
 

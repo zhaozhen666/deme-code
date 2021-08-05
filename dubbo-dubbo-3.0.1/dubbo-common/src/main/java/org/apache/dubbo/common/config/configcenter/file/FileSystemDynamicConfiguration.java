@@ -81,7 +81,7 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
     public static final String CONFIG_CENTER_ENCODING_PARAM_NAME = PARAM_NAME_PREFIX + "encoding";
 
     public static final String DEFAULT_CONFIG_CENTER_DIR_PATH = System.getProperty("user.home") + File.separator
-            + ".dubbo" + File.separator + "config-center";
+        + ".dubbo" + File.separator + "config-center";
 
     public static final int DEFAULT_THREAD_POOL_SIZE = 1;
 
@@ -107,14 +107,14 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
      * {@link WatchEvent.Kind WatchEvent's Kind}
      */
     private static final Map<String, ConfigChangeType> CONFIG_CHANGE_TYPES_MAP =
-            unmodifiableMap(new HashMap<String, ConfigChangeType>() {
-                // Initializes the elements that is mapping ConfigChangeType
-                {
-                    put(ENTRY_CREATE.name(), ConfigChangeType.ADDED);
-                    put(ENTRY_DELETE.name(), ConfigChangeType.DELETED);
-                    put(ENTRY_MODIFY.name(), ConfigChangeType.MODIFIED);
-                }
-            });
+        unmodifiableMap(new HashMap<String, ConfigChangeType>() {
+            // Initializes the elements that is mapping ConfigChangeType
+            {
+                put(ENTRY_CREATE.name(), ConfigChangeType.ADDED);
+                put(ENTRY_DELETE.name(), ConfigChangeType.DELETED);
+                put(ENTRY_MODIFY.name(), ConfigChangeType.MODIFIED);
+            }
+        });
 
     private static final Optional<WatchService> watchService;
 
@@ -203,7 +203,7 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
 
     public FileSystemDynamicConfiguration(URL url) {
         this(initDirectory(url), getEncoding(url), getThreadPoolPrefixName(url), getThreadPoolSize(url),
-                getThreadPoolKeepAliveTime(url));
+            getThreadPoolKeepAliveTime(url));
     }
 
     private Set<File> initProcessingDirectories() {
@@ -374,8 +374,8 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
             return new TreeSet<>();
         } else {
             return Stream.of(files)
-                    .map(File::getName)
-                    .collect(Collectors.toList());
+                .map(File::getName)
+                .collect(Collectors.toList());
         }
     }
 
@@ -427,7 +427,7 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
                         long timeout = SECONDS.toMillis(delay);
                         if (logger.isDebugEnabled()) {
                             logger.debug(format("The config[path : %s] is about to delay in %d ms.",
-                                    configFilePath, timeout));
+                                configFilePath, timeout));
                         }
                         configDirectory.wait(timeout);
                     }
@@ -470,14 +470,14 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
 
     public Set<String> getConfigGroups() {
         return Stream.of(getRootDirectory().listFiles())
-                .filter(File::isDirectory)
-                .map(File::getName)
-                .collect(Collectors.toSet());
+            .filter(File::isDirectory)
+            .map(File::getName)
+            .collect(Collectors.toSet());
     }
 
     protected String getConfig(File configFile) {
         return ThrowableFunction.execute(configFile,
-                file -> canRead(configFile) ? readFileToString(configFile, getEncoding()) : null);
+            file -> canRead(configFile) ? readFileToString(configFile, getEncoding()) : null);
     }
 
     @Override
@@ -589,7 +589,7 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
 
         if (!rootDirectory.exists() && !rootDirectory.mkdirs()) {
             throw new IllegalStateException(format("Dubbo config center rootDirectory[%s] can't be created!",
-                    rootDirectory.getAbsolutePath()));
+                rootDirectory.getAbsolutePath()));
         }
         return rootDirectory;
     }
@@ -600,8 +600,8 @@ public class FileSystemDynamicConfiguration extends TreePathDynamicConfiguration
 
     private static ThreadPoolExecutor newWatchEventsLoopThreadPool() {
         return new ThreadPoolExecutor(THREAD_POOL_SIZE, THREAD_POOL_SIZE,
-                0L, MILLISECONDS,
-                new SynchronousQueue(),
-                new NamedThreadFactory("dubbo-config-center-watch-events-loop", true));
+            0L, MILLISECONDS,
+            new SynchronousQueue(),
+            new NamedThreadFactory("dubbo-config-center-watch-events-loop", true));
     }
 }

@@ -4,9 +4,11 @@ import com.zhao.stack.Stack;
 
 public class LinkedListStack<E> implements Stack<E> {
     private LinkedList<E> linkedList;
-    public LinkedListStack(){
+
+    public LinkedListStack() {
         linkedList = new LinkedList<>();
     }
+
     @Override
     public int getSize() {
         return linkedList.getSize();
@@ -34,7 +36,7 @@ public class LinkedListStack<E> implements Stack<E> {
 
     @Override
     public String toString() {
-        StringBuilder builder= new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         builder.append("stack top");
         builder.append(linkedList);
         return builder.toString();

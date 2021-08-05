@@ -169,16 +169,16 @@ public abstract class Wrapper {
         }
 
         Method[] methods = Arrays.stream(c.getMethods())
-                                 .filter(method -> allMethod.contains(ReflectUtils.getDesc(method)))
-                                 .collect(Collectors.toList())
-                                 .toArray(new Method[] {});
+            .filter(method -> allMethod.contains(ReflectUtils.getDesc(method)))
+            .collect(Collectors.toList())
+            .toArray(new Method[]{});
         // get all public method.
         boolean hasMethod = hasMethods(methods);
         if (hasMethod) {
             Map<String, Integer> sameNameMethodCount = new HashMap<>((int) (methods.length / 0.75f) + 1);
             for (Method m : methods) {
                 sameNameMethodCount.compute(m.getName(),
-                        (key, oldValue) -> oldValue == null ? 1 : oldValue + 1);
+                    (key, oldValue) -> oldValue == null ? 1 : oldValue + 1);
             }
 
             c3.append(" try{");
@@ -198,7 +198,7 @@ public abstract class Wrapper {
                     if (len > 0) {
                         for (int l = 0; l < len; l++) {
                             c3.append(" && ").append(" $3[").append(l).append("].getName().equals(\"")
-                                    .append(m.getParameterTypes()[l].getName()).append("\")");
+                                .append(m.getParameterTypes()[l].getName()).append("\")");
                         }
                     }
                 }

@@ -49,11 +49,11 @@ public class MapTypeDefinitionBuilder implements DeclaredTypeDefinitionBuilder {
         TypeDefinition typeDefinition = new TypeDefinition(type.toString());
         // Generic Type arguments
         type.getTypeArguments()
-                .stream()
-                .map(typeArgument -> TypeDefinitionBuilder.build(processingEnv, typeArgument, typeCache)) // build the TypeDefinition from typeArgument
-                .filter(Objects::nonNull)
-                .map(TypeDefinition::getType)
-                .forEach(typeDefinition.getItems()::add);                              // Add into the declared TypeDefinition
+            .stream()
+            .map(typeArgument -> TypeDefinitionBuilder.build(processingEnv, typeArgument, typeCache)) // build the TypeDefinition from typeArgument
+            .filter(Objects::nonNull)
+            .map(TypeDefinition::getType)
+            .forEach(typeDefinition.getItems()::add);                              // Add into the declared TypeDefinition
         return typeDefinition;
     }
 

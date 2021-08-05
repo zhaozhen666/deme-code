@@ -44,7 +44,7 @@ public class MulticastRegistryTest {
     private String service = "org.apache.dubbo.test.injvmServie";
     private URL registryUrl = URL.valueOf("multicast://239.239.239.239/");
     private URL serviceUrl = URL.valueOf("dubbo://" + NetUtils.getLocalHost() + "/" + service
-            + "?methods=test1,test2");
+        + "?methods=test1,test2");
     private URL adminUrl = URL.valueOf("dubbo://" + NetUtils.getLocalHost() + "/*");
     private URL consumerUrl = URL.valueOf("subscribe://" + NetUtils.getLocalHost() + "/" + service + "?arg1=1&arg2=2");
     private MulticastRegistry registry = new MulticastRegistry(registryUrl);

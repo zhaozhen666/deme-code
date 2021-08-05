@@ -46,10 +46,10 @@ public class FixedThreadPoolTest {
     @Test
     public void getExecutor1() throws Exception {
         URL url = URL.valueOf("dubbo://10.20.130.230:20880/context/path?" +
-                THREAD_NAME_KEY + "=demo&" +
-                CORE_THREADS_KEY + "=1&" +
-                THREADS_KEY + "=2&" +
-                QUEUES_KEY + "=0");
+            THREAD_NAME_KEY + "=demo&" +
+            CORE_THREADS_KEY + "=1&" +
+            THREADS_KEY + "=2&" +
+            QUEUES_KEY + "=0");
         ThreadPool threadPool = new FixedThreadPool();
         ThreadPoolExecutor executor = (ThreadPoolExecutor) threadPool.getExecutor(url);
         assertThat(executor.getCorePoolSize(), is(2));
@@ -57,7 +57,7 @@ public class FixedThreadPoolTest {
         assertThat(executor.getKeepAliveTime(TimeUnit.MILLISECONDS), is(0L));
         assertThat(executor.getQueue(), Matchers.<BlockingQueue<Runnable>>instanceOf(SynchronousQueue.class));
         assertThat(executor.getRejectedExecutionHandler(),
-                Matchers.<RejectedExecutionHandler>instanceOf(AbortPolicyWithReport.class));
+            Matchers.<RejectedExecutionHandler>instanceOf(AbortPolicyWithReport.class));
 
         final CountDownLatch latch = new CountDownLatch(1);
         executor.execute(new Runnable() {

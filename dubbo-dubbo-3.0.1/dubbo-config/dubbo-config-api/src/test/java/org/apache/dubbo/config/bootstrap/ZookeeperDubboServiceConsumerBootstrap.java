@@ -32,14 +32,14 @@ public class ZookeeperDubboServiceConsumerBootstrap {
     public static void main(String[] args) throws Exception {
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application("zookeeper-dubbo-consumer", app -> app.metadata(COMPOSITE_METADATA_STORAGE_TYPE))
-                .registry("zookeeper", builder -> builder.address("zookeeper://127.0.0.1:2181")
-                        .parameter(REGISTRY_TYPE_KEY, SERVICE_REGISTRY_TYPE)
-                        .useAsConfigCenter(true)
-                        .useAsMetadataCenter(true))
-                .reference("echo", builder -> builder.interfaceClass(EchoService.class).protocol("dubbo").services("zookeeper-dubbo-provider"))
-                .reference("user", builder -> builder.interfaceClass(UserService.class).protocol("rest"))
-                .start();
+            .application("zookeeper-dubbo-consumer", app -> app.metadata(COMPOSITE_METADATA_STORAGE_TYPE))
+            .registry("zookeeper", builder -> builder.address("zookeeper://127.0.0.1:2181")
+                .parameter(REGISTRY_TYPE_KEY, SERVICE_REGISTRY_TYPE)
+                .useAsConfigCenter(true)
+                .useAsMetadataCenter(true))
+            .reference("echo", builder -> builder.interfaceClass(EchoService.class).protocol("dubbo").services("zookeeper-dubbo-provider"))
+            .reference("user", builder -> builder.interfaceClass(UserService.class).protocol("rest"))
+            .start();
 
         EchoService echoService = bootstrap.getCache().get(EchoService.class);
         UserService userService = bootstrap.getCache().get(UserService.class);

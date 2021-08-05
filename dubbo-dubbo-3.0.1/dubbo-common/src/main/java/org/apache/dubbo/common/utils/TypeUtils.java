@@ -82,20 +82,20 @@ public interface TypeUtils {
         List<Class<?>> actualTypeArguments = new LinkedList<>();
 
         getAllGenericTypes(type, t -> isAssignableFrom(interfaceClass, getRawClass(t)))
-                .forEach(parameterizedType -> {
-                    Class<?> rawClass = getRawClass(parameterizedType);
-                    Type[] typeArguments = parameterizedType.getActualTypeArguments();
-                    for (int i = 0; i < typeArguments.length; i++) {
-                        Type typeArgument = typeArguments[i];
-                        if (typeArgument instanceof Class) {
-                            actualTypeArguments.add(i, (Class) typeArgument);
-                        }
+            .forEach(parameterizedType -> {
+                Class<?> rawClass = getRawClass(parameterizedType);
+                Type[] typeArguments = parameterizedType.getActualTypeArguments();
+                for (int i = 0; i < typeArguments.length; i++) {
+                    Type typeArgument = typeArguments[i];
+                    if (typeArgument instanceof Class) {
+                        actualTypeArguments.add(i, (Class) typeArgument);
                     }
-                    Class<?> superClass = rawClass.getSuperclass();
-                    if (superClass != null) {
-                        actualTypeArguments.addAll(findActualTypeArguments(superClass, interfaceClass));
-                    }
-                });
+                }
+                Class<?> superClass = rawClass.getSuperclass();
+                if (superClass != null) {
+                    actualTypeArguments.addAll(findActualTypeArguments(superClass, interfaceClass));
+                }
+            });
 
         return unmodifiableList(actualTypeArguments);
     }
@@ -121,11 +121,11 @@ public interface TypeUtils {
         genericTypes.addAll(asList(rawClass.getGenericInterfaces()));
 
         return unmodifiableList(
-                filterList(genericTypes, TypeUtils::isParameterizedType)
-                        .stream()
-                        .map(ParameterizedType.class::cast)
-                        .filter(and(typeFilters))
-                        .collect(toList())
+            filterList(genericTypes, TypeUtils::isParameterizedType)
+                .stream()
+                .map(ParameterizedType.class::cast)
+                .filter(and(typeFilters))
+                .collect(toList())
         );
     }
 
@@ -168,11 +168,11 @@ public interface TypeUtils {
         allTypes.addAll(getAllSuperClasses(rawClass, NON_OBJECT_TYPE_FILTER));
 
         List<ParameterizedType> allGenericSuperClasses = allTypes
-                .stream()
-                .map(Class::getGenericSuperclass)
-                .filter(TypeUtils::isParameterizedType)
-                .map(ParameterizedType.class::cast)
-                .collect(Collectors.toList());
+            .stream()
+            .map(Class::getGenericSuperclass)
+            .filter(TypeUtils::isParameterizedType)
+            .map(ParameterizedType.class::cast)
+            .collect(Collectors.toList());
 
         return unmodifiableList(filterAll(allGenericSuperClasses, typeFilters));
     }
@@ -201,13 +201,13 @@ public interface TypeUtils {
         allTypes.addAll(getAllInterfaces(rawClass));
 
         List<ParameterizedType> allGenericInterfaces = allTypes
-                .stream()
-                .map(Class::getGenericInterfaces)
-                .map(Arrays::asList)
-                .flatMap(Collection::stream)
-                .filter(TypeUtils::isParameterizedType)
-                .map(ParameterizedType.class::cast)
-                .collect(toList());
+            .stream()
+            .map(Class::getGenericInterfaces)
+            .map(Arrays::asList)
+            .flatMap(Collection::stream)
+            .filter(TypeUtils::isParameterizedType)
+            .map(ParameterizedType.class::cast)
+            .collect(toList());
 
         return unmodifiableList(filterAll(allGenericInterfaces, typeFilters));
     }
@@ -218,7 +218,7 @@ public interface TypeUtils {
 
     static Set<String> getClassNames(Iterable<? extends Type> types) {
         return stream(types.spliterator(), false)
-                .map(TypeUtils::getClassName)
-                .collect(toSet());
+            .map(TypeUtils::getClassName)
+            .collect(toSet());
     }
 }

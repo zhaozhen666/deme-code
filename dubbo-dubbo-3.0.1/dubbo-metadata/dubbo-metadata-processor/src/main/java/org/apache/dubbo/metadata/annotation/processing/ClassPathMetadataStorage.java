@@ -67,10 +67,10 @@ public class ClassPathMetadataStorage {
     private boolean exists(String resourceName) {
 
         return getResource(resourceName)
-                .map(FileObject::toUri)
-                .map(File::new)
-                .map(File::exists)
-                .orElse(false);
+            .map(FileObject::toUri)
+            .map(File::new)
+            .map(File::exists)
+            .orElse(false);
     }
 
     private Reader getReader(String resourceName) {

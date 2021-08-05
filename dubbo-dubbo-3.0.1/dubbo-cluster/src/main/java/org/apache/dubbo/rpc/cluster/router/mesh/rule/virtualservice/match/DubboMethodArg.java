@@ -80,11 +80,11 @@ public class DubboMethodArg {
     @Override
     public String toString() {
         return "DubboMethodArg{" +
-                "index=" + index +
-                ", type='" + type + '\'' +
-                ", str_value=" + str_value +
-                ", num_value=" + num_value +
-                ", bool_value=" + bool_value +
-                '}';
+            "index=" + index +
+            ", type='" + type + '\'' +
+            ", str_value=" + str_value +
+            ", num_value=" + num_value +
+            ", bool_value=" + bool_value +
+            '}';
     }
 }

@@ -37,7 +37,7 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
     @Autowired
     public OrderStatusMapper orderStatusMapper;
 
-//    @Autowired
+    //    @Autowired
 //    public ItemsCommentsMapperCustom itemsCommentsMapperCustom;
     // TODO feign章节里改成item-api
     @Autowired

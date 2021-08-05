@@ -41,7 +41,7 @@ public final class TripleHttp2ClientResponseHandler extends SimpleChannelInbound
             Http2GoAwayFrame event = (Http2GoAwayFrame) evt;
             ctx.close();
             logger.debug(
-                    "Event triggered, event name is: " + event.name() + ", last stream id is: " + event.lastStreamId());
+                "Event triggered, event name is: " + event.name() + ", last stream id is: " + event.lastStreamId());
         }
     }
 
@@ -70,7 +70,7 @@ public final class TripleHttp2ClientResponseHandler extends SimpleChannelInbound
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         final AbstractClientStream clientStream = TripleUtil.getClientStream(ctx);
         final GrpcStatus status = GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                .withCause(cause);
+            .withCause(cause);
         Metadata metadata = new DefaultMetadata();
         metadata.put(TripleConstant.STATUS_KEY, Integer.toString(status.code.code));
         metadata.put(TripleConstant.MESSAGE_KEY, status.toMessage());

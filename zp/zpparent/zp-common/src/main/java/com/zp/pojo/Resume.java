@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name="r_resume")
+@Table(name = "r_resume")
 public class Resume {
     @Id
     private Long id; // 主键

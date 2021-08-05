@@ -26,10 +26,10 @@ import java.util.List;
 /**
  * The Comparator class for {@link ExecutableElement}, the comparison rule :
  * <ol>
- *     <li>Comparing to two {@link ExecutableElement#getSimpleName() element names} {@link String#compareTo(String) lexicographically}.
- *     If equals, go to step 2</li>
- *     <li>Comparing to the count of two parameters. If equals, go to step 3</li>
- *     <li>Comparing to the type names of parameters {@link String#compareTo(String) lexicographically}</li>
+ * <li>Comparing to two {@link ExecutableElement#getSimpleName() element names} {@link String#compareTo(String) lexicographically}.
+ * If equals, go to step 2</li>
+ * <li>Comparing to the count of two parameters. If equals, go to step 3</li>
+ * <li>Comparing to the type names of parameters {@link String#compareTo(String) lexicographically}</li>
  * </ol>
  *
  * @since 2.7.6

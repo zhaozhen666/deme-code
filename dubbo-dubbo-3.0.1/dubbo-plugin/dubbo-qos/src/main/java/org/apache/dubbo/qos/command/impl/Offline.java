@@ -20,8 +20,8 @@ import org.apache.dubbo.qos.command.annotation.Cmd;
 import org.apache.dubbo.rpc.model.ProviderModel;
 
 @Cmd(name = "offline", summary = "offline dubbo", example = {
-        "offline dubbo",
-        "offline xx.xx.xxx.service"
+    "offline dubbo",
+    "offline xx.xx.xxx.service"
 })
 public class Offline extends BaseOffline {
     @Override

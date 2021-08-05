@@ -236,6 +236,7 @@ public @interface Service {
 
     /**
      * Application spring bean name
+     *
      * @deprecated Do not set it and use the global Application Config
      */
     @Deprecated

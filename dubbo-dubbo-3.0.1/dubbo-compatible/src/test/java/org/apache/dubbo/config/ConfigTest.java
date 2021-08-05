@@ -59,11 +59,11 @@ public class ConfigTest {
         reference.setInterface(DemoService.class);
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance()
-                .application(applicationConfig)
-                .registry(registryConfig)
-                .service(service)
-                .reference(reference)
-                .start();
+            .application(applicationConfig)
+            .registry(registryConfig)
+            .service(service)
+            .reference(reference)
+            .start();
 
         DemoService demoService = bootstrap.getCache().get(reference);
         String message = demoService.sayHello("dubbo");

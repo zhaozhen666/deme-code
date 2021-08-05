@@ -63,7 +63,7 @@ public class ZookeeperDynamicConfigurationTest {
         zkServer = new TestingServer(zkServerPort, true);
 
         client = CuratorFrameworkFactory.newClient("127.0.0.1:" + zkServerPort, 60 * 1000, 60 * 1000,
-                new ExponentialBackoffRetry(1000, 3));
+            new ExponentialBackoffRetry(1000, 3));
         client.start();
 
         try {
@@ -80,7 +80,7 @@ public class ZookeeperDynamicConfigurationTest {
         configUrl = URL.valueOf("zookeeper://127.0.0.1:" + zkServerPort);
 
         configuration = ExtensionLoader.getExtensionLoader(DynamicConfigurationFactory.class).getExtension(configUrl.getProtocol())
-                .getDynamicConfiguration(configUrl);
+            .getDynamicConfiguration(configUrl);
     }
 
     @AfterAll

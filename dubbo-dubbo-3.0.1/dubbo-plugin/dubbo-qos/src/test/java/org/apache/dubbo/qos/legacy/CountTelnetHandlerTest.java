@@ -79,7 +79,7 @@ public class CountTelnetHandlerTest {
         }
 
         assertThat(sb.toString(), containsString(buildTable(methodName,
-                10, 10, "1", "0", "0")));
+            10, 10, "1", "0", "0")));
     }
 
     public static String buildTable(String methodName, long averageElapsed,

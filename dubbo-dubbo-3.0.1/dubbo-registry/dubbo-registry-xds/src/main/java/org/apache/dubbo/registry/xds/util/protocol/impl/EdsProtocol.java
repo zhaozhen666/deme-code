@@ -51,13 +51,13 @@ public class EdsProtocol extends AbstractProtocol<EndpointResult, DeltaEndpoint>
     }
 
     @Override
-    protected  EndpointResult decodeDiscoveryResponse(DiscoveryResponse response) {
+    protected EndpointResult decodeDiscoveryResponse(DiscoveryResponse response) {
         if (getTypeUrl().equals(response.getTypeUrl())) {
             Set<Endpoint> set = response.getResourcesList().stream()
-                    .map(EdsProtocol::unpackClusterLoadAssignment)
-                    .filter(Objects::nonNull)
-                    .flatMap((e) -> decodeResourceToEndpoint(e).stream())
-                    .collect(Collectors.toSet());
+                .map(EdsProtocol::unpackClusterLoadAssignment)
+                .filter(Objects::nonNull)
+                .flatMap((e) -> decodeResourceToEndpoint(e).stream())
+                .collect(Collectors.toSet());
             return new EndpointResult(set);
         }
         return new EndpointResult();
@@ -65,9 +65,9 @@ public class EdsProtocol extends AbstractProtocol<EndpointResult, DeltaEndpoint>
 
     private static Set<Endpoint> decodeResourceToEndpoint(ClusterLoadAssignment resource) {
         return resource.getEndpointsList().stream()
-                .flatMap((e) -> e.getLbEndpointsList().stream())
-                .map(EdsProtocol::decodeLbEndpointToEndpoint)
-                .collect(Collectors.toSet());
+            .flatMap((e) -> e.getLbEndpointsList().stream())
+            .map(EdsProtocol::decodeLbEndpointToEndpoint)
+            .collect(Collectors.toSet());
     }
 
     private static Endpoint decodeLbEndpointToEndpoint(LbEndpoint lbEndpoint) {
@@ -76,7 +76,7 @@ public class EdsProtocol extends AbstractProtocol<EndpointResult, DeltaEndpoint>
         endpoint.setAddress(address.getAddress());
         endpoint.setPortValue(address.getPortValue());
         boolean healthy = HealthStatus.HEALTHY.equals(lbEndpoint.getHealthStatus()) ||
-                HealthStatus.UNKNOWN.equals(lbEndpoint.getHealthStatus());
+            HealthStatus.UNKNOWN.equals(lbEndpoint.getHealthStatus());
         endpoint.setHealthy(healthy);
         endpoint.setWeight(lbEndpoint.getLoadBalancingWeight().getValue());
         return endpoint;

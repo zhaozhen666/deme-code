@@ -50,8 +50,8 @@ public class AbortPolicyWithReportTest {
         final String dumpDirectory = dumpDirectoryCannotBeCreated();
 
         URL url = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?dump.directory="
-                + dumpDirectory
-                + "&version=1.0.0&application=morgan&noValue=true");
+            + dumpDirectory
+            + "&version=1.0.0&application=morgan&noValue=true");
         AbortPolicyWithReport abortPolicyWithReport = new AbortPolicyWithReport("Test", url);
 
         try {
@@ -83,8 +83,8 @@ public class AbortPolicyWithReportTest {
         final String dumpDirectory = UUID.randomUUID().toString();
 
         URL url = URL.valueOf("dubbo://admin:hello1234@10.20.130.230:20880/context/path?dump.directory="
-                + dumpDirectory
-                + "&version=1.0.0&application=morgan&noValue=true");
+            + dumpDirectory
+            + "&version=1.0.0&application=morgan&noValue=true");
         AbortPolicyWithReport abortPolicyWithReport = new AbortPolicyWithReport("Test", url);
 
         try {

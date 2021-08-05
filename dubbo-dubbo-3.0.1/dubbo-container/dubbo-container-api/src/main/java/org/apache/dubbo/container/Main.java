@@ -34,7 +34,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.COMMA_SPLIT_PATT
 
 /**
  * Main. (API, Static, ThreadSafe)
- *
+ * <p>
  * This class is entry point loading containers.
  */
 public class Main {

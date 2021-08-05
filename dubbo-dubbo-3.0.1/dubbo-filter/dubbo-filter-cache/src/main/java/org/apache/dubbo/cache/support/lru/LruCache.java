@@ -49,7 +49,8 @@ public class LruCache implements Cache {
 
     /**
      * Initialize LruCache, it uses constructor argument <b>cache.size</b> value as its storage max size.
-     *  If nothing is provided then it will use 1000 as default value.
+     * If nothing is provided then it will use 1000 as default value.
+     *
      * @param url A valid URL instance
      */
     public LruCache(URL url) {
@@ -59,7 +60,8 @@ public class LruCache implements Cache {
 
     /**
      * API to store value against a key in the calling thread scope.
-     * @param key  Unique identifier for the object being store.
+     *
+     * @param key   Unique identifier for the object being store.
      * @param value Value getting store
      */
     @Override
@@ -69,6 +71,7 @@ public class LruCache implements Cache {
 
     /**
      * API to return stored value using a key against the calling thread specific store.
+     *
      * @param key Unique identifier for cache lookup
      * @return Return stored object against key
      */

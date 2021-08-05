@@ -67,7 +67,7 @@ public class JdkCompiler extends AbstractCompiler {
 
     private static List<String> buildDefaultOptions(String javaVersion) {
         return Arrays.asList(
-                "-source", javaVersion, "-target", javaVersion
+            "-source", javaVersion, "-target", javaVersion
         );
     }
 
@@ -80,7 +80,7 @@ public class JdkCompiler extends AbstractCompiler {
         StandardJavaFileManager manager = compiler.getStandardFileManager(diagnosticCollector, null, null);
         final ClassLoader loader = Thread.currentThread().getContextClassLoader();
         if (loader instanceof URLClassLoader
-                && (!"sun.misc.Launcher$AppClassLoader".equals(loader.getClass().getName()))) {
+            && (!"sun.misc.Launcher$AppClassLoader".equals(loader.getClass().getName()))) {
             try {
                 URLClassLoader urlClassLoader = (URLClassLoader) loader;
                 List<File> files = new ArrayList<File>();
@@ -116,9 +116,9 @@ public class JdkCompiler extends AbstractCompiler {
         String className = i < 0 ? name : name.substring(i + 1);
         JavaFileObjectImpl javaFileObject = new JavaFileObjectImpl(className, sourceCode);
         javaFileManager.putFileForInput(StandardLocation.SOURCE_PATH, packageName,
-                className + ClassUtils.JAVA_EXTENSION, javaFileObject);
+            className + ClassUtils.JAVA_EXTENSION, javaFileObject);
         Boolean result = compiler.getTask(null, javaFileManager, diagnosticCollector, options,
-                null, Collections.singletonList(javaFileObject)).call();
+            null, Collections.singletonList(javaFileObject)).call();
         if (result == null || !result) {
             throw new IllegalStateException("Compilation failed. class: " + name + ", diagnostics: " + diagnosticCollector);
         }
@@ -198,7 +198,7 @@ public class JdkCompiler extends AbstractCompiler {
 
         @Override
         public JavaFileObject getJavaFileForOutput(Location location, String qualifiedName, Kind kind, FileObject outputFile)
-                throws IOException {
+            throws IOException {
             JavaFileObject file = new JavaFileObjectImpl(qualifiedName, kind);
             classLoader.add(qualifiedName, file);
             return file;
@@ -219,7 +219,7 @@ public class JdkCompiler extends AbstractCompiler {
 
         @Override
         public Iterable<JavaFileObject> list(Location location, String packageName, Set<Kind> kinds, boolean recurse)
-                throws IOException {
+            throws IOException {
             Iterable<JavaFileObject> result = super.list(location, packageName, kinds, recurse);
 
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();

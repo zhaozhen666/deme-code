@@ -92,9 +92,9 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
         }
         if (!availableAccess) {
             String message = "Unable to access api server. " +
-                    "Please check your url config." +
-                    " Master URL: " + config.getMasterUrl() +
-                    " Hostname: " + currentHostname;
+                "Please check your url config." +
+                " Master URL: " + config.getMasterUrl() +
+                " Hostname: " + currentHostname;
             logger.error(message);
         }
     }
@@ -117,18 +117,18 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
     public void doRegister(ServiceInstance serviceInstance) throws RuntimeException {
         if (enableRegister) {
             kubernetesClient
-                    .pods()
-                    .inNamespace(namespace)
-                    .withName(currentHostname)
-                    .edit(pod ->
-                            new PodBuilder(pod)
-                                    .editOrNewMetadata()
-                                    .addToAnnotations(KUBERNETES_PROPERTIES_KEY, JSONObject.toJSONString(serviceInstance.getMetadata()))
-                                    .endMetadata()
-                                    .build());
+                .pods()
+                .inNamespace(namespace)
+                .withName(currentHostname)
+                .edit(pod ->
+                    new PodBuilder(pod)
+                        .editOrNewMetadata()
+                        .addToAnnotations(KUBERNETES_PROPERTIES_KEY, JSONObject.toJSONString(serviceInstance.getMetadata()))
+                        .endMetadata()
+                        .build());
             if (logger.isInfoEnabled()) {
                 logger.info("Write Current Service Instance Metadata to Kubernetes pod. " +
-                        "Current pod name: " + currentHostname);
+                    "Current pod name: " + currentHostname);
             }
         }
     }
@@ -142,15 +142,15 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
     public void doUnregister(ServiceInstance serviceInstance) throws RuntimeException {
         if (enableRegister) {
             kubernetesClient
-                    .pods()
-                    .inNamespace(namespace)
-                    .withName(currentHostname)
-                    .edit(pod ->
-                            new PodBuilder(pod)
-                                    .editOrNewMetadata()
-                                    .removeFromAnnotations(KUBERNETES_PROPERTIES_KEY)
-                                    .endMetadata()
-                                    .build());
+                .pods()
+                .inNamespace(namespace)
+                .withName(currentHostname)
+                .edit(pod ->
+                    new PodBuilder(pod)
+                        .editOrNewMetadata()
+                        .removeFromAnnotations(KUBERNETES_PROPERTIES_KEY)
+                        .endMetadata()
+                        .build());
             if (logger.isInfoEnabled()) {
                 logger.info("Remove Current Service Instance from Kubernetes pod. Current pod name: " + currentHostname);
             }
@@ -160,23 +160,23 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
     @Override
     public Set<String> getServices() {
         return kubernetesClient
-                .services()
-                .inNamespace(namespace)
-                .list()
-                .getItems()
-                .stream()
-                .map(service -> service.getMetadata().getName())
-                .collect(Collectors.toSet());
+            .services()
+            .inNamespace(namespace)
+            .list()
+            .getItems()
+            .stream()
+            .map(service -> service.getMetadata().getName())
+            .collect(Collectors.toSet());
     }
 
     @Override
     public List<ServiceInstance> getInstances(String serviceName) throws NullPointerException {
         Endpoints endpoints =
-                kubernetesClient
-                        .endpoints()
-                        .inNamespace(namespace)
-                        .withName(serviceName)
-                        .get();
+            kubernetesClient
+                .endpoints()
+                .inNamespace(namespace)
+                .withName(serviceName)
+                .get();
 
         return toServiceInstance(endpoints, serviceName);
     }
@@ -199,25 +199,25 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
 
     private void watchEndpoints(ServiceInstancesChangedListener listener, String serviceName) {
         Watch watch = kubernetesClient
-                .endpoints()
-                .inNamespace(namespace)
-                .withName(serviceName)
-                .watch(new Watcher<Endpoints>() {
-                    @Override
-                    public void eventReceived(Action action, Endpoints resource) {
-                        if (logger.isDebugEnabled()) {
-                            logger.debug("Received Endpoint Event. Event type: " + action.name() +
-                                    ". Current pod name: " + currentHostname);
-                        }
-
-                        notifyServiceChanged(serviceName, listener);
+            .endpoints()
+            .inNamespace(namespace)
+            .withName(serviceName)
+            .watch(new Watcher<Endpoints>() {
+                @Override
+                public void eventReceived(Action action, Endpoints resource) {
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("Received Endpoint Event. Event type: " + action.name() +
+                            ". Current pod name: " + currentHostname);
                     }
 
-                    @Override
-                    public void onClose(WatcherException cause) {
-                        // ignore
-                    }
-                });
+                    notifyServiceChanged(serviceName, listener);
+                }
+
+                @Override
+                public void onClose(WatcherException cause) {
+                    // ignore
+                }
+            });
 
         ENDPOINTS_WATCHER.put(serviceName, watch);
     }
@@ -229,57 +229,57 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
         }
 
         Watch watch = kubernetesClient
-                .pods()
-                .inNamespace(namespace)
-                .withLabels(serviceSelector)
-                .watch(new Watcher<Pod>() {
-                    @Override
-                    public void eventReceived(Action action, Pod resource) {
-                        if (Action.MODIFIED.equals(action)) {
-                            if (logger.isDebugEnabled()) {
-                                logger.debug("Received Pods Update Event. Current pod name: " + currentHostname);
-                            }
-
-                            notifyServiceChanged(serviceName, listener);
+            .pods()
+            .inNamespace(namespace)
+            .withLabels(serviceSelector)
+            .watch(new Watcher<Pod>() {
+                @Override
+                public void eventReceived(Action action, Pod resource) {
+                    if (Action.MODIFIED.equals(action)) {
+                        if (logger.isDebugEnabled()) {
+                            logger.debug("Received Pods Update Event. Current pod name: " + currentHostname);
                         }
-                    }
 
-                    @Override
-                    public void onClose(WatcherException cause) {
-                        // ignore
+                        notifyServiceChanged(serviceName, listener);
                     }
-                });
+                }
+
+                @Override
+                public void onClose(WatcherException cause) {
+                    // ignore
+                }
+            });
 
         PODS_WATCHER.put(serviceName, watch);
     }
 
     private void watchService(ServiceInstancesChangedListener listener, String serviceName) {
         Watch watch = kubernetesClient
-                .services()
-                .inNamespace(namespace)
-                .withName(serviceName)
-                .watch(new Watcher<Service>() {
-                    @Override
-                    public void eventReceived(Action action, Service resource) {
-                        if (Action.MODIFIED.equals(action)) {
-                            if (logger.isDebugEnabled()) {
-                                logger.debug("Received Service Update Event. Update Pods Watcher. " +
-                                        "Current pod name: " + currentHostname);
-                            }
-
-                            if (PODS_WATCHER.containsKey(serviceName)) {
-                                PODS_WATCHER.get(serviceName).close();
-                                PODS_WATCHER.remove(serviceName);
-                            }
-                            watchPods(listener, serviceName);
+            .services()
+            .inNamespace(namespace)
+            .withName(serviceName)
+            .watch(new Watcher<Service>() {
+                @Override
+                public void eventReceived(Action action, Service resource) {
+                    if (Action.MODIFIED.equals(action)) {
+                        if (logger.isDebugEnabled()) {
+                            logger.debug("Received Service Update Event. Update Pods Watcher. " +
+                                "Current pod name: " + currentHostname);
                         }
-                    }
 
-                    @Override
-                    public void onClose(WatcherException cause) {
-                        // ignore
+                        if (PODS_WATCHER.containsKey(serviceName)) {
+                            PODS_WATCHER.get(serviceName).close();
+                            PODS_WATCHER.remove(serviceName);
+                        }
+                        watchPods(listener, serviceName);
                     }
-                });
+                }
+
+                @Override
+                public void onClose(WatcherException cause) {
+                    // ignore
+                }
+            });
 
         SERVICE_WATCHER.put(serviceName, watch);
     }
@@ -303,9 +303,9 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
 
         if (logger.isInfoEnabled()) {
             logger.info("Discard Service Instance Data. " +
-                    "Possible Cause: Newer message has been processed or Failed to update time record by CAS. " +
-                    "Current Data received time: " + receivedTime + ". " +
-                    "Newer Data received time: " + lastUpdateTime + ".");
+                "Possible Cause: Newer message has been processed or Failed to update time record by CAS. " +
+                "Current Data received time: " + receivedTime + ". " +
+                "Newer Data received time: " + lastUpdateTime + ".");
         }
     }
 
@@ -328,25 +328,25 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
             return new LinkedList<>();
         }
         Map<String, Pod> pods = kubernetesClient
-                .pods()
-                .inNamespace(namespace)
-                .withLabels(serviceSelector)
-                .list()
-                .getItems()
-                .stream()
-                .collect(
-                        Collectors.toMap(
-                                pod -> pod.getMetadata().getName(),
-                                pod -> pod));
+            .pods()
+            .inNamespace(namespace)
+            .withLabels(serviceSelector)
+            .list()
+            .getItems()
+            .stream()
+            .collect(
+                Collectors.toMap(
+                    pod -> pod.getMetadata().getName(),
+                    pod -> pod));
 
         List<ServiceInstance> instances = new LinkedList<>();
         Set<Integer> instancePorts = new HashSet<>();
 
         for (EndpointSubset endpointSubset : endpoints.getSubsets()) {
             instancePorts.addAll(
-                    endpointSubset.getPorts()
-                            .stream().map(EndpointPort::getPort)
-                            .collect(Collectors.toSet()));
+                endpointSubset.getPorts()
+                    .stream().map(EndpointPort::getPort)
+                    .collect(Collectors.toSet()));
         }
 
         for (EndpointSubset endpointSubset : endpoints.getSubsets()) {
@@ -355,7 +355,7 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
                 String ip = address.getIp();
                 if (pod == null) {
                     logger.warn("Unable to match Kubernetes Endpoint address with Pod. " +
-                            "EndpointAddress Hostname: " + address.getTargetRef().getName());
+                        "EndpointAddress Hostname: " + address.getTargetRef().getName());
                     continue;
                 }
 
@@ -368,8 +368,8 @@ public class KubernetesServiceDiscovery extends AbstractServiceDiscovery {
                         instances.add(serviceInstance);
                     } else {
                         logger.warn("Unable to find Service Instance metadata in Pod Annotations. " +
-                                "Possibly cause: provider has not been initialized successfully. " +
-                                "EndpointAddress Hostname: " + address.getTargetRef().getName());
+                            "Possibly cause: provider has not been initialized successfully. " +
+                            "EndpointAddress Hostname: " + address.getTargetRef().getName());
                     }
                 });
             }

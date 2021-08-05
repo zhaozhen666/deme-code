@@ -59,7 +59,7 @@ public class JAXRSServiceRestMetadataResolver extends AbstractServiceRestMetadat
     protected boolean supports(ProcessingEnvironment processingEnv, TypeElement serviceType,
                                TypeElement serviceInterfaceType, ExecutableElement method) {
         return isAnnotationPresent(method, PATH_ANNOTATION_CLASS_NAME) ||
-                isAnnotationPresent(method, HTTP_METHOD_ANNOTATION_CLASS_NAME);
+            isAnnotationPresent(method, HTTP_METHOD_ANNOTATION_CLASS_NAME);
     }
 
     @Override

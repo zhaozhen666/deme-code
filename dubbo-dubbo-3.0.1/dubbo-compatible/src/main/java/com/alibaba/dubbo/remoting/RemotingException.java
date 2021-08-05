@@ -48,7 +48,7 @@ public class RemotingException extends org.apache.dubbo.remoting.RemotingExcepti
         super(localAddress, remoteAddress, message, cause);
     }
 
-    public RemotingException(Exception e){
+    public RemotingException(Exception e) {
         super(null, e.getMessage());
     }
 }

@@ -205,7 +205,7 @@ public class InMemoryWritableMetadataService implements WritableMetadataService 
         try {
             String interfaceName = providerUrl.getServiceInterface();
             if (StringUtils.isNotEmpty(interfaceName)
-                    && !ProtocolUtils.isGeneric(providerUrl.getParameter(GENERIC_KEY))) {
+                && !ProtocolUtils.isGeneric(providerUrl.getParameter(GENERIC_KEY))) {
                 Class interfaceClass = Class.forName(interfaceName);
                 ServiceDefinition serviceDefinition = ServiceDefinitionBuilder.build(interfaceClass);
                 Gson gson = new Gson();
@@ -388,8 +388,8 @@ public class InMemoryWritableMetadataService implements WritableMetadataService 
 
     private boolean isAcceptableProtocol(String protocol, URL url) {
         return protocol == null
-                || protocol.equals(url.getParameter(PROTOCOL_KEY))
-                || protocol.equals(url.getProtocol());
+            || protocol.equals(url.getParameter(PROTOCOL_KEY))
+            || protocol.equals(url.getProtocol());
     }
 
 

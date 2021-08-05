@@ -40,10 +40,10 @@ public class ProtocolPortsMetadataCustomizer implements ServiceInstanceCustomize
 
         Map<String, Integer> protocols = new HashMap<>();
         writableMetadataService.getExportedServiceURLs()
-                .forEach(url -> {
-                    // TODO, same protocol listen on different ports will override with each other.
-                    protocols.put(url.getProtocol(), url.getPort());
-                });
+            .forEach(url -> {
+                // TODO, same protocol listen on different ports will override with each other.
+                protocols.put(url.getProtocol(), url.getPort());
+            });
 
         if (protocols.size() > 0) {// set endpoints only for multi-protocol scenario
             setEndpoints(serviceInstance, protocols);

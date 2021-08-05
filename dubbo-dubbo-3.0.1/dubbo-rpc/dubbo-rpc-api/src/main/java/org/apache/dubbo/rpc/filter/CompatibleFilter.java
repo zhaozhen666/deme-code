@@ -43,7 +43,6 @@ import static org.apache.dubbo.remoting.Constants.SERIALIZATION_KEY;
  * </pre>
  *
  * @see Filter
- *
  */
 public class CompatibleFilter implements Filter, Filter.Listener {
 

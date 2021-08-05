@@ -115,7 +115,7 @@ public abstract class EnvironmentUtils {
                                 PropertySource<?> source) {
         if (source instanceof CompositePropertySource) {
             for (PropertySource<?> nest : ((CompositePropertySource) source)
-                    .getPropertySources()) {
+                .getPropertySources()) {
                 extract(source.getName() + ":", map, nest);
             }
         } else {
@@ -139,7 +139,7 @@ public abstract class EnvironmentUtils {
             String propertyName = entry.getKey();
 
             if (propertyName.startsWith(DUBBO_PREFIX + PROPERTY_NAME_SEPARATOR)
-                    && entry.getValue() != null) {
+                && entry.getValue() != null) {
                 dubboProperties.put(propertyName, environment.resolvePlaceholders(entry.getValue().toString()));
             }
         }

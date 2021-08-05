@@ -65,16 +65,16 @@ import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER
 @EnableDubbo(scanBasePackages = "org.apache.dubbo.config.spring.context.annotation.provider")
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        classes = {
-                ServiceAnnotationTestConfiguration.class,
-                ReferenceAnnotationBeanPostProcessorTest.class,
-                ReferenceAnnotationBeanPostProcessorTest.MyConfiguration.class,
-                ReferenceAnnotationBeanPostProcessorTest.TestAspect.class
-        })
+    classes = {
+        ServiceAnnotationTestConfiguration.class,
+        ReferenceAnnotationBeanPostProcessorTest.class,
+        ReferenceAnnotationBeanPostProcessorTest.MyConfiguration.class,
+        ReferenceAnnotationBeanPostProcessorTest.TestAspect.class
+    })
 @DirtiesContext(classMode = AFTER_EACH_TEST_METHOD)
 @TestPropertySource(properties = {
-        "consumer.version = ${demo.service.version}",
-        "consumer.url = dubbo://127.0.0.1:12345?version=2.5.7",
+    "consumer.version = ${demo.service.version}",
+    "consumer.url = dubbo://127.0.0.1:12345?version=2.5.7",
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 public class ReferenceAnnotationBeanPostProcessorTest {
@@ -147,7 +147,7 @@ public class ReferenceAnnotationBeanPostProcessorTest {
         Assertions.assertNotNull(demoServicesMap.get("demoService"));
         Assertions.assertNotNull(demoServicesMap.get("demoServiceFromParent"));
 
-        String callSuffix = AOP_SUFFIX + " from "+ NetUtils.getLocalHost() +":12345";
+        String callSuffix = AOP_SUFFIX + " from " + NetUtils.getLocalHost() + ":12345";
         String localCallSuffix = AOP_SUFFIX + " from 127.0.0.1:0";
         String directInvokeSuffix = AOP_SUFFIX + " from null";
 
@@ -175,10 +175,10 @@ public class ReferenceAnnotationBeanPostProcessorTest {
     public void testGetInjectedFieldReferenceBeanMap() {
 
         ReferenceAnnotationBeanPostProcessor beanPostProcessor = context.getBean(BEAN_NAME,
-                ReferenceAnnotationBeanPostProcessor.class);
+            ReferenceAnnotationBeanPostProcessor.class);
 
         Map<InjectionMetadata.InjectedElement, ReferenceBean<?>> referenceBeanMap =
-                beanPostProcessor.getInjectedFieldReferenceBeanMap();
+            beanPostProcessor.getInjectedFieldReferenceBeanMap();
 
         Assertions.assertEquals(4, referenceBeanMap.size());
 
@@ -193,11 +193,11 @@ public class ReferenceAnnotationBeanPostProcessorTest {
             String member = injectedElement.getMember().toString();
             Integer count = checkingFieldNames.get(member);
             Assertions.assertNotNull(count);
-            checkingFieldNames.put(member, count+1);
+            checkingFieldNames.put(member, count + 1);
         }
 
         for (Map.Entry<String, Integer> entry : checkingFieldNames.entrySet()) {
-            Assertions.assertEquals(1, entry.getValue().intValue(), "check field element failed: "+entry.getKey());
+            Assertions.assertEquals(1, entry.getValue().intValue(), "check field element failed: " + entry.getKey());
         }
     }
 
@@ -205,10 +205,10 @@ public class ReferenceAnnotationBeanPostProcessorTest {
     public void testGetInjectedMethodReferenceBeanMap() {
 
         ReferenceAnnotationBeanPostProcessor beanPostProcessor = context.getBean(BEAN_NAME,
-                ReferenceAnnotationBeanPostProcessor.class);
+            ReferenceAnnotationBeanPostProcessor.class);
 
         Map<InjectionMetadata.InjectedElement, ReferenceBean<?>> referenceBeanMap =
-                beanPostProcessor.getInjectedMethodReferenceBeanMap();
+            beanPostProcessor.getInjectedMethodReferenceBeanMap();
 
         Assertions.assertEquals(2, referenceBeanMap.size());
 
@@ -223,11 +223,11 @@ public class ReferenceAnnotationBeanPostProcessorTest {
             Integer count = checkingMethodNames.get(method.getName());
             Assertions.assertNotNull(count);
             Assertions.assertEquals(0, count.intValue());
-            checkingMethodNames.put(method.getName(), count+1);
+            checkingMethodNames.put(method.getName(), count + 1);
         }
 
         for (Map.Entry<String, Integer> entry : checkingMethodNames.entrySet()) {
-            Assertions.assertEquals(1, entry.getValue().intValue(), "check method element failed: "+entry.getKey());
+            Assertions.assertEquals(1, entry.getValue().intValue(), "check method element failed: " + entry.getKey());
         }
     }
 
@@ -254,7 +254,7 @@ public class ReferenceAnnotationBeanPostProcessorTest {
     public void testReferenceBeansMethodAnnotation() {
 
         ReferenceBeanManager referenceBeanManager = context.getBean(ReferenceBeanManager.BEAN_NAME,
-                ReferenceBeanManager.class);
+            ReferenceBeanManager.class);
 
         Collection<ReferenceBean> referenceBeans = referenceBeanManager.getReferences();
 

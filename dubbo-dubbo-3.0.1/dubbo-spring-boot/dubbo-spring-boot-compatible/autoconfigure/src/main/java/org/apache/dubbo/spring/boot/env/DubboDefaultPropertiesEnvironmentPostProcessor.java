@@ -81,7 +81,7 @@ public class DubboDefaultPropertiesEnvironmentPostProcessor implements Environme
     private void setDubboApplicationNameProperty(Environment environment, Map<String, Object> defaultProperties) {
         String springApplicationName = environment.getProperty(SPRING_APPLICATION_NAME_PROPERTY);
         if (StringUtils.hasLength(springApplicationName)
-                && !environment.containsProperty(DUBBO_APPLICATION_NAME_PROPERTY)) {
+            && !environment.containsProperty(DUBBO_APPLICATION_NAME_PROPERTY)) {
             defaultProperties.put(DUBBO_APPLICATION_NAME_PROPERTY, springApplicationName);
         }
     }

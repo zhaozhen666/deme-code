@@ -73,7 +73,7 @@ public class RemoteMetadataServiceImpl {
                 } else {
                     if (logger.isInfoEnabled()) {
                         logger.info("Remote Metadata Report Server not hasn't been configured. " +
-                                "Only publish Metadata to local.");
+                            "Only publish Metadata to local.");
                     }
                 }
                 metadataInfo.markReported();
@@ -83,7 +83,7 @@ public class RemoteMetadataServiceImpl {
 
     public MetadataInfo getMetadata(ServiceInstance instance) {
         SubscriberMetadataIdentifier identifier = new SubscriberMetadataIdentifier(instance.getServiceName(),
-                ServiceInstanceMetadataUtils.getExportedServicesRevision(instance));
+            ServiceInstanceMetadataUtils.getExportedServicesRevision(instance));
 
         String registryCluster = instance.getRegistryCluster();
 
@@ -103,7 +103,7 @@ public class RemoteMetadataServiceImpl {
     private void checkRemoteConfigured() {
         if (getMetadataReports().size() == 0) {
             String msg = "Remote Metadata Report Server not hasn't been configured. " +
-                    "Unable to get Metadata from remote!";
+                "Unable to get Metadata from remote!";
             logger.error(msg);
             throw new IllegalStateException(msg);
         }
@@ -127,19 +127,19 @@ public class RemoteMetadataServiceImpl {
         //first add into the list
         // remove the individual param
         providerUrl = providerUrl.removeParameters(PID_KEY, TIMESTAMP_KEY, Constants.BIND_IP_KEY,
-                Constants.BIND_PORT_KEY, TIMESTAMP_KEY);
+            Constants.BIND_PORT_KEY, TIMESTAMP_KEY);
 
         try {
             String interfaceName = providerUrl.getServiceInterface();
             if (StringUtils.isNotEmpty(interfaceName)) {
                 Class interfaceClass = Class.forName(interfaceName);
                 FullServiceDefinition fullServiceDefinition = ServiceDefinitionBuilder.buildFullDefinition(interfaceClass,
-                        providerUrl.getParameters());
+                    providerUrl.getParameters());
                 for (Map.Entry<String, MetadataReport> entry : getMetadataReports().entrySet()) {
                     MetadataReport metadataReport = entry.getValue();
                     metadataReport.storeProviderMetadata(new MetadataIdentifier(providerUrl.getServiceInterface(),
-                            providerUrl.getVersion(), providerUrl.getGroup(),
-                            PROVIDER_SIDE, providerUrl.getApplication()), fullServiceDefinition);
+                        providerUrl.getVersion(), providerUrl.getGroup(),
+                        PROVIDER_SIDE, providerUrl.getApplication()), fullServiceDefinition);
                 }
                 return;
             }
@@ -152,11 +152,11 @@ public class RemoteMetadataServiceImpl {
 
     private void publishConsumer(URL consumerURL) throws RpcException {
         final URL url = consumerURL.removeParameters(PID_KEY, TIMESTAMP_KEY, Constants.BIND_IP_KEY,
-                Constants.BIND_PORT_KEY, TIMESTAMP_KEY);
+            Constants.BIND_PORT_KEY, TIMESTAMP_KEY);
         getMetadataReports().forEach((registryKey, config) -> {
             config.storeConsumerMetadata(new MetadataIdentifier(url.getServiceInterface(),
-                    url.getVersion(), url.getGroup(), CONSUMER_SIDE,
-                    url.getApplication()), url.getParameters());
+                url.getVersion(), url.getGroup(), CONSUMER_SIDE,
+                url.getApplication()), url.getParameters());
         });
     }
 

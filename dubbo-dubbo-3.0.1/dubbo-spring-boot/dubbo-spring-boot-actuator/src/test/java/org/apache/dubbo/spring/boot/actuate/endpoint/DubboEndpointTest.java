@@ -41,12 +41,12 @@ import static org.apache.dubbo.common.Version.getVersion;
  */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(
-        classes = {
-                DubboMetadataEndpoint.class
-        },
-        properties = {
-                "dubbo.application.name = dubbo-demo-application"
-        }
+    classes = {
+        DubboMetadataEndpoint.class
+    },
+    properties = {
+        "dubbo.application.name = dubbo-demo-application"
+    }
 )
 @EnableAutoConfiguration
 public class DubboEndpointTest {

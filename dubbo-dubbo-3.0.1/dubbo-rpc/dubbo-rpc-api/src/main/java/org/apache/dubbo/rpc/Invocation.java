@@ -45,6 +45,7 @@ public interface Invocation {
 
     /**
      * get the interface name
+     *
      * @return
      */
     String getServiceName();
@@ -64,8 +65,8 @@ public interface Invocation {
      */
     default String[] getCompatibleParamSignatures() {
         return Stream.of(getParameterTypes())
-                .map(Class::getName)
-                .toArray(String[]::new);
+            .map(Class::getName)
+            .toArray(String[]::new);
     }
 
     /**

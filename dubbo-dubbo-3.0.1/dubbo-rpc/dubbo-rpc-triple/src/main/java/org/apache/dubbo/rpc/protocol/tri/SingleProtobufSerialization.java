@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentMap;
 public class SingleProtobufSerialization {
     private static final ConcurrentHashMap<Class<?>, Message> instCache = new ConcurrentHashMap<>();
     private static final ExtensionRegistryLite globalRegistry =
-            ExtensionRegistryLite.getEmptyRegistry();
+        ExtensionRegistryLite.getEmptyRegistry();
     private final ConcurrentMap<Class<?>, SingleMessageMarshaller<?>> marshallers = new ConcurrentHashMap<>();
 
     @SuppressWarnings("all")

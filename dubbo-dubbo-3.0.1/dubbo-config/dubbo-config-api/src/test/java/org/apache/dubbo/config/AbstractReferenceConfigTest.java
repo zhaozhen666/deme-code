@@ -106,8 +106,8 @@ public class AbstractReferenceConfigTest {
         when(url.getParameter(ROUTER_KEY)).thenReturn("-tag,-app");
         routerFactories = ExtensionLoader.getExtensionLoader(RouterFactory.class).getActivateExtension(url, ROUTER_KEY);
         assertThat(routerFactories.stream()
-                .allMatch(routerFactory -> !routerFactory.getClass().equals(TagRouterFactory.class)
-                        && !routerFactory.getClass().equals(AppRouterFactory.class)), is(true));
+            .allMatch(routerFactory -> !routerFactory.getClass().equals(TagRouterFactory.class)
+                && !routerFactory.getClass().equals(AppRouterFactory.class)), is(true));
     }
 
     @Test

@@ -24,6 +24,6 @@
     <dubbo:application name="annotation-provider"/>
     <dubbo:registry address="127.0.0.1:4548"/>
     <dubbo:annotation package="org.apache.dubbo.config.spring.annotation.provider"/>
-    <context:component-scan base-package="org.apache.dubbo.config.spring.annotation.provider" />
+    <context:component-scan base-package="org.apache.dubbo.config.spring.annotation.provider"/>
 
 </beans>

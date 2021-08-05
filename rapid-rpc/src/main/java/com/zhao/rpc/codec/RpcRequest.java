@@ -3,6 +3,7 @@ package com.zhao.rpc.codec;
 import lombok.Data;
 
 import java.io.Serializable;
+
 @Data
 public class RpcRequest implements Serializable {
 
@@ -12,7 +13,7 @@ public class RpcRequest implements Serializable {
 
     private String methodName;
 
-    private  Class<?> [] paramterTypes;
+    private Class<?>[] paramterTypes;
 
     private Object[] paramters;
 }

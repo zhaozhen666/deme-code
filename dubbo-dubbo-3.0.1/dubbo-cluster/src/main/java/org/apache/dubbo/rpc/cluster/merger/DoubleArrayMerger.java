@@ -31,7 +31,7 @@ public class DoubleArrayMerger implements Merger<double[]> {
             return new double[0];
         }
         return Arrays.stream(items).filter(Objects::nonNull)
-                .flatMapToDouble(Arrays::stream)
-                .toArray();
+            .flatMapToDouble(Arrays::stream)
+            .toArray();
     }
 }

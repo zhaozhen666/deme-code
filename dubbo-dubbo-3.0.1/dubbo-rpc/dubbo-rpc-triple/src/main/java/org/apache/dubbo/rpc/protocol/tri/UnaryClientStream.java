@@ -56,8 +56,8 @@ public class UnaryClientStream extends AbstractClientStream implements Stream {
                     DefaultFuture2.received(getConnection(), response);
                 } catch (Exception e) {
                     final GrpcStatus status = GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                            .withCause(e)
-                            .withDescription("Failed to deserialize response");
+                        .withCause(e)
+                        .withDescription("Failed to deserialize response");
                     onError(status);
                 }
             });

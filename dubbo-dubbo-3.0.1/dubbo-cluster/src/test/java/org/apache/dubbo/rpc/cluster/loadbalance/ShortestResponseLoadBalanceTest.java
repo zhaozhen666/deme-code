@@ -21,7 +21,7 @@ import org.apache.dubbo.rpc.Invoker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ShortestResponseLoadBalanceTest extends LoadBalanceBaseTest{
+public class ShortestResponseLoadBalanceTest extends LoadBalanceBaseTest {
 
     @Test
     public void testSelectByWeight() {

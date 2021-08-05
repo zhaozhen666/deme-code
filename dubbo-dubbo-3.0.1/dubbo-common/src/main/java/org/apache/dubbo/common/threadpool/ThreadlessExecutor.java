@@ -89,7 +89,7 @@ public class ThreadlessExecutor extends AbstractExecutorService {
         Runnable runnable;
         try {
             runnable = queue.take();
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             waiting = false;
             throw e;
         }
@@ -164,7 +164,7 @@ public class ThreadlessExecutor extends AbstractExecutorService {
     @Override
     public List<Runnable> shutdownNow() {
         notifyReturn(new IllegalStateException("Consumer is shutting down and this call is going to be stopped without " +
-                "receiving any result, usually this is called by a slow provider instance or bad service implementation."));
+            "receiving any result, usually this is called by a slow provider instance or bad service implementation."));
         return Collections.emptyList();
     }
 

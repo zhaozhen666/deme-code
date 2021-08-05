@@ -132,8 +132,8 @@ public class ClassUtils {
 
     private static Class<?> arrayForName(String className) throws ClassNotFoundException {
         return Class.forName(className.endsWith("[]")
-                ? "[L" + className.substring(0, className.length() - 2) + ";"
-                : className, true, Thread.currentThread().getContextClassLoader());
+            ? "[L" + className.substring(0, className.length() - 2) + ";"
+            : className, true, Thread.currentThread().getContextClassLoader());
     }
 
     public static Class<?> getBoxedClass(Class<?> type) {
@@ -273,8 +273,8 @@ public class ClassUtils {
                     return type.getClass();
                 }
                 return (((GenericArrayType) genericClass).getGenericComponentType() instanceof Class<?>)
-                        ? (Class<?>) ((GenericArrayType) genericClass).getGenericComponentType()
-                        : ((GenericArrayType) genericClass).getGenericComponentType().getClass();
+                    ? (Class<?>) ((GenericArrayType) genericClass).getGenericComponentType()
+                    : ((GenericArrayType) genericClass).getGenericComponentType().getClass();
             } else if (genericClass != null) {
                 if (genericClass instanceof TypeVariable) {
                     return genericClass.getClass();
@@ -293,8 +293,8 @@ public class ClassUtils {
 
     public static boolean isBeforeJava5(String javaVersion) {
         return (StringUtils.isEmpty(javaVersion) || "1.0".equals(javaVersion)
-                || "1.1".equals(javaVersion) || "1.2".equals(javaVersion)
-                || "1.3".equals(javaVersion) || "1.4".equals(javaVersion));
+            || "1.1".equals(javaVersion) || "1.2".equals(javaVersion)
+            || "1.3".equals(javaVersion) || "1.4".equals(javaVersion));
     }
 
     public static boolean isBeforeJava6(String javaVersion) {
@@ -358,11 +358,11 @@ public class ClassUtils {
                 } else if (type == char.class) {
                     def = "\'\\0\'";
                 } else if (type == byte.class
-                        || type == short.class
-                        || type == int.class
-                        || type == long.class
-                        || type == float.class
-                        || type == double.class) {
+                    || type == short.class
+                    || type == int.class
+                    || type == long.class
+                    || type == float.class
+                    || type == double.class) {
                     def = "0";
                 } else {
                     def = "null";
@@ -382,8 +382,8 @@ public class ClassUtils {
         } catch (NoSuchMethodException e) {
             for (Method method : currentClass.getMethods()) {
                 if (method.getName().equals(name)
-                        && parameterTypes.length == method.getParameterTypes().length
-                        && Modifier.isPublic(method.getModifiers())) {
+                    && parameterTypes.length == method.getParameterTypes().length
+                    && Modifier.isPublic(method.getModifiers())) {
                     if (parameterTypes.length > 0) {
                         Class<?>[] types = method.getParameterTypes();
                         boolean match = true;
@@ -406,11 +406,11 @@ public class ClassUtils {
 
     public static String getInitCode(Class<?> type) {
         if (byte.class.equals(type)
-                || short.class.equals(type)
-                || int.class.equals(type)
-                || long.class.equals(type)
-                || float.class.equals(type)
-                || double.class.equals(type)) {
+            || short.class.equals(type)
+            || int.class.equals(type)
+            || long.class.equals(type)
+            || float.class.equals(type)
+            || double.class.equals(type)) {
             return "0";
         } else if (char.class.equals(type)) {
             return "'\\0'";

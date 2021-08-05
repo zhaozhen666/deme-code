@@ -88,7 +88,7 @@ public class ChangeTelnetHandlerTest {
         DubboProtocol.getDubboProtocol().export(mockInvoker);
         String result = change.telnet(mockChannel, "org.apache.dubbo.qos.legacy.service.DemoService");
         assertEquals("Used the org.apache.dubbo.qos.legacy.service.DemoService as default.\r\nYou can cancel default service by command: cd /",
-                result);
+            result);
     }
 
     @Test

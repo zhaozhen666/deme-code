@@ -40,7 +40,7 @@ public class DubboAnnotationUtils {
 
     @Deprecated
     public static String resolveInterfaceName(Service service, Class<?> defaultInterfaceClass)
-            throws IllegalStateException {
+        throws IllegalStateException {
 
         String interfaceName;
         if (hasText(service.interfaceName())) {
@@ -51,8 +51,8 @@ public class DubboAnnotationUtils {
             interfaceName = defaultInterfaceClass.getName();
         } else {
             throw new IllegalStateException(
-                    "The @Service undefined interfaceClass or interfaceName, and the type "
-                            + defaultInterfaceClass.getName() + " is not a interface.");
+                "The @Service undefined interfaceClass or interfaceName, and the type "
+                    + defaultInterfaceClass.getName() + " is not a interface.");
         }
 
         return interfaceName;
@@ -62,7 +62,7 @@ public class DubboAnnotationUtils {
     /**
      * Resolve the interface name from annotation attributes
      *
-     * @param attributes             annotation attributes instance, may be {@link Service @Service} or {@link Reference @Reference}
+     * @param attributes            annotation attributes instance, may be {@link Service @Service} or {@link Reference @Reference}
      * @param defaultInterfaceClass the default class of interface
      * @return the interface name if found
      * @throws IllegalStateException if interface name was not found
@@ -73,7 +73,7 @@ public class DubboAnnotationUtils {
             // it's a generic reference
             String interfaceClassName = getAttribute(attributes, "interfaceName");
             Assert.hasText(interfaceClassName,
-                    "@Reference interfaceName() must be present when reference a generic service!");
+                "@Reference interfaceName() must be present when reference a generic service!");
             return interfaceClassName;
         }
         return resolveServiceInterfaceClass(attributes, defaultInterfaceClass).getName();
@@ -89,7 +89,7 @@ public class DubboAnnotationUtils {
      * @throws IllegalArgumentException if can't resolved
      */
     public static Class<?> resolveServiceInterfaceClass(Map<String, Object> attributes, Class<?> defaultInterfaceClass)
-            throws IllegalArgumentException {
+        throws IllegalArgumentException {
 
         ClassLoader classLoader = defaultInterfaceClass != null ? defaultInterfaceClass.getClassLoader() : Thread.currentThread().getContextClassLoader();
 
@@ -121,17 +121,17 @@ public class DubboAnnotationUtils {
         }
 
         Assert.notNull(interfaceClass,
-                "@Service interfaceClass() or interfaceName() or interface class must be present!");
+            "@Service interfaceClass() or interfaceName() or interface class must be present!");
 
         Assert.isTrue(interfaceClass.isInterface(),
-                "The annotated type must be an interface!");
+            "The annotated type must be an interface!");
 
         return interfaceClass;
     }
 
     @Deprecated
     public static String resolveInterfaceName(Reference reference, Class<?> defaultInterfaceClass)
-            throws IllegalStateException {
+        throws IllegalStateException {
 
         String interfaceName;
         if (!"".equals(reference.interfaceName())) {
@@ -142,8 +142,8 @@ public class DubboAnnotationUtils {
             interfaceName = defaultInterfaceClass.getName();
         } else {
             throw new IllegalStateException(
-                    "The @Reference undefined interfaceClass or interfaceName, and the type "
-                            + defaultInterfaceClass.getName() + " is not a interface.");
+                "The @Reference undefined interfaceClass or interfaceName, and the type "
+                    + defaultInterfaceClass.getName() + " is not a interface.");
         }
 
         return interfaceName;

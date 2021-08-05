@@ -87,9 +87,9 @@ public class AbstractDynamicConfigurationTest {
     @Test
     public void testConstructor() {
         URL url = URL.valueOf("default://")
-                .addParameter(THREAD_POOL_PREFIX_PARAM_NAME, "test")
-                .addParameter(THREAD_POOL_SIZE_PARAM_NAME, 10)
-                .addParameter(THREAD_POOL_KEEP_ALIVE_TIME_PARAM_NAME, 100);
+            .addParameter(THREAD_POOL_PREFIX_PARAM_NAME, "test")
+            .addParameter(THREAD_POOL_SIZE_PARAM_NAME, 10)
+            .addParameter(THREAD_POOL_KEEP_ALIVE_TIME_PARAM_NAME, 100);
 
         AbstractDynamicConfiguration configuration = new AbstractDynamicConfiguration(url) {
 

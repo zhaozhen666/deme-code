@@ -48,10 +48,10 @@ public class CacheFilterTest {
 
     static Stream<Arguments> cacheFactories() {
         return Stream.of(
-                Arguments.of("lru", new LruCacheFactory()),
-                Arguments.of("jcache", new JCacheFactory()),
-                Arguments.of("threadlocal", new ThreadLocalCacheFactory()),
-                Arguments.of("expiring", new ExpiringCacheFactory())
+            Arguments.of("lru", new LruCacheFactory()),
+            Arguments.of("jcache", new JCacheFactory()),
+            Arguments.of("threadlocal", new ThreadLocalCacheFactory()),
+            Arguments.of("expiring", new ExpiringCacheFactory())
         );
     }
 

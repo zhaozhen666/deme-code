@@ -48,7 +48,7 @@ public interface MethodDefinitionBuilder {
 
     static List<TypeDefinition> getMethodParameters(ProcessingEnvironment processingEnv, ExecutableElement method, Map<String, TypeDefinition> typeCache) {
         return method.getParameters().stream()
-                .map(element -> TypeDefinitionBuilder.build(processingEnv, element, typeCache))
-                .collect(Collectors.toList());
+            .map(element -> TypeDefinitionBuilder.build(processingEnv, element, typeCache))
+            .collect(Collectors.toList());
     }
 }

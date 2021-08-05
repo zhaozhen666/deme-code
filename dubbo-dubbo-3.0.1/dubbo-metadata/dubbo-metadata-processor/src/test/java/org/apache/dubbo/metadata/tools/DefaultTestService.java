@@ -28,9 +28,9 @@ import java.util.concurrent.TimeUnit;
  * @since 2.7.6
  */
 @Service(
-        interfaceName = "org.apache.dubbo.metadata.tools.TestService",
-        version = "1.0.0",
-        group = "default"
+    interfaceName = "org.apache.dubbo.metadata.tools.TestService",
+    version = "1.0.0",
+    group = "default"
 )
 public class DefaultTestService implements TestService {
 

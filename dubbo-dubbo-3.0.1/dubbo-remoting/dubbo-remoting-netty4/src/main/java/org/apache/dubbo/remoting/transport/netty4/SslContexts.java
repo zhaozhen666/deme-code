@@ -45,10 +45,10 @@ public class SslContexts {
             String password = sslConfig.getServerKeyPassword();
             if (password != null) {
                 sslClientContextBuilder = SslContextBuilder.forServer(sslConfig.getServerKeyCertChainPathStream(),
-                        sslConfig.getServerPrivateKeyPathStream(), password);
+                    sslConfig.getServerPrivateKeyPathStream(), password);
             } else {
                 sslClientContextBuilder = SslContextBuilder.forServer(sslConfig.getServerKeyCertChainPathStream(),
-                        sslConfig.getServerPrivateKeyPathStream());
+                    sslConfig.getServerPrivateKeyPathStream());
             }
 
             if (sslConfig.getServerTrustCertCollectionPathStream() != null) {
@@ -110,8 +110,8 @@ public class SslContexts {
             return SslProvider.JDK;
         }
         throw new IllegalStateException(
-                "Could not find any valid TLS provider, please check your dependency or deployment environment, " +
-                        "usually netty-tcnative, Conscrypt, or Jetty NPN/ALPN is needed.");
+            "Could not find any valid TLS provider, please check your dependency or deployment environment, " +
+                "usually netty-tcnative, Conscrypt, or Jetty NPN/ALPN is needed.");
     }
 
     private static boolean checkJdkProvider() {

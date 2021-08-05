@@ -15,13 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class UserOPController {
     private IUserService userService;
+
     @Autowired
-    public UserOPController(IUserService userService){
-        this.userService =userService;
+    public UserOPController(IUserService userService) {
+        this.userService = userService;
     }
+
     @PostMapping("/create/user")
-    public CreateUserResponse createUser(@RequestBody  CreateUserRequest request) throws AdException {
-        log.info("ad-sponsor--createuser  "+ JSON.toJSONString(request));
+    public CreateUserResponse createUser(@RequestBody CreateUserRequest request) throws AdException {
+        log.info("ad-sponsor--createuser  " + JSON.toJSONString(request));
         return userService.createUser(request);
     }
 }

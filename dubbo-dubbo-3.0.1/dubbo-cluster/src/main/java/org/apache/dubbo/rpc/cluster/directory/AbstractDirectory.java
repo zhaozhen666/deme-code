@@ -41,7 +41,6 @@ import static org.apache.dubbo.rpc.cluster.Constants.REFER_KEY;
 
 /**
  * Abstract implementation of Directory: Invoker list returned from this Directory's list method have been filtered by Routers
- *
  */
 public abstract class AbstractDirectory<T> implements Directory<T> {
 
@@ -76,7 +75,7 @@ public abstract class AbstractDirectory<T> implements Directory<T> {
         Object referParams = url.getAttribute(REFER_KEY);
         if (referParams != null) {
             this.queryMap = (Map<String, String>) referParams;
-            this.consumerUrl = (URL)url.getAttribute(CONSUMER_URL_KEY);
+            this.consumerUrl = (URL) url.getAttribute(CONSUMER_URL_KEY);
         } else {
             this.queryMap = StringUtils.parseQueryString(url.getParameterAndDecoded(REFER_KEY));
         }
@@ -87,10 +86,10 @@ public abstract class AbstractDirectory<T> implements Directory<T> {
             String consumedProtocol = this.queryMap.get(PROTOCOL_KEY) == null ? DUBBO : this.queryMap.get(PROTOCOL_KEY);
 
             URL consumerUrlFrom = this.url
-                    .setHost(host)
-                    .setPort(0)
-                    .setProtocol(consumedProtocol)
-                    .setPath(path == null ? queryMap.get(INTERFACE_KEY) : path);
+                .setHost(host)
+                .setPort(0)
+                .setProtocol(consumedProtocol)
+                .setPath(path == null ? queryMap.get(INTERFACE_KEY) : path);
             if (isUrlFromRegistry) {
                 // reserve parameters if url is already a consumer url
                 consumerUrlFrom = consumerUrlFrom.clearParameters();

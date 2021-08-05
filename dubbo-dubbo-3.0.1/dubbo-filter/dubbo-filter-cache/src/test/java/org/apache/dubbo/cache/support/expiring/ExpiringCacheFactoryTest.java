@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class ExpiringCacheFactoryTest extends AbstractCacheFactoryTest {
 
     private static final String EXPIRING_CACHE_URL =
-            "test://test:12/test?cache=expiring&cache.seconds=1&cache.interval=1";
+        "test://test:12/test?cache=expiring&cache.seconds=1&cache.interval=1";
 
     @Test
     public void testExpiringCacheFactory() throws Exception {

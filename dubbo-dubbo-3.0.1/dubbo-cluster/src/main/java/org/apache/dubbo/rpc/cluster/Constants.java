@@ -95,7 +95,7 @@ public interface Constants {
     /**
      * The key for state router
      */
-    String STATE_ROUTER_KEY="stateRouter";
+    String STATE_ROUTER_KEY = "stateRouter";
     /**
      * The key name for reference URL in register center
      */

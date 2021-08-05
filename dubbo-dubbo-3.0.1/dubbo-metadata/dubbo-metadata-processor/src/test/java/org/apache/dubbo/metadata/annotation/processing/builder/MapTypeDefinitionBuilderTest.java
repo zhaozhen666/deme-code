@@ -89,34 +89,34 @@ public class MapTypeDefinitionBuilderTest extends AbstractAnnotationProcessingTe
     public void testBuild() {
 
         buildAndAssertTypeDefinition(processingEnv, stringsField,
-                "java.util.Map<java.lang.String,java.lang.String>",
-                "java.lang.String",
-                "java.lang.String",
-                builder);
+            "java.util.Map<java.lang.String,java.lang.String>",
+            "java.lang.String",
+            "java.lang.String",
+            builder);
 
         buildAndAssertTypeDefinition(processingEnv, colorsField,
-                "java.util.SortedMap<java.lang.String,org.apache.dubbo.metadata.annotation.processing.model.Color>",
-                "java.lang.String",
-                "org.apache.dubbo.metadata.annotation.processing.model.Color",
-                builder);
+            "java.util.SortedMap<java.lang.String,org.apache.dubbo.metadata.annotation.processing.model.Color>",
+            "java.lang.String",
+            "org.apache.dubbo.metadata.annotation.processing.model.Color",
+            builder);
 
         buildAndAssertTypeDefinition(processingEnv, primitiveTypeModelsField,
-                "java.util.NavigableMap<org.apache.dubbo.metadata.annotation.processing.model.Color,org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel>",
-                "org.apache.dubbo.metadata.annotation.processing.model.Color",
-                "org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel",
-                builder);
+            "java.util.NavigableMap<org.apache.dubbo.metadata.annotation.processing.model.Color,org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel>",
+            "org.apache.dubbo.metadata.annotation.processing.model.Color",
+            "org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel",
+            builder);
 
         buildAndAssertTypeDefinition(processingEnv, modelsField,
-                "java.util.HashMap<java.lang.String,org.apache.dubbo.metadata.annotation.processing.model.Model>",
-                "java.lang.String",
-                "org.apache.dubbo.metadata.annotation.processing.model.Model",
-                builder);
+            "java.util.HashMap<java.lang.String,org.apache.dubbo.metadata.annotation.processing.model.Model>",
+            "java.lang.String",
+            "org.apache.dubbo.metadata.annotation.processing.model.Model",
+            builder);
 
         buildAndAssertTypeDefinition(processingEnv, modelArraysField,
-                "java.util.TreeMap<org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel,org.apache.dubbo.metadata.annotation.processing.model.Model[]>",
-                "org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel",
-                "org.apache.dubbo.metadata.annotation.processing.model.Model[]",
-                builder);
+            "java.util.TreeMap<org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel,org.apache.dubbo.metadata.annotation.processing.model.Model[]>",
+            "org.apache.dubbo.metadata.annotation.processing.model.PrimitiveTypeModel",
+            "org.apache.dubbo.metadata.annotation.processing.model.Model[]",
+            builder);
     }
 
     static void buildAndAssertTypeDefinition(ProcessingEnvironment processingEnv, VariableElement field,

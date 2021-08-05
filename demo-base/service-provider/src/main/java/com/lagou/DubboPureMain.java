@@ -9,21 +9,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 public class DubboPureMain {
-    public static void main(String[] args) throws  Exception{
+    public static void main(String[] args) throws Exception {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProviderConfiguration.class);
         context.start();
         System.in.read();
     }
+
     @Configuration
     @EnableDubbo(scanBasePackages = "com.lagou.service.impl")
     @PropertySource("classpath:/dubbo-provider.properties")
-    static  class  ProviderConfiguration{
+    static class ProviderConfiguration {
         @Bean
-        public RegistryConfig   registryConfig(){
-            RegistryConfig  registryConfig  = new RegistryConfig();
+        public RegistryConfig registryConfig() {
+            RegistryConfig registryConfig = new RegistryConfig();
             registryConfig.setAddress("zookeeper://119.45.52.68:2181?timeout=10000");
             //registryConfig.setTimeout(10000);
-            return   registryConfig;
+            return registryConfig;
         }
     }
 

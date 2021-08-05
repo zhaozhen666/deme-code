@@ -16,6 +16,7 @@ public interface ItemService {
 
     /**
      * 根据商品ID查询详情
+     *
      * @param itemId
      * @return
      */
@@ -24,22 +25,25 @@ public interface ItemService {
 
     /**
      * 根据商品id查询商品图片列表
+     *
      * @param itemId
      * @return
      */
     @GetMapping("itemImages")
-    public List<ItemsImg> queryItemImgList(@RequestParam("itemId")String itemId);
+    public List<ItemsImg> queryItemImgList(@RequestParam("itemId") String itemId);
 
     /**
      * 根据商品id查询商品规格
+     *
      * @param itemId
      * @return
      */
     @GetMapping("itemSpecs")
-    public List<ItemsSpec> queryItemSpecList(@RequestParam("itemId")String itemId);
+    public List<ItemsSpec> queryItemSpecList(@RequestParam("itemId") String itemId);
 
     /**
      * 根据商品id查询商品参数
+     *
      * @param itemId
      * @return
      */
@@ -48,6 +52,7 @@ public interface ItemService {
 
     /**
      * 根据商品id查询商品的评价等级数量
+     *
      * @param itemId
      */
     @GetMapping("countComments")
@@ -55,6 +60,7 @@ public interface ItemService {
 
     /**
      * 根据商品id查询商品的评价（分页）
+     *
      * @param itemId
      * @param level
      * @return
@@ -89,6 +95,7 @@ public interface ItemService {
 
     /**
      * 根据规格ids查询最新的购物车中商品数据（用于刷新渲染购物车中的商品数据）
+     *
      * @param specIds
      * @return
      */
@@ -97,6 +104,7 @@ public interface ItemService {
 
     /**
      * 根据商品规格id获取规格对象的具体信息
+     *
      * @param specId
      * @return
      */
@@ -105,6 +113,7 @@ public interface ItemService {
 
     /**
      * 根据商品id获得商品图片主图url
+     *
      * @param itemId
      * @return
      */
@@ -113,6 +122,7 @@ public interface ItemService {
 
     /**
      * 减少库存
+     *
      * @param specId
      * @param buyCounts
      */

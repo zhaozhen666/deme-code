@@ -36,8 +36,8 @@ import java.util.stream.Stream;
 class CompatibleOnEnabledEndpointCondition implements Condition {
 
     static String[] CONDITION_CLASS_NAMES = {
-            "org.springframework.boot.actuate.autoconfigure.endpoint.condition.OnAvailableEndpointCondition", // 2.2.0+
-            "org.springframework.boot.actuate.autoconfigure.endpoint.condition.OnEnabledEndpointCondition" // [2.0.0 , 2.2.x]
+        "org.springframework.boot.actuate.autoconfigure.endpoint.condition.OnAvailableEndpointCondition", // 2.2.0+
+        "org.springframework.boot.actuate.autoconfigure.endpoint.condition.OnEnabledEndpointCondition" // [2.0.0 , 2.2.x]
     };
 
 
@@ -46,13 +46,13 @@ class CompatibleOnEnabledEndpointCondition implements Condition {
         ClassLoader classLoader = context.getClassLoader();
 
         Condition condition = Stream.of(CONDITION_CLASS_NAMES)                         // Iterate class names
-                .filter(className -> ClassUtils.isPresent(className, classLoader))     // Search class existing or not by name
-                .findFirst()                                                           // Find the first candidate
-                .map(className -> ClassUtils.resolveClassName(className, classLoader)) // Resolve class name to Class
-                .filter(Condition.class::isAssignableFrom)                             // Accept the Condition implementation
-                .map(BeanUtils::instantiateClass)                                      // Instantiate Class to be instance
-                .map(Condition.class::cast)                                            // Cast the instance to be Condition one
-                .orElse(NegativeCondition.INSTANCE);                                   // Or else get a negative condition
+            .filter(className -> ClassUtils.isPresent(className, classLoader))     // Search class existing or not by name
+            .findFirst()                                                           // Find the first candidate
+            .map(className -> ClassUtils.resolveClassName(className, classLoader)) // Resolve class name to Class
+            .filter(Condition.class::isAssignableFrom)                             // Accept the Condition implementation
+            .map(BeanUtils::instantiateClass)                                      // Instantiate Class to be instance
+            .map(Condition.class::cast)                                            // Cast the instance to be Condition one
+            .orElse(NegativeCondition.INSTANCE);                                   // Or else get a negative condition
 
         return condition.matches(context, metadata);
     }

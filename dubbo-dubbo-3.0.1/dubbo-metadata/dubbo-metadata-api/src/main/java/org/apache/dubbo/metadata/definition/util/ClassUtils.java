@@ -127,7 +127,7 @@ public final class ClassUtils {
                 // Find simple name of nested type by removing the
                 // shared prefix with owner.
                 sb.append(rawType.getName().replace(((Class) ((ParameterizedType) ownerType).getRawType()).getName() + "$",
-                        ""));
+                    ""));
             } else {
                 sb.append(rawType.getSimpleName());
             }
@@ -136,7 +136,7 @@ public final class ClassUtils {
         }
 
         if (actualTypeArguments != null &&
-                actualTypeArguments.length > 0) {
+            actualTypeArguments.length > 0) {
             sb.append("<");
             boolean first = true;
             for (Type t : actualTypeArguments) {

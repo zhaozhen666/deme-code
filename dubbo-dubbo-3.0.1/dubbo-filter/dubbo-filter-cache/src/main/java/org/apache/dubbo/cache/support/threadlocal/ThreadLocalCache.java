@@ -26,7 +26,7 @@ import java.util.Map;
  * This class store the cache value per thread. If a service,method,consumer or provided is configured with key <b>cache</b>
  * with value <b>threadlocal</b>, dubbo initialize the instance of this class using {@link ThreadLocalCacheFactory} to store method's returns value
  * to server from store without making method call.
- *  <pre>
+ * <pre>
  *      e.g. &lt;dubbo:service cache="threadlocal" /&gt;
  *  </pre>
  * <pre>
@@ -48,6 +48,7 @@ public class ThreadLocalCache implements Cache {
     /**
      * Taken URL as an argument to create an instance of ThreadLocalCache. In this version of implementation constructor
      * argument is not getting used in the scope of this class.
+     *
      * @param url
      */
     public ThreadLocalCache(URL url) {
@@ -56,7 +57,8 @@ public class ThreadLocalCache implements Cache {
 
     /**
      * API to store value against a key in the calling thread scope.
-     * @param key  Unique identifier for the object being store.
+     *
+     * @param key   Unique identifier for the object being store.
      * @param value Value getting store
      */
     @Override
@@ -66,6 +68,7 @@ public class ThreadLocalCache implements Cache {
 
     /**
      * API to return stored value using a key against the calling thread specific store.
+     *
      * @param key Unique identifier for cache lookup
      * @return Return stored object against key
      */

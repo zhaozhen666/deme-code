@@ -71,14 +71,14 @@ import java.util.Map;
  *     }
  * }
  * </pre>
- *
+ * <p>
  * Or register ReferenceBean in xml:
  * <pre class="code">
  * &lt;dubbo:reference id="helloService" interface="org.apache.dubbo.config.spring.api.HelloService"/&gt;
  * &lt;!-- As GenericService --&gt;
  * &lt;dubbo:reference id="genericHelloService" interface="org.apache.dubbo.config.spring.api.HelloService" generic="true"/&gt;
  * </pre>
- *
+ * <p>
  * Step 2: Inject ReferenceBean by @Autowired
  * <pre class="code">
  * public class FooController {
@@ -90,12 +90,11 @@ import java.util.Map;
  * }
  * </pre>
  *
- *
  * @see org.apache.dubbo.config.annotation.DubboReference
  * @see org.apache.dubbo.config.spring.reference.ReferenceBeanBuilder
  */
 public class ReferenceBean<T> implements FactoryBean,
-        ApplicationContextAware, BeanClassLoaderAware, BeanNameAware, InitializingBean, DisposableBean {
+    ApplicationContextAware, BeanClassLoaderAware, BeanNameAware, InitializingBean, DisposableBean {
 
     private transient ApplicationContext applicationContext;
 
@@ -131,7 +130,7 @@ public class ReferenceBean<T> implements FactoryBean,
     private ReferenceConfig referenceConfig;
 
     // Registration sources of this reference, may be xml file or annotation location
-    private List<Map<String,Object>> sources = new ArrayList<>();
+    private List<Map<String, Object>> sources = new ArrayList<>();
 
     public ReferenceBean() {
         super();
@@ -161,17 +160,17 @@ public class ReferenceBean<T> implements FactoryBean,
      * <p/>
      * When Spring searches beans by type, if Spring cannot determine the type of a factory bean, it may try to initialize it.
      * The ReferenceBean is also a FactoryBean.
-     *
+     * <p>
      * <p/>
      * In addition, if some ReferenceBeans are dependent on beans that are initialized very early,
      * and dubbo config beans are not ready yet, there will be many unexpected problems if initializing the dubbo reference immediately.
-     *
+     * <p>
      * <p/>
      * When it is initialized, only a lazy proxy object will be created,
      * and dubbo reference-related resources will not be initialized.
      * <br/>
      * In this way, the influence of Spring is eliminated, and the dubbo configuration initialization is controllable.
-     *
+     * <p>
      * <p/>
      * Dubbo config beans are initialized in DubboConfigInitializationPostProcessor.
      * <br/>
@@ -258,6 +257,7 @@ public class ReferenceBean<T> implements FactoryBean,
 
     /**
      * The interface of this ReferenceBean, for injection purpose
+     *
      * @return
      */
     public Class<?> getInterfaceClass() {

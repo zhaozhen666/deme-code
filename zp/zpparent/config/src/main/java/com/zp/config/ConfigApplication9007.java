@@ -10,6 +10,6 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableDiscoveryClient
 public class ConfigApplication9007 {
     public static void main(String[] args) {
-        SpringApplication.run(ConfigApplication9007.class,args);
+        SpringApplication.run(ConfigApplication9007.class, args);
     }
 }

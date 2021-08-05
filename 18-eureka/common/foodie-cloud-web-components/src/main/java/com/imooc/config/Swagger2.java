@@ -23,14 +23,14 @@ public class Swagger2 {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)  // 指定api类型为swagger2
-                    .apiInfo(apiInfo())                 // 用于定义api文档汇总信息
-                    .select()
-                    .apis(RequestHandlerSelectors
-                            .withClassAnnotation(RestController.class) // 指定Service上的RestController注解
+                .apiInfo(apiInfo())                 // 用于定义api文档汇总信息
+                .select()
+                .apis(RequestHandlerSelectors
+                                .withClassAnnotation(RestController.class) // 指定Service上的RestController注解
 //                            .basePackage("com.imooc.controller"))   // 指定controller包
-                    )
-                    .paths(PathSelectors.any())         // 所有controller
-                    .build();
+                )
+                .paths(PathSelectors.any())         // 所有controller
+                .build();
     }
 
     private ApiInfo apiInfo() {

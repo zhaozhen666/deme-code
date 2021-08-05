@@ -99,7 +99,6 @@ public abstract class AbstractCluster implements Cluster {
         }
 
 
-
         @Override
         public URL getRegistryUrl() {
             return filterInvoker.getRegistryUrl();
@@ -121,7 +120,7 @@ public abstract class AbstractCluster implements Cluster {
          */
         @Override
         protected Result doInvoke(Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadbalance) throws RpcException {
-           return null;
+            return null;
         }
     }
 

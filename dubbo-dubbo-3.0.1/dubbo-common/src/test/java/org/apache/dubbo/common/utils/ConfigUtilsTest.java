@@ -79,14 +79,14 @@ public class ConfigUtilsTest {
     @Test
     public void testMergeValues() {
         List<String> merged = ConfigUtils.mergeValues(ThreadPool.class, "aaa,bbb,default.custom",
-                asList("fixed", "default.limited", "cached"));
+            asList("fixed", "default.limited", "cached"));
         assertEquals(asList("fixed", "cached", "aaa", "bbb", "default.custom"), merged);
     }
 
     @Test
     public void testMergeValuesAddDefault() {
         List<String> merged = ConfigUtils.mergeValues(ThreadPool.class, "aaa,bbb,default,zzz",
-                asList("fixed", "default.limited", "cached"));
+            asList("fixed", "default.limited", "cached"));
         assertEquals(asList("aaa", "bbb", "fixed", "cached", "zzz"), merged);
     }
 
@@ -114,7 +114,7 @@ public class ConfigUtilsTest {
     @Test
     public void testReplaceProperty() throws Exception {
         String s = ConfigUtils.replaceProperty("1${a.b.c}2${a.b.c}3", Collections.singletonMap("a.b.c", "ABC"));
-        assertEquals( "1ABC2ABC3", s);
+        assertEquals("1ABC2ABC3", s);
         s = ConfigUtils.replaceProperty("1${a.b.c}2${a.b.c}3", Collections.<String, String>emptyMap());
         assertEquals("1${a.b.c}2${a.b.c}3", s);
     }
@@ -212,7 +212,7 @@ public class ConfigUtilsTest {
     @Test
     public void testLoadProperties() throws Exception {
         Properties p = ConfigUtils.loadProperties("dubbo.properties");
-        assertThat((String)p.get("dubbo"), equalTo("properties"));
+        assertThat((String) p.get("dubbo"), equalTo("properties"));
     }
 
     @Test

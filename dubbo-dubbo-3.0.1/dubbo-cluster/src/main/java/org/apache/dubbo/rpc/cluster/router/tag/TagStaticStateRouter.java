@@ -34,6 +34,7 @@ import org.apache.dubbo.rpc.cluster.router.state.AbstractStateRouter;
 import org.apache.dubbo.rpc.cluster.router.state.BitList;
 import org.apache.dubbo.rpc.cluster.router.state.RouterCache;
 import org.apache.dubbo.rpc.cluster.router.tag.model.TagRouterRule;
+
 import static org.apache.dubbo.common.constants.CommonConstants.TAG_KEY;
 
 /**

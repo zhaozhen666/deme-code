@@ -52,7 +52,7 @@ public class ServiceRepository extends LifecycleAdapter implements FrameworkExt 
 
     public ServiceRepository() {
         Set<BuiltinServiceDetector> builtinServices
-                = ExtensionLoader.getExtensionLoader(BuiltinServiceDetector.class).getSupportedExtensionInstances();
+            = ExtensionLoader.getExtensionLoader(BuiltinServiceDetector.class).getSupportedExtensionInstances();
         if (CollectionUtils.isNotEmpty(builtinServices)) {
             for (BuiltinServiceDetector service : builtinServices) {
                 registerService(service.getService());
@@ -62,7 +62,7 @@ public class ServiceRepository extends LifecycleAdapter implements FrameworkExt 
 
     public ServiceDescriptor registerService(Class<?> interfaceClazz) {
         return services.computeIfAbsent(interfaceClazz.getName(),
-                _k -> new ServiceDescriptor(interfaceClazz));
+            _k -> new ServiceDescriptor(interfaceClazz));
     }
 
     /**
@@ -100,7 +100,7 @@ public class ServiceRepository extends LifecycleAdapter implements FrameworkExt 
                                  Object proxy,
                                  ServiceMetadata serviceMetadata) {
         ConsumerModel consumerModel = new ConsumerModel(serviceMetadata.getServiceKey(), proxy, serviceDescriptor, rc,
-                serviceMetadata);
+            serviceMetadata);
         consumers.putIfAbsent(serviceKey, consumerModel);
     }
 
@@ -118,7 +118,7 @@ public class ServiceRepository extends LifecycleAdapter implements FrameworkExt 
                                  ServiceConfigBase<?> serviceConfig,
                                  ServiceMetadata serviceMetadata) {
         ProviderModel providerModel = new ProviderModel(serviceKey, serviceInstance, serviceModel, serviceConfig,
-                serviceMetadata);
+            serviceMetadata);
         providers.putIfAbsent(serviceKey, providerModel);
         providersWithoutGroup.putIfAbsent(keyWithoutGroup(serviceKey), providerModel);
     }

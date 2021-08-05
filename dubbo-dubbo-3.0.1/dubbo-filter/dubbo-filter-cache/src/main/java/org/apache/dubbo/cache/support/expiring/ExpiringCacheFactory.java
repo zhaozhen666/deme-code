@@ -34,6 +34,7 @@ public class ExpiringCacheFactory extends AbstractCacheFactory {
 
     /**
      * Takes url as an method argument and return new instance of cache store implemented by JCache.
+     *
      * @param url url of the method
      * @return ExpiringCache instance of cache
      */

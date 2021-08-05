@@ -48,7 +48,7 @@ public abstract class AbstractCodec implements Codec2 {
         boolean overPayload = isOverPayload(payload, size);
         if (overPayload) {
             ExceedPayloadLimitException e = new ExceedPayloadLimitException(
-                    "Data length too large: " + size + ", max payload: " + payload + ", channel: " + channel);
+                "Data length too large: " + size + ", max payload: " + payload + ", channel: " + channel);
             logger.error(e);
             throw e;
         }

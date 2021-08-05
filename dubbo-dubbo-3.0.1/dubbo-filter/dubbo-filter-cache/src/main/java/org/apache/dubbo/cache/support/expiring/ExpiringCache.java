@@ -35,6 +35,7 @@ import java.util.Map;
  * </pre>
  * <li>It used constructor argument url instance <b>cache.seconds</b> value to decide time to live of cached object.Default value of it is 180 second.</li>
  * <li>It used constructor argument url instance <b>cache.interval</b> value for cache value expiration interval.Default value of this is 4 second</li>
+ *
  * @see Cache
  * @see ExpiringCacheFactory
  * @see org.apache.dubbo.cache.support.AbstractCacheFactory
@@ -55,7 +56,8 @@ public class ExpiringCache implements Cache {
 
     /**
      * API to store value against a key in the calling thread scope.
-     * @param key  Unique identifier for the object being store.
+     *
+     * @param key   Unique identifier for the object being store.
      * @param value Value getting store
      */
     @Override
@@ -65,6 +67,7 @@ public class ExpiringCache implements Cache {
 
     /**
      * API to return stored value using a key against the calling thread specific store.
+     *
      * @param key Unique identifier for cache lookup
      * @return Return stored object against key
      */

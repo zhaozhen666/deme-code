@@ -30,12 +30,12 @@ public class TTreeTest {
         tree.begin("three").end();
         String result = tree.rendering();
         String expected = "`---+root\n" +
-                "    +---+one\n" +
-                "    |   `---ONE\n" +
-                "    +---+two\n" +
-                "    |   +---TWO\n" +
-                "    |   `---2\n" +
-                "    `---three\n";
+            "    +---+one\n" +
+            "    |   `---ONE\n" +
+            "    +---+two\n" +
+            "    |   +---TWO\n" +
+            "    |   `---2\n" +
+            "    `---three\n";
         assertThat(result, equalTo(expected));
         System.out.println(result);
     }

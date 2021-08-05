@@ -44,7 +44,7 @@ public class ServiceInstanceMetadataCustomizer implements ServiceInstanceCustomi
         Set<MetadataParamsFilter> paramsFilters = loader.getSupportedExtensionInstances();
 
         InMemoryWritableMetadataService localMetadataService
-                = (InMemoryWritableMetadataService) WritableMetadataService.getDefaultExtension();
+            = (InMemoryWritableMetadataService) WritableMetadataService.getDefaultExtension();
         // pick the first interface metadata available.
         // FIXME, check the same key in different urls has the same value
         Map<String, MetadataInfo> metadataInfos = localMetadataService.getMetadataInfos();

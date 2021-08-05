@@ -74,9 +74,9 @@ public class MethodConfigTest {
     private static final String ARGUMENTS_TYPE = "sss";
 
     @Reference(methods = {@Method(name = METHOD_NAME, timeout = TIMEOUT, retries = RETRIES, loadbalance = LOADBALANCE, async = ASYNC,
-            actives = ACTIVES, executes = EXECUTES, deprecated = DEPERECATED, sticky = STICKY, oninvoke = ONINVOKE+"."+ONINVOKE_METHOD,
-            onthrow = ONTHROW+"."+ONTHROW_METHOD, onreturn = ONRETURN+"."+ONRETURN_METHOD, cache = CACHE, validation = VALIDATION,
-            arguments = {@Argument(index = ARGUMENTS_INDEX, callback = ARGUMENTS_CALLBACK, type = ARGUMENTS_TYPE)})})
+        actives = ACTIVES, executes = EXECUTES, deprecated = DEPERECATED, sticky = STICKY, oninvoke = ONINVOKE + "." + ONINVOKE_METHOD,
+        onthrow = ONTHROW + "." + ONTHROW_METHOD, onreturn = ONRETURN + "." + ONRETURN_METHOD, cache = CACHE, validation = VALIDATION,
+        arguments = {@Argument(index = ARGUMENTS_INDEX, callback = ARGUMENTS_CALLBACK, type = ARGUMENTS_TYPE)})})
     private String testField;
 
     @BeforeEach
@@ -268,10 +268,10 @@ public class MethodConfigTest {
     public void testOverrideMethodConfigOfReference() {
 
         String interfaceName = DemoService.class.getName();
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".sayName.timeout", "1234");
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".sayName.sticky", "true");
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".sayName.parameters", "[{a:1},{b:2}]");
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".init", "false");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".sayName.timeout", "1234");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".sayName.sticky", "true");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".sayName.parameters", "[{a:1},{b:2}]");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".init", "false");
 
         ReferenceConfig referenceConfig = new ReferenceConfig();
         referenceConfig.setInterface(interfaceName);
@@ -300,10 +300,10 @@ public class MethodConfigTest {
     public void testAddMethodConfigOfReference() {
 
         String interfaceName = DemoService.class.getName();
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".sayName.timeout", "1234");
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".sayName.sticky", "true");
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".sayName.parameters", "[{a:1},{b:2}]");
-        SysProps.setProperty("dubbo.reference."+ interfaceName +".init", "false");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".sayName.timeout", "1234");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".sayName.sticky", "true");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".sayName.parameters", "[{a:1},{b:2}]");
+        SysProps.setProperty("dubbo.reference." + interfaceName + ".init", "false");
 
         ReferenceConfig referenceConfig = new ReferenceConfig();
         referenceConfig.setInterface(interfaceName);
@@ -332,10 +332,10 @@ public class MethodConfigTest {
     public void testOverrideMethodConfigOfService() {
 
         String interfaceName = DemoService.class.getName();
-        SysProps.setProperty("dubbo.service."+ interfaceName +".sayName.timeout", "1234");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".sayName.sticky", "true");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".sayName.parameters", "[{a:1},{b:2}]");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".group", "demo");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".sayName.timeout", "1234");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".sayName.sticky", "true");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".sayName.parameters", "[{a:1},{b:2}]");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".group", "demo");
         SysProps.setProperty("dubbo.registry.address", "N/A");
 
         ServiceConfig serviceConfig = new ServiceConfig();
@@ -366,12 +366,12 @@ public class MethodConfigTest {
     public void testAddMethodConfigOfService() {
 
         String interfaceName = DemoService.class.getName();
-        SysProps.setProperty("dubbo.service."+ interfaceName +".sayName.timeout", "1234");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".sayName.sticky", "true");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".sayName.parameters", "[{a:1},{b:2}]");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".sayName.0.callback", "true");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".group", "demo");
-        SysProps.setProperty("dubbo.service."+ interfaceName +".echo", "non-method-config");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".sayName.timeout", "1234");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".sayName.sticky", "true");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".sayName.parameters", "[{a:1},{b:2}]");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".sayName.0.callback", "true");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".group", "demo");
+        SysProps.setProperty("dubbo.service." + interfaceName + ".echo", "non-method-config");
         SysProps.setProperty("dubbo.registry.address", "N/A");
 
         ServiceConfig serviceConfig = new ServiceConfig();
@@ -410,6 +410,6 @@ public class MethodConfigTest {
     public void testMetaData() {
         MethodConfig methodConfig = new MethodConfig();
         Map<String, String> metaData = methodConfig.getMetaData();
-        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: "+metaData);
+        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: " + metaData);
     }
 }

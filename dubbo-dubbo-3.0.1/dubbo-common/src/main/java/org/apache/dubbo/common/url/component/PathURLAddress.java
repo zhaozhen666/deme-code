@@ -131,11 +131,11 @@ public class PathURLAddress extends URLAddress {
         if (!(obj instanceof URLAddress)) return false;
         URLAddress that = (URLAddress) obj;
         return Objects.equals(this.getProtocol(), that.getProtocol()) &&
-                Objects.equals(this.getUsername(), that.getUsername()) &&
-                Objects.equals(this.getPassword(), that.getPassword()) &&
-                Objects.equals(this.getPath(), that.getPath()) &&
-                Objects.equals(this.getHost(), that.getHost()) &&
-                Objects.equals(this.getPort(), that.getPort());
+            Objects.equals(this.getUsername(), that.getUsername()) &&
+            Objects.equals(this.getPassword(), that.getPassword()) &&
+            Objects.equals(this.getPath(), that.getPath()) &&
+            Objects.equals(this.getHost(), that.getHost()) &&
+            Objects.equals(this.getPort(), that.getPort());
     }
 
     @Override

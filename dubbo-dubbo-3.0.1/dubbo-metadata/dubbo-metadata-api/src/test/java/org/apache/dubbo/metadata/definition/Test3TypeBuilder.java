@@ -28,7 +28,7 @@ import java.util.Map;
 public class Test3TypeBuilder implements TypeBuilder {
     // it is smaller than the implements of TypeBuilder
     @Override
-    public int getPriority(){
+    public int getPriority() {
         return 10;
     }
 

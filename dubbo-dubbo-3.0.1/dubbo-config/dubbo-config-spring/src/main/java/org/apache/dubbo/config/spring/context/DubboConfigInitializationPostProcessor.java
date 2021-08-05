@@ -44,9 +44,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors;
 
 /**
- *
  * Post-processor Dubbo config bean initialization.
- *
+ * <p>
  * NOTE: Dubbo config beans MUST be initialized after registering all BeanPostProcessors,
  * that is after the AbstractApplicationContext#registerBeanPostProcessors() method.
  */

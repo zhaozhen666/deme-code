@@ -1,7 +1,7 @@
 package com.imooc.order.pojo.vo;
 
 /**
- * 订单状态概览数量VO 
+ * 订单状态概览数量VO
  */
 public class OrderStatusCountsVO {
 

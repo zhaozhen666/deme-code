@@ -31,7 +31,7 @@ public class LongArrayMerger implements Merger<long[]> {
             return new long[0];
         }
         return Arrays.stream(items).filter(Objects::nonNull)
-                .flatMapToLong(Arrays::stream)
-                .toArray();
+            .flatMapToLong(Arrays::stream)
+            .toArray();
     }
 }

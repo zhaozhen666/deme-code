@@ -22,7 +22,6 @@ import org.apache.dubbo.registry.support.AbstractRegistryFactory;
 
 /**
  * MulticastRegistryLocator
- *
  */
 public class MulticastRegistryFactory extends AbstractRegistryFactory {
 

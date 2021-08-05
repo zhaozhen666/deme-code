@@ -65,19 +65,19 @@ public class DubboServiceProviderBootstrap {
         ApplicationConfig applicationConfig = new ApplicationConfig("dubbo-provider-demo");
         applicationConfig.setMetadataType("remote");
         DubboBootstrap.getInstance()
-                .application(applicationConfig)
-                // Zookeeper in service registry type
+            .application(applicationConfig)
+            // Zookeeper in service registry type
 //                .registry("zookeeper", builder -> builder.address("zookeeper://127.0.0.1:2181?registry.type=service"))
-                // Nacos
+            // Nacos
 //                .registry("zookeeper", builder -> builder.address("nacos://127.0.0.1:8848?registry.type=service"))
-                .registries(Arrays.asList(interfaceRegistry, serviceRegistry))
+            .registries(Arrays.asList(interfaceRegistry, serviceRegistry))
 //                .registry(RegistryBuilder.newBuilder().address("consul://127.0.0.1:8500?registry.type=service").build())
-                .protocol(builder -> builder.port(-1).name("dubbo"))
-                .metadataReport(new MetadataReportConfig("zookeeper://127.0.0.1:2181"))
-                .service(echoService)
-                .service(userService)
-                .start()
-                .await();
+            .protocol(builder -> builder.port(-1).name("dubbo"))
+            .metadataReport(new MetadataReportConfig("zookeeper://127.0.0.1:2181"))
+            .service(echoService)
+            .service(userService)
+            .start()
+            .await();
     }
 
     private static void testSCCallDubbo() {

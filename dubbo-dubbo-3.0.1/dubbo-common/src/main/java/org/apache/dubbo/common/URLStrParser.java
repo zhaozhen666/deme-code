@@ -293,7 +293,7 @@ public final class URLStrParser {
             } else {
                 value = decodeComponent(str, valueStart, valueEnd, false, tempBuf);
             }
-            URLItemCache.putParams(params,name, value);
+            URLItemCache.putParams(params, name, value);
             // compatible with lower versions registering "default." keys
             if (name.startsWith(DEFAULT_KEY_PREFIX)) {
                 params.putIfAbsent(name.substring(DEFAULT_KEY_PREFIX.length()), value);

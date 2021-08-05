@@ -257,15 +257,15 @@ public class ApplicationConfig extends AbstractConfig {
     public void setEnvironment(String environment) {
         if (environment != null) {
             if (!(DEVELOPMENT_ENVIRONMENT.equals(environment)
-                    || TEST_ENVIRONMENT.equals(environment)
-                    || PRODUCTION_ENVIRONMENT.equals(environment))) {
+                || TEST_ENVIRONMENT.equals(environment)
+                || PRODUCTION_ENVIRONMENT.equals(environment))) {
 
                 throw new IllegalStateException(String.format("Unsupported environment: %s, only support %s/%s/%s, default is %s.",
-                        environment,
-                        DEVELOPMENT_ENVIRONMENT,
-                        TEST_ENVIRONMENT,
-                        PRODUCTION_ENVIRONMENT,
-                        PRODUCTION_ENVIRONMENT));
+                    environment,
+                    DEVELOPMENT_ENVIRONMENT,
+                    TEST_ENVIRONMENT,
+                    PRODUCTION_ENVIRONMENT,
+                    PRODUCTION_ENVIRONMENT));
             }
         }
         this.environment = environment;
@@ -495,7 +495,7 @@ public class ApplicationConfig extends AbstractConfig {
         this.publishInstance = publishInstance;
     }
 
-    @Parameter(excluded = true, key="application-protocol")
+    @Parameter(excluded = true, key = "application-protocol")
     public String getProtocol() {
         return protocol;
     }

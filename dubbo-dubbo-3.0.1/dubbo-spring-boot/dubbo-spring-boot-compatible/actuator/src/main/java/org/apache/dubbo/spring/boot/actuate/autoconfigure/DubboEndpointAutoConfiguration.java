@@ -37,11 +37,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass(name = {
-        "org.springframework.boot.actuate.endpoint.Endpoint" // Spring Boot 1.x
+    "org.springframework.boot.actuate.endpoint.Endpoint" // Spring Boot 1.x
 })
 @AutoConfigureAfter(value = {
-        DubboAutoConfiguration.class,
-        DubboRelaxedBindingAutoConfiguration.class
+    DubboAutoConfiguration.class,
+    DubboRelaxedBindingAutoConfiguration.class
 })
 @EnableConfigurationProperties(DubboEndpoint.class)
 public class DubboEndpointAutoConfiguration {

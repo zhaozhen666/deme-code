@@ -58,15 +58,15 @@ public interface TypeDefinitionBuilder<T extends TypeMirror> extends Prioritized
         // Build by all instances of TypeDefinitionBuilder that were loaded By Java SPI
 
         TypeDefinition typeDefinition = getExtensionLoader(TypeBuilder.class)
-                .getSupportedExtensionInstances()
-                .stream()
+            .getSupportedExtensionInstances()
+            .stream()
 //        load(TypeDefinitionBuilder.class, TypeDefinitionBuilder.class.getClassLoader())
-                .filter(builder -> builder.accept(processingEnv, type))
-                .findFirst()
-                .map(builder -> {
-                    return builder.build(processingEnv, type, typeCache);
-                    // typeDefinition.setTypeBuilderName(builder.getClass().getName());
-                }).orElse(null);
+            .filter(builder -> builder.accept(processingEnv, type))
+            .findFirst()
+            .map(builder -> {
+                return builder.build(processingEnv, type, typeCache);
+                // typeDefinition.setTypeBuilderName(builder.getClass().getName());
+            }).orElse(null);
 
         if (typeDefinition != null) {
             typeCache.put(typeDefinition.getType(), typeDefinition);

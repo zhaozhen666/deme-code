@@ -48,7 +48,7 @@ public class AccessKeyAuthenticator implements Authenticator {
         String consumer = String.valueOf(invocation.getAttachment(CommonConstants.CONSUMER));
 
         if (StringUtils.isEmpty(accessKeyId) || StringUtils.isEmpty(consumer)
-                || StringUtils.isEmpty(requestTimestamp) || StringUtils.isEmpty(originSignature)) {
+            || StringUtils.isEmpty(requestTimestamp) || StringUtils.isEmpty(originSignature)) {
             throw new RpcAuthenticationException("Failed to authenticate, maybe consumer not enable the auth");
         }
         AccessKeyPair accessKeyPair = null;
@@ -67,7 +67,7 @@ public class AccessKeyAuthenticator implements Authenticator {
 
     AccessKeyPair getAccessKeyPair(Invocation invocation, URL url) {
         AccessKeyStorage accessKeyStorage = ExtensionLoader.getExtensionLoader(AccessKeyStorage.class)
-                .getExtension(url.getParameter(Constants.ACCESS_KEY_STORAGE_KEY, Constants.DEFAULT_ACCESS_KEY_STORAGE));
+            .getExtension(url.getParameter(Constants.ACCESS_KEY_STORAGE_KEY, Constants.DEFAULT_ACCESS_KEY_STORAGE));
 
         AccessKeyPair accessKeyPair = null;
         try {
@@ -85,7 +85,7 @@ public class AccessKeyAuthenticator implements Authenticator {
         boolean parameterEncrypt = url.getParameter(Constants.PARAMETER_SIGNATURE_ENABLE_KEY, false);
         String signature;
         String requestString = String.format(Constants.SIGNATURE_STRING_FORMAT,
-                url.getColonSeparatedKey(), invocation.getMethodName(), secretKey, time);
+            url.getColonSeparatedKey(), invocation.getMethodName(), secretKey, time);
         if (parameterEncrypt) {
             signature = SignatureUtils.sign(invocation.getArguments(), requestString, secretKey);
         } else {

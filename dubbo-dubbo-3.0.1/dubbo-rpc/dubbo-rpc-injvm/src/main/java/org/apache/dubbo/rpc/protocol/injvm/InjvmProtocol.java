@@ -77,7 +77,7 @@ public class InjvmProtocol extends AbstractProtocol implements Protocol {
         if (result == null) {
             return null;
         } else if (ProtocolUtils.isGeneric(
-                result.getInvoker().getUrl().getParameter(GENERIC_KEY))) {
+            result.getInvoker().getUrl().getParameter(GENERIC_KEY))) {
             return null;
         } else {
             return result;

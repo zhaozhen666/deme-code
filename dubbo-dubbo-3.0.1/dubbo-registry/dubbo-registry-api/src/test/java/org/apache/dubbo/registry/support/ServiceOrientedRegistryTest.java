@@ -53,9 +53,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ServiceOrientedRegistryTest {
 
     private static final URL registryURL = valueOf("in-memory://localhost:12345")
-            .addParameter(REGISTRY_TYPE_KEY, SERVICE_REGISTRY_TYPE)
-            .addParameter(ID_KEY, "org.apache.dubbo.config.RegistryConfig#0")
-            .addParameter(SUBSCRIBED_SERVICE_NAMES_KEY, "a, b , c,d,e ,");
+        .addParameter(REGISTRY_TYPE_KEY, SERVICE_REGISTRY_TYPE)
+        .addParameter(ID_KEY, "org.apache.dubbo.config.RegistryConfig#0")
+        .addParameter(SUBSCRIBED_SERVICE_NAMES_KEY, "a, b , c,d,e ,");
 
     private static final String SERVICE_INTERFACE = "org.apache.dubbo.metadata.MetadataService";
 
@@ -64,12 +64,12 @@ public class ServiceOrientedRegistryTest {
     private static final String VERSION = "1.0.0";
 
     private static URL url = valueOf("dubbo://192.168.0.102:20880/" + SERVICE_INTERFACE +
-            "?&application=" + GROUP +
-            "&interface=" + SERVICE_INTERFACE +
-            "&group=" + GROUP +
-            "&version=" + VERSION +
-            "&methods=getAllServiceKeys,getServiceRestMetadata,getExportedURLs,getAllExportedURLs" +
-            "&side=" + PROVIDER_SIDE
+        "?&application=" + GROUP +
+        "&interface=" + SERVICE_INTERFACE +
+        "&group=" + GROUP +
+        "&version=" + VERSION +
+        "&methods=getAllServiceKeys,getServiceRestMetadata,getExportedURLs,getAllExportedURLs" +
+        "&side=" + PROVIDER_SIDE
     );
 
     private static URL url2 = url.setProtocol("rest");

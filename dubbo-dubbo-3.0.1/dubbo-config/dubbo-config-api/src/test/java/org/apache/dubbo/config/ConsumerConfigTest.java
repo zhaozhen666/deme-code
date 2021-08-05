@@ -114,9 +114,9 @@ public class ConsumerConfigTest {
             consumerConfig.setCheck(true);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .consumer(consumerConfig)
-                    .initialize();
+                .application("demo-app")
+                .consumer(consumerConfig)
+                .initialize();
 
             Collection<ConsumerConfig> consumers = ApplicationModel.getConfigManager().getConsumers();
             Assertions.assertEquals(1, consumers.size());
@@ -144,9 +144,9 @@ public class ConsumerConfigTest {
             consumerConfig.setCheck(true);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .consumer(consumerConfig)
-                    .initialize();
+                .application("demo-app")
+                .consumer(consumerConfig)
+                .initialize();
 
             Collection<ConsumerConfig> consumers = ApplicationModel.getConfigManager().getConsumers();
             Assertions.assertEquals(1, consumers.size());
@@ -177,9 +177,9 @@ public class ConsumerConfigTest {
             consumerConfig.setCheck(true);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .consumer(consumerConfig)
-                    .initialize();
+                .application("demo-app")
+                .consumer(consumerConfig)
+                .initialize();
 
             Collection<ConsumerConfig> consumers = ApplicationModel.getConfigManager().getConsumers();
             Assertions.assertEquals(1, consumers.size());
@@ -207,9 +207,9 @@ public class ConsumerConfigTest {
             consumerConfig.setGroup("groupA");
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .consumer(consumerConfig)
-                    .initialize();
+                .application("demo-app")
+                .consumer(consumerConfig)
+                .initialize();
 
             Collection<ConsumerConfig> consumers = ApplicationModel.getConfigManager().getConsumers();
             Assertions.assertEquals(1, consumers.size());
@@ -236,9 +236,9 @@ public class ConsumerConfigTest {
             referenceConfig.setInterface(DemoService.class);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .reference(referenceConfig)
-                    .initialize();
+                .application("demo-app")
+                .reference(referenceConfig)
+                .initialize();
 
             Assertions.assertEquals("demo", referenceConfig.getGroup());
             Assertions.assertEquals(1234, referenceConfig.getTimeout());
@@ -253,7 +253,7 @@ public class ConsumerConfigTest {
     public void testMetaData() {
         ConsumerConfig consumerConfig = new ConsumerConfig();
         Map<String, String> metaData = consumerConfig.getMetaData();
-        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: "+metaData);
+        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: " + metaData);
 
     }
 }

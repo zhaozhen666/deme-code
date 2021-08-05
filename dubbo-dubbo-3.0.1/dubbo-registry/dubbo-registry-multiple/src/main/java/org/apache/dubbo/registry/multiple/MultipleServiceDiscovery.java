@@ -51,7 +51,7 @@ public class MultipleServiceDiscovery implements ServiceDiscovery {
         for (String key : parameters.keySet()) {
             if (key.startsWith(REGISTRY_PREFIX_KEY)) {
                 URL url = URL.valueOf(registryURL.getParameter(key)).addParameter(CommonConstants.APPLICATION_KEY, applicationName)
-                        .addParameter("registry-type", "service");
+                    .addParameter("registry-type", "service");
                 ServiceDiscovery serviceDiscovery = ServiceDiscoveryFactory.getExtension(url).getServiceDiscovery(url);
                 serviceDiscovery.initialize(url);
                 serviceDiscoveries.put(key, serviceDiscovery);

@@ -107,7 +107,7 @@ public class MethodConfigTest {
     }
 
     @Test
-    public void testConvertMethodConfig2AsyncInfo() throws Exception{
+    public void testConvertMethodConfig2AsyncInfo() throws Exception {
         org.apache.dubbo.config.MethodConfig methodConfig = new org.apache.dubbo.config.MethodConfig();
         methodConfig.setOninvokeMethod("setName");
         methodConfig.setOninvoke(new Person());

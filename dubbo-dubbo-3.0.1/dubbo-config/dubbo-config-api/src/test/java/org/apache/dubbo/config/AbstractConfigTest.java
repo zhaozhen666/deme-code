@@ -183,8 +183,8 @@ public class AbstractConfigTest {
         // secret is excluded for url parameters, but keep for attributes
         Assertions.assertEquals(config.getSecret(), attributes.get("secret"));
         Assertions.assertEquals(config.getName(), attributes.get("name"));
-        Assertions.assertEquals(""+config.getNumber(), attributes.get("number"));
-        Assertions.assertEquals(""+config.getAge(), attributes.get("age"));
+        Assertions.assertEquals("" + config.getNumber(), attributes.get("number"));
+        Assertions.assertEquals("" + config.getAge(), attributes.get("age"));
         Assertions.assertEquals(StringUtils.encodeParameters(config.getParameters()), attributes.get("parameters"));
     }
 
@@ -196,13 +196,13 @@ public class AbstractConfigTest {
     @Test
     public void checkMultiExtension1() throws Exception {
         Assertions.assertThrows(IllegalStateException.class,
-                () -> ConfigValidationUtils.checkMultiExtension(Greeting.class, "hello", "default,world"));
+            () -> ConfigValidationUtils.checkMultiExtension(Greeting.class, "hello", "default,world"));
     }
 
     @Test
     public void checkMultiExtension2() throws Exception {
         Assertions.assertThrows(IllegalStateException.class,
-                () -> ConfigValidationUtils.checkMultiExtension(Greeting.class, "hello", "default,-world"));
+            () -> ConfigValidationUtils.checkMultiExtension(Greeting.class, "hello", "default,-world"));
     }
 
     @Test
@@ -297,7 +297,7 @@ public class AbstractConfigTest {
 
     @Test
     @Config(interfaceClass = Greeting.class, filter = {"f1, f2"}, listener = {"l1, l2"},
-            parameters = {"k1", "v1", "k2", "v2"})
+        parameters = {"k1", "v1", "k2", "v2"})
     public void appendAnnotation() throws Exception {
         Config config = getClass().getMethod("appendAnnotation").getAnnotation(Config.class);
         AnnotationConfig annotationConfig = new AnnotationConfig();
@@ -917,15 +917,15 @@ public class AbstractConfigTest {
         // Check and set default value of field in checkDefault() method
 
         List<Class<? extends AbstractConfig>> configClasses = Arrays.asList(ApplicationConfig.class,
-                ConsumerConfig.class, ProviderConfig.class, ReferenceConfig.class, ServiceConfig.class,
-                ProtocolConfig.class, RegistryConfig.class, ConfigCenterConfig.class, MetadataReportConfig.class,
-                ModuleConfig.class, SslConfig.class, MetricsConfig.class, MonitorConfig.class, MethodConfig.class);
+            ConsumerConfig.class, ProviderConfig.class, ReferenceConfig.class, ServiceConfig.class,
+            ProtocolConfig.class, RegistryConfig.class, ConfigCenterConfig.class, MetadataReportConfig.class,
+            ModuleConfig.class, SslConfig.class, MetricsConfig.class, MonitorConfig.class, MethodConfig.class);
 
         for (Class<? extends AbstractConfig> configClass : configClasses) {
             AbstractConfig config = configClass.newInstance();
             Map<String, String> metaData = config.getMetaData();
-            Assertions.assertEquals(0, metaData.size(), "Expect empty metadata for new instance but found: "+metaData +" of "+configClass.getSimpleName());
-            System.out.println(configClass.getSimpleName()+" metadata is checked.");
+            Assertions.assertEquals(0, metaData.size(), "Expect empty metadata for new instance but found: " + metaData + " of " + configClass.getSimpleName());
+            System.out.println(configClass.getSimpleName() + " metadata is checked.");
         }
     }
 }

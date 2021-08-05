@@ -18,7 +18,6 @@ package org.apache.dubbo.validation;
 
 /**
  * Instance of validator class is an extension to perform validation on method input parameter before the actual method invocation.
- *
  */
 public interface Validator {
 

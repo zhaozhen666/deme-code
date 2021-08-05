@@ -47,7 +47,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractStream implements Stream {
     public static final boolean ENABLE_ATTACHMENT_WRAP = Boolean.parseBoolean(
-            ConfigUtils.getProperty("triple.attachment", "false"));
+        ConfigUtils.getProperty("triple.attachment", "false"));
     protected static final String DUPLICATED_DATA = "Duplicated data";
     private static final List<Executor> CALLBACK_EXECUTORS = new ArrayList<>(4);
 
@@ -55,7 +55,7 @@ public abstract class AbstractStream implements Stream {
         ThreadFactory tripleTF = new NamedInternalThreadFactory("tri-callbcak", true);
         for (int i = 0; i < 4; i++) {
             final ThreadPoolExecutor tp = new ThreadPoolExecutor(1, 1, 0, TimeUnit.DAYS, new LinkedBlockingQueue<>(1024),
-                    tripleTF, new ThreadPoolExecutor.AbortPolicy());
+                tripleTF, new ThreadPoolExecutor.AbortPolicy());
             CALLBACK_EXECUTORS.add(tp);
         }
 
@@ -83,7 +83,7 @@ public abstract class AbstractStream implements Stream {
         this.executor = executor;
         final String value = url.getParameter(Constants.MULTI_SERIALIZATION_KEY, CommonConstants.DEFAULT_KEY);
         this.multipleSerialization = ExtensionLoader.getExtensionLoader(MultipleSerialization.class)
-                .getExtension(value);
+            .getExtension(value);
         this.streamObserver = createStreamObserver();
         this.transportObserver = createTransportObserver();
     }
@@ -205,7 +205,7 @@ public abstract class AbstractStream implements Stream {
         getTransportSubscriber().tryOnMetadata(metadata, true);
         if (LOGGER.isErrorEnabled()) {
             LOGGER.error("[Triple-Server-Error] service=" + getServiceDescriptor().getServiceName()
-                    + " method=" + getMethodName(), throwable);
+                + " method=" + getMethodName(), throwable);
         }
     }
 
@@ -221,7 +221,7 @@ public abstract class AbstractStream implements Stream {
                 if (key.endsWith("-tw-bin") && key.length() > 7) {
                     try {
                         attachments.put(key.substring(0, key.length() - 7),
-                                TripleUtil.decodeObjFromHeader(url, header.getValue(), multipleSerialization));
+                            TripleUtil.decodeObjFromHeader(url, header.getValue(), multipleSerialization));
                     } catch (Exception e) {
                         LOGGER.error("Failed to parse response attachment key=" + key, e);
                     }
@@ -346,7 +346,7 @@ public abstract class AbstractStream implements Stream {
                 this.data = in;
             } else {
                 handler.operationDone(OperationResult.FAILURE, GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                        .withDescription(DUPLICATED_DATA).asException());
+                    .withDescription(DUPLICATED_DATA).asException());
             }
         }
     }

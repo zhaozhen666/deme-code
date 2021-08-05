@@ -71,7 +71,7 @@ public class ClientReconnectTest {
 
     public Client startClient(int port, int heartbeat) throws RemotingException {
         final String url = "exchange://127.0.0.1:" + port + "/client.reconnect.test?check=false&client=netty3&" +
-                Constants.HEARTBEAT_KEY + "=" + heartbeat;
+            Constants.HEARTBEAT_KEY + "=" + heartbeat;
         return Exchangers.connect(url);
     }
 

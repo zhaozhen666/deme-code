@@ -248,11 +248,11 @@ class ApplicationBuilderTest {
 
         ApplicationBuilder builder = new ApplicationBuilder();
         builder.id("id").name("name").version("version").owner("owner").organization("organization").architecture("architecture")
-                .environment("develop").compiler("compiler").logger("log4j").monitor(monitor).isDefault(false)
-                .dumpDirectory("dumpDirectory").qosEnable(true).qosPort(8080).qosAcceptForeignIp(false)
-                .shutwait("shutwait").registryIds("registryIds").addRegistry(registry)
-                .appendParameter("default.num", "one").metadataServicePort(12345)
-                .livenessProbe("liveness").readinessProbe("readiness").startupProbe("startup");
+            .environment("develop").compiler("compiler").logger("log4j").monitor(monitor).isDefault(false)
+            .dumpDirectory("dumpDirectory").qosEnable(true).qosPort(8080).qosAcceptForeignIp(false)
+            .shutwait("shutwait").registryIds("registryIds").addRegistry(registry)
+            .appendParameter("default.num", "one").metadataServicePort(12345)
+            .livenessProbe("liveness").readinessProbe("readiness").startupProbe("startup");
 
         ApplicationConfig config = builder.build();
         ApplicationConfig config2 = builder.build();

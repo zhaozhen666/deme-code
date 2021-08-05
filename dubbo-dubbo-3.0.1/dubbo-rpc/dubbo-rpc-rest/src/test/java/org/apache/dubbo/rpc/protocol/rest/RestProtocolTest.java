@@ -87,11 +87,11 @@ public class RestProtocolTest {
 
         ServiceDescriptor serviceDescriptor = repository.registerService(DemoService.class);
         repository.registerProvider(
-                url.getPathKey(),
-                server,
-                serviceDescriptor,
-                null,
-                null
+            url.getPathKey(),
+            server,
+            serviceDescriptor,
+            null,
+            null
         );
 
         Exporter<DemoService> exporter = protocol.export(proxy.getInvoker(server, DemoService.class, url));
@@ -190,7 +190,7 @@ public class RestProtocolTest {
         this.registerProvider(exportUrl, server, DemoService.class);
 
         URL nettyUrl = exportUrl.addParameter(SERVER_KEY, "netty")
-                .addParameter(EXTENSION_KEY, "org.apache.dubbo.rpc.protocol.rest.support.LoggingFilter");
+            .addParameter(EXTENSION_KEY, "org.apache.dubbo.rpc.protocol.rest.support.LoggingFilter");
         Exporter<DemoService> exporter = protocol.export(proxy.getInvoker(server, DemoService.class, nettyUrl));
 
         DemoService demoService = this.proxy.getProxy(protocol.refer(DemoService.class, nettyUrl));
@@ -210,7 +210,7 @@ public class RestProtocolTest {
 
         // use RpcContextFilter
         URL nettyUrl = exportUrl.addParameter(SERVER_KEY, "netty")
-                .addParameter(EXTENSION_KEY, "org.apache.dubbo.rpc.protocol.rest.RpcContextFilter");
+            .addParameter(EXTENSION_KEY, "org.apache.dubbo.rpc.protocol.rest.RpcContextFilter");
         Exporter<DemoService> exporter = protocol.export(proxy.getInvoker(server, DemoService.class, nettyUrl));
 
         DemoService demoService = this.proxy.getProxy(protocol.refer(DemoService.class, nettyUrl));
@@ -255,11 +255,11 @@ public class RestProtocolTest {
     private void registerProvider(URL url, Object impl, Class<?> interfaceClass) {
         ServiceDescriptor serviceDescriptor = repository.registerService(interfaceClass);
         repository.registerProvider(
-                url.getServiceKey(),
-                impl,
-                serviceDescriptor,
-                null,
-                null
+            url.getServiceKey(),
+            impl,
+            serviceDescriptor,
+            null,
+            null
         );
     }
 }

@@ -41,8 +41,8 @@ public class ApiConsumer {
         System.out.println("dubbo referenceConfig started");
         try {
             final HelloReply reply = greeterService.sayHello(HelloRequest.newBuilder()
-                    .setName("triple")
-                    .build());
+                .setName("triple")
+                .build());
             TimeUnit.SECONDS.sleep(1);
             System.out.println("Reply: " + reply.getMessage());
         } catch (Throwable t) {

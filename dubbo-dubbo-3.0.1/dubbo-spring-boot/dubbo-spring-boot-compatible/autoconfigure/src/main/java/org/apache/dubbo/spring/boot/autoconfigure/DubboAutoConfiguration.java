@@ -72,7 +72,7 @@ public class DubboAutoConfiguration implements ApplicationContextAware, BeanDefi
     @ConditionalOnBean(name = BASE_PACKAGES_BEAN_NAME)
     @Bean
     public ServiceAnnotationPostProcessor serviceAnnotationBeanProcessor(@Qualifier(BASE_PACKAGES_BEAN_NAME)
-                                                                       Set<String> packagesToScan) {
+                                                                             Set<String> packagesToScan) {
         return new ServiceAnnotationPostProcessor(packagesToScan);
     }
 

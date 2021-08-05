@@ -62,7 +62,7 @@ public class ShutdownHookCallbacks {
 
     private void loadCallbacks() {
         ExtensionLoader<ShutdownHookCallback> loader =
-                ExtensionLoader.getExtensionLoader(ShutdownHookCallback.class);
+            ExtensionLoader.getExtensionLoader(ShutdownHookCallback.class);
         loader.getSupportedExtensionInstances().forEach(this::addCallback);
     }
 

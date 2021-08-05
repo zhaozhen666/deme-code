@@ -34,14 +34,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * singleton or static (by itself totally static or uses some static fields). So the instances
  * returned from them are of process scope. If you want to support multiple dubbo servers in one
  * single process, you may need to refactor those three classes.
- *
+ * <p>
  * Represent a application which is using Dubbo and store basic metadata info for using
  * during the processing of RPC invoking.
  * <p>
  * ApplicationModel includes many ProviderModel which is about published services
  * and many Consumer Model which is about subscribed services.
  * <p>
- *
  */
 
 public class ApplicationModel {
@@ -137,7 +136,7 @@ public class ApplicationModel {
 
     // only for unit test
     public static void reset() {
-        if (serviceRepository!=null){
+        if (serviceRepository != null) {
             serviceRepository.destroy();
             serviceRepository = null;
         }

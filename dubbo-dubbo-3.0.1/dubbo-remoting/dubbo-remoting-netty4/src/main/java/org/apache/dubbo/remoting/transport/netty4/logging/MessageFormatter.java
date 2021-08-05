@@ -189,12 +189,12 @@ final class MessageFormatter {
                 // no more variables
                 if (i == 0) { // this is a simple string
                     return new FormattingTuple(messagePattern, argArray,
-                            throwableCandidate);
+                        throwableCandidate);
                 } else { // add the tail string which contains no variables and return
                     // the result.
                     sbuf.append(messagePattern.substring(i));
                     return new FormattingTuple(sbuf.toString(), argArray,
-                            throwableCandidate);
+                        throwableCandidate);
                 }
             } else {
                 if (isEscapedDelimeter(messagePattern, j)) {
@@ -282,8 +282,8 @@ final class MessageFormatter {
             sbuf.append(oAsString);
         } catch (Throwable t) {
             System.err
-                    .println("SLF4J: Failed toString() invocation on an object of type ["
-                            + o.getClass().getName() + ']');
+                .println("SLF4J: Failed toString() invocation on an object of type ["
+                    + o.getClass().getName() + ']');
             logger.error(t.getMessage(), t);
             sbuf.append("[FAILED toString()]");
         }

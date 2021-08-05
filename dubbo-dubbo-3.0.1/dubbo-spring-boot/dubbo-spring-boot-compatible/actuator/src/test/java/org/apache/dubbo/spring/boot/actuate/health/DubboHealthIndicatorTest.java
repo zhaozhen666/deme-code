@@ -39,22 +39,22 @@ import java.util.Map;
  */
 @RunWith(SpringRunner.class)
 @TestPropertySource(properties = {
-        "dubbo.application.id = my-application-1",
-        "dubbo.application.name = dubbo-demo-application-1",
-        "dubbo.protocol.id = dubbo-protocol",
-        "dubbo.protocol.name = dubbo",
-        "dubbo.protocol.port = 12345",
-        "dubbo.protocol.status = registry",
-        "dubbo.provider.id = dubbo-provider",
-        "dubbo.provider.status = server",
-        "management.health.dubbo.status.defaults = memory",
-        "management.health.dubbo.status.extras = load,threadpool"
+    "dubbo.application.id = my-application-1",
+    "dubbo.application.name = dubbo-demo-application-1",
+    "dubbo.protocol.id = dubbo-protocol",
+    "dubbo.protocol.name = dubbo",
+    "dubbo.protocol.port = 12345",
+    "dubbo.protocol.status = registry",
+    "dubbo.provider.id = dubbo-provider",
+    "dubbo.provider.status = server",
+    "management.health.dubbo.status.defaults = memory",
+    "management.health.dubbo.status.extras = load,threadpool"
 })
 @SpringBootTest(
-        classes = {
-                DubboHealthIndicator.class,
-                DubboHealthIndicatorTest.class
-        }
+    classes = {
+        DubboHealthIndicator.class,
+        DubboHealthIndicatorTest.class
+    }
 )
 @EnableConfigurationProperties(DubboHealthIndicatorProperties.class)
 @EnableDubboConfig

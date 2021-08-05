@@ -25,6 +25,7 @@ import javax.cache.spi.CachingProvider;
 /**
  * JCacheFactory is factory class to provide instance of javax spi cache.Implement {@link org.apache.dubbo.cache.CacheFactory} by
  * extending {@link AbstractCacheFactory} and provide
+ *
  * @see AbstractCacheFactory
  * @see JCache
  * @see org.apache.dubbo.cache.filter.CacheFilter
@@ -37,6 +38,7 @@ public class JCacheFactory extends AbstractCacheFactory {
 
     /**
      * Takes url as an method argument and return new instance of cache store implemented by JCache.
+     *
      * @param url url of the method
      * @return JCache instance of cache
      */

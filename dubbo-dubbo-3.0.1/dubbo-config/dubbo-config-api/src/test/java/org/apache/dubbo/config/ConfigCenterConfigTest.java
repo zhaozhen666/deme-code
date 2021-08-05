@@ -54,7 +54,7 @@ public class ConfigCenterConfigTest {
 
         config.setId("configcenterA");
         Assertions.assertEquals(Arrays.asList("dubbo.config-centers.configcenterA", "dubbo.config-center"),
-                config.getPrefixes());
+            config.getPrefixes());
     }
 
     @Test
@@ -67,9 +67,9 @@ public class ConfigCenterConfigTest {
         config.refresh();
 
         Assertions.assertEquals("zookeeper://127.0.0.1:2181/ConfigCenterConfig?check=true&" +
-                        "config-file=dubbo.properties&group=group&" +
-                        "namespace=namespace&timeout=3000",
-                config.toUrl().toFullString()
+                "config-file=dubbo.properties&group=group&" +
+                "namespace=namespace&timeout=3000",
+            config.toUrl().toFullString()
         );
     }
 
@@ -88,9 +88,9 @@ public class ConfigCenterConfigTest {
 
             try {
                 DubboBootstrap.getInstance()
-                        .application("demo-app")
-                        .configCenter(configCenter)
-                        .initialize();
+                    .application("demo-app")
+                    .configCenter(configCenter)
+                    .initialize();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -119,9 +119,9 @@ public class ConfigCenterConfigTest {
             configCenter.setAddress("zookeeper://127.0.0.1:2181");
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .configCenter(configCenter)
-                    .start();
+                .application("demo-app")
+                .configCenter(configCenter)
+                .start();
 
             Collection<ConfigCenterConfig> configCenters = ApplicationModel.getConfigManager().getConfigCenters();
             Assertions.assertEquals(1, configCenters.size());
@@ -146,9 +146,9 @@ public class ConfigCenterConfigTest {
             configCenter.setTimeout(3000L);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .configCenter(configCenter)
-                    .initialize();
+                .application("demo-app")
+                .configCenter(configCenter)
+                .initialize();
 
             Collection<ConfigCenterConfig> configCenters = ApplicationModel.getConfigManager().getConfigCenters();
             Assertions.assertEquals(1, configCenters.size());
@@ -175,9 +175,9 @@ public class ConfigCenterConfigTest {
             configCenter.setTimeout(3000L);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .configCenter(configCenter)
-                    .initialize();
+                .application("demo-app")
+                .configCenter(configCenter)
+                .initialize();
 
             Collection<ConfigCenterConfig> configCenters = ApplicationModel.getConfigManager().getConfigCenters();
             Assertions.assertEquals(1, configCenters.size());
@@ -203,9 +203,9 @@ public class ConfigCenterConfigTest {
             configCenter.setTimeout(3000L);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .configCenter(configCenter)
-                    .start();
+                .application("demo-app")
+                .configCenter(configCenter)
+                .start();
 
             Collection<ConfigCenterConfig> configCenters = ApplicationModel.getConfigManager().getConfigCenters();
             Assertions.assertEquals(1, configCenters.size());
@@ -233,9 +233,9 @@ public class ConfigCenterConfigTest {
             configCenter.setTimeout(3000L);
 
             DubboBootstrap.getInstance()
-                    .application("demo-app")
-                    .configCenter(configCenter)
-                    .start();
+                .application("demo-app")
+                .configCenter(configCenter)
+                .start();
 
             Collection<ConfigCenterConfig> configCenters = ApplicationModel.getConfigManager().getConfigCenters();
             Assertions.assertEquals(1, configCenters.size());
@@ -251,7 +251,7 @@ public class ConfigCenterConfigTest {
     public void testMetaData() {
         ConfigCenterConfig configCenter = new ConfigCenterConfig();
         Map<String, String> metaData = configCenter.getMetaData();
-        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: "+metaData);
+        Assertions.assertEquals(0, metaData.size(), "Expect empty metadata but found: " + metaData);
     }
 
     @Test
@@ -280,7 +280,7 @@ public class ConfigCenterConfigTest {
 
         Assertions.assertEquals(cc.getAddress(), attributes.get("address"));
         Assertions.assertEquals(cc.getProtocol(), attributes.get("protocol"));
-        Assertions.assertEquals(""+cc.getPort(), attributes.get("port"));
+        Assertions.assertEquals("" + cc.getPort(), attributes.get("port"));
         Assertions.assertEquals(null, attributes.get("valid"));
         Assertions.assertEquals(null, attributes.get("refreshed"));
 

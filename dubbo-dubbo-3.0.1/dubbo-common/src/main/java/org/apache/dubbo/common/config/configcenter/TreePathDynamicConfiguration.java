@@ -35,9 +35,9 @@ import static org.apache.dubbo.common.utils.PathUtils.normalize;
 /**
  * An abstract implementation of {@link DynamicConfiguration} is like "tree-structure" path :
  * <ul>
- *     <li>{@link FileSystemDynamicConfiguration "file"}</li>
- *     <li>{@link org.apache.dubbo.configcenter.support.zookeeper.ZookeeperDynamicConfiguration "zookeeper"}</li>
- *     <li>{@link org.apache.dubbo.configcenter.consul.ConsulDynamicConfiguration "consul"}</li>
+ * <li>{@link FileSystemDynamicConfiguration "file"}</li>
+ * <li>{@link org.apache.dubbo.configcenter.support.zookeeper.ZookeeperDynamicConfiguration "zookeeper"}</li>
+ * <li>{@link org.apache.dubbo.configcenter.consul.ConsulDynamicConfiguration "consul"}</li>
  * </ul>
  *
  * @see DynamicConfiguration

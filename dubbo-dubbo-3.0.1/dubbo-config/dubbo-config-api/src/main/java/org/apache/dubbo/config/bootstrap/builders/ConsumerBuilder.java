@@ -62,8 +62,8 @@ public class ConsumerBuilder extends AbstractReferenceBuilder<ConsumerConfig, Co
     private Integer shareconnections;
 
     /**
-     *  Url Merge Processor
-     *  Used to customize the URL merge of consumer and provider
+     * Url Merge Processor
+     * Used to customize the URL merge of consumer and provider
      */
     private String urlMergeProcessor;
 

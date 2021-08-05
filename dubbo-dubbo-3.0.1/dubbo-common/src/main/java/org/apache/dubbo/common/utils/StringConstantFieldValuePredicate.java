@@ -47,13 +47,13 @@ public class StringConstantFieldValuePredicate implements Predicate<String> {
 
     private Set<String> getConstantFieldValues(Class<?> targetClass) {
         return Stream.of(targetClass.getFields())
-                .filter(f -> isStatic(f.getModifiers()))         // static
-                .filter(f -> isPublic(f.getModifiers()))         // public
-                .filter(f -> isFinal(f.getModifiers()))          // final
-                .map(this::getConstantValue)
-                .filter(v -> v instanceof String)                // filters String type
-                .map(String.class::cast)                         // Casts String type
-                .collect(Collectors.toSet());
+            .filter(f -> isStatic(f.getModifiers()))         // static
+            .filter(f -> isPublic(f.getModifiers()))         // public
+            .filter(f -> isFinal(f.getModifiers()))          // final
+            .map(this::getConstantValue)
+            .filter(v -> v instanceof String)                // filters String type
+            .map(String.class::cast)                         // Casts String type
+            .collect(Collectors.toSet());
     }
 
     @Override

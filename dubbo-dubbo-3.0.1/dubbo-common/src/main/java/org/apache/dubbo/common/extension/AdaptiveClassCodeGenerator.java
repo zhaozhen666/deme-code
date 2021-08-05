@@ -57,10 +57,10 @@ public class AdaptiveClassCodeGenerator {
     private static final String CODE_EXT_NAME_ASSIGNMENT = "String extName = %s;\n";
 
     private static final String CODE_EXT_NAME_NULL_CHECK = "if(extName == null) "
-                    + "throw new IllegalStateException(\"Failed to get extension (%s) name from url (\" + url.toString() + \") use keys(%s)\");\n";
+        + "throw new IllegalStateException(\"Failed to get extension (%s) name from url (\" + url.toString() + \") use keys(%s)\");\n";
 
     private static final String CODE_INVOCATION_ARGUMENT_NULL_CHECK = "if (arg%d == null) throw new IllegalArgumentException(\"invocation == null\"); "
-                    + "String methodName = arg%d.getMethodName();\n";
+        + "String methodName = arg%d.getMethodName();\n";
 
 
     private static final String CODE_EXTENSION_ASSIGNMENT = "%s extension = (%<s)%s.getExtensionLoader(%s.class).getExtension(extName);\n";
@@ -170,8 +170,8 @@ public class AdaptiveClassCodeGenerator {
     private String generateMethodArguments(Method method) {
         Class<?>[] pts = method.getParameterTypes();
         return IntStream.range(0, pts.length)
-                        .mapToObj(i -> String.format(CODE_METHOD_ARGUMENT, pts[i].getCanonicalName(), i))
-                        .collect(Collectors.joining(", "));
+            .mapToObj(i -> String.format(CODE_METHOD_ARGUMENT, pts[i].getCanonicalName(), i))
+            .collect(Collectors.joining(", "));
     }
 
     /**
@@ -299,8 +299,8 @@ public class AdaptiveClassCodeGenerator {
         String returnStatement = method.getReturnType().equals(void.class) ? "" : "return ";
 
         String args = IntStream.range(0, method.getParameters().length)
-                .mapToObj(i -> String.format(CODE_EXTENSION_METHOD_INVOKE_ARGUMENT, i))
-                .collect(Collectors.joining(", "));
+            .mapToObj(i -> String.format(CODE_EXTENSION_METHOD_INVOKE_ARGUMENT, i))
+            .collect(Collectors.joining(", "));
 
         return returnStatement + String.format("extension.%s(%s);\n", method.getName(), args);
     }
@@ -319,8 +319,8 @@ public class AdaptiveClassCodeGenerator {
     private String generateInvocationArgumentNullCheck(Method method) {
         Class<?>[] pts = method.getParameterTypes();
         return IntStream.range(0, pts.length).filter(i -> CLASSNAME_INVOCATION.equals(pts[i].getName()))
-                        .mapToObj(i -> String.format(CODE_INVOCATION_ARGUMENT_NULL_CHECK, i, i))
-                        .findFirst().orElse("");
+            .mapToObj(i -> String.format(CODE_INVOCATION_ARGUMENT_NULL_CHECK, i, i))
+            .findFirst().orElse("");
     }
 
     /**
@@ -352,10 +352,10 @@ public class AdaptiveClassCodeGenerator {
             for (Method m : pts[i].getMethods()) {
                 String name = m.getName();
                 if ((name.startsWith("get") || name.length() > 3)
-                        && Modifier.isPublic(m.getModifiers())
-                        && !Modifier.isStatic(m.getModifiers())
-                        && m.getParameterTypes().length == 0
-                        && m.getReturnType() == URL.class) {
+                    && Modifier.isPublic(m.getModifiers())
+                    && !Modifier.isStatic(m.getModifiers())
+                    && m.getParameterTypes().length == 0
+                    && m.getReturnType() == URL.class) {
                     getterReturnUrl.put(name, i);
                 }
             }
@@ -364,7 +364,7 @@ public class AdaptiveClassCodeGenerator {
         if (getterReturnUrl.size() <= 0) {
             // getter method not found, throw
             throw new IllegalStateException("Failed to create adaptive class for interface " + type.getName()
-                    + ": not found url parameter or url attribute in parameters of method " + method.getName());
+                + ": not found url parameter or url attribute in parameters of method " + method.getName());
         }
 
         Integer index = getterReturnUrl.get("getUrl");
@@ -385,9 +385,9 @@ public class AdaptiveClassCodeGenerator {
         // Null point check
         StringBuilder code = new StringBuilder();
         code.append(String.format("if (arg%d == null) throw new IllegalArgumentException(\"%s argument == null\");\n",
-                index, type.getName()));
+            index, type.getName()));
         code.append(String.format("if (arg%d.%s() == null) throw new IllegalArgumentException(\"%s argument %s() == null\");\n",
-                index, method, type.getName(), method));
+            index, method, type.getName(), method));
 
         code.append(String.format("%s url = arg%d.%s();\n", URL.class.getName(), index, method));
         return code.toString();

@@ -44,9 +44,9 @@ class AccessKeyAuthenticatorTest {
     @Test
     void testSignForRequest() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
         Invocation invocation = new RpcInvocation();
 
         AccessKeyAuthenticator helper = mock(AccessKeyAuthenticator.class);
@@ -66,9 +66,9 @@ class AccessKeyAuthenticatorTest {
     @Test
     void testAuthenticateRequest() throws RpcAuthenticationException {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
         Invocation invocation = new RpcInvocation();
         invocation.setAttachment(Constants.ACCESS_KEY_ID_KEY, "ak");
         invocation.setAttachment(Constants.REQUEST_SIGNATURE_KEY, "dubbo");
@@ -89,9 +89,9 @@ class AccessKeyAuthenticatorTest {
     @Test
     void testAuthenticateRequestNoSignature() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
-                .addParameter(CommonConstants.APPLICATION_KEY, "test")
-                .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
         Invocation invocation = new RpcInvocation();
         AccessKeyAuthenticator helper = new AccessKeyAuthenticator();
         assertThrows(RpcAuthenticationException.class, () -> helper.authenticate(invocation, url));
@@ -100,7 +100,7 @@ class AccessKeyAuthenticatorTest {
     @Test
     void testGetAccessKeyPairFailed() {
         URL url = URL.valueOf("dubbo://10.10.10.10:2181")
-                .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak");
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak");
         AccessKeyAuthenticator helper = new AccessKeyAuthenticator();
         Invocation invocation = mock(Invocation.class);
         assertThrows(RuntimeException.class, () -> helper.getAccessKeyPair(invocation, url));

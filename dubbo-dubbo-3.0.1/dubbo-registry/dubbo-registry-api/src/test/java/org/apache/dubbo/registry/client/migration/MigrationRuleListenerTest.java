@@ -28,20 +28,20 @@ public class MigrationRuleListenerTest {
     @Test
     public void test() throws InterruptedException {
         String rule = "key: demo-consumer\n" +
-                "step: APPLICATION_FIRST\n" +
-                "threshold: 1.0\n" +
-                "proportion: 60\n" +
-                "delay: 60\n" +
-                "force: false\n" +
-                "interfaces:\n" +
-                "  - serviceKey: DemoService:1.0.0\n" +
-                "    threshold: 0.5\n" +
-                "    proportion: 30\n" +
-                "    delay: 30\n" +
-                "    force: true\n" +
-                "    step: APPLICATION_FIRST\n" +
-                "  - serviceKey: GreetingService:1.0.0\n" +
-                "    step: FORCE_APPLICATION";
+            "step: APPLICATION_FIRST\n" +
+            "threshold: 1.0\n" +
+            "proportion: 60\n" +
+            "delay: 60\n" +
+            "force: false\n" +
+            "interfaces:\n" +
+            "  - serviceKey: DemoService:1.0.0\n" +
+            "    threshold: 0.5\n" +
+            "    proportion: 30\n" +
+            "    delay: 30\n" +
+            "    force: true\n" +
+            "    step: APPLICATION_FIRST\n" +
+            "  - serviceKey: GreetingService:1.0.0\n" +
+            "    step: FORCE_APPLICATION";
 
         DynamicConfiguration dynamicConfiguration = Mockito.mock(DynamicConfiguration.class);
 

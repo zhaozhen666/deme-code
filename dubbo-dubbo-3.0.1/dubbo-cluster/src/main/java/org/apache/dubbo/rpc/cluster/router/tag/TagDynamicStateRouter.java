@@ -90,10 +90,10 @@ public class TagDynamicStateRouter extends AbstractStateRouter implements Config
 
     @Override
     public <T> BitList<Invoker<T>> route(BitList<Invoker<T>> invokers, RouterCache<T> cache, URL url,
-        Invocation invocation) throws RpcException {
+                                         Invocation invocation) throws RpcException {
 
 
-        final TagRouterRule tagRouterRuleCopy = (TagRouterRule)cache.getAddrMetadata();
+        final TagRouterRule tagRouterRuleCopy = (TagRouterRule) cache.getAddrMetadata();
 
         String tag = StringUtils.isEmpty(invocation.getAttachment(TAG_KEY)) ? url.getParameter(TAG_KEY) :
             invocation.getAttachment(TAG_KEY);

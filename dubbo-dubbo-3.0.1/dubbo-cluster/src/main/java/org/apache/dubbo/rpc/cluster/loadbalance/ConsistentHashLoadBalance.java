@@ -121,10 +121,10 @@ public class ConsistentHashLoadBalance extends AbstractLoadBalance {
 
         private long hash(byte[] digest, int number) {
             return (((long) (digest[3 + number * 4] & 0xFF) << 24)
-                    | ((long) (digest[2 + number * 4] & 0xFF) << 16)
-                    | ((long) (digest[1 + number * 4] & 0xFF) << 8)
-                    | (digest[number * 4] & 0xFF))
-                    & 0xFFFFFFFFL;
+                | ((long) (digest[2 + number * 4] & 0xFF) << 16)
+                | ((long) (digest[1 + number * 4] & 0xFF) << 8)
+                | (digest[number * 4] & 0xFF))
+                & 0xFFFFFFFFL;
         }
     }
 

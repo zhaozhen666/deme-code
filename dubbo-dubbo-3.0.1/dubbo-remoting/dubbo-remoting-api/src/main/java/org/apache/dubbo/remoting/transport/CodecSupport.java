@@ -56,9 +56,9 @@ public class CodecSupport {
             byte idByte = serialization.getContentTypeId();
             if (ID_SERIALIZATION_MAP.containsKey(idByte)) {
                 logger.error("Serialization extension " + serialization.getClass().getName()
-                        + " has duplicate id to Serialization extension "
-                        + ID_SERIALIZATION_MAP.get(idByte).getClass().getName()
-                        + ", ignore this Serialization extension");
+                    + " has duplicate id to Serialization extension "
+                    + ID_SERIALIZATION_MAP.get(idByte).getClass().getName()
+                    + ", ignore this Serialization extension");
                 continue;
             }
             ID_SERIALIZATION_MAP.put(idByte, serialization);
@@ -80,7 +80,7 @@ public class CodecSupport {
 
     public static Serialization getSerialization(URL url) {
         return ExtensionLoader.getExtensionLoader(Serialization.class).getExtension(
-                url.getParameter(Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
+            url.getParameter(Constants.SERIALIZATION_KEY, Constants.DEFAULT_REMOTING_SERIALIZATION));
     }
 
     public static Serialization getSerialization(URL url, Byte id) throws IOException {
@@ -164,7 +164,7 @@ public class CodecSupport {
         if (providerModel == null) {
             if (logger.isWarnEnabled()) {
                 logger.warn("Serialization security check is enabled but cannot work as expected because " +
-                        "there's no matched provider model for path " + path + ", version " + version);
+                    "there's no matched provider model for path " + path + ", version " + version);
             }
         } else {
             List<URL> urls = providerModel.getServiceConfig().getExportedUrls();

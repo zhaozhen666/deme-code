@@ -126,8 +126,8 @@ public class NetUtils {
 
     public static boolean isLocalHost(String host) {
         return host != null
-                && (LOCAL_IP_PATTERN.matcher(host).matches()
-                || host.equalsIgnoreCase(LOCALHOST_KEY));
+            && (LOCAL_IP_PATTERN.matcher(host).matches()
+            || host.equalsIgnoreCase(LOCALHOST_KEY));
     }
 
     public static boolean isAnyHost(String host) {
@@ -136,10 +136,10 @@ public class NetUtils {
 
     public static boolean isInvalidLocalHost(String host) {
         return host == null
-                || host.length() == 0
-                || host.equalsIgnoreCase(LOCALHOST_KEY)
-                || host.equals(ANYHOST_VALUE)
-                || host.startsWith("127.");
+            || host.length() == 0
+            || host.equalsIgnoreCase(LOCALHOST_KEY)
+            || host.equals(ANYHOST_VALUE)
+            || host.startsWith("127.");
     }
 
     public static boolean isValidLocalHost(String host) {
@@ -148,7 +148,7 @@ public class NetUtils {
 
     public static InetSocketAddress getLocalSocketAddress(String host, int port) {
         return isInvalidLocalHost(host) ?
-                new InetSocketAddress(port) : new InetSocketAddress(host, port);
+            new InetSocketAddress(port) : new InetSocketAddress(host, port);
     }
 
     static boolean isValidV4Address(InetAddress address) {
@@ -158,9 +158,9 @@ public class NetUtils {
 
         String name = address.getHostAddress();
         return (name != null
-                && IP_PATTERN.matcher(name).matches()
-                && !ANYHOST_VALUE.equals(name)
-                && !LOCALHOST_VALUE.equals(name));
+            && IP_PATTERN.matcher(name).matches()
+            && !ANYHOST_VALUE.equals(name)
+            && !LOCALHOST_VALUE.equals(name));
     }
 
     /**
@@ -319,9 +319,9 @@ public class NetUtils {
      */
     private static boolean ignoreNetworkInterface(NetworkInterface networkInterface) throws SocketException {
         return networkInterface == null
-                || networkInterface.isLoopback()
-                || networkInterface.isVirtual()
-                || !networkInterface.isUp();
+            || networkInterface.isLoopback()
+            || networkInterface.isVirtual()
+            || !networkInterface.isUp();
     }
 
     /**
@@ -472,7 +472,7 @@ public class NetUtils {
     }
 
     public static void joinMulticastGroup(MulticastSocket multicastSocket, InetAddress multicastAddress) throws
-            IOException {
+        IOException {
         setInterface(multicastSocket, multicastAddress instanceof Inet6Address);
         multicastSocket.setLoopbackMode(false);
         multicastSocket.joinGroup(multicastAddress);
@@ -565,7 +565,7 @@ public class NetUtils {
         if (!ipPatternContainExpression(pattern)) {
             InetAddress patternAddress = InetAddress.getByName(pattern);
             return patternAddress.getHostAddress().equals(host);
-            }
+        }
 
         String[] ipAddress = host.split(splitCharacter);
         for (int i = 0; i < mask.length; i++) {

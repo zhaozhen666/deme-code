@@ -10,7 +10,7 @@ public class Handler {
     private Object controller;//Controller对应的类
     private Method method;//执行业务的方法
     private Pattern pattern;//uri
-    private Map<String,Integer> paramIndexMapping;//参数和位置的映射
+    private Map<String, Integer> paramIndexMapping;//参数和位置的映射
 
     public Handler(Object controller, Method method, Pattern pattern) {
         this.controller = controller;

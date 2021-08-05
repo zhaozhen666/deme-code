@@ -39,8 +39,8 @@ public interface TypeBuilder<T extends TypeMirror> extends Prioritized {
     /**
      * Build the instance of {@link TypeDefinition}
      *
-     * @param processingEnv  {@link ProcessingEnvironment}
-     * @param type           {@link T type}
+     * @param processingEnv {@link ProcessingEnvironment}
+     * @param type          {@link T type}
      * @return an instance of {@link TypeDefinition}
      */
     TypeDefinition build(ProcessingEnvironment processingEnv, T type, Map<String, TypeDefinition> typeCache);

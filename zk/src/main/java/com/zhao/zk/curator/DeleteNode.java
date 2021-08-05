@@ -6,8 +6,8 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 
 public class DeleteNode {
-    public static void main(String[] args) throws Exception{
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000,3);
+    public static void main(String[] args) throws Exception {
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
         CuratorFramework client = CuratorFrameworkFactory.builder()
                 .connectString("119.45.52.68:2181")
                 .sessionTimeoutMs(5000)

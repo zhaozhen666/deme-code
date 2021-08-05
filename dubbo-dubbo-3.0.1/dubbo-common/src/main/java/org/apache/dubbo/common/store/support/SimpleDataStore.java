@@ -28,7 +28,7 @@ public class SimpleDataStore implements DataStore {
 
     // <component name or id, <data-name, data-value>>
     private ConcurrentMap<String, ConcurrentMap<String, Object>> data =
-            new ConcurrentHashMap<String, ConcurrentMap<String, Object>>();
+        new ConcurrentHashMap<String, ConcurrentMap<String, Object>>();
 
     @Override
     public Map<String, Object> get(String componentName) {

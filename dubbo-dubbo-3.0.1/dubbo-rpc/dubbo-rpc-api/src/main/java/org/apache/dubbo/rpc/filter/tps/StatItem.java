@@ -77,10 +77,10 @@ class StatItem {
     @Override
     public String toString() {
         return new StringBuilder(32).append("StatItem ")
-                .append("[name=").append(name).append(", ")
-                .append("rate = ").append(rate).append(", ")
-                .append("interval = ").append(interval).append("]")
-                .toString();
+            .append("[name=").append(name).append(", ")
+            .append("rate = ").append(rate).append(", ")
+            .append("interval = ").append(interval).append("]")
+            .toString();
     }
 
     private LongAdder buildLongAdder(int rate) {

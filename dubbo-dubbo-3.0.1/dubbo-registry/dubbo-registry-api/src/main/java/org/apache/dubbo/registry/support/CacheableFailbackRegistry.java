@@ -188,9 +188,9 @@ public abstract class CacheableFailbackRegistry extends FailbackRegistry {
             int i = path.lastIndexOf(PATH_SEPARATOR);
             String category = i < 0 ? path : path.substring(i + 1);
             URL empty = URLBuilder.from(consumer)
-                    .setProtocol(EMPTY_PROTOCOL)
-                    .addParameter(CATEGORY_KEY, category)
-                    .build();
+                .setProtocol(EMPTY_PROTOCOL)
+                .addParameter(CATEGORY_KEY, category)
+                .build();
             urls.add(empty);
         }
 

@@ -96,9 +96,9 @@ public class OrderServiceImpl implements OrderService {
         newOrder.setReceiverName(address.getReceiver());
         newOrder.setReceiverMobile(address.getMobile());
         newOrder.setReceiverAddress(address.getProvince() + " "
-                                    + address.getCity() + " "
-                                    + address.getDistrict() + " "
-                                    + address.getDetail());
+                + address.getCity() + " "
+                + address.getDistrict() + " "
+                + address.getDetail());
 
 //        newOrder.setTotalAmount();
 //        newOrder.setRealPayAmount();
@@ -197,6 +197,7 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 从redis中的购物车里获取商品，目的：counts
+     *
      * @param shopcartList
      * @param specId
      * @return

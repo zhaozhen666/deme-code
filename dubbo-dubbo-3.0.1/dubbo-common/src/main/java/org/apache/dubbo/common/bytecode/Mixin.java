@@ -149,10 +149,10 @@ public abstract class Mixin {
                     String mn = method.getName();
                     if (Void.TYPE.equals(rt)) {
                         ccp.addMethod(mn, method.getModifiers(), rt, method.getParameterTypes(), method.getExceptionTypes(),
-                                "d" + ix + "." + mn + "($$);");
+                            "d" + ix + "." + mn + "($$);");
                     } else {
                         ccp.addMethod(mn, method.getModifiers(), rt, method.getParameterTypes(), method.getExceptionTypes(),
-                                "return ($r)d" + ix + "." + mn + "($$);");
+                            "return ($r)d" + ix + "." + mn + "($$);");
                     }
                 }
             }

@@ -257,11 +257,11 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
         ServiceRepository repository = ApplicationModel.getServiceRepository();
         ServiceDescriptor serviceDescriptor = repository.registerService(interfaceClass);
         repository.registerConsumer(
-                serviceMetadata.getServiceKey(),
-                serviceDescriptor,
-                this,
-                null,
-                serviceMetadata);
+            serviceMetadata.getServiceKey(),
+            serviceDescriptor,
+            this,
+            null,
+            serviceMetadata);
 
 
         Map<String, String> map = new HashMap<String, String>();
@@ -319,7 +319,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
             hostToRegistry = NetUtils.getLocalHost();
         } else if (isInvalidLocalHost(hostToRegistry)) {
             throw new IllegalArgumentException(
-                    "Specified invalid registry ip from property:" + DUBBO_IP_TO_REGISTRY + ", value:" + hostToRegistry);
+                "Specified invalid registry ip from property:" + DUBBO_IP_TO_REGISTRY + ", value:" + hostToRegistry);
         }
         map.put(REGISTER_IP_KEY, hostToRegistry);
 
@@ -381,9 +381,9 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
                     }
                     if (urls.isEmpty()) {
                         throw new IllegalStateException(
-                                "No such any registry to reference " + interfaceName + " on the consumer " + NetUtils.getLocalHost() +
-                                        " use dubbo version " + Version.getVersion() +
-                                        ", please config <dubbo:registry address=\"...\" /> to your spring config.");
+                            "No such any registry to reference " + interfaceName + " on the consumer " + NetUtils.getLocalHost() +
+                                " use dubbo version " + Version.getVersion() +
+                                ", please config <dubbo:registry address=\"...\" /> to your spring config.");
                     }
                 }
             }
@@ -410,10 +410,10 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
                     invoker = Cluster.getCluster(cluster, false).join(new StaticDirectory(registryURL, invokers));
                 } else { // not a registry url, must be direct invoke.
                     String cluster = CollectionUtils.isNotEmpty(invokers)
-                            ?
-                            (invokers.get(0).getUrl() != null ? invokers.get(0).getUrl().getParameter(CLUSTER_KEY, ZoneAwareCluster.NAME) :
-                                    Cluster.DEFAULT)
-                            : Cluster.DEFAULT;
+                        ?
+                        (invokers.get(0).getUrl() != null ? invokers.get(0).getUrl().getParameter(CLUSTER_KEY, ZoneAwareCluster.NAME) :
+                            Cluster.DEFAULT)
+                        : Cluster.DEFAULT;
                     invoker = Cluster.getCluster(cluster).join(new StaticDirectory(invokers));
                 }
             }
@@ -434,15 +434,15 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
         if (shouldCheck() && !invoker.isAvailable()) {
             invoker.destroy();
             throw new IllegalStateException("Failed to check the status of the service "
-                    + interfaceName
-                    + ". No provider available for the service "
-                    + (group == null ? "" : group + "/")
-                    + interfaceName +
-                    (version == null ? "" : ":" + version)
-                    + " from the url "
-                    + invoker.getUrl()
-                    + " to the consumer "
-                    + NetUtils.getLocalHost() + " use dubbo version " + Version.getVersion());
+                + interfaceName
+                + ". No provider available for the service "
+                + (group == null ? "" : group + "/")
+                + interfaceName +
+                (version == null ? "" : ":" + version)
+                + " from the url "
+                + invoker.getUrl()
+                + " to the consumer "
+                + NetUtils.getLocalHost() + " use dubbo version " + Version.getVersion());
         }
     }
 
@@ -460,7 +460,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
 
         // init some null configuration.
         List<ConfigInitializer> configInitializers = ExtensionLoader.getExtensionLoader(ConfigInitializer.class)
-                .getActivateExtension(URL.valueOf("configInitializer://"), (String[]) null);
+            .getActivateExtension(URL.valueOf("configInitializer://"), (String[]) null);
         configInitializers.forEach(e -> e.initReferConfig(this));
 
         if (getGeneric() == null && getConsumer() != null) {
@@ -471,7 +471,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
         } else {
             try {
                 interfaceClass = Class.forName(interfaceName, true, Thread.currentThread()
-                        .getContextClassLoader());
+                    .getContextClassLoader());
             } catch (ClassNotFoundException e) {
                 throw new IllegalStateException(e.getMessage(), e);
             }
@@ -536,7 +536,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
 
     private void postProcessConfig() {
         List<ConfigPostProcessor> configPostProcessors = ExtensionLoader.getExtensionLoader(ConfigPostProcessor.class)
-                .getActivateExtension(URL.valueOf("configPostProcessor://"), (String[]) null);
+            .getActivateExtension(URL.valueOf("configPostProcessor://"), (String[]) null);
         configPostProcessors.forEach(component -> component.postProcessReferConfig(this));
     }
 

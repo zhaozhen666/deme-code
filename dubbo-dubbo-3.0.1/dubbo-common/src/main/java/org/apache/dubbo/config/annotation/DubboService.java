@@ -52,9 +52,8 @@ import java.lang.annotation.Target;
  *     ...
  * }
  * </pre>
- *
+ * <p>
  * This usage causes the implementation class to rely on the Dubbo module.
- *
  *
  * @since 2.7.7
  */
@@ -202,7 +201,7 @@ public @interface DubboService {
 
     /**
      * Load balance strategy, legal values include: random, roundrobin, leastactive
-     *
+     * <p>
      * you can use {@link org.apache.dubbo.common.constants.LoadbalanceRules#RANDOM} ……
      */
     String loadbalance() default ClusterRules.EMPTY;
@@ -263,6 +262,7 @@ public @interface DubboService {
 
     /**
      * Application spring bean name
+     *
      * @deprecated Do not set it and use the global Application Config
      */
     @Deprecated
@@ -307,6 +307,7 @@ public @interface DubboService {
 
     /**
      * the scope for referring/exporting a service, if it's local, it means searching in current JVM only.
+     *
      * @see org.apache.dubbo.rpc.Constants#SCOPE_LOCAL
      * @see org.apache.dubbo.rpc.Constants#SCOPE_REMOTE
      */

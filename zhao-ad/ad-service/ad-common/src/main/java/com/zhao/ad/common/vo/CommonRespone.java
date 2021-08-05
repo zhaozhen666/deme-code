@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,8 +16,8 @@ public class CommonRespone<T> implements Serializable {
 
     private T data;
 
-    public CommonRespone(Integer code ,String message){
-        this.code=code;
+    public CommonRespone(Integer code, String message) {
+        this.code = code;
         this.message = message;
     }
 }

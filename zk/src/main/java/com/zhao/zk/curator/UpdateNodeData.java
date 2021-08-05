@@ -8,8 +8,8 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 
 public class UpdateNodeData {
-    public static void main(String[] args) throws Exception{
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000,3);
+    public static void main(String[] args) throws Exception {
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
         CuratorFramework client = CuratorFrameworkFactory.builder()
                 .connectString("119.45.52.68:2181")
                 .sessionTimeoutMs(5000)
@@ -24,11 +24,11 @@ public class UpdateNodeData {
 //                .forPath(path,"init".getBytes());
 //        System.out.println("success create node");
         Stat stat = new Stat();
-        byte [] data = client.getData().storingStatIn(stat).forPath(path);
-        System.out.println("数据为"+new String(data));
+        byte[] data = client.getData().storingStatIn(stat).forPath(path);
+        System.out.println("数据为" + new String(data));
 
         int version = client.setData().withVersion(stat.getVersion()).forPath(path).getVersion();
-        System.out.println("update node "+path+" version "+version);
+        System.out.println("update node " + path + " version " + version);
         client.setData().withVersion(stat.getVersion()).forPath(path).getAversion();
     }
 }

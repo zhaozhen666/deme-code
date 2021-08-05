@@ -27,7 +27,7 @@ import java.util.Map;
  * @since 2.7
  */
 public abstract class AbstractMethodBuilder<T extends AbstractMethodConfig, B extends AbstractMethodBuilder<T, B>>
-        extends AbstractBuilder<T, B> {
+    extends AbstractBuilder<T, B> {
     /**
      * The timeout for remote invocation in milliseconds
      */
@@ -61,7 +61,7 @@ public abstract class AbstractMethodBuilder<T extends AbstractMethodConfig, B ex
 
     /**
      * The name of mock class which gets called when a service fails to execute
-     *
+     * <p>
      * note that: the mock doesn't support on the provider side，and the mock is executed when a non-business exception
      * occurs after a remote service call
      */
@@ -191,7 +191,7 @@ public abstract class AbstractMethodBuilder<T extends AbstractMethodConfig, B ex
         if (!StringUtils.isEmpty(merger)) {
             instance.setMerger(merger);
         }
-        if(!StringUtils.isEmpty(mock)) {
+        if (!StringUtils.isEmpty(mock)) {
             instance.setMock(mock);
         }
         if (retries != null) {

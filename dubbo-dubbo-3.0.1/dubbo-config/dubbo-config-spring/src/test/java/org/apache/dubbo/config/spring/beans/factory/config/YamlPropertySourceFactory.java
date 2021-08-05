@@ -61,7 +61,7 @@ public class YamlPropertySourceFactory extends YamlProcessor implements Property
                     return super.constructMapping(node);
                 } catch (IllegalStateException ex) {
                     throw new ParserException("while parsing MappingNode",
-                            node.getStartMark(), ex.getMessage(), node.getEndMark());
+                        node.getStartMark(), ex.getMessage(), node.getEndMark());
                 }
             }
 
@@ -84,7 +84,7 @@ public class YamlPropertySourceFactory extends YamlProcessor implements Property
                 };
             }
         }, new Representer(),
-                new DumperOptions(), new Resolver() {
+            new DumperOptions(), new Resolver() {
             @Override
             public void addImplicitResolver(Tag tag, Pattern regexp,
                                             String first) {

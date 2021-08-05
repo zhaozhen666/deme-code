@@ -364,9 +364,9 @@ public class UrlUtils {
             service = service.substring(0, i);
         }
         return URL.valueOf(EMPTY_PROTOCOL + "://0.0.0.0/" + service + URL_PARAM_STARTING_SYMBOL
-                + CATEGORY_KEY + "=" + category
-                + (group == null ? "" : "&" + GROUP_KEY + "=" + group)
-                + (version == null ? "" : "&" + VERSION_KEY + "=" + version));
+            + CATEGORY_KEY + "=" + category
+            + (group == null ? "" : "&" + GROUP_KEY + "=" + group)
+            + (version == null ? "" : "&" + VERSION_KEY + "=" + version));
     }
 
     public static boolean isMatchCategory(String category, String categories) {
@@ -386,17 +386,17 @@ public class UrlUtils {
         String providerInterface = providerUrl.getServiceInterface();
         //FIXME accept providerUrl with '*' as interface name, after carefully thought about all possible scenarios I think it's ok to add this condition.
         if (!(ANY_VALUE.equals(consumerInterface)
-                || ANY_VALUE.equals(providerInterface)
-                || StringUtils.isEquals(consumerInterface, providerInterface))) {
+            || ANY_VALUE.equals(providerInterface)
+            || StringUtils.isEquals(consumerInterface, providerInterface))) {
             return false;
         }
 
         if (!isMatchCategory(providerUrl.getCategory(DEFAULT_CATEGORY),
-                consumerUrl.getCategory(DEFAULT_CATEGORY))) {
+            consumerUrl.getCategory(DEFAULT_CATEGORY))) {
             return false;
         }
         if (!providerUrl.getParameter(ENABLED_KEY, true)
-                && !ANY_VALUE.equals(consumerUrl.getParameter(ENABLED_KEY))) {
+            && !ANY_VALUE.equals(consumerUrl.getParameter(ENABLED_KEY))) {
             return false;
         }
 
@@ -408,8 +408,8 @@ public class UrlUtils {
         String providerVersion = providerUrl.getVersion();
         String providerClassifier = providerUrl.getParameter(CLASSIFIER_KEY, ANY_VALUE);
         return (ANY_VALUE.equals(consumerGroup) || StringUtils.isEquals(consumerGroup, providerGroup) || StringUtils.isContains(consumerGroup, providerGroup))
-                && (ANY_VALUE.equals(consumerVersion) || StringUtils.isEquals(consumerVersion, providerVersion))
-                && (consumerClassifier == null || ANY_VALUE.equals(consumerClassifier) || StringUtils.isEquals(consumerClassifier, providerClassifier));
+            && (ANY_VALUE.equals(consumerVersion) || StringUtils.isEquals(consumerVersion, providerVersion))
+            && (consumerClassifier == null || ANY_VALUE.equals(consumerClassifier) || StringUtils.isEquals(consumerClassifier, providerClassifier));
     }
 
     public static boolean isMatchGlobPattern(String pattern, String value, URL param) {
@@ -453,11 +453,11 @@ public class UrlUtils {
 
     public static boolean isServiceKeyMatch(URL pattern, URL value) {
         return pattern.getParameter(INTERFACE_KEY).equals(
-                value.getParameter(INTERFACE_KEY))
-                && isItemMatch(pattern.getGroup(),
-                value.getGroup())
-                && isItemMatch(pattern.getVersion(),
-                value.getVersion());
+            value.getParameter(INTERFACE_KEY))
+            && isItemMatch(pattern.getGroup(),
+            value.getGroup())
+            && isItemMatch(pattern.getVersion(),
+            value.getVersion());
     }
 
     public static List<URL> classifyUrls(List<URL> urls, Predicate<URL> predicate) {
@@ -466,24 +466,24 @@ public class UrlUtils {
 
     public static boolean isConfigurator(URL url) {
         return OVERRIDE_PROTOCOL.equals(url.getProtocol()) ||
-                CONFIGURATORS_CATEGORY.equals(url.getCategory(DEFAULT_CATEGORY));
+            CONFIGURATORS_CATEGORY.equals(url.getCategory(DEFAULT_CATEGORY));
     }
 
     public static boolean isRoute(URL url) {
         return ROUTE_PROTOCOL.equals(url.getProtocol()) ||
-                ROUTERS_CATEGORY.equals(url.getCategory(DEFAULT_CATEGORY));
+            ROUTERS_CATEGORY.equals(url.getCategory(DEFAULT_CATEGORY));
     }
 
     public static boolean isProvider(URL url) {
         return !OVERRIDE_PROTOCOL.equals(url.getProtocol()) &&
-                !ROUTE_PROTOCOL.equals(url.getProtocol()) &&
-                PROVIDERS_CATEGORY.equals(url.getCategory(PROVIDERS_CATEGORY));
+            !ROUTE_PROTOCOL.equals(url.getProtocol()) &&
+            PROVIDERS_CATEGORY.equals(url.getCategory(PROVIDERS_CATEGORY));
     }
 
     public static boolean isRegistry(URL url) {
         return REGISTRY_PROTOCOL.equals(url.getProtocol())
-                || SERVICE_REGISTRY_PROTOCOL.equalsIgnoreCase(url.getProtocol())
-                || (url.getProtocol() != null && url.getProtocol().endsWith("-registry-protocol"));
+            || SERVICE_REGISTRY_PROTOCOL.equalsIgnoreCase(url.getProtocol())
+            || (url.getProtocol() != null && url.getProtocol().endsWith("-registry-protocol"));
     }
 
     /**

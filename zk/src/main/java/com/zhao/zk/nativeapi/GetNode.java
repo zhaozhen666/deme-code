@@ -11,10 +11,10 @@ import java.util.List;
 
 public class GetNode implements Watcher {
 
-    private  static ZooKeeper zooKeeper;
+    private static ZooKeeper zooKeeper;
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        zooKeeper = new ZooKeeper("119.45.52.68:2181",10000,new GetNode());
+        zooKeeper = new ZooKeeper("119.45.52.68:2181", 10000, new GetNode());
         //countDownLatch.await();
         Thread.sleep(Integer.MAX_VALUE);
     }
@@ -35,7 +35,7 @@ public class GetNode implements Watcher {
 //        }
 
         //当连接创建了，服务端发送给客户端SyncConnected事件
-        if(event.getState() == Event.KeeperState.SyncConnected){
+        if (event.getState() == Event.KeeperState.SyncConnected) {
             try {
 //调⽤获取单个节点数据⽅法
                 getNodeData();
@@ -54,11 +54,11 @@ public class GetNode implements Watcher {
 
         byte[] data = zooKeeper.getData("/persistent", true,
                 null);
-        System.out.println(new String(data,"utf-8"));
+        System.out.println(new String(data, "utf-8"));
     }
 
-    public static  void getChildren() throws Exception{
-        List<String> childrens = zooKeeper.getChildren("/persistent",true);
+    public static void getChildren() throws Exception {
+        List<String> childrens = zooKeeper.getChildren("/persistent", true);
         System.out.println(childrens);
 
     }

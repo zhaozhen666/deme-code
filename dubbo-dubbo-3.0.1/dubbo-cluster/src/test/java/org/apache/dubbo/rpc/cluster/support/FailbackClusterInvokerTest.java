@@ -105,7 +105,7 @@ public class FailbackClusterInvokerTest {
     public void testInvokeException() {
         resetInvokerToException();
         FailbackClusterInvoker<FailbackClusterInvokerTest> invoker = new FailbackClusterInvoker<FailbackClusterInvokerTest>(
-                dic);
+            dic);
         invoker.invoke(invocation);
         Assertions.assertNull(RpcContext.getServiceContext().getInvoker());
         DubboAppender.clear();
@@ -118,7 +118,7 @@ public class FailbackClusterInvokerTest {
         resetInvokerToNoException();
 
         FailbackClusterInvoker<FailbackClusterInvokerTest> invoker = new FailbackClusterInvoker<FailbackClusterInvokerTest>(
-                dic);
+            dic);
         Result ret = invoker.invoke(invocation);
         Assertions.assertSame(result, ret);
     }
@@ -140,7 +140,7 @@ public class FailbackClusterInvokerTest {
         resetInvokerToNoException();
 
         FailbackClusterInvoker<FailbackClusterInvokerTest> invoker = new FailbackClusterInvoker<FailbackClusterInvokerTest>(
-                dic);
+            dic);
         LogUtil.start();
         DubboAppender.clear();
         invoker.invoke(invocation);
@@ -157,7 +157,7 @@ public class FailbackClusterInvokerTest {
         resetInvokerToException();
 
         FailbackClusterInvoker<FailbackClusterInvokerTest> invoker = new FailbackClusterInvoker<FailbackClusterInvokerTest>(
-                dic);
+            dic);
         LogUtil.start();
         DubboAppender.clear();
         invoker.invoke(invocation);

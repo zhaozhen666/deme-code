@@ -195,9 +195,9 @@ public class ExpiringMap<K, V> implements Map<K, V> {
     @Override
     public String toString() {
         return "ExpiringMap{" +
-                "delegateMap=" + delegateMap.toString() +
-                ", expireThread=" + expireThread.toString() +
-                '}';
+            "delegateMap=" + delegateMap.toString() +
+            ", expireThread=" + expireThread.toString() +
+            '}';
     }
 
     /**
@@ -249,10 +249,10 @@ public class ExpiringMap<K, V> implements Map<K, V> {
         @Override
         public String toString() {
             return "ExpiryObject{" +
-                    "key=" + key +
-                    ", value=" + value +
-                    ", lastAccessTime=" + lastAccessTime +
-                    '}';
+                "key=" + key +
+                ", value=" + value +
+                ", lastAccessTime=" + lastAccessTime +
+                '}';
         }
     }
 
@@ -268,11 +268,11 @@ public class ExpiringMap<K, V> implements Map<K, V> {
         @Override
         public String toString() {
             return "ExpireThread{" +
-                    ", timeToLiveMillis=" + timeToLiveMillis +
-                    ", expirationIntervalMillis=" + expirationIntervalMillis +
-                    ", running=" + running +
-                    ", expirerThread=" + expirerThread +
-                    '}';
+                ", timeToLiveMillis=" + timeToLiveMillis +
+                ", expirationIntervalMillis=" + expirationIntervalMillis +
+                ", running=" + running +
+                ", expirerThread=" + expirerThread +
+                '}';
         }
 
         public ExpireThread() {

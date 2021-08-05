@@ -77,7 +77,7 @@ public class LoadBalanceBaseTest {
 
         invocation = mock(Invocation.class);
         given(invocation.getMethodName()).willReturn("method1");
-        given(invocation.getArguments()).willReturn(new Object[] {"arg1","arg2","arg3"});
+        given(invocation.getArguments()).willReturn(new Object[]{"arg1", "arg2", "arg3"});
 
         invoker1 = mock(Invoker.class);
         invoker2 = mock(Invoker.class);
@@ -206,7 +206,7 @@ public class LoadBalanceBaseTest {
     }
 
     protected List<Invoker<LoadBalanceBaseTest>> weightInvokers = new ArrayList<Invoker<LoadBalanceBaseTest>>();
-    protected List<Invoker<LoadBalanceBaseTest>> weightInvokersSR= new ArrayList<Invoker<LoadBalanceBaseTest>>();
+    protected List<Invoker<LoadBalanceBaseTest>> weightInvokersSR = new ArrayList<Invoker<LoadBalanceBaseTest>>();
 
     protected Invoker<LoadBalanceBaseTest> weightInvoker1;
     protected Invoker<LoadBalanceBaseTest> weightInvoker2;
@@ -279,7 +279,7 @@ public class LoadBalanceBaseTest {
         Map<Invoker, InvokeResult> counter = new ConcurrentHashMap<Invoker, InvokeResult>();
         AbstractLoadBalance lb = getLoadBalance(loadbalanceName);
         int totalWeight = 0;
-        for (int i = 0; i < weightInvokers.size(); i ++) {
+        for (int i = 0; i < weightInvokers.size(); i++) {
             InvokeResult invokeResult = new InvokeResult(lb.getWeight(weightInvokers.get(i), weightTestInvocation));
             counter.put(weightInvokers.get(i), invokeResult);
             totalWeight += invokeResult.getWeight();

@@ -32,12 +32,12 @@ import static org.apache.dubbo.rpc.Constants.INVOCATION_KEY;
 /**
  * {@link AsyncRpcResult} is introduced in 3.0.0 to replace RpcResult, and RpcResult is replaced with {@link AppResponse}:
  * <ul>
- *     <li>AsyncRpcResult is the object that is actually passed in the call chain</li>
- *     <li>AppResponse only simply represents the business result</li>
+ * <li>AsyncRpcResult is the object that is actually passed in the call chain</li>
+ * <li>AppResponse only simply represents the business result</li>
  * </ul>
  * <p>
- *  The relationship between them can be described as follow, an abstraction of the definition of AsyncRpcResult:
- *  <pre>
+ * The relationship between them can be described as follow, an abstraction of the definition of AsyncRpcResult:
+ * <pre>
  *  {@code
  *   Public class AsyncRpcResult implements CompletionStage<AppResponse> {
  *       ......

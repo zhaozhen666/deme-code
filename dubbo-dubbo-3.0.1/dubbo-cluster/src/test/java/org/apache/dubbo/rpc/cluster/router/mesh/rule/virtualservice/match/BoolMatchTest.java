@@ -27,16 +27,16 @@ public class BoolMatchTest {
 
     @Test
     public void isMatch() {
-        BoolMatch boolMatch =  new BoolMatch();
+        BoolMatch boolMatch = new BoolMatch();
         boolMatch.setExact(true);
 
 
-        assertTrue(BoolMatch.isMatch(boolMatch,true));
-        assertFalse(BoolMatch.isMatch(boolMatch,false));
+        assertTrue(BoolMatch.isMatch(boolMatch, true));
+        assertFalse(BoolMatch.isMatch(boolMatch, false));
 
         boolMatch.setExact(false);
-        assertFalse(BoolMatch.isMatch(boolMatch,true));
-        assertTrue(BoolMatch.isMatch(boolMatch,false));
+        assertFalse(BoolMatch.isMatch(boolMatch, true));
+        assertTrue(BoolMatch.isMatch(boolMatch, false));
 
     }
 }

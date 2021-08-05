@@ -47,7 +47,7 @@ public class UnsafeStringReader extends Reader {
     public int read(char[] cs, int off, int len) throws IOException {
         ensureOpen();
         if ((off < 0) || (off > cs.length) || (len < 0) ||
-                ((off + len) > cs.length) || ((off + len) < 0)) {
+            ((off + len) > cs.length) || ((off + len) < 0)) {
             throw new IndexOutOfBoundsException();
         }
 

@@ -12,7 +12,7 @@ import java.util.Date;
 public class CreateUserResponse {
 
     private Long userId;
-    private  String userName;
+    private String userName;
     private String token;
     private Date createTime;
     private Date updateTime;

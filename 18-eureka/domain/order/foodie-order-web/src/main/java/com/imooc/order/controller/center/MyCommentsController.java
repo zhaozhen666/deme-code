@@ -53,7 +53,7 @@ public class MyCommentsController extends BaseController {
             return checkResult;
         }
         // 判断该笔订单是否已经评价过，评价过了就不再继续
-        Orders myOrder = (Orders)checkResult.getData();
+        Orders myOrder = (Orders) checkResult.getData();
         if (myOrder.getIsComment() == YesOrNo.YES.type) {
             return IMOOCJSONResult.errorMsg("该笔订单已经评价");
         }

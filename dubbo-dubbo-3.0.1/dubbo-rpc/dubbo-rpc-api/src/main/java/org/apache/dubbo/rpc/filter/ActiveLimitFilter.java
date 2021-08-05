@@ -67,10 +67,10 @@ public class ActiveLimitFilter implements Filter, Filter.Listener {
                     remain = timeout - elapsed;
                     if (remain <= 0) {
                         throw new RpcException(RpcException.LIMIT_EXCEEDED_EXCEPTION,
-                                "Waiting concurrent invoke timeout in client-side for service:  " +
-                                        invoker.getInterface().getName() + ", method: " + invocation.getMethodName() +
-                                        ", elapsed: " + elapsed + ", timeout: " + timeout + ". concurrent invokes: " +
-                                        rpcStatus.getActive() + ". max concurrent invoke limit: " + max);
+                            "Waiting concurrent invoke timeout in client-side for service:  " +
+                                invoker.getInterface().getName() + ", method: " + invocation.getMethodName() +
+                                ", elapsed: " + elapsed + ", timeout: " + timeout + ". concurrent invokes: " +
+                                rpcStatus.getActive() + ". max concurrent invoke limit: " + max);
                     }
                 }
             }

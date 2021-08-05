@@ -148,7 +148,7 @@ public class ConfigParser {
         Map<String, String> parameters = item.getParameters();
         if (CollectionUtils.isEmptyMap(parameters)) {
             throw new IllegalStateException("Invalid configurator rule, please specify at least one parameter " +
-                    "you want to change in the rule.");
+                "you want to change in the rule.");
         }
 
         parameters.forEach((k, v) -> {

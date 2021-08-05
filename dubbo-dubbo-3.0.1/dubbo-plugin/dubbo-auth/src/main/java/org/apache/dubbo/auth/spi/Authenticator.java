@@ -36,6 +36,7 @@ public interface Authenticator {
 
     /**
      * verify the signature of the request is valid or not
+     *
      * @param invocation
      * @param url
      * @throws RpcAuthenticationException when failed to authenticate current invocation

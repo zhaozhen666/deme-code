@@ -21,8 +21,8 @@ import org.apache.dubbo.qos.command.annotation.Cmd;
 import org.apache.dubbo.rpc.model.ProviderModel;
 
 @Cmd(name = "offlineInterface", summary = "offline dubbo", example = {
-        "offlineInterface dubbo",
-        "offlineInterface xx.xx.xxx.service"
+    "offlineInterface dubbo",
+    "offlineInterface xx.xx.xxx.service"
 })
 public class OfflineInterface extends BaseOffline {
     protected void doUnexport(ProviderModel.RegisterStatedURL statedURL) {

@@ -59,7 +59,7 @@ public class CompatibleTypeUtils {
             if (char.class.equals(type) || Character.class.equals(type)) {
                 if (string.length() != 1) {
                     throw new IllegalArgumentException(String.format("CAN NOT convert String(%s) to char!" +
-                            " when convert String to char, the String MUST only 1 char.", string));
+                        " when convert String to char, the String MUST only 1 char.", string));
                 }
                 return string.charAt(0);
             }
@@ -94,7 +94,7 @@ public class CompatibleTypeUtils {
                 return Boolean.valueOf(string);
             }
             if (type == Date.class || type == java.sql.Date.class || type == java.sql.Timestamp.class
-                    || type == java.sql.Time.class) {
+                || type == java.sql.Time.class) {
                 try {
                     Date date = new SimpleDateFormat(DATE_FORMAT).parse(string);
                     if (type == java.sql.Date.class) {
@@ -109,7 +109,7 @@ public class CompatibleTypeUtils {
                     return date;
                 } catch (ParseException e) {
                     throw new IllegalStateException("Failed to parse date " + value + " by format "
-                            + DATE_FORMAT + ", cause: " + e.getMessage(), e);
+                        + DATE_FORMAT + ", cause: " + e.getMessage(), e);
                 }
             }
             if (type == java.time.LocalDateTime.class) {
@@ -216,7 +216,7 @@ public class CompatibleTypeUtils {
                     collection = new ArrayList<Object>(length);
                 }
             } else if (type == Set.class) {
-                collection = new HashSet<Object>(Math.max((int) (length/.75f) + 1, 16));
+                collection = new HashSet<Object>(Math.max((int) (length / .75f) + 1, 16));
             } else {
                 collection = new ArrayList<Object>(length);
             }

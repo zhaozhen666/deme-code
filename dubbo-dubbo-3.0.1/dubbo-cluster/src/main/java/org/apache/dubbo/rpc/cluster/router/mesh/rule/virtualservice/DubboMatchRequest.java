@@ -104,7 +104,7 @@ public class DubboMatchRequest {
         }
 
         if (dubboMatchRequest.getAttachments() != null) {
-            if (!DubboAttachmentMatch.isMatch(dubboMatchRequest.getAttachments(),eagleeyeContext,dubboContext)){
+            if (!DubboAttachmentMatch.isMatch(dubboMatchRequest.getAttachments(), eagleeyeContext, dubboContext)) {
                 return false;
             }
         }
@@ -119,12 +119,12 @@ public class DubboMatchRequest {
     @Override
     public String toString() {
         return "DubboMatchRequest{" +
-                "name='" + name + '\'' +
-                ", method=" + method +
-                ", sourceLabels=" + sourceLabels +
-                ", attachments=" + attachments +
-                ", headers=" + headers +
-                ", threshold=" + threshold +
-                '}';
+            "name='" + name + '\'' +
+            ", method=" + method +
+            ", sourceLabels=" + sourceLabels +
+            ", attachments=" + attachments +
+            ", headers=" + headers +
+            ", threshold=" + threshold +
+            '}';
     }
 }

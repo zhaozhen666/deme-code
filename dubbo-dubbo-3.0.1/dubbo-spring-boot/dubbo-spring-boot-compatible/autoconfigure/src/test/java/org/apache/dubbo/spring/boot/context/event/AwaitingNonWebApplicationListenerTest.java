@@ -51,9 +51,9 @@ public class AwaitingNonWebApplicationListenerTest {
     @Test
     public void testSingleContextNonWebApplication() {
         new SpringApplicationBuilder(Object.class)
-                .web(false)
-                .run()
-                .close();
+            .web(false)
+            .run()
+            .close();
 
         ShutdownHookCallbacks.INSTANCE.addCallback(() -> {
             AtomicBoolean awaited = AwaitingNonWebApplicationListener.getAwaited();

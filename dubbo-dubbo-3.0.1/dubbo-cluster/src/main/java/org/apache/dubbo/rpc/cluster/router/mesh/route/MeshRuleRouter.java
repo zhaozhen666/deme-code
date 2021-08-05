@@ -237,9 +237,9 @@ public class MeshRuleRouter implements Router, VsDestinationGroupRuleListener {
             //FIXME to deal with headers
             for (DubboMatchRequest dubboMatchRequest : matchRequestList) {
                 if (!DubboMatchRequest.isMatch(dubboMatchRequest, methodName, parameterTypeList, parameters,
-                        sourcesLabels,
-                        new HashMap<>(), invocation.getAttachments(),
-                        new HashMap<>())) {
+                    sourcesLabels,
+                    new HashMap<>(), invocation.getAttachments(),
+                    new HashMap<>())) {
                     match = false;
                     break;
                 }
@@ -327,6 +327,7 @@ public class MeshRuleRouter implements Router, VsDestinationGroupRuleListener {
 
     /**
      * just for test
+     *
      * @param vsDestinationGroup
      */
     protected void setVsDestinationGroup(VsDestinationGroup vsDestinationGroup) {
@@ -335,6 +336,7 @@ public class MeshRuleRouter implements Router, VsDestinationGroupRuleListener {
 
     /**
      * just for test
+     *
      * @param sourcesLabels
      */
     protected void setSourcesLabels(Map<String, String> sourcesLabels) {
@@ -343,6 +345,7 @@ public class MeshRuleRouter implements Router, VsDestinationGroupRuleListener {
 
     /**
      * just for test
+     *
      * @param invokerList
      */
     protected void setInvokerList(List<Invoker<?>> invokerList) {
@@ -351,6 +354,7 @@ public class MeshRuleRouter implements Router, VsDestinationGroupRuleListener {
 
     /**
      * just for test
+     *
      * @param subsetMap
      */
     protected void setSubsetMap(Map<String, List<Invoker<?>>> subsetMap) {

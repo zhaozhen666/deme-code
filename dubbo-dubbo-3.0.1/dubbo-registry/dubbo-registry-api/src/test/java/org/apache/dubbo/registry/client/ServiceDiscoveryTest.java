@@ -104,9 +104,9 @@ public class ServiceDiscoveryTest {
     public void testGetInstances() {
 
         List<ServiceInstance> instances = asList(
-                new DefaultServiceInstance("A", "127.0.0.1", 8080),
-                new DefaultServiceInstance("A", "127.0.0.1", 8081),
-                new DefaultServiceInstance("A", "127.0.0.1", 8082)
+            new DefaultServiceInstance("A", "127.0.0.1", 8080),
+            new DefaultServiceInstance("A", "127.0.0.1", 8081),
+            new DefaultServiceInstance("A", "127.0.0.1", 8082)
         );
 
         instances.forEach(serviceDiscovery::register);
@@ -187,8 +187,8 @@ public class ServiceDiscoveryTest {
     public void testGetInstancesWithHealthy() {
 
         List<ServiceInstance> instances = new LinkedList<>(asList(
-                new DefaultServiceInstance("A", "127.0.0.1", 8080),
-                new DefaultServiceInstance("A", "127.0.0.1", 8081)
+            new DefaultServiceInstance("A", "127.0.0.1", 8080),
+            new DefaultServiceInstance("A", "127.0.0.1", 8081)
         ));
 
 

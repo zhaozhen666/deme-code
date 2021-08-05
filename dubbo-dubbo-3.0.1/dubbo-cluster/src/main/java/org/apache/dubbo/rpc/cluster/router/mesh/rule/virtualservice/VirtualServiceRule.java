@@ -34,8 +34,8 @@ public class VirtualServiceRule extends BaseRule {
     @Override
     public String toString() {
         return "VirtualServiceRule{" +
-                "base=" + super.toString() +
-                ", spec=" + spec +
-                '}';
+            "base=" + super.toString() +
+            ", spec=" + spec +
+            '}';
     }
 }

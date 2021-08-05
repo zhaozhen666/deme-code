@@ -30,8 +30,8 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 @Cmd(name = "publishMetadata", summary = "update service metadata and service instance", example = {
-        "publishMetadata",
-        "publishMetadata 5"
+    "publishMetadata",
+    "publishMetadata 5"
 })
 public class PublishMetadata implements BaseCommand {
     private static final Logger logger = LoggerFactory.getLogger(PublishMetadata.class);
@@ -51,7 +51,7 @@ public class PublishMetadata implements BaseCommand {
             int delay = Integer.parseInt(args[0]);
             if (future == null || future.isDone() || future.isCancelled()) {
                 future = executorRepository.nextScheduledExecutor()
-                        .scheduleWithFixedDelay(() -> ServiceInstanceMetadataUtils.refreshMetadataAndInstance(null), 0, delay, TimeUnit.MILLISECONDS);
+                    .scheduleWithFixedDelay(() -> ServiceInstanceMetadataUtils.refreshMetadataAndInstance(null), 0, delay, TimeUnit.MILLISECONDS);
             }
         } catch (NumberFormatException e) {
             logger.error("Wrong delay param", e);

@@ -190,7 +190,7 @@ public class InvokerTelnetHandlerTest {
 
         String result = invoke.telnet(mockChannel, null);
         assertEquals("Please input method name, eg: \r\ninvoke xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})\r\ninvoke XxxService.xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})\r\ninvoke com.xxx.XxxService.xxxMethod(1234, \"abcd\", {\"prop\" : \"value\"})",
-                result);
+            result);
     }
 
     @Test
@@ -204,11 +204,11 @@ public class InvokerTelnetHandlerTest {
     private void registerProvider(String key, Object impl, Class<?> interfaceClass) {
         ServiceDescriptor serviceDescriptor = repository.registerService(interfaceClass);
         repository.registerProvider(
-                key,
-                impl,
-                serviceDescriptor,
-                null,
-                null
+            key,
+            impl,
+            serviceDescriptor,
+            null,
+            null
         );
     }
 

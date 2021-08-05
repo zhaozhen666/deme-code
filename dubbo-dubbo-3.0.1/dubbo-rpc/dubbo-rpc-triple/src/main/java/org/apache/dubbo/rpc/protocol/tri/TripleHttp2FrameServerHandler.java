@@ -50,7 +50,7 @@ import static org.apache.dubbo.rpc.protocol.tri.TripleUtil.responsePlainTextErro
 public class TripleHttp2FrameServerHandler extends ChannelDuplexHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(TripleHttp2FrameServerHandler.class);
     private static final PathResolver PATH_RESOLVER = ExtensionLoader.getExtensionLoader(PathResolver.class)
-            .getDefaultExtension();
+        .getDefaultExtension();
 
 
     @Override
@@ -76,7 +76,7 @@ public class TripleHttp2FrameServerHandler extends ChannelDuplexHandler {
             TripleUtil.responseErr(ctx, ((TripleRpcException) cause).getStatus());
         } else {
             TripleUtil.responseErr(ctx, GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                    .withDescription("Provider's error:\n" + cause.getMessage()));
+                .withDescription("Provider's error:\n" + cause.getMessage()));
         }
     }
 
@@ -93,9 +93,9 @@ public class TripleHttp2FrameServerHandler extends ChannelDuplexHandler {
 
     private Invoker<?> getInvoker(Http2Headers headers, String serviceName) {
         final String version = headers.contains(TripleConstant.SERVICE_VERSION) ? headers.get(
-                TripleConstant.SERVICE_VERSION).toString() : null;
+            TripleConstant.SERVICE_VERSION).toString() : null;
         final String group = headers.contains(TripleConstant.SERVICE_GROUP) ? headers.get(TripleConstant.SERVICE_GROUP)
-                .toString() : null;
+            .toString() : null;
         final String key = URL.buildKey(serviceName, group, version);
         Invoker<?> invoker = PATH_RESOLVER.resolve(key);
         if (invoker == null) {
@@ -109,38 +109,38 @@ public class TripleHttp2FrameServerHandler extends ChannelDuplexHandler {
 
         if (!HttpMethod.POST.asciiName().contentEquals(headers.method())) {
             responsePlainTextError(ctx, HttpResponseStatus.METHOD_NOT_ALLOWED.code(),
-                    GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
-                            .withDescription(String.format("Method '%s' is not supported", headers.method())));
+                GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL)
+                    .withDescription(String.format("Method '%s' is not supported", headers.method())));
             return;
         }
 
         if (headers.path() == null) {
             responsePlainTextError(ctx, HttpResponseStatus.NOT_FOUND.code(),
-                    GrpcStatus.fromCode(Code.UNIMPLEMENTED.code).withDescription("Expected path but is missing"));
+                GrpcStatus.fromCode(Code.UNIMPLEMENTED.code).withDescription("Expected path but is missing"));
             return;
         }
 
         final String path = headers.path().toString();
         if (path.charAt(0) != '/') {
             responsePlainTextError(ctx, HttpResponseStatus.NOT_FOUND.code(),
-                    GrpcStatus.fromCode(Code.UNIMPLEMENTED.code)
-                            .withDescription(String.format("Expected path to start with /: %s", path)));
+                GrpcStatus.fromCode(Code.UNIMPLEMENTED.code)
+                    .withDescription(String.format("Expected path to start with /: %s", path)));
             return;
         }
 
         final CharSequence contentType = HttpUtil.getMimeType(headers.get(HttpHeaderNames.CONTENT_TYPE));
         if (contentType == null) {
             responsePlainTextError(ctx, HttpResponseStatus.UNSUPPORTED_MEDIA_TYPE.code(),
-                    GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL.code)
-                            .withDescription("Content-Type is missing from the request"));
+                GrpcStatus.fromCode(GrpcStatus.Code.INTERNAL.code)
+                    .withDescription("Content-Type is missing from the request"));
             return;
         }
 
         final String contentString = contentType.toString();
         if (!TripleUtil.supportContentType(contentString)) {
             responsePlainTextError(ctx, HttpResponseStatus.UNSUPPORTED_MEDIA_TYPE.code(),
-                    GrpcStatus.fromCode(Code.INTERNAL.code)
-                            .withDescription(String.format("Content-Type '%s' is not supported", contentString)));
+                GrpcStatus.fromCode(Code.INTERNAL.code)
+                    .withDescription(String.format("Content-Type '%s' is not supported", contentString)));
             return;
         }
 
@@ -156,14 +156,14 @@ public class TripleHttp2FrameServerHandler extends ChannelDuplexHandler {
         final Invoker<?> invoker = getInvoker(headers, serviceName);
         if (invoker == null) {
             responseErr(ctx,
-                    GrpcStatus.fromCode(Code.UNIMPLEMENTED).withDescription("Service not found:" + serviceName));
+                GrpcStatus.fromCode(Code.UNIMPLEMENTED).withDescription("Service not found:" + serviceName));
             return;
         }
         ServiceRepository repo = ApplicationModel.getServiceRepository();
         final ServiceDescriptor serviceDescriptor = repo.lookupService(invoker.getUrl().getServiceKey());
         if (serviceDescriptor == null) {
             responseErr(ctx,
-                    GrpcStatus.fromCode(Code.UNIMPLEMENTED).withDescription("Service not found:" + serviceName));
+                GrpcStatus.fromCode(Code.UNIMPLEMENTED).withDescription("Service not found:" + serviceName));
             return;
         }
 
@@ -178,7 +178,7 @@ public class TripleHttp2FrameServerHandler extends ChannelDuplexHandler {
             methodDescriptors = serviceDescriptor.getMethods(methodName);
             if (methodDescriptors == null || methodDescriptors.isEmpty()) {
                 responseErr(ctx, GrpcStatus.fromCode(Code.UNIMPLEMENTED)
-                        .withDescription("Method :" + methodName + " not found of service:" + serviceName));
+                    .withDescription("Method :" + methodName + " not found of service:" + serviceName));
                 return;
             }
             if (methodDescriptors.size() == 1) {
@@ -192,9 +192,9 @@ public class TripleHttp2FrameServerHandler extends ChannelDuplexHandler {
             stream = AbstractServerStream.unary(invoker.getUrl());
         }
         stream.service(serviceDescriptor)
-                .invoker(invoker)
-                .methodName(methodName)
-                .subscribe(new ServerTransportObserver(ctx));
+            .invoker(invoker)
+            .methodName(methodName)
+            .subscribe(new ServerTransportObserver(ctx));
         if (methodDescriptor != null) {
             stream.method(methodDescriptor);
         } else {

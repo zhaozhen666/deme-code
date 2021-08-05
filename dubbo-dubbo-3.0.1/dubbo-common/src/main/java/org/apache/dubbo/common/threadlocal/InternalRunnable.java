@@ -24,11 +24,11 @@ package org.apache.dubbo.common.threadlocal;
  * {@link InternalThreadLocal#removeAll()}.
  * This design is learning from {@see io.netty.util.concurrent.FastThreadLocalRunnable} which is in Netty.
  */
-public class InternalRunnable implements Runnable{
+public class InternalRunnable implements Runnable {
     private final Runnable runnable;
 
-    public InternalRunnable(Runnable runnable){
-        this.runnable=runnable;
+    public InternalRunnable(Runnable runnable) {
+        this.runnable = runnable;
     }
 
     /**
@@ -37,9 +37,9 @@ public class InternalRunnable implements Runnable{
      */
     @Override
     public void run() {
-        try{
+        try {
             runnable.run();
-        }finally {
+        } finally {
             InternalThreadLocal.removeAll();
         }
     }
@@ -47,7 +47,7 @@ public class InternalRunnable implements Runnable{
     /**
      * Wrap ordinary Runnable into {@link InternalThreadLocal}.
      */
-     static Runnable Wrap(Runnable runnable){
-        return runnable instanceof InternalRunnable?runnable:new InternalRunnable(runnable);
+    static Runnable Wrap(Runnable runnable) {
+        return runnable instanceof InternalRunnable ? runnable : new InternalRunnable(runnable);
     }
 }
