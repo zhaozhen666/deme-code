@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="465174cf-2b4d-474d-868b-25df2796fd4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/AddTwoNumbers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/Huiwen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MergeTwoLinkList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/ReverList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MoveZero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/SortedStack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/array/Array.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/array/Array.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedList$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedListQueue$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedListQueue$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedListQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedListQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedListStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/linkedlist/LinkedListStack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/queue/ArrayQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/queue/ArrayQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/queue/LoopQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/queue/LoopQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhao/stack/ArrayStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhao/stack/ArrayStack.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zhao-config-repo" beforeDir="false" afterPath="$PROJECT_DIR$/../zhao-config-repo" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,28 +29,72 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/AddTwoNumbers.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/ReverList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="225">
+              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MiddleNode.java">
+        <entry file="file://$USER_HOME$/Downloads/基础入门班第四课代码/class04/Code02_ReverseList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+            <state relative-caret-position="-40" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MoveZero.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="13" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyStack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#585#586#0" expanded="true" />
+                <element signature="e#626#627#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/SortedStack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="48" column="3" lean-forward="true" selection-start-line="5" selection-end-line="48" selection-end-column="3" />
+              <folding>
+                <element signature="e#376#377#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MergeTwoLinkList.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="32" column="22" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="22" />
+            <state relative-caret-position="414">
+              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+              <folding>
+                <element signature="e#434#435#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
+                <element signature="e#489#490#0" expanded="true" />
+                <element signature="e#520#521#0" expanded="true" />
+                <element signature="e#550#551#0" expanded="true" />
+                <element signature="e#584#585#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,6 +140,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MergeTwoLinkList.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/ReverList.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/Huiwen.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MoveZero.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyStack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/SortedStack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyQueue.java" />
       </list>
     </option>
   </component>
@@ -168,7 +225,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1628519971931" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1628776179496" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -187,7 +244,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LinkedListQueueMain">
+  <component name="RunManager" selected="Application.MoveZero">
     <configuration name="LinkedListMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zhao.linkedlist.LinkedListMain" />
       <module name="shujujiegou" />
@@ -240,12 +297,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueueMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zhao.queue.QueueMain" />
+    <configuration name="MoveZero" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zhao.leetcode.MoveZero" />
       <module name="shujujiegou" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zhao.queue.*" />
+          <option name="PATTERN" value="com.zhao.leetcode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -255,11 +312,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MoveZero" />
         <item itemvalue="Application.LinkedListQueueMain" />
         <item itemvalue="Application.LinkedListStackMain" />
         <item itemvalue="Application.LinkedListMain" />
         <item itemvalue="Application.LoopQueueMain" />
-        <item itemvalue="Application.QueueMain" />
       </list>
     </recent_temporary>
   </component>
@@ -278,12 +335,12 @@
       <workItem from="1626651013482" duration="3687000" />
       <workItem from="1626756141730" duration="939000" />
       <workItem from="1626790956054" duration="3198000" />
-      <workItem from="1627947386749" duration="10321000" />
+      <workItem from="1627947386749" duration="16407000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39217000" />
+    <option name="totallyTimeSpent" value="45303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1280" height="705" extended-state="0" />
@@ -299,7 +356,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.33278418" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.092257" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.092257" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -314,7 +371,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.32956383" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32956383" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Jenkins" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -378,6 +435,12 @@
           <line>84</line>
           <properties />
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MoveZero.java</url>
+          <line>6</line>
+          <properties />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -587,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/ReverList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="28" selection-start-line="13" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/Huiwen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -617,8 +673,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MergeTwoLinkList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
+        <state relative-caret-position="431">
           <caret line="32" column="22" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/ReverList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/基础入门班第四课代码/class04/Code02_ReverseList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MoveZero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/SortedStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="48" column="3" lean-forward="true" selection-start-line="5" selection-end-line="48" selection-end-column="3" />
+          <folding>
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhao/leetcode/MyQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding>
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
