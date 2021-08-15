@@ -15,16 +15,42 @@ public class QuickSort {
         quickSort_r(a,q+1,r);
     }
 
-    private static int partition(int[] a, int p, int r) {
-        int i=p-1;
-        for (int j=p;j<r;++j){
-            if (a[j]<a[r]){
-                swap(a,i+1,j);
+//    private static int partition(int[] a, int p, int r) {
+//        int i=p-1;
+//        for (int j=p;j<r;++j){
+//            if (a[j]<a[r]){
+//                swap(a,i+1,j);
+//                i++;
+//            }
+//        }
+//        swap(a,i+1,r);
+//        return i+1;
+//    }
+
+    private  static  int partition(int [] nums,int p,int r){
+        int i=p;
+        int j=r-1;
+        while (i<j){
+            while (i<j&&nums[i]>nums[r]){
                 i++;
             }
+            while (i<j&&nums[j]<=nums[r]){
+                j++;
+            }
+            if (i<j){
+                swap(nums,i,j);
+                i++;
+                j--;
+
+            }
         }
-        swap(a,i+1,r);
-        return i+1;
+        if (j>=p&&nums[j]<nums[r]){
+            swap(nums,j,r);
+            return j;
+        }else {
+            swap(nums,j+1,r);
+            return j+1;
+        }
     }
     private static void swap(int[] nums,int i,int j){
         int tmp = nums[i];
