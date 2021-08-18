@@ -8,23 +8,30 @@ public class KthSmallLest {
         int [] nums ={3,2,1,6,5,4};
     }
 
-    public  int[] smallestK(int [] nums,int k){
-        if (k==0||nums.length<k){
+    public  int[] smallestK(int [] arr,int k){
+        if (k==0||arr.length<k){
             return new int[0];
         }
-        return quickSort(nums,0,nums.length-1,k);
+        result =new int[k];
+         quickSort(arr,0,arr.length-1,k);
+         return result;
     }
-    private static int quickSort(int [] nums,int p,int r,int k){
+    private void  quickSort(int [] nums,int p,int r,int k){
         if (p>r){
-            return -1;
+            return;
         }
         int q = partition(nums,p,r);
         if (q-p+1==k){
-            return nums[q];
+            for (int i=p;i<=q;i++){
+                result[count++] = nums[i];
+            }
         }else if (q-p+1<k){
-            return quickSort(nums,q+1,r,k-(q-p+1));
+            for (int i=p;i<=q;i++){
+                result[count++] = nums[i];
+            }
+             quickSort(nums,q+1,r,k-(q-p+1));
         }else {
-            return quickSort(nums,p,q-1,k);
+             quickSort(nums,p,q-1,k);
         }
     }
     private  static int partition(int [] nums,int p,int r){
