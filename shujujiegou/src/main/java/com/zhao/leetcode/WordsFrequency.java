@@ -9,7 +9,7 @@ public class WordsFrequency {
            Integer  count =map.get(word);
             if (count==null||count==0){
                 count=1;
-                map.put(word,1);
+                map.put(word,count);
             }else {
                 map.put(word,count+1);
             }
