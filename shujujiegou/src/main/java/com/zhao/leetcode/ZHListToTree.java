@@ -1,6 +1,6 @@
 package com.zhao.leetcode;
-// 105
-public class ListToTree {
+//
+public class ZHListToTree {
     public class TreeNode {
         int val;
         TreeNode left;
@@ -12,22 +12,22 @@ public class ListToTree {
             this.right = right;
         }
     }
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return buildTree(preorder,0,preorder.length-1,inorder,0,inorder.length-1);
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        return buildTree(postorder,0,postorder.length-1,inorder,0,inorder.length-1);
     }
-    private  TreeNode buildTree(int[] preorder,int i,int j,int [] inorder,int p,int r){
+    private  TreeNode buildTree(int[] postorder,int i,int j,int [] inorder,int p,int r){
         if (i>j){
             return null;
         }
-        TreeNode root = new TreeNode(preorder[i]);
+        TreeNode root = new TreeNode(postorder[j]);
         int q=p;
-        while (q<=r&&inorder[q]!=preorder[i]){
+        while (q<=r&&inorder[q]!=postorder[j]){
             q++;
         }
 
         int leftTreeSize =q-p;
-        TreeNode leftTreeNode = buildTree(preorder,i+1,i+leftTreeSize,inorder,p,q-1);
-        TreeNode rightTreeNode = buildTree(preorder,i+leftTreeSize+1,j,inorder,q+1,r);
+        TreeNode leftTreeNode = buildTree(postorder,i,i+leftTreeSize-1,inorder,p,q-1);
+        TreeNode rightTreeNode = buildTree(postorder,i+leftTreeSize+1,j-1,inorder,q+1,r);
         root.left=leftTreeNode;
         root.right =rightTreeNode;
         return root;
